@@ -13,4 +13,5 @@
                  [org.clojure/test.check      "0.9.0"]
                  ;; For generation
                  [com.velisco/strgen          "0.1.4"]
-                 [prismatic/schema-generators "0.1.0"]])
+                 [prismatic/schema-generators "0.1.0"]]
+  :main lein-validation-benchmark.core)
