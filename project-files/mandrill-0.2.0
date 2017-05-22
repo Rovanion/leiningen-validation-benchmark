@@ -1,0 +1,9 @@
+(defproject cc.rightangle/mandrill "0.2.0"
+  :description "A Clojure implementation of the Mandrill API"
+  :url "https://github.com/rightangle/mandrill"
+  :min-lein-version "2.0.0"
+  :license {:name "ISC"
+            :url "http://opensource.org/licenses/ISC"}
+  :dependencies [[clj-http "0.7.9"]
+                 [org.clojure/clojure "1.5.1"]
+                 [org.clojure/data.json "0.2.4"]])

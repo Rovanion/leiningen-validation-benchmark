@@ -1,0 +1,9 @@
+(defproject com.timezynk/pipedrive "1.0.0"
+  :description "TimeZynk Pipedrive API"
+  :java-source-paths ["src"]
+  :dependencies [[com.fasterxml.jackson.core/jackson-core "2.7.5"]
+                 [com.fasterxml.jackson.core/jackson-databind "2.7.5"]
+                 [commons-logging "1.1.1"]]
+  :min-lein-version "2.0.0"
+  :profiles {:dev {:dependencies [[org.clojure/clojure "1.8.0"]]}}
+  :plugins [[lein-difftest "2.0.0"]])

@@ -1,0 +1,12 @@
+(defproject artisan-api "1.3"
+  :description "Client for Artisan's API"
+  :url "http://artisan.8thlight.com"
+  :license {:name "MIT License"}
+  :dependencies [[org.clojure/clojure "1.5.1"]
+;                 [speclj "2.5.0"]
+                 [cheshire "4.0.3"]
+                 [clj-http "0.5.6"]
+                 [chee "1.1.1"]]
+  :profiles {:dev {:dependencies [[speclj "2.5.0"]]}}
+  :plugins [[speclj "2.5.0"]]
+  :test-paths ["spec"])

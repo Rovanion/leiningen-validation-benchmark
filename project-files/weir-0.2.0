@@ -1,0 +1,19 @@
+(defproject mpare-net/weir "0.2.0"
+  :description "A ClojureScript Functional Reactive Frontend stack"
+  :url "https://github.com/mpare-net/weir"
+  :license {:name "Eclipse Public License"
+            :url  "http://www.eclipse.org/legal/epl-v10.html"}
+  :dependencies [[org.clojure/clojure "1.8.0"]
+                 [com.taoensso/sente "1.10.0"]
+                 [datascript "0.15.2"]
+                 [franz "0.3.0"]
+                 [reagent "0.6.0-rc"]]
+  :profiles {:dev {:dependencies [[org.clojure/clojurescript "1.9.216"]
+                                  [doo "0.1.7"]]}}
+  :plugins [[lein-doo "0.1.7"]
+            [lein-cljsbuild "1.1.4"]]
+  :cljsbuild {:builds {:test {:source-paths ["src" "test"]
+                              :compiler     {:output-to     "target/weir.js"
+                                             :optimizations :whitespace}}}}
+  :aliases {"test-cljs" ["doo" "nashorn" "test" "once"]
+            "test-cljs-auto" ["doo" "nashorn" "test" "auto"]})

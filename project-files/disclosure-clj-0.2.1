@@ -1,0 +1,11 @@
+(defproject disclosure-clj/disclosure-clj "0.2.1"
+  :description "Disclosure clojure client"
+  :url "https://github.com/forward/disclosure-clj"
+  :min-lein-version "2.0.0"
+  :license {:name "Eclipse Public License",
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :dependencies [[org.clojure/clojure "1.4.0"]
+                 [clj-http-lite "0.2.0"]
+                 [org.clojars.scsibug/feedparser-clj "0.4.0"]
+                 [cheshire "5.0.1"]]
+  :profiles {:dev {:dependencies [[midje "1.4.0"]]}})

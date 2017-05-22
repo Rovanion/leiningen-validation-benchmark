@@ -1,0 +1,6 @@
+(defproject sprsquish/ring-ostrich "1.0.0"
+  :description "Ring wrapper to expose stats via Ostrich"
+  :url "http://github.com/sprsquish/ring-ostrich"
+  :dependencies [[ring/ring-core "0.3.11"]
+                 [com.twitter/finagle-ostrich4 "1.8.5"]]
+  :repositories {"twitter" "http://maven.twttr.com"})

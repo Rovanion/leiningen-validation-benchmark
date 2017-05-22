@@ -1,0 +1,8 @@
+(defproject rabbitadmin-clj "0.1.0-SNAPSHOT"
+  :description "Lightweight rabbitmq admin tools"
+  :dependencies [[org.clojure/clojure "1.2.0-master-SNAPSHOT"]
+                 [org.clojure/clojure-contrib "1.2.0-SNAPSHOT"]
+                 [clj-json "0.3.0-SNAPSHOT"]
+                 [com.ericsson.otp.erlang/otperlang "1.5.3"]]
+  :dev-dependencies [[swank-clojure "1.2.1"]
+                     [lein-clojars "0.5.0-SNAPSHOT"]])

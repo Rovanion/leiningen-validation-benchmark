@@ -1,0 +1,23 @@
+(defproject mx.interware/caudal-template "0.1.0"
+  :description "Caudal Platform"
+  :url "http://arp.interware.mx/"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+
+  :plugins      [[lein-libdir "0.1.1"]]
+
+  :dependencies [[org.clojure/clojure "1.8.0"]
+                 [mx.interware/arp "0.7.0"]]
+
+  :main mx.interware.arp.core.starter
+
+  :repl-options {:prompt (fn [ns] (str "<" ns "> "))
+                 :welcome (println "Welcome to a higher state of consciousness!")
+                 :init-ns  mx.interware.arp.core.starter}
+
+  :aot [mx.interware.caudal.template.main
+        mx.interware.caudal.template.custom]
+
+  :source-paths ["src"]
+
+  )

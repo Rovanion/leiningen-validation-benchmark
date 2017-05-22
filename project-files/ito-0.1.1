@@ -1,0 +1,18 @@
+(defproject com.rafflecopter/ito "0.1.1"
+  :description "Helpers for using Riemann in clojure"
+  :url "http://www.github.com/Rafflecopter/ito"
+  :license {:name "MIT"
+            :url "http://github.com/Rafflecopter/ito/blob/master/LICENSE"}
+  :scm {:name "git"
+        :url "https://github.com/Rafflecopter/ito"}
+  :dependencies [[org.clojure/clojure "1.7.0"]
+                 [riemann-clojure-client "0.3.2"]]
+
+  :release-tasks [["vcs" "assert-committed"]
+                  ["change" "version"
+                   "leiningen.release/bump-version" "release"]
+                  ["vcs" "commit"]
+                  ;["vcs" "tag"]
+                  ["deploy" "clojars"]]
+
+  :deploy-repositories [["clojars" {:creds :gpg}]])

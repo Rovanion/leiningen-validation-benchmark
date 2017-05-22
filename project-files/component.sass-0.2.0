@@ -1,0 +1,9 @@
+(defproject org.dsteurer/component.sass "0.2.0"
+  :description "sass component"
+  :url "http://dsteurer.org"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :dependencies [[org.clojure/clojure "1.9.0-alpha13"]
+                 [com.stuartsierra/component "0.3.1"]
+                 [deraen/sass4clj "0.2.1"]
+                 [prismatic/schema "1.1.3"]])

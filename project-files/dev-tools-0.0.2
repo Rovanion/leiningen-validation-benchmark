@@ -1,0 +1,17 @@
+(defproject com.bizlogic/dev-tools "0.0.2"
+  :description "Bizlogic tools for client development."
+  :url "http://github.com/johnbendi/client-tools"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :dependencies [[org.clojure/clojure "1.7.0-RC1"]
+                 [com.bizlogic/service-tools "0.0.1"]]
+  :source-paths ["src"]
+  :target-path "target/%s/"
+  :compile-path "%s/classes"
+  :scm {:url "git@github.com:johnbendi/client-tools.git"}
+  :pom-addition [:developers [:developer
+                              [:name "John Chijioke"]
+                              [:url "http://github.com/johnbendi"]
+                              [:email "johnbendie@gmail.com"]
+                              [:timezone "+1"]]]
+  :deploy-repositories [["releases" :clojars]])

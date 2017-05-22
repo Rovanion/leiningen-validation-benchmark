@@ -1,0 +1,22 @@
+(def ROOT-DIR (subs *file* 0 (- (count *file*) (count "project.clj"))))
+(def VERSION (-> ROOT-DIR (str "/../VERSION") slurp))
+
+(defproject hub.service/user VERSION
+  :description "User service."
+  :plugins [[lein-modules "0.3.11"]]
+  :profiles {:dev {:injections
+                   [(require 'schema.core)
+                    (schema.core/set-fn-validation! true)]}}
+  :dependencies [[clj-time "_"]
+                 [org.clojure/core.async "_"]
+                 [org.mindrot/jbcrypt "0.3m"]
+                 [com.stuartsierra/component "_"]
+                 [environ "_"]
+                 [http-kit "_"]
+                 [hub.service/queue :version]
+                 [hub.util/api :version]
+                 [hub.util/aws :version]
+                 [hub.util/facebook :version]
+                 [hub.util/rethink :version]
+                 [racehub/schema "_"]
+                 [rethinkdb "_"]])

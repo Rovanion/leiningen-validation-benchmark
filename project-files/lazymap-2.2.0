@@ -1,0 +1,8 @@
+(defproject lazymap "2.2.0"
+  :description "Lazy map of clojure, by Meikel Brandmeyer"
+  :namespaces [de.kotka.lazymap.LazyMapEntry
+	       de.kotka.lazymap.LazyMapSeq
+	       de.kotka.lazymap.LazyMap]
+  :dependencies [[org.clojure/clojure "1.1.0"]]
+  :dev-dependencies [[leiningen/lein-swank "1.1.0"]
+		     [org.clojars.mmcgrana/lein-clojars "0.5.0"]])

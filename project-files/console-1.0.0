@@ -1,0 +1,15 @@
+(defproject clj-eden/console "1.0.0"
+    :description "FIXME"
+    :url "https://github.com/pauldeden/clj-eden-console"
+    :license {:name "Apache License, version 2.0"
+             :url "http://www.apache.org/licenses/LICENSE-2.0.html"}
+    :release-tasks [["vcs" "assert-committed"]
+                   ["change" "version" "leiningen.release/bump-version" "release"]
+                   ["vcs" "commit"]
+                   ["vcs" "tag"]
+                   ["deploy" "clojars"] ; put here because specifying clojars otherwise is weird right now
+                   ["change" "version" "leiningen.release/bump-version"]
+                   ["vcs" "commit"]
+                   ["vcs" "push"]]
+    :dependencies [[org.clojure/clojure "1.6.0"]
+                   [clj-eden/colls "0.1.0"]])

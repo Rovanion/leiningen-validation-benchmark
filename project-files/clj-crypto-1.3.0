@@ -1,0 +1,12 @@
+(defproject laczoka/clj-crypto "1.3.0"
+  :url "https://github.com/laczoka/clj-crypto"
+  :license {:name "Eclipse Public License - v 1.0"
+            :url "http://www.eclipse.org/legal/epl-v10.html"
+            :distribution :repo
+            :comments "same as Clojure"}
+  :description "Clj-crypto is a wrapper for Bouncy Castle which allows you to easily use cryptography in your clojure app."
+  :global-vars {*warn-on-reflection* true}
+  :deploy-repositories [["snapshots" :clojars]
+                        ["releases" :clojars]]
+  :dependencies [[org.bouncycastle/bcprov-jdk15on "1.50"]
+                 [org.clojure/clojure "1.6.0"]])

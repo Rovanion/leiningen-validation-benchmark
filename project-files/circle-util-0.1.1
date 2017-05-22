@@ -1,0 +1,64 @@
+(defproject circleci/circle-util "0.1.1"
+  :version-spec "0.1.~{:env/circle_build_num}"
+  :description "FIXME: write description"
+  :url "http://example.com/FIXME"
+  :dependencies [[org.clojure/clojure "1.7.0"]
+                 [org.clojure/core.typed "0.3.11" :classifier "slim"]
+                 [org.clojure/core.logic "0.8.8"]
+                 [org.clojure/core.incubator "0.1.3"]
+                 [bultitude "0.2.6"]
+
+                 [slingshot "0.12.2"]
+                 ;; This is deliberately not me.raynes.fs. That library makes it impossible
+                 ;; to deal with abstract paths; it canonicalizes and makes absolute every
+                 ;; file you give it. `fs` is much better in this regard. At some point
+                 ;; we should collect the old library + our utilities and publish them.
+                 ;; Note that all versions >0.11.1 are in fact me.raynes.fs; don't try to upgrade this.
+                 [fs "0.11.1"]
+                 [clj-time "0.9.0"]
+                 [prismatic/schema "0.4.4"]
+                 [frinj "0.1.3"]
+                 [pathetic "0.5.1"]
+                 [inflections "0.8.2"]
+                 [circleci/bond "0.2.7"]
+                 [clj-ssh "0.5.11"]
+                 [circleci/clj-keyczar "0.1.2"]
+                 [clj-http "1.1.2"]
+                 [cheshire "5.5.0"]
+                 [clj-statsd "0.3.11"]
+                 ;; If we don't specify this, we get a different version that adds newlines after
+                 ;; base64-encoding for some reason.
+                 [commons-codec "1.10"]
+                 ;; We use some hashing utilities from this.
+                 [com.google.guava/guava "18.0"]
+                 [org.cloudhoist/pallet "0.7.5"]
+                 [org.cloudhoist/stevedore "0.7.3"]
+                 [com.novemberain/langohr "3.0.1"]
+                 [org.clojure/core.async "0.1.346.0-17112a-alpha"]
+                 [amazonica "0.3.30"]
+                 ;; Using same old hiccup version as circleci/circle
+                 [hiccup "1.0.0-beta1"]
+                 [coercer "0.1.2"]
+                 [com.cemerick/url "0.1.1"]]
+  :plugins [[circle/s3-wagon-private "1.2.2" :exclusions [commons-codec]]
+            [circle/lein-deploy-deps "0.1.3"]
+            [circleci/lein-version-spec "0.0.5" :exclusions [org.clojure/clojure]]]
+  :pedantic? :abort
+  :java-source-paths ["src-java"]
+  :profiles {:test {:resource-paths ["test-resources"]}
+             :dev {:resource-paths ["test-resources"]
+                   :dependencies [[org.clojure/test.check "0.9.0"]]}}
+  :repositories ^:replace [["circle-nexus" "http://artifacts2.circleci.com:8081/nexus/content/repositories/all-repos"]
+                           ["circle-s3"
+                            {:url "s3p://circle-jars/releases"
+                             :sign-releases false ;; TODO put a gpg key on CI
+                             :username [:gpg :env/circle_jars_username]
+                             :passphrase [:gpg :env/circle_jars_password]
+                             :snapshots false}]
+                           ["circle-s3-snapshots"
+                            {:url "s3p://circle-jars/snapshots"
+                             :sign-releases false ;; TODO put a gpg key on CI
+                             :username [:gpg :env/circle_jars_username]
+                             :passphrase [:gpg :env/circle_jars_password]
+                             :snapshots true}]]
+  :aliases {"smoketest" ["run" "-m" "circle-util.smoke-test"]})

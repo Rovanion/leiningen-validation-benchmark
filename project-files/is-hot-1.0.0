@@ -1,0 +1,5 @@
+(defproject org.clojars.stephenarneil/is-hot "1.0.0"
+  :description "Uses a very simple Fahrenheit to Celsius converter."
+  :dependencies [[org.clojure/clojure "1.1.0-alpha-SNAPSHOT"]
+		 [org.clojars.stephenarneil/too-hot "1.0.0"]]
+  :dev-dependencies [[lein-clojars "0.5.0-SNAPSHOT"]])

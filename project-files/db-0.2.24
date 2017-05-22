@@ -1,0 +1,36 @@
+(defproject antistock/db "0.2.24"
+  :description "Antistock Database Library"
+  :url "https://bitbucket.org/antistock/db"
+  :license {:name "Creative Commons Attribution-NonCommercial 3.0"
+            :url "http://creativecommons.org/licenses/by-nc/3.0/"}
+  :deploy-repositories [["releases" :clojars]]
+  :dependencies [[antistock/config "0.1.12"]
+                 [antistock/core "0.2.18"]
+                 [clj-http "2.1.0"]
+                 [com.mchange/c3p0 "0.9.5.2"]
+                 [datumbazo "0.8.12"]
+                 [geonames "0.6.7"]
+                 [org.clojure/clojure "1.8.0"]
+                 [sqlingvo "0.8.6"]
+                 [reloaded.repl "0.2.1"]]
+  :plugins [[lein-environ "1.0.2"]]
+  :aliases {"ci" ["do" ["difftest"] ["lint"]]
+            "lint" ["do" ["eastwood"]]}
+  :eastwood {:exclude-linters [:constant-test :redefd-vars]}
+  :main ^{:skip-aot true} antistock.db.fixtures
+  :profiles {:dev {:dependencies [[ch.qos.logback/logback-classic "1.1.6"]
+                                  [reloaded.repl "0.2.1"]]
+                   :plugins [[jonase/eastwood "0.2.3"]
+                             [lein-difftest "2.0.0"]]
+                   :repl-options {:init-ns user}
+                   :resource-paths ["test-resources"]
+                   :source-paths ["dev" "src"]}
+             :test {:env {:as-db-name "antistock_test"
+                          :as-db-password "scotch"
+                          :as-db-scheme "postgresql"
+                          :as-db-server-name "localhost"
+                          :as-db-server-port "5432"
+                          :as-db-username "tiger"}
+                    :source-paths ^:replace ["src"]
+                    :resource-paths ["test-resources"]}}
+  :uberjar-name "antistock-db.jar")

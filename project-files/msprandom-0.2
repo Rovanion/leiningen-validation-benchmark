@@ -1,0 +1,26 @@
+(defproject msprandom "0.2"
+  :description "Random numbers generator: this library is intended to generate cryptographically strong random numbers."
+  :url "https://bitbucket.org/mike1452/msprandom"
+  :vendor "Middlesphere LLC, 2014"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :dependencies [[org.clojure/clojure "1.6.0"]
+
+                 ;;encryption engine
+                 [org.bouncycastle/bcprov-jdk15on "1.50"]
+
+                 ;keyboard library
+                 [jline "2.11"]
+
+                 ;;logging
+                 [org.clojure/tools.logging "0.2.4"]]
+
+  :target-path "target/%s"
+  :profiles {:uberjar {:aot :all}}
+  :omit-source true
+
+  :manifest { "Class-Path" "bcprov-jdk15on-1.50.jar clojure-1.6.0.jar jline-2.11.jar"}
+
+  ;;call 'lein libdir' in order to copy all dependencies into lib folder
+  :plugins [[lein-libdir "0.1.1"]]
+  :libdir-path "lib")

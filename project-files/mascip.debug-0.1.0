@@ -1,0 +1,8 @@
+(defproject mascip.debug "0.1.0"
+  :description "Debugging functions for printing data transformations on a 'need to see' basis, along threading chains ->> and function composition chains"
+  :url "https://bitbucket.org/mascip/mascip.debug"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :dependencies [[org.clojure/clojure "1.6.0"]
+                 [robert/hooke "1.3.0"]
+                 ])

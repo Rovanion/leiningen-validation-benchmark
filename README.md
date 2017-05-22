@@ -5,11 +5,19 @@ validate a leiningen project file.
 
 ## Usage
 
-FIXME
+
+## Documentation
+
+### Getting test data
+Build up your local maven cache using the [all the clojars][] project,
+then run `extract-project-files-from-local-maven-cache.bash`.
+
+[all the clojars]: https://github.com/Rovanion/all-the-clojars
+
+
 
 ## License
 
-Copyright © 2017 FIXME
+Copyright © 2017 Rovanion Luckey
 
-Distributed under the Eclipse Public License either version 1.0 or (at
-your option) any later version.
+Distributed under the AGPL https://www.gnu.org/licenses/agpl-3.0.en.html

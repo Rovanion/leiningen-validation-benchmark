@@ -1,0 +1,27 @@
+(defproject dmcljs/json "0.1.1"
+  :description "Cient-side clojure implementation of JSON"
+  :url "https://github.com/dedeme/json-client"
+  :license {:name "GPL3"
+            :url "http://www.gnu.org/licenses/gpl-3.0.txt"}
+  :dependencies [[org.clojure/clojure "1.5.1"]]
+  :plugins [[lein-cljsbuild "0.3.2"]]
+  :hooks [leiningen.cljsbuild]
+  :jar-exclusions [#"unit-test\.[js|html]"]
+  :cljsbuild {
+    :test-commands
+      {"cljs-test" ["phantom/phantomjs"
+                    "phantom/unit-test.js"
+                    "resources/unit-test.html"]}
+    :builds {
+        :main {
+          :source-paths ["src-cljs"]
+          :jar true}   
+        :test {
+          :source-paths ["test"]
+          :compiler{
+                    :output-to "resources/unit-test.js"
+                    :optimizations :whitespace
+                    :pretty-print true}}}}
+  :repositories {"releases" {:url "https://clojars.org/repo"
+                             :creds :gpg}})
+  

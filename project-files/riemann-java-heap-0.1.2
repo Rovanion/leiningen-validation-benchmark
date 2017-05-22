@@ -1,0 +1,10 @@
+(defproject uswitch/riemann-java-heap "0.1.2"
+  :description "Riemann java heap monitoring"
+  :url "http://github.com/uswitch/riemann-java-heap"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :dependencies [[riemann-clojure-client "0.2.6"]]
+  :plugins [[lein-release "1.0.5"]]
+  :lein-release {:scm :git
+                 :deploy-via :shell
+                 :shell ["lein" "deploy" "clojars"]})

@@ -1,0 +1,19 @@
+(defproject faris/qed "0.2.4"
+  :description "An opinionated framework for building webservice"
+  :url "https://bitbucket.org/farisnasution/qed"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :dependencies [[org.clojure/clojure "1.6.0"]
+                 [clj-base64 "0.0.2"]
+                 [http-kit "2.1.19"]
+                 [com.novemberain/monger "2.0.0"]
+                 [liberator "0.12.2"]
+                 [com.cemerick/friend "0.2.1"]
+                 [slugger "1.0.1"]]
+  :profiles {:dev {:dependencies [[speclj "3.1.0"]]}}
+  :plugins [[speclj "3.1.0"]]
+  :test-paths ["spec"]
+  :aliases {"omni" ["do" ["ancient"] ["kibit"] ["eastwood"] ["bikeshed"]]
+            "dev" ["repl" ":headless"]}
+  :eastwood {:exclude-linters [:unlimited-use]
+             :exclude-namespaces [:test-paths]})

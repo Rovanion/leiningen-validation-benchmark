@@ -1,0 +1,28 @@
+(defproject clientsuccess/utils "1.2.4"
+  :description "A set of utilities for use in projects for ClientSuccess"
+  :dependencies [[org.clojure/clojure "1.8.0"]
+                 [org.clojure/java.jdbc "0.6.1"]
+                 [clojure.jdbc/clojure.jdbc-c3p0 "0.3.2"]
+                 [mysql/mysql-connector-java "5.1.38"]
+                 [clj-time "0.11.0"]]
+
+  :plugins [[lein-environ "1.0.3"]
+            [lein-ring "0.7.3"]
+            [s3-wagon-private "1.2.0"]]
+
+  :release-tasks [["change" "version" "leiningen.release/bump-version"]
+                  ["change" "version" "leiningen.release/bump-version" "release"]
+                  ["vcs" "commit"]
+                  ["vcs" "tag"]
+                  ["deploy" "clojars-https"]
+                  ["deploy" "artifacts"]]
+
+  :deploy-repositories [["artifacts" {:url "s3://clientsuccess-artifacts"
+                                      :username :env/S3DEPLOYUSER
+                                      :passphrase :env/S3DEPLOYPASS
+                                      :creds :gpg}]
+                        ["clojars-https" {:url "https://clojars.org/repo"
+                                          :username :env/CLOJARSUSER
+                                          :password :env/CLOJARSPASS
+                                          :sign-releases false}]
+                        ["releases" :artifacts]])

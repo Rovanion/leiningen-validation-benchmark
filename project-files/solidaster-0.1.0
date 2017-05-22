@@ -1,0 +1,6 @@
+(defproject solidaster "0.1.0"
+  :description  "Clojure utilities and functions."
+  :url          "https://github.com/jakedavis/solidaster"
+  :repl-options {:init-ns solidaster.core}
+  :license      "The Apache Software License, Version 2.0"
+  :dependencies [[org.clojure/clojure "1.6.0"]])

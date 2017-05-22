@@ -1,0 +1,6 @@
+(defproject oaklabs-app/lein-template "0.1.0"
+  :description "Leiningen template for Oak Backend Services"
+  :url "http://www.oaklabs.is"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :eval-in-leiningen true)

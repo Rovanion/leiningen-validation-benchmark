@@ -1,0 +1,4 @@
+(defproject org.clojars.john/hello-world "0.1.0"
+  :description "A very simple hello world."
+  :dependencies [[org.clojure/clojure "1.1.0-alpha-SNAPSHOT"]]
+  :dev-dependencies [[lein-clojars "0.5.0-SNAPSHOT"]])

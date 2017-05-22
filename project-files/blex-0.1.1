@@ -1,0 +1,14 @@
+(defproject blex "0.1.1"
+  :description "Simple Server Framework"
+  :url ""
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :global-vars {*warn-on-reflection* true
+                  *assert* false}
+  :dependencies [
+                 [org.fusesource.hawtdispatch/hawtdispatch "1.12"]
+                 [org.clojure/clojure "1.5.1"]
+                 [org.clojure/tools.logging "0.2.6"]
+                 [ch.qos.logback/logback-classic "1.0.9"]]
+  :main blex.core
+  )

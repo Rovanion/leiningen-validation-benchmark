@@ -1,0 +1,14 @@
+(defproject tumblr-clj "1.0.0"
+            :description "Tumblr client library"
+            :url "http://github.com/Ccook/tumblr-clj"
+            :license {:name "Apache License version 2.0"
+                      :distribution :repo
+                      :url  "http://www.apache.org/licenses/LICENSE-2.0"}
+            :dependencies [[org.clojure/clojure "1.6.0"]
+                           [clj-http "1.0.1"]
+                           [org.clojure/data.json "0.2.5"]]
+            :scm {:name "tumblr-clj"
+                  :url "https://github.com/Ccook/tumblr-clj.git"}
+            :main ^:skip-aot main
+            :target-path "target/%s"
+            :profiles {:uberjar {:aot :all}})

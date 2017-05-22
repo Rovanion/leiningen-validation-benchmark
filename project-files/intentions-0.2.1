@@ -1,0 +1,30 @@
+(defproject intentions "0.2.1"
+  :description "Multimethods that combine rather than override inherited behavior"
+  :url "https://github.com/weavejester/intentions"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :dependencies [[org.clojure/clojure "1.7.0"]
+                 [org.clojure/tools.macro "0.1.5"]]
+  :plugins [[lein-codox "0.9.3"]
+            [lein-cljsbuild "1.1.2"]
+            [lein-doo "0.1.6"]]
+  :codox
+  {:output-path "codox"
+   :metadata {:doc/format :markdown}
+   :source-uri "http://github.com/weavejester/intentions/blob/{version}/{filepath}#L{line}"}
+  :cljsbuild
+  {:builds
+   {:test
+    {:source-paths ["src" "test"]
+     :compiler {:output-to "target/main.js"
+                :output-dir "target"
+                :main intentions.test-runner
+                :optimizations :simple}}}}
+  :doo {:paths {:rhino "lein run -m org.mozilla.javascript.tools.shell.Main"}}
+  :aliases
+  {"test-cljs" ["doo" "rhino" "test" "once"]
+   "test-all"  ["do" ["test"] ["test-cljs"]]}
+  :profiles
+  {:provided {:dependencies [[org.clojure/clojurescript "1.7.228"]]}
+   :dev {:dependencies [[criterium "0.4.3"]]
+         :jvm-opts ^:replace {}}})

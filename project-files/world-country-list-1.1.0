@@ -1,0 +1,16 @@
+(defproject zololabs/world-country-list "1.1.0"
+  :description "Parses country list form euro portal"
+
+  :dependencies [[org.clojure/clojure "1.5.1"]]
+
+  :plugins [[lein-swank "1.4.4"]
+            [lein-pprint "1.1.1"]
+            [lein-notes "0.0.1"]
+            [lein-clojars "0.9.1"]]
+
+  :min-lein-version "2.0.0"
+
+  :project-init (do (use 'clojure.pprint)
+                    (use 'clojure.test))
+
+  :jvm-opts ["-Dfile.encoding=UTF-8" "-Dconsole.encoding=utf-8"])

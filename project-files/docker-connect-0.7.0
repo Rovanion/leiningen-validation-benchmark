@@ -1,0 +1,66 @@
+(defproject atlassian/docker-connect "0.7.0"
+  :description "Bitbucket Connect plugin for Docker Hub"
+  :url "https://bitbucket.org/ssmith/bitbucket-docker-connect"
+  :license {:name "Apache License 2.0"
+            :url "http://www.apache.org/licenses/LICENSE-2.0"}
+
+  :main docker-connect.core
+
+  :source-paths ["src" "src/clojure"]
+  :test-paths ["test" "test/clojure"]
+
+  :plugins [[lein-environ "1.0.0"]
+            [lein-test-out "0.3.1"]]
+
+  :exclusions [slf4j-log4j12
+               org.slf4j/slf4j-log4j12
+               log4j]
+  :dependencies [[org.clojure/clojure "1.7.0"]
+                 [org.clojure/data.json "0.2.6"]
+                 [environ "1.0.1"]
+
+                 [ch.qos.logback/logback-core "1.1.3"]
+                 [ch.qos.logback/logback-classic "1.1.3"]
+                 [ch.qos.logback.contrib/logback-jackson "0.1.2"]
+                 [com.fasterxml.jackson.core/jackson-databind "2.6.3"]
+                 [ch.qos.logback.contrib/logback-json-classic "0.1.2"]
+
+                 [ring "1.4.0"]
+                 [ring/ring-defaults "0.1.5"]
+                 [ring/ring-json "0.4.0"]
+                 [com.duelinmarkers/ring-request-logging "0.2.0"]
+                 [compojure "1.4.0"]
+                 [org.immutant/web "2.1.0"]
+
+                 [selmer "0.9.3"]
+
+                 [circleci/clj-yaml "0.5.4"]
+                 [clj-http "2.0.0"]
+                 [clj-connect "0.2.2"]
+
+                 [com.taoensso/faraday "1.8.0"]
+                 [com.taoensso/carmine "2.12.0"]
+
+                 [clj-datadog "2.0.0"]]
+
+  :repl-options {:timeout 120000}
+
+  :profiles {:dev
+             {:jvm-opts ["-Xms512m" "-Xmx1g" "-Dlog.appender=simple"]
+
+              ;; Copy these into profiles.clj under {:dev {:env}} and update
+              :env {:base-url "OVERRIDE"
+                    :oauth-key "OVERRIDE"
+                    :project-key "docker-connect"
+                    :project-name "Bitbucket Connect Docker Hub plugin"
+                    :db-endpoint "http://localhost:8000"
+                    :redis-cache-host "localhost"
+                    :redis-cache-port "6379"}}
+
+             :repl {:jvm-opts ["-Xms512m" "-Xmx1g" "-Dlog.appender=simple"]}
+
+             :uberjar
+             {:aot :all}
+
+             :itest  ;; Integration tests
+             {:test-paths ["itest/clojure"]}})

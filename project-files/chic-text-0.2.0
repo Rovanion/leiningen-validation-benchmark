@@ -1,0 +1,8 @@
+(defproject chic-text "0.2.0"
+  :description "Helpful functions for formatting text into tables."
+  :url "https://github.com/RyanMcG/chic-text"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :dependencies [[org.clojure/clojure "1.6.0"] [jline/jline "2.12"] [mvxcvi/puget "0.6.4"] [mvxcvi/whidbey "0.4.1"] [chic-text/chic-text.core "0.2.0"] [chic-text/chic-text.tools.cli "0.2.0"] [chic-text/chic-text.terminal "0.2.0"]]
+   
+    :scm {:connection "scm:git:git://github.com/RyanMcG/chic-text.git" :developerConnection "scm:git:ssh://git@github.com/RyanMcG/chic-text.git" :tag "509af432b66198054a901f20440787cb218b6fb7\n" :url "https://github.com/RyanMcG/chic-text"})

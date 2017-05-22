@@ -1,0 +1,5 @@
+(defproject com.gfredericks/clomp "0.6.0"
+  :description "A streaming text oriented messaging protocol client and server for Clojure."
+  :dependencies [[org.clojure/clojure "1.7.0"]]
+  :deploy-repositories [["releases" :clojars]]
+  :aot [clomp.streams])

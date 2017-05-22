@@ -1,0 +1,8 @@
+(defproject nginx-clojure-ring-logger "0.1.0"
+  :description "Small wraper libery to enable loggin in nginx-clojure"
+  :url "https://bitbucket.org/edocu/nginx-clojure-ring-logger"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :dependencies [[org.clojure/clojure "1.7.0"]
+                 [ring-logger-timbre "0.7.4" :exclusions [com.taoensso/timbre]]
+                 [com.taoensso/timbre "4.1.4"]])

@@ -1,0 +1,7 @@
+(defproject enlive-android "0.1.0"
+  :description "a HTML selector-based (à la CSS) templating and transformation system for Clojure Android"
+  :url "http://github.com/matsu911/enlive-android"
+  :dependencies [[org.clojure-android/clojure "1.5.1-jb"]]
+  :javac-options ["-target" "1.6" "-source" "1.6" "-Xlint:-options"]
+  :android {:library true
+            :target-sdk :ics})

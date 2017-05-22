@@ -1,0 +1,46 @@
+(defproject org.clojars.kubo/foundation "0.2.6"
+  :description "Foundation is a great starting point for Kubo microservices."
+  :url "http://example.com/FIXME"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :dependencies [[org.clojure/clojure "1.7.0"]
+                 [org.clojure/core.async "0.1.346.0-17112a-alpha"]
+
+                 ;Serialize Data
+                 [com.taoensso/nippy "2.9.0"]
+
+                 ;HTTP and Websockets
+                 [aleph "0.4.0"]
+                 [compojure "1.4.0"]
+                 [manifold "0.1.0"]
+                 [byte-streams "0.2.0"]
+
+                 ;HTTP ring
+                 [ring/ring-defaults "0.1.5"]
+                 [ring/ring-core "1.4.0-RC2"]
+                 [ring/ring-json "0.1.2"]
+
+                 ;Environment Variables
+                 [environ "1.0.0"]
+
+                 ;mysql
+                 [org.clojure/java.jdbc "0.3.7"]
+                 [mysql/mysql-connector-java "5.1.32"]
+                 [com.jolbox/bonecp "0.8.0.RELEASE"]
+                 [yesql "0.5.1"]
+
+                 ;bcrypt
+                 [crypto-password "0.1.3"]
+
+                 ;JSON
+                 [cheshire "5.5.0"]
+
+                 ;Auth
+                 [buddy "0.10.0"]
+
+                 ;Snake <-> Kebab
+                 [camel-snake-kebab "0.3.2"]]
+  :deploy-repositories [["clojars" {:sign-releases false}]]
+  ;:main ^:skip-aot foundation.core
+  :lein-release {:deploy-via :clojars}
+  :profiles {:uberjar {:aot :all}})

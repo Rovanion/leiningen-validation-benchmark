@@ -1,0 +1,44 @@
+(def major "1")
+(def minor "0")
+(def patch "0")
+(def label "")
+
+(def project-version
+  (apply str
+         (conj (->> (filter #(not (empty? %)) [major minor patch])
+                    (interpose ".")
+                    (vec))
+               label)))
+
+(defproject net.ozias/echohandler project-version
+  :description "Demonstration Swarm Handler implementation"
+  :url "https://github.com/CraZySacX/echohandler"
+  :license {:name "MIT"
+            :url "http://opensource.org/licenses/MIT"}
+  :dependencies [[com.taoensso/timbre "2.6.3"]
+                 [net.ozias/swarmhandler "1.0.0"]
+                 [org.clojure/clojure "1.5.1"]]
+  :profiles {:dev {:source-paths ["dev"]
+                   :dependencies [[org.clojure/tools.namespace "0.2.4"]]}
+             :uberjar {:aot :all}}
+  :aliases {"build" ["install"]
+            "docs" ["do" "doc," "marg" "--multi" "src/" "test/"]
+            "da" ["do" "clean," "deploy," "deploy" "clojars"]}
+  :jvm-opts ["-Xms1024m" "-Xmx1024m"]
+  :plugins [[codox "0.6.6"]
+            [lein-marginalia "0.7.1"]]
+  :deploy-repositories [["snapshots" 
+                         {:url "http://www.ozias.net/archiva/repository/snapshots/"
+                          :creds :gpg}]
+                        ["releases"
+                         {:url "http://www.ozias.net/archiva/repository/internal/"
+                          :creds :gpg}]]
+  :target-path "target/"
+  :scm {:name "git"
+         :url "https://github.com/CraZySacX/echohandler"}
+  :codox {:output-dir "api"
+          :sources ["src" "test"]
+          :src-dir-uri "http://github.com/CraZySacX/swarm/echohandler/1.0/"
+          :src-linenum-anchor-prefix "L"}
+  :manifest {"Implementation-Version" ~project-version}
+  :env {:version ~project-version})

@@ -1,0 +1,5 @@
+(defproject cristian/java.data "0.1.2.0"
+  :description "Fixed, temporal version of java.data"
+  :source-paths ["src/main/clojure"]
+  :dependencies [[org.clojure/clojure "1.7.0-alpha3"]
+                 [org.clojure/tools.logging "0.2.3"]])

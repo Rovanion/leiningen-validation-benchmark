@@ -1,0 +1,76 @@
+(def description (str "Converts the character encoding of files into UTF8"
+                      " and every end of line into '\\n'."))
+(def license-name "MPL-2.0")
+(def license-url "https://www.mozilla.org/en-US/MPL/2.0/")
+(def url "http://github.com/crocket/to-utf8-unix")
+(def repo-url (str url ".git"))
+
+(defproject cljs-npm/to-utf8-unix "0.1.18"
+  :description ~description
+  :url ~url
+
+  :min-lein-version "2.5.3"
+
+  :dependencies [[org.clojure/clojure "1.7.0"]
+                 [org.clojure/clojurescript "1.7.170"]]
+
+  :plugins [[lein-cljsbuild "1.1.1"]
+            [lein-figwheel "0.5.0-2"]
+            [lein-npm "0.6.1"]]
+
+  ;; /src/cljs is needed by repl.core/launch-cljs-repl
+  :source-paths ["src/clj" "src/cljs"]
+
+  :clean-targets ["index.js"
+                  "target"
+                  "figwheel_server.log"]
+
+  :license {:name ~license-name
+            :url ~license-url
+            :distribution :repo}
+
+  :profiles {:repl {:dependencies [[com.cemerick/piggieback "0.2.1"]
+                                   [figwheel-sidecar "0.5.0-2"]]
+                    :main repl.core}}
+
+  ;; Refer to https://github.com/RyanMcG/lein-npm
+  :npm {:dependencies [[cr "^0.1.0"]
+                       [iconv-lite "^0.4.13"]
+                       [node-icu-charset-detector "^0.1.4"]]
+        :package {;; ClojureScript requires node >= 0.12.x
+                  :engines {:node ">=0.12.x"}
+                  :private false
+                  :main "./index.js"
+                  :repository {:type "git"
+                               :url ~repo-url}
+                  :license ~license-name
+                  :bin {:to-utf8-unix "./index.js"}
+                  ;; source-map-support and ws are required for figwheel.
+                  :devDependencies {:source-map-support "0.4.0"
+                                    :ws "0.8.1"}}}
+
+  ;; You might want to exclude cli.cljs
+  ;; if you want to publish this project as an npm library onto clojars.
+  :jar-exclusions [#"^repl/" #"^to_utf8_unix/cli.cljs"]
+
+  :cljsbuild {
+    :builds [{:id "dev"
+              :source-paths ["src/cljs"]
+              :figwheel true
+              :compiler {;; figwheel automatically builds and loads only
+                         ;; dependencies of :main. Thus, :main should be
+                         ;; a namespace that includes as many other namespaces
+                         ;; as possible.
+                         :main to-utf8-unix.cli
+                         :output-to "target/server_dev/to-utf8-unix.js"
+                         :output-dir "target/server_dev"
+                         :target :nodejs
+                         :optimizations :none
+                         :source-map true}}
+             {:id "prod"
+              :source-paths ["src/cljs"]
+              :compiler {:main to-utf8-unix.cli
+                         :output-to "index.js"
+                         :output-dir "target/server_prod"
+                         :target :nodejs
+                         :optimizations :simple}}]})

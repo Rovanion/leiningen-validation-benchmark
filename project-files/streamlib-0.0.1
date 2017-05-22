@@ -1,0 +1,25 @@
+(defproject streamlib "0.0.1"
+  :scala-source-paths ["src/scala"]
+  :scala-source-path "src/scala"
+  :prep-tasks ["javac" "scalac" "compile"]
+  :jvm-opts ["-Xmx4g" "-server"]
+
+  :javac-options ["-target" "1.6" "-source" "1.6" "-Xlint:-options"]
+  :aot :all
+  :plugins [[lein-scalac "0.1.0"]]
+  :repositories [["java.net" "http://download.java.net/maven/2"]]
+  :dependencies [
+		 [org.scala-lang/scala-library "2.9.3"]
+		 [org.clojure/clojure "1.5.0"]
+                 ]
+  
+  :profiles {:dev
+              {:dependencies [ 
+                              [lein-scalac "0.1.0"]
+                              [org.testng/testng "6.8.5"]
+                              [org.easytesting/fest-assert-core "2.0M8"]
+                              [org.mockito/mockito-all "1.9.0"]
+                              [org.jmock/jmock "2.6.0"]]}}
+  
+  :min-lein-version "2.0.0"
+  )

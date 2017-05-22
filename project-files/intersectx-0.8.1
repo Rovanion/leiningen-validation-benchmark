@@ -1,0 +1,11 @@
+(defproject intersectx "0.8.1"
+  :description "Regular Expression Intersection"
+  :url "https://github.com/marianobarrios/intersectx"
+  :plugins [[lein2-eclipse "2.0.0"]]
+  :dependencies 
+  [[org.clojure/clojure "1.6.0"]
+   [org.clojars.jpoplett/fnparse "2.2.8"]
+   [org.clojure/tools.logging "0.2.6"]
+   [slingshot "0.10.3"]]
+  :profiles {:dev {:dependencies {log4j/log4j "1.2.17"}}}
+  :aot [intersectx.core])

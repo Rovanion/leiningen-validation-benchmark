@@ -1,0 +1,115 @@
+(defproject com.aaronlahey/coconut "0.4.5"
+  :description "An asynchronous testing framework for Clojure and Clojurescript."
+  :url "https://github.com/aaronlahey/coconut"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :java-source-paths ["test/coconut"]
+  :dependencies [[org.clojure/clojure "1.9.0-alpha14"]
+                 [org.clojure/clojurescript "1.9.293"]
+                 [org.clojure/core.async "0.2.395"]]
+  :repl-options {:init-ns coconut.repl}
+  :clean-targets ["target"
+                  "dist/console/whitespace/js"
+                  "dist/console/simple/js"
+                  "dist/console/advanced/js"
+                  "dist/html/whitespace/js"
+                  "dist/html/simple/js"
+                  "dist/html/advanced/js"
+                  "dist/karma/whitespace/js"
+                  "dist/karma/simple/js"
+                  "dist/karma/advanced/js"]
+  :aliases {"karma"                          [["shell" "karma"] "start"]
+            "karma.whitespace"               ["karma" "dist/karma/whitespace/karma.config.js"]
+            "karma.simple"                   ["karma" "dist/karma/simple/karma.config.js"]
+            "karma.advanced"                 ["karma" "dist/karma/advanced/karma.config.js"]
+            "karma.watch"                    [["shell" "karma"] "start" "--no-single-run"]
+            "karma.watch.whitespace"         ["karma.watch" "dist/karma/whitespace/karma.config.js"]
+            "karma.watch.simple"             ["karma.watch" "dist/karma/simple/karma.config.js"]
+            "karma.watch.advanced"           ["karma.watch" "dist/karma/advanced/karma.config.js"]
+            "build"                          ["cljsbuild" "once"]
+            "build.html.whitespace"          ["build" "html.whitespace"]
+            "build.html.simple"              ["build" "html.simple"]
+            "build.html.advanced"            ["build" "html.advanced"]
+            "build.console.whitespace"       ["build" "console.whitespace"]
+            "build.console.simple"           ["build" "console.simple"]
+            "build.console.advanced"         ["build" "console.advanced"]
+            "build.karma.whitespace"         ["build" "karma.whitespace"]
+            "build.karma.simple"             ["build" "karma.simple"]
+            "build.karma.advanced"           ["build" "karma.advanced"]
+            "build.watch"                    ["cljsbuild" "auto"]
+            "build.watch.html.whitespace"    ["build.watch" "html.whitespace"]
+            "build.watch.html.simple"        ["build.watch" "html.simple"]
+            "build.watch.html.advanced"      ["build.watch" "html.advanced"]
+            "build.watch.console.whitespace" ["build.watch" "console.whitespace"]
+            "build.watch.console.simple"     ["build.watch" "console.simple"]
+            "build.watch.console.advanced"   ["build.watch" "console.advanced"]
+            "build.watch.karma.whitespace"   ["build.watch" "karma.whitespace"]
+            "build.watch.karma.simple"       ["build.watch" "karma.simple"]
+            "build.watch.karma.advanced"     ["build.watch" "karma.advanced"]}
+  :cljsbuild {:builds [{:id "html.whitespace"
+                        :source-paths ["src" "test" "target/classes"]
+                        :compiler {:output-to "dist/html/whitespace/js/coconut.tests.js"
+                                   :output-dir "dist/html/whitespace/js/out"
+                                   :optimizations :whitespace
+                                   :source-map "dist/html/whitespace/js/coconut.tests.js.map"}}
+
+                       {:id "html.simple"
+                        :source-paths ["src" "test" "target/classes"]
+                        :compiler {:output-to "dist/html/simple/js/coconut.tests.js"
+                                   :output-dir "dist/html/simple/js/out"
+                                   :optimizations :simple
+                                   :source-map "dist/html/simple/js/coconut.tests.js.map"}}
+
+                       {:id "html.advanced"
+                        :source-paths ["src" "test" "target/classes"]
+                        :compiler {:output-to "dist/html/advanced/js/coconut.tests.js"
+                                   :output-dir "dist/html/advanced/js/out"
+                                   :optimizations :advanced
+                                   :source-map "dist/html/advanced/js/coconut.tests.js.map"}}
+
+                       {:id "console.whitespace"
+                        :source-paths ["src" "test" "target/classes"]
+                        :compiler {:output-to "dist/console/whitespace/js/coconut.tests.js"
+                                   :output-dir "dist/console/whitespace/js/out"
+                                   :optimizations :whitespace
+                                   :source-map "dist/console/whitespace/js/coconut.tests.js.map"}}
+
+                       {:id "console.simple"
+                        :source-paths ["src" "test" "target/classes"]
+                        :compiler {:output-to "dist/console/simple/js/coconut.tests.js"
+                                   :output-dir "dist/console/simple/js/out"
+                                   :optimizations :simple
+                                   :source-map "dist/console/simple/js/coconut.tests.js.map"}}
+
+                       {:id "console.advanced"
+                        :source-paths ["src" "test" "target/classes"]
+                        :compiler {:output-to "dist/console/advanced/js/coconut.tests.js"
+                                   :output-dir "dist/console/advanced/js/out"
+                                   :optimizations :advanced
+                                   :source-map "dist/console/advanced/js/coconut.tests.js.map"}}
+
+                       {:id "karma.whitespace"
+                        :source-paths ["src" "test" "target/classes"]
+                        :compiler {:output-to "dist/karma/whitespace/js/coconut.tests.js"
+                                   :output-dir "dist/karma/whitespace/js/out"
+                                   :optimizations :whitespace
+                                   :source-map "dist/karma/whitespace/js/coconut.tests.js.map"}}
+
+                       {:id "karma.simple"
+                        :source-paths ["src" "test" "target/classes"]
+                        :compiler {:output-to "dist/karma/simple/js/coconut.tests.js"
+                                   :output-dir "dist/karma/simple/js/out"
+                                   :optimizations :simple
+                                   :source-map "dist/karma/simple/js/coconut.tests.js.map"}}
+
+                       {:id "karma.advanced"
+                        :source-paths ["src" "test" "target/classes"]
+                        :compiler {:output-to "dist/karma/advanced/js/coconut.tests.js"
+                                   :output-dir "dist/karma/advanced/js/out"
+                                   :optimizations :advanced
+                                   :source-map "dist/karma/advanced/js/coconut.tests.js.map"}}]}
+  :profiles {:dev {:dependencies [[org.clojure/tools.namespace "0.2.11"]
+                                  [org.clojure/test.check "0.9.0"]]
+                   :plugins [[lein-cljsbuild "1.1.4"]
+                             [lein-shell "0.5.0"]
+                             [lein-pdo "0.1.1"]]}})

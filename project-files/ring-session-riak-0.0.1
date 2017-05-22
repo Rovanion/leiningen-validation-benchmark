@@ -1,0 +1,15 @@
+(defproject ring-session-riak "0.0.1"
+  :description "Ring Sessions stored in Riak"
+
+  :repositories {"clojars" "http://clojars.org/repo"}
+  
+  :dependencies [[ring/ring-core "0.3.6"]
+
+                 [org.clojars.mmcgrana/riak-java-pb-client "0.1.0-SNAPSHOT"]
+                 [clj-riak "0.1.0-SNAPSHOT"]]
+
+  :dev-dependencies [[swank-clojure "1.2.1"]
+                     [lein-clojars "0.6.0"]
+                     [compojure "0.6.0"]
+                     [ring/ring-jetty-adapter "0.3.6"]
+                     [sandbar/sandbar "0.3.0"]])

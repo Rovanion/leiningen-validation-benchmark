@@ -1,0 +1,15 @@
+(defproject speccy "0.1.5"
+  :description "A mzML and mgf parsing library."
+  :url ""
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :dependencies [[org.clojure/clojure "1.6.0"]
+                 [org.clojure/data.xml "0.0.8"]
+                 [org.clojure/data.zip "0.1.1"]
+                 [fs "1.3.3"]
+                 [com.taoensso/nippy "2.8.0"]
+                 [clj-biosequence "0.3.4"]
+                 [org.clojars.hozumi/clj-commons-exec "1.2.0"]]
+  :resource-paths ["shared" "resources"]
+  :repl-options {:init (set! *print-length* 100)}
+  :jvm-opts ["-Xmx2000m"])

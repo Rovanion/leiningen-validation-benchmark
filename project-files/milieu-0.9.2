@@ -1,0 +1,25 @@
+(defproject rplevy/milieu "0.9.2"
+  :description "The environmentally friendly configuration tool."
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :dependencies [[org.clojure/clojure "1.8.0"]
+                 [org.clojure/tools.logging "0.2.3"]
+                 [clj-yaml "0.3.1"]
+                 [swiss-arrows "1.0.0"]]
+  :profiles {:dev {:dependencies [[midje "1.8.3" :exclusions [org.clojure/clojure]]]}}
+  :plugins [[lein-midje "3.2.1" :exclusions [org.clojure/clojure]]]
+  :repositories [["clojars" {:url "http://clojars.org/content/repositories/releases"
+                             ;; If a repository contains releases only setting
+                             ;; :snapshots to false will speed up dependencies.
+                             :snapshots false
+                             ;; Disable signing releases deployed to this repo.
+                             ;; (Not recommended.)
+                             :sign-releases false
+                             ;; You can also set the policies for how to handle
+                             ;; :checksum failures to :fail, :warn, or :ignore.
+                             :checksum :fail
+                             ;; How often should this repository be checked for
+                             ;; snapshot updates? (:daily, :always, or :never)
+                             :update :always
+                             ;; You can also apply them to releases only:
+                             :releases {:checksum :fail :update :always}}]])

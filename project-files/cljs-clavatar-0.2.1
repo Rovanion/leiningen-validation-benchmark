@@ -1,0 +1,26 @@
+(defproject net.colourcoding/cljs-clavatar "0.2.1"
+  :clojurescript? true
+  :description "A ClojureScript fork of Clavatar."
+  :url "https://github.com/JulianBirch/cljs-clavatar"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :dependencies [[org.clojure/clojure "1.5.1"]
+                 [com.cemerick/clojurescript.test "0.2.1"
+                  :scope "test"]
+                 [org.clojure/clojurescript "0.0-2014"]]
+  :plugins [[lein-cljsbuild "1.0.0"]
+            [com.cemerick/clojurescript.test "0.2.1"]]
+  :hooks [leiningen.cljsbuild]
+  :cljsbuild
+  {:builds
+   {:dev  {:source-paths ["src"]
+           :compiler {:output-to "target/main.js"
+                      :optimizations :whitespace
+                      :pretty-print true}}
+    :test {:source-paths ["src" "test"]
+           :incremental? true
+           :compiler {:output-to "target/unit-test.js"
+                      :optimizations :whitespace
+                      :pretty-print true}}}
+   :test-commands {"unit-tests"
+                   ["phantomjs" :runner "target/unit-test.js"]}})

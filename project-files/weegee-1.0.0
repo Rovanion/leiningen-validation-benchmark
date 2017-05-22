@@ -1,0 +1,25 @@
+(defproject org.clojars.invisiblefriend/weegee "1.0.0"
+  :description "Someday, this might grow up to be a web framework."
+  :url "http://github.com/invisiblefriend/weegee"
+  :license {:name "Eclipse Public License"
+            :url "http://opensource.org/licenses/eclipse-1.0.txt"}
+  :dependencies [[org.clojure/clojure "1.6.0"]
+                 [cheshire "5.3.1"]
+                 [compojure "1.2.2"]
+                 [http-kit "2.1.19"]
+                 [javax.servlet/servlet-api "2.5"]]
+  :source-paths ["src/clj"]
+  :target-path "target/%s"
+  :plugins [[codox "0.8.10"]]
+  :repositories [["clojars" {:url "https://clojars.org/repo/"
+                             :snapshots true
+                             :releases true
+                             :signing {:gpg-key "if.admin@afternext.com"}}]]
+  :codox {:project {:name "Weegee"}
+          :defaults {:doc/format :markdown}
+          :language :clojure
+          :sources ["src/clj"]
+          :output-die "doc"
+          :src-dir-uri "https://github.com/invisiblefriend/weegee/blob/develop/"
+          :src-linenum-anchor-prefix "L"}
+  :profiles {:uberjar {:aot :all}})

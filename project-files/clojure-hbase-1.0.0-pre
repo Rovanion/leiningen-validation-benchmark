@@ -1,0 +1,8 @@
+(defproject flipboard/clojure-hbase "1.0.0-pre"
+  :description "A convenient Clojure interface to HBase."
+  :dependencies [[org.clojure/clojure "1.6.0"]
+                 [org.apache.hbase/hbase-client "1.0.0-cdh5.6.0"]
+                 [org.apache.hadoop/hadoop-test "2.6.0-mr1-cdh5.4.2"]
+                 [org.apache.hbase/hbase-testing-util "1.0.0-cdh5.4.2"]]
+  :repositories [["cloudera" "https://repository.cloudera.com/content/groups/public/"]]
+  :profiles {:clojure1.6 {:dependencies [[org.clojure/clojure "1.6.0"]]}})

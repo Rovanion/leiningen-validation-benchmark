@@ -1,0 +1,47 @@
+(defproject org.ozias.cljlibs/semver "0.1.4"
+  :description "Semantic version-ing library for Clojure"
+  :url "https://github.com/CraZySacX/semver"
+  :license {:name "MIT"
+            :url "http://opensource.org/licenses/MIT"}
+  :dependencies [[org.clojure/clojure "1.6.0"]
+                 [org.ozias.cljlibs/utils "0.1.7"]]
+  :profiles {:dev {:source-paths ["dev"]
+                   :dependencies [[midje "1.6.3"
+                                   :exclusions [org.clojure/clojure]]
+                                  [org.clojure/tools.namespace "0.2.4"]
+                                  [org.ozias.cljlibs/scm "0.1.3"]]
+                   :plugins [[codox "0.6.8"]
+                             [lein-midje "3.1.3"]
+                             [org.ozias.plugins/lein-git-version "1.1.3"]]
+                   :aliases {"package" ["do" "clean," "install"]
+                             "slamhound" ["run" "-m" "slam.hound"]
+                             "chk" ["do"
+                                    "archaic" "upgrade,"
+                                    "slamhound" "src/,"
+                                    "slamhound" "test/,"
+                                    "eastwood"
+                                    "{:namespaces [:source-paths] :exclude-linters [:unused-ret-vals]},"
+                                    "kibit,"
+                                    "bikeshed" "-v,"
+                                    "check,"
+                                    "midje"]
+                             "most" ["do" "clean," "doc," "chk," "package"]
+                             "dep" ["do" "deploy," "deploy" "clojars"]
+                             "all" ["do" "most," "dep"]}}}
+  :jvm-opts ["-Xms1024m" "-Xmx1024m"]
+  :deploy-repositories [["snapshots" 
+                         {:url
+                          "http://www.ozias.net/artifactory/libs-snapshot-local"
+                          :creds :gpg}]
+                        ["releases"
+                         {:url
+                          "http://www.ozias.net/artifactory/libs-release-local"
+                          :creds :gpg}]]
+  :scm {:name "git"
+        :url "https://github.com/CraZySacX/semver"}
+  :codox {:output-dir "api"
+          :exclude [org.ozias.cljlibs.semver.version]
+          :src-dir-uri "http://github.com/CraZySacX/semver/blob/0.1.4/"
+          :src-linenum-anchor-prefix "L"}
+  :manifest {"Implementation-Version" "0.1.4"}
+  :git-version {:file {:assoc-in-keys [[:manifest "Implementation-Version"]]}})

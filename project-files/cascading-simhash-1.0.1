@@ -1,0 +1,13 @@
+(defproject org.clojars.sorenmacbeth/cascading-simhash "1.0.1"
+  :description "Calculate simple simhashing in Hadoop"
+  :dependencies 
+  [[org.clojure/clojure "1.2.1"]
+   [cascalog "1.8.1"]]
+  :dev-dependencies 
+  [[org.apache.hadoop/hadoop-core "0.20.2-dev"]]
+  :repositories
+  {"clojars" "http://clojars.org/repo"}
+  :jvm-opts ["-Xmx1400m"] 
+  :source-path "src/clj"
+  :aot [simhash.core])
+

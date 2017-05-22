@@ -1,0 +1,13 @@
+(defproject clj-soap "0.1.1"
+  :description "SOAP Client and Server using Apache Axis2."
+  :url "https://bitbucket.org/taka2ru/clj-soap"
+  :dependencies [[org.clojure/clojure "1.2.1"]
+                 [org.clojure/clojure-contrib "1.2.0"]
+                 [org.apache.axis2/axis2-adb "1.6.0"]
+                 [org.apache.axis2/axis2-transport-http "1.6.0"]
+                 [org.apache.axis2/axis2-transport-local "1.6.0"]]
+  :dev-dependencies [[lein-clojars "0.6.0"]
+                     [vimclojure/server "2.2.0"]
+                     [org.clojars.autre/lein-vimclojure "1.0.0"]]
+  :aot [clj-soap.test.core])
+

@@ -1,0 +1,4 @@
+(defproject lein-prod-html "0.1.0"
+  :description "Silly lein plugin to let you use the same html files for dev and production."
+  :url "http://github.com/ninjudd/lein-prod-html"
+  :dependencies [[org.clojure/clojure "1.5.1"]])

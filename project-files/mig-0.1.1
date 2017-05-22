@@ -1,0 +1,13 @@
+(defproject philjackson/mig "0.1.1"
+  :description "FIXME: write description"
+  :url "https://github.com/philjackson/mig"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :eval-in-leiningen true
+  :mig {:base-dir "test/fixtures/test1"
+        :init leiningen.mig/init
+        :finish clojure.pprint/pprint
+        :directives [:up :down]}
+  :dependencies [[org.clojure/clojure "1.7.0"]
+                 [org.clojure/tools.namespace "0.2.11"]
+                 [slingshot "0.12.2"]])

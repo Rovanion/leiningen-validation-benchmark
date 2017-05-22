@@ -1,0 +1,22 @@
+(defproject burningswell/geoip "0.2.0"
+  :description "The Burning Swell GeoIP library."
+  :url "https://github.com/burningswell/geoip"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :min-lein-version "2.6.1"
+  :deploy-repositories [["releases" :clojars]]
+  :dependencies [[com.stuartsierra/component "0.3.2"]
+                 [com.fasterxml.jackson.core/jackson-databind "2.8.6"]
+                 [com.maxmind.geoip2/geoip2 "2.8.0"
+                  :exclusions [com.fasterxml.jackson.core/jackson-databind]]
+                 [inflections "0.12.2"]
+                 [io.pedestal/pedestal.jetty "0.5.2" :scope "provided"]
+                 [io.pedestal/pedestal.service "0.5.2" :scope "provided"]
+                 [org.clojure/clojure "1.9.0-alpha14"]
+                 [org.clojure/tools.logging "0.3.1"]]
+  :plugins [[jonase/eastwood "0.2.3"]
+            [lein-difftest "2.0.0"]
+            [listora/whitespace-linter "0.1.0"]]
+  :aliases
+  {"ci" ["do" ["clean"] ["difftest"] ["lint"]]
+   "lint" ["do" ["whitespace-linter"] ["eastwood"]]})

@@ -1,0 +1,21 @@
+(defproject com.spright/dawdle "0.1.4"
+  :description "Async Slack client"
+  :url "http://github.com/sprightco/dawdle"
+  :license {:name "MIT" :url "http://opensource.org/licenses/MIT"}
+  :deploy-repositories [["clojars"]]
+  :signing {:gpg-key "keith@nearlyfree.org"}
+  :dependencies [[org.clojure/clojure       "1.7.0"]
+                 [aleph                     "0.4.1"]
+                 [cheshire                  "5.5.0"]
+                 [org.clojure/tools.logging "0.3.1"]]
+  :profiles {:dev {:dependencies [[midje "1.8.1"]]
+                   :plugins [[lein-midje "3.2"]
+                             [lein-pprint "1.1.2"]]}}
+  :release-tasks [["vcs" "assert-committed"]
+                  ["change" "version" "leiningen.release/bump-version" "release"]
+                  ["vcs" "commit"]
+                  ["vcs" "tag"]
+                  ["deploy" "clojars"]
+                  ["change" "version" "leiningen.release/bump-version"]
+                  ["vcs" "commit"]
+                  ["vcs" "push"]])

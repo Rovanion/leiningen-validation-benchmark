@@ -1,0 +1,10 @@
+(defproject com.spright/le-helpers "0.1.0"
+  :description "Helper classes for logging with LogEntries"
+  :url "http://github.com/sprightco/le-helpers"
+  :license {:name "MIT" :url "http://opensource.org/licenses/MIT"}
+  :deploy-repositories [["clojars" {:creds :gpg}]]
+  :signing {:gpg-key "keith@nearlyfree.org"}
+  :dependencies []
+  :java-source-paths ["src"]
+  :profiles {
+    :provided {:dependencies [[net.logstash.logback/logstash-logback-encoder "4.5.1"]]}})

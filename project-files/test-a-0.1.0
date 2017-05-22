@@ -1,0 +1,4 @@
+(defproject test-a "0.1.0"
+  :description "FIXME: write description"
+  :dependencies [[clojure "1.3.0"]
+                 [org.kohsuke/pom "2" :type "pom"]])

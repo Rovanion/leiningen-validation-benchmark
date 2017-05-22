@@ -1,0 +1,24 @@
+(defproject burningswell/rabbitmq "0.3.0"
+  :description "The Burning Swell RabbitMQ client library"
+  :url "https://github.com/burningswell/rabbitmq"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :deploy-repositories [["releases" :clojars]]
+  :dependencies [[com.novemberain/langohr "3.5.1"]
+                 [com.stuartsierra/component "0.3.1"]
+                 [org.clojure/clojure "1.7.0"]
+                 [org.clojure/tools.logging "0.3.1"]
+                 [prismatic/schema "1.0.5"]]
+  :aliases {"ci" ["do" ["difftest"] ["lint"]]
+            "lint" ["do" ["whitespace-linter"] ["eastwood"]]
+            "test-ancient" ["test"]}
+  :eastwood {:exclude-linters [:constant-test :unused-ret-vals :redefd-vars]}
+  :min-lein-version "2.4.2"
+  :profiles {:dev {:dependencies [[ch.qos.logback/logback-core "1.1.5"]
+                                  [ch.qos.logback/logback-classic "1.1.5"]
+                                  [org.slf4j/log4j-over-slf4j "1.7.16"]
+                                  [reloaded.repl "0.2.1"]]
+                   :plugins [[jonase/eastwood "0.2.1"]
+                             [lein-difftest "2.0.0"]
+                             [listora/whitespace-linter "0.1.0"]]}
+             :test {:resource-paths ["test-resources"]}})

@@ -1,0 +1,15 @@
+(defproject hjdserver/remote-services "0.1.0"
+  :description "wrap the hjd rmi service using clojure"
+  :dependencies [[org.clojure/clojure "1.6.0"]
+                 [org.springframework/spring-context "4.0.5.RELEASE"]]
+  :plugins [[org.springframework.build/aws-maven "5.0.0.RELEASE"]]
+  :repositories [["releases"
+                  {:url "s3://hjd_repository/releases"
+                   :username :env :passphrase :env :sign-releases false}]
+                 ["snapshots"
+                  {:url "s3://hjd_repository/snapshots"
+                   :username :env :passphrase :env :sign-releases false}]]
+  :profiles {:dev
+             {:dependencies [[hjdserver/datacenter-api "0.1.0"]
+                             [hjdserver/vip-service-api "0.1.0"]
+                             [hjdserver/mobile-limit-service-api "0.1.0"]]}})

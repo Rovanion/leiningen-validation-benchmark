@@ -1,0 +1,17 @@
+(defproject com.banzai/platform-order "0.9.0"
+  :description "Library for coordinating asynchronous tasks that must be processed in order"
+  :url "https://github.com/banzai-inc/platform-order"
+  :license {}
+  :dependencies [[org.clojure/clojure "1.8.0"]
+                 [com.stuartsierra/component "0.3.1"]
+                 [com.banzai/utils "0.13.1"]
+                 [com.banzai/platform-log "0.1.0"]
+                 [prismatic/schema "1.0.4"]
+                 [meta-merge "0.1.1"]
+                 [environ "1.0.0"]
+                 [medley "0.7.1"]
+                 [com.taoensso/carmine "2.12.1"]]
+  :plugins [[s3-wagon-private "1.1.2"]]
+  :repositories [["private" {:url "s3p://banzai-clojure/releases/"
+                             :username ~(System/getenv "AWS_ACCESS_KEY_ID")
+                             :passphrase ~(System/getenv "AWS_SECRET_KEY")}]])

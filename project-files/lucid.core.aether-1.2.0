@@ -1,0 +1,64 @@
+(defproject im.chit/lucid.core.aether "1.2.0"
+  :description "tools for code clarity"
+  :url "https://www.github.com/zcaudate/lucidity"
+  :license {:name "The MIT License"
+            :url "http://http://opensource.org/licenses/MIT"}
+  :aliases {"test" ["run" "-m" "hara.test" ":exit"]}
+  :dependencies [[org.clojure/clojure "1.8.0"]
+                 [org.eclipse.aether/aether-api "1.1.0"]
+                 [org.eclipse.aether/aether-spi "1.1.0"]
+                 [org.eclipse.aether/aether-util "1.1.0"]
+                 [org.eclipse.aether/aether-impl "1.1.0"]
+                 [org.eclipse.aether/aether-connector-basic "1.1.0"]
+                 [org.eclipse.aether/aether-transport-wagon "1.1.0"]
+                 [org.eclipse.aether/aether-transport-http "1.1.0"]
+                 [org.eclipse.aether/aether-transport-file "1.1.0"]
+                 [org.eclipse.aether/aether-transport-classpath "1.1.0"]
+                 [org.apache.maven/maven-aether-provider "3.1.0"]]
+                 
+  :publish {:theme  "stark"
+            
+            :template {:site   "lucid"
+                       :author "Chris Zheng"
+                       :email  "z@caudate.me"
+                       :icon   "favicon"
+                       :tracking-enabled "true"
+                       :tracking "UA-31320512-2"}
+            
+            :files {"index"
+                    {:template "home.html"
+                     :input "test/documentation/home_lucidity.clj"
+                     :title "lucidity"
+                     :subtitle "tools for code clarity"}
+                    "lucid-core"
+                    {:input "test/documentation/lucid_core.clj"
+                     :title "core"
+                     :subtitle "functions for the code environment"}
+                    "lucid-mind"
+                    {:input "test/documentation/lucid_mind.clj"
+                     :title "mind"
+                     :subtitle "contemplative reflection for the jvm"}
+                    "lucid-publish"
+                    {:input "test/documentation/lucid_publish.clj"
+                     :title "publish"
+                     :subtitle "generate documentation from code"}
+                    "lucid-query"
+                    {:input "test/documentation/lucid_query.clj"
+                     :title "query"
+                     :subtitle "intuitive search for code"}
+                    "lucid-space"
+                    {:input "test/documentation/lucid_space.clj"
+                     :title "space"
+                     :subtitle "management of project externals"}
+                    "lucid-unit"
+                    {:input "test/documentation/lucid_unit.clj"
+                     :title "unit"
+                     :subtitle "metadata through unit tests"}}
+   
+            :link {:auto-tag    true
+                   :auto-number  true}}
+   
+   
+
+  :java-source-paths ["example/java"]
+  :jar-exclusions [#"^test\..+\.class"] :scm {:connection "scm:git:git://github.com/zcaudate/lucidity.git", :developerConnection "scm:git:ssh://git@github.com/zcaudate/lucidity.git", :tag "a4fd0f1994c0e74233f3a8e2cec2f2cb8e48ddc1\n", :url "https://github.com/zcaudate/lucidity"})

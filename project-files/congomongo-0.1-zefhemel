@@ -1,0 +1,9 @@
+(defproject org.clojars.zefhemel/congomongo "0.1-zefhemel"
+            :description "A clojure interface to MongoDB"
+            :url "http://github.com/zefhemel/congomongo"
+            :source-path "src/main/clj"
+            :repositories [["clojars" "http://clojars.org/repo"]]
+            :dev-dependencies [[lein-clojars "0.5.0-SNAPSHOT"]]
+            :dependencies [[org.clojure/clojure "1.1.0-master-SNAPSHOT"]
+                           [org.clojure/clojure-contrib "1.0-SNAPSHOT"]
+                           [org.mongodb/mongo-java-driver "1.0"]])

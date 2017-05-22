@@ -1,0 +1,6 @@
+(defproject auxilium "0.1.0"
+  :description "A library of utilities"
+  :license {:name "Eclipse Public License"
+            :url "www.adb.co.uk"}
+  :dependencies [[org.clojure/clojure "1.8.0"]
+                 [org.clojure/data.json "0.2.6"]])

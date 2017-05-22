@@ -1,0 +1,12 @@
+(defproject com.timezynk/ring-middleware-format "0.2.13"
+  :description "Ring middleware for parsing parameters and emitting responses in various formats. See https://github.com/ngrunwald/ring-middleware-format"
+  :dependencies [
+    [cheshire "5.6.3"]
+    [joda-time "2.9.2"]
+    [org.clojure/clojure "1.8.0"]
+    [org.clojure/core.memoize "0.5.2"]
+    [org.clojure/tools.logging "0.3.1"]
+    [org.mongodb/mongo-java-driver "2.14.0"]
+    [ring/ring-core "1.5.0"]
+  ]
+  :min-lein-version "2.0.0")

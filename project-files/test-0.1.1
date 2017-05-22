@@ -1,0 +1,11 @@
+(defproject ayato_p/test "0.1.1"
+  :description "FIXME: write description"
+  :url "http://example.com/FIXME"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :deploy-repositories [["snapshots" {:url "https://clojars.org/repo/"
+                                      :username [:gpg :env]
+                                      :password [:gpg :env]}]
+                        ["releases" {:url "https://clojars.org/repo/"
+                                     :creds :gpg}]]
+  :dependencies [[org.clojure/clojure "1.7.0"]])

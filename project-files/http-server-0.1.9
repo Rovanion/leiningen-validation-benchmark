@@ -1,0 +1,18 @@
+(defproject burningswell/http-server"0.1.9"
+  :description "The Burning Swell HTTP server"
+  :url "https://github.com/burningswell/http-kit-component"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :dependencies [[com.stuartsierra/component "0.3.0"]
+                 [http-kit "2.1.19"]
+                 [org.clojure/clojure "1.7.0"]
+                 [org.clojure/tools.logging "0.3.1"]
+                 [prismatic/schema "1.0.3"]]
+  :aliases {"ci" ["do" ["difftest"] ["lint"]]
+            "lint" ["do" ["whitespace-linter"] ["eastwood"]]
+            "test-ancient" ["test"]}
+  :deploy-repositories [["releases" :clojars]]
+  :eastwood {:exclude-linters [:constant-test :redefd-vars :unused-ret-vals]}
+  :profiles {:dev {:plugins [[jonase/eastwood "0.2.0"]
+                             [lein-difftest "2.0.0"]
+                             [listora/whitespace-linter "0.1.0"]]}})

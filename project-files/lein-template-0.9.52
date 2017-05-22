@@ -1,0 +1,8 @@
+(defproject reagent-npm/lein-template "0.9.52"
+  :description "lein template for projects using Reagent + hacky magic for npm mdoules."
+  :url "https://github.com/elsehow/reagent-npm-template"
+  :license {:name "BSD 2-Clause license"
+            :url "http://opensource.org/licenses/BSD-2-Clause"}
+  :scm {:name "git"
+         :url "https://github.com/elsehow/reagent-npm-template.git"}
+  :eval-in-leiningen true)

@@ -1,0 +1,12 @@
+(defproject calvin/clj-codapay "0.1.1"
+  :description "Codapay is a library that ease the adoption of codapay (coda payment gateway) API."
+  :url "https://github.com/calvinirwan/clj-codapay"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :dependencies [[org.clojure/clojure "1.7.0"]
+                 [clj-http "2.0.0"]
+                 [cheshire "5.5.0"]
+                 [prismatic/schema "1.0.1"]]
+  :main ^:skip-aot clj-codapay.core
+  :target-path "target/%s"
+  :profiles {:uberjar {:aot :all}})

@@ -1,0 +1,42 @@
+(defproject dvlopt/logia "0.0.0-alpha0"
+  :description "<!> Developer is too lazy to write a description"
+  :url "Missing, maybe there is no website yet ?"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :plugins [[lein-codox "0.9.5"]]
+  :codox {:language :clojure
+          :source-paths ["dev"
+                         "src"]
+          :output-path "doc/generated"
+          :namespaces [dev
+                       bob.prov]}
+  :dependencies [[org.clojure/clojure "1.9.0-alpha10"]  ;; alpha but needed for clojure.spec
+
+                 ; Error handling
+                 ; [slingshot "0.12.2"]
+
+                 ; Stuart Sierra componetns
+                 ; [com.stuartsierra/component "0.3.1"]
+
+                 ; Best SQL lib' + adapter to use clojure.jdbc instead of clojure.java.jdbc
+                 ; [com.layerware/hugsql "0.4.7"]
+                 ; [com.layerware/hugsql-adapter-clojure-jdbc "0.4.7"]
+
+                 ; Quite good lib for date handling
+                 ; [clojure.joda-time "0.6.0"]
+
+                 ; Fetch config in dedicated files 
+                 ; [aero "1.0.0"]
+                 ]
+  :main ^:skip-aot logia
+  :source-paths ["src"
+                 "src/clj"]
+  :target-path "target/%s"
+  :profiles {:dev {:main dev
+                   :source-paths ["dev"
+                                  "dev/clj"]
+                   :plugins [[venantius/ultra "0.4.1"]]  ;; colorful repl
+                   :dependencies [[org.clojure/tools.namespace "0.2.11"]  ;; for live reloading using (rl)
+                                  ;[org.clojure/test.check "0.9.0"]]
+                                  ]}
+             :uberjar {:aot :all}})

@@ -1,0 +1,13 @@
+(defproject de.sveri/friendui-datomic "0.2.2"
+  :description "A helper that implements friendui storage protocol for datomic"
+  :url "https://github.com/sveri/friendui-datomic"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :dependencies [[org.clojure/clojure "1.6.0"]
+                 [de.sveri/clojure-commons "0.1.5"]
+                 [de.sveri/friendui "0.4.0"]]
+  :profiles {:repl {:dependencies [[com.datomic/datomic-pro "0.9.4899"]]}}
+  :deploy-repositories [["clojars-self" {:url           "https://clojars.org/repo"
+                                         :sign-releases false}]]
+
+  :src ["src"])

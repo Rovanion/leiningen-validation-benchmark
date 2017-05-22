@@ -1,0 +1,18 @@
+;
+; Copyright (c) 2014 Jan Oetjen <oetjenj@gmail.com>
+;
+; All rights reserved. This program and the accompanying materials
+; are made available under the terms of the Eclipse Public License v1.0
+; which accompanies this distribution, and is available at
+; http://www.eclipse.org/legal/epl-v10.html
+;
+
+(defproject chronology "0.2.0"
+  :description "A library for `callable` lists and vectors."
+  :url "https://github.com/joetjen/chronology"
+  :license {:name "Eclipse Public License"
+            :url  "http://www.eclipse.org/legal/epl-v10.html"}
+  :dependencies [[org.clojure/clojure "1.5.1"]]
+  :profiles {:dev {:dependencies [[speclj "2.9.1"]]}}
+  :plugins [[speclj "2.9.1"]]
+  :test-paths ["spec"])

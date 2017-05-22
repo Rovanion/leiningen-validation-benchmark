@@ -1,0 +1,6 @@
+(defproject ring-env "0.1.0"
+  :description "Middleware for passing an environment indicator through a Ring request."
+  :url "https://github.com/banzai-inc/ring-env"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :dependencies [[org.clojure/clojure "1.7.0"]])

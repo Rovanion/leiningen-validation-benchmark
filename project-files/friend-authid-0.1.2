@@ -1,0 +1,12 @@
+(defproject friend-authid "0.1.2"
+  :description "Auth-ID workflow for Friend"
+  :dependencies [[org.clojure/clojure "1.4.0"]
+                 [com.cemerick/friend "0.1.2"]
+                 [org.openid4java/openid4java-nodeps "0.9.6"
+                  ; the openid4java artifact refers to a now-disappeared guice repo that
+                  ; was previously hosted via google code svn :X
+                  :exclusions [com.google.code.guice/guice]]
+                 [clj-http "0.4.3"]
+                 [ring/ring-core "1.1.1"]
+                 [crypto-random "1.1.0"]
+                 [clj-http "0.4.3"]])

@@ -1,0 +1,4 @@
+(defproject ring-json-body "0.1.0"
+  :description "Ring middleware that converts the response body to JSON."
+  :dependencies [[org.clojure/clojure "1.2.0"]
+                 [org.clojure/data.json "0.1.0"]])

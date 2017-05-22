@@ -1,0 +1,10 @@
+(defproject frodunk "0.1.5.0"
+  :description "frodunk"
+  :url "http://example.com/frodunk"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :dependencies [[org.clojure/clojure "1.6.0"]]
+  :scm {:name "git" :url "http://example.com/"}
+  :release-tasks [["change" "version"   "leiningen.release/bump-version" "release"]
+                  ["deploy"]]
+  :x 1)

@@ -1,0 +1,5 @@
+(defproject ysparse "1.0.0"
+  :description "Standard defs and functions to build parsers for YS API's"
+  :dependencies [[org.clojure/clojure "1.3.0"]
+                 [org.clojars.jpoplett/fnparse "2.2.8"]]
+  :dev-dependencies [[swank-clojure "1.3.3"]])

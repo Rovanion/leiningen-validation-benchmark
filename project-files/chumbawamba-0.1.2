@@ -1,0 +1,44 @@
+(defproject farbetter/chumbawamba "0.1.2"
+  :description "A resilient websocket connection library
+                for Clojure and Clojurescript"
+  :url "https://github.com/farbetter/chumbawamba"
+  :license {:name "The Apache Software License, Version 2.0"
+            :url "http://www.apache.org/licenses/LICENSE-2.0.txt"}
+  :lein-release {:scm :git
+                 :deploy-via :clojars}
+
+  :profiles
+  {:dev
+   {:plugins [[lein-cljsbuild "1.1.2"]
+              [lein-release "1.0.9"]]
+    :dependencies
+    [[aleph "0.4.1-beta4"]]}}
+
+  :dependencies
+  [[com.taoensso/timbre "4.2.1"]
+   [farbetter/utils "0.1.36"]
+   [org.clojure/clojure "1.8.0"]
+   [org.clojure/clojurescript "1.7.228"]
+   [org.clojure/core.async "0.2.374"]
+   [stylefruits/gniazdo "0.4.1"]]
+
+  ;; Enable this to check for reflection problems
+  ;; :global-vars {*warn-on-reflection* true}
+
+  :cljsbuild
+  {:builds
+   [{:id "node-test-none"
+     :source-paths ["src" "test"]
+     :notify-command ["node" "target/test/node_test_none/test_main.js"]
+     :compiler
+     {:optimizations :none
+      :main "farbetter.test-runner"
+      :target :nodejs
+      :output-to "target/test/node_test_none/test_main.js"
+      :output-dir "target/test/node_test_none"
+      :source-map true}}]}
+
+  :aliases
+  {"auto-test-cljs" ["do"
+                     "clean,"
+                     "cljsbuild" "auto" "node-test-none"]})

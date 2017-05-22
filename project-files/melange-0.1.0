@@ -1,0 +1,5 @@
+(defproject melange "0.1.0"
+  :description "See with the eyes of the Kwisatz Haderach."
+  :url "https://github.com/Seajure/melange"
+  :license "Eclipse Public License 1.0"
+  :eval-in-leiningen true)

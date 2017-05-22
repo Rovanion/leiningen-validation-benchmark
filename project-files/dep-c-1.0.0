@@ -1,0 +1,4 @@
+(defproject org.clojars.weavejester/dep-c "1.0.0"
+  :description "FIXME: write description"
+  :dependencies [[org.clojure/clojure "1.2.1"]
+                 [org.clojars.weavejester/dep-a "1.1.1"]])

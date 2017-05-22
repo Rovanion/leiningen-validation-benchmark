@@ -1,0 +1,12 @@
+(defproject thheller/lein-test-loop "0.3.0"
+  :description "Pretty much autotest, watches your sourcefiles and runs tests when modified"
+  :url "http://github.com/thheller/lein-test-loop"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+
+  :dependencies [[org.clojure/tools.namespace "0.2.2"]]
+
+  :java-source-paths ["src/java"]
+  :source-paths ["src/clj"]
+
+  :eval-in-leiningen true)

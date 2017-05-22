@@ -1,0 +1,4 @@
+(defproject leiningen/lein-swank "1.2.0-SNAPSHOT"
+  :description "A leiningen plugin to launch a swank server."
+  :dependencies [[swank-clojure "1.2.0-SNAPSHOT"]]
+  :dev-dependencies [[org.clojure/clojure "1.1.0"]])

@@ -1,0 +1,9 @@
+(defproject indabamusic/ring-aws-api-gateway-lambda-adapter "0.1.0"
+  :description "Connect a Lambda-deployed Ring handler to AWS API Gateway"
+  :url "https://github.com/indabamusic/ring-aws-gateway-lambda-adapter"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :dependencies [[org.clojure/clojure "1.8.0"]
+                 [org.clojure/data.json "0.2.6"]
+                 [ring/ring-codec "1.0.1"]
+                 [uswitch/lambada "0.1.2"]])

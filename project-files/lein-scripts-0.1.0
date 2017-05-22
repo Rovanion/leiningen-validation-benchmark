@@ -1,0 +1,7 @@
+(defproject lein-scripts "0.1.0"
+  :description "A lein task that runs a list of tasks(scripts)"
+  :dependencies [[org.clojure/clojure "1.1.0"]
+                 [org.clojure/clojure-contrib "1.0-SNAPSHOT"]]
+  :dev-dependencies [[leiningen/lein-swank "1.0.0-SNAPSHOT"]
+                     [lein-clojars "0.5.0-SNAPSHOT"]]
+  :namespaces [leiningen.scripts])

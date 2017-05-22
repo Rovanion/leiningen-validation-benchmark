@@ -1,0 +1,10 @@
+(defproject truckerpath/clj-config "1.0.0"
+  :description "Tiny library for loading configs from edn files"
+  :url "https://github.com/truckerpathteam/clj-config"
+  :license {:name "MIT License"
+            :url "https://github.com/truckerpathteam/clj-config/blob/master/LICENSE"}
+
+  :dependencies [[org.clojure/clojure "1.8.0" :scope "provided"]
+                 [org.clojure/tools.logging "0.3.1"]]
+
+  :deploy-repositories [["clojars" {:creds :gpg}]])

@@ -1,0 +1,10 @@
+(defproject thinktopic-logstash-appender "0.1.0"
+  :description "Thinktopic timbre logstash appender."
+  :url "http://github.com/thinktopic/thinktopic-logstash-appender"
+  :license {:name "Eclipse Public License"
+            :url  "http://www.eclipse.org/legal/epl-v10.html"}
+  :dependencies [[org.clojure/clojure "1.8.0"]
+
+                 [cheshire "5.6.3"]
+                 [com.taoensso/timbre "4.8.0-alpha1"]
+                 [environ "1.1.0"]])

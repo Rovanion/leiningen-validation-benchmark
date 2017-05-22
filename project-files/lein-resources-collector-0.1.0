@@ -1,0 +1,6 @@
+(defproject lein-resources-collector "0.1.0"
+  :description "Collect resource's name in file for unpacking by eresources"
+  :url "https://github.com/dowakin/lein-resources-collector"
+  :license {:name "The MIT License (MIT)"
+            :url "http://opensource.org/licenses/mit-license.php"}
+  :eval-in-leiningen true)

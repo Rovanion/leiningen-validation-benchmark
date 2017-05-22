@@ -1,0 +1,30 @@
+(defproject org.ozias.plugins/lein-git-version "1.1.4"
+  :description "Use git for project versions"
+  :url "https://github.com/CraZySacX/lein-git-version"
+  :license {:name "MIT"
+            :url "http://opensource.org/licenses/MIT"}
+  :dependencies [[clj-time "0.6.0"]
+                 [colorize "0.1.1" :exclusions [org.clojure/clojure]]
+                 [org.ozias.cljlibs/logging "0.1.3"]]
+  :profiles {:dev {:dependencies [[midje "1.6.3"]
+                                  [org.clojure/clojure "1.6.0"]]
+                   :plugins [[lein-midje "3.1.3"]]}}
+  :aliases {"package" ["do" "clean," "install"]
+            "dep" ["do" "deploy," "deploy" "clojars"]
+            "all" ["do" "package," "dep"]}
+  :jvm-opts ["-Xms1024m" "-Xmx1024m"]
+  :deploy-repositories [["snapshots" 
+                         {:url
+                          "http://www.ozias.net/artifactory/libs-snapshot-local"
+                          :creds :gpg}]
+                        ["releases"
+                         {:url
+                          "http://www.ozias.net/artifactory/libs-release-local"
+                          :creds :gpg}]]
+  :test-paths ["test" "testsrc"]
+  :scm {:name "git"
+        :url "https://github.com/CraZySacX/lein-git-version"}
+  :manifest {"Implementation-Version" "1.1.4"}
+  :git-version {:file {:filepath "lein_git_version"
+                       :assoc-in-keys [[:manifest "Implementation-Version"]]}}
+  :eval-in-leiningen true)

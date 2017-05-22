@@ -1,0 +1,30 @@
+(defproject readux "0.1.0"
+  :description "ClojureScript library for managing state in reagent-based SPA's. Inspired by Redux"
+  :url "https://github.com/readux"
+  :license {:name "MIT"
+            :url "https://mit-license.org/"}
+  :dependencies [[org.clojure/clojure "1.8.0"]
+                 [reagent "0.6.0-rc"]
+                 [org.clojure/clojurescript "1.9.227"]]
+  :profiles {:debug {:debug true}
+             :dev   {:dependencies [[binaryage/devtools "0.8.1"]]
+                     :plugins [[lein-cljsbuild "1.1.4"]
+                               [lein-codox "0.9.6"]]}}
+  :resource-paths ["run/resources"]
+  :source-paths ["src/cljc" "src/cljs" "test/cljs"]
+  :test-paths ["test"]
+  :deploy-repositories [["releases" {:sign-releases false :url "https://clojars.org/repo"}]
+                        ["snapshots" {:sign-releases false :url "https://clojars.org/repo"}]]
+  :cljsbuild {:builds [{:id "test"
+                        :source-paths ["test" "src"]
+                        :compiler {:preloads [devtools.preload]
+                                   :external-config {:devtools/config {:features-to-install :all}}
+                                   :output-dir "run/compiled/browser/test"
+                                   :output-to  "run/compiled/browser/test.js"
+                                   :source-map true
+                                   :optimizations :none
+                                   :source-map-timestamp true
+                                   :pretty-print true}}]}
+  :clean-targets [:target-path "run/compiled"]
+  :codox {:language :clojurescript
+          :exclude clojure.string})

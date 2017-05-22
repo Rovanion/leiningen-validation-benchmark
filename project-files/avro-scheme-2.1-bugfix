@@ -1,0 +1,20 @@
+(defproject jeroenvandijk/avro-scheme "2.1-bugfix"
+  :min-lein-version "2.0.0"
+
+  :source-paths ["src/clj"]
+  :java-source-paths ["src/main/java"]
+
+  :repositories { "conjars" "http://conjars.org/repo" }
+  :dependencies [
+      [org.apache.avro/avro "1.7.3"]
+      [org.apache.avro/avro-mapred "1.7.3"]
+      [cascading/cascading-hadoop "2.1.0"]]
+  :profiles {
+    :dev {
+      :dependencies [[org.apache.hadoop/hadoop-core "1.0.3"]]
+    }
+  }
+  
+  :deploy-repositories [["clojars" {:url "https://clojars.org/repo/"
+                                                  :password :plain}]]
+)

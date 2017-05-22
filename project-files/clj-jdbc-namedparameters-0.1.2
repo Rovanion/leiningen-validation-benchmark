@@ -1,0 +1,19 @@
+(defproject clj-jdbc-namedparameters "0.1.2"
+
+  :description "A Clojure library for making JDBC SQL queries with named parameters."
+  :url "https://github.com/turkia/clj-jdbc-namedparameters"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+
+  :dependencies [[org.clojure/clojure "1.7.0"]
+                 [org.clojure/java.jdbc "0.3.7"]
+                 [org.springframework/spring-core  "4.1.6.RELEASE"]
+                 [org.springframework/spring-jdbc  "4.1.6.RELEASE"]
+                 [org.springframework/spring-tx    "4.1.6.RELEASE"]
+                 [org.springframework/spring-beans "4.1.6.RELEASE"]
+                 [hikari-cp "1.2.4"]
+                 [clojurewerkz/propertied "1.2.0"]
+                 [org.slf4j/slf4j-simple "1.7.12"]]
+
+  :plugins [[lein-localrepo  "0.5.3"]
+            [lein-marginalia "0.8.0"]])

@@ -1,0 +1,15 @@
+(defproject ike/ike.tk.httpkit "0.1.0"
+  :description "Trapperkeeper service to start http-kit with a Ring handler."
+  :url "https://github.com/ike-tools/ike.tk.httpkit"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :dependencies [[org.clojure/clojure "1.6.0"]
+
+                 ;; trapperkeeper
+                 [puppetlabs/trapperkeeper "0.5.1"]
+
+                 ;; ring
+                 [ring/ring-core "1.3.1"]
+                 [http-kit "2.1.19"]]
+  :profiles {:dev {:source-paths ["examples/simple/src"]}}
+  :main puppetlabs.trapperkeeper.main)

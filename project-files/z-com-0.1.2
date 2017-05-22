@@ -1,0 +1,24 @@
+(defproject z-com "0.1.2"
+  :dependencies
+    [[org.clojure/clojure "1.9.0-alpha14"]
+     [org.clojure/clojurescript "1.9.293"]
+
+     [reagent "0.6.1" :exclusions [cljsjs/react]]
+     [cljsjs/react-with-addons "15.4.0-0"]
+
+     ;; navtree
+     [keybind "2.0.0"]
+     [com.taoensso/timbre "4.8.0"]]
+
+  :jar-exclusions [#"(?:^|\/)node_modules\/" #".*\.js"]
+
+  :source-paths
+    ["src/cljs"
+     "components/carousel/src/cljs"
+     "components/elastic-input/src/cljs"
+     "components/linetree/src/cljc"
+     "components/menu/src/cljs"
+     "components/navtree/src/cljs"
+     "components/navtree/src/cljc"
+     "components/panel/src/cljs"
+     "components/xd-table/src/cljs"])

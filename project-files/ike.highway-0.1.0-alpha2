@@ -1,0 +1,33 @@
+(defproject ike/ike.highway "0.1.0-alpha2"
+  :description "Naive HTTP-based event bus."
+  :url "https://github.com/ike-tools/ike.highway"
+  :license {:name "Apache License, Version 2.0"
+            :url "http://www.apache.org/licenses/LICENSE-2.0"}
+  :min-lein-version "2.5.0"
+  :dependencies [[org.clojure/clojure "1.7.0-alpha5"]
+
+                 ;; system internals
+                 [ike/ike.util "0.1.0-alpha6"]
+                 [org.clojure/core.async "0.1.346.0-17112a-alpha"]
+                 [org.clojure/tools.logging "0.3.1"]
+                 [org.clojure/tools.reader "0.8.16"]
+                 [com.stuartsierra/component "0.2.2"]
+
+                 ;; http
+                 [ring/ring-core "1.3.2"]
+                 [aleph "0.4.0-beta3"]
+                 [compojure "1.3.2"]
+                 [org.clojure/data.json "0.2.5"]]
+  :release-tasks [["vcs" "assert-committed"]
+                  ["change" "version" "leiningen.release/bump-version"]
+                  ["vcs" "commit"]
+                  ["vcs" "tag"]
+                  ["deploy" "clojars"]
+                  ["vcs" "push"]]
+  :main ^:skip-aot ike.highway
+  :target-path "target/%s"
+  :profiles {:uberjar {:aot :all}
+             :dev {:dependencies [[reloaded.repl "0.1.0"]
+                                  [org.clojure/tools.namespace "0.2.9"]]
+                   :source-paths ["dev"]
+                   :repl-options {:init-ns user}}})

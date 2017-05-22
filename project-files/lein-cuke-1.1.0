@@ -1,0 +1,7 @@
+(defproject org.clojars.jzh/lein-cuke "1.1.0"
+  :description "Cucumber runner for Leiningen (lein)"
+  :repositories {"codehaus" "http://repository.codehaus.org",
+		 "cukes" "http://cukes.info/maven", "clojars" "http://clojars.org/repo"}
+  :dependencies [[cuke4duke "0.4.2"]]
+  :dev-dependencies [[lein-clojars "0.6.0"]])
+

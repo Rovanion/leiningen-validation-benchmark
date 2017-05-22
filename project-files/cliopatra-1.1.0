@@ -1,0 +1,10 @@
+(defproject narkisr/cliopatra "1.1.0"
+  :description "Define and dispatch to multiple command line utilities"
+  :plugins [[lein-swank "1.4.4"]
+            [lein-clojars "0.9.1"]]
+  :profiles {:dev {:dependencies [[org.clojars.runa/conjure "2.1.3"]]}}
+  :repositores {"clojars" {"clojars" "http://clojars.org/repo"
+                           :sign-releases false}}
+  :dev-dependencies [[org.clojars.runa/conjure "2.1.3"]]
+  :dependencies [[org.clojure/clojure "1.4.0"]
+                 [org.clojure/tools.cli "0.2.2"]])

@@ -1,0 +1,17 @@
+(defproject lib-noir-lite "0.7.9"
+  :description "Libraries from Noir for your enjoyment."
+  :url "https://github.com/noir-clojure/lib-noir
+        https://github.com/misty000/lib-noir-lite/tree/lite"
+  :license {:name "Eclipse Public License - v 1.0"
+            :url "http://www.eclipse.org/legal/epl-v10.html"
+            :distribution :repo}
+  :dependencies [[org.clojure/clojure "1.5.1"]
+                 [ring/ring-core "1.2.0"]
+                 [clout "1.1.0"]
+                 [org.mindrot/jbcrypt "0.3m"]]
+  :profiles {:provided {:dependencies [[compojure "1.1.5"]
+                                       [cheshire "5.2.0"]
+                                       [hiccup "1.0.4"]
+                                       [ring-middleware-format "0.3.1"]]}}
+  :plugins [[codox "0.6.4"]]
+  :codox {:output-dir "doc"})

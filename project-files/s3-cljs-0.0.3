@@ -1,0 +1,18 @@
+(defproject viebel/s3-cljs "0.0.3"
+  :description "cljs wrapper to s3 sdk"
+  :url "https://github.com/viebel/s3-cljs"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :dependencies [[org.clojure/clojure "1.6.0"]
+                 [org.clojure/core.match "0.3.0-alpha3"]
+                 [org.clojure/clojurescript "0.0-2411"]
+                 [im.chit/purnam "0.4.3"]
+                 [org.clojure/core.async "0.1.346.0-17112a-alpha"]]
+  :plugins [[lein-cljsbuild "1.0.3"]]
+  :source-paths ["src/cljs"]
+  :cljsbuild {
+              :builds
+              {:dev {:source-paths ["src/cljs" "src/resources"]
+                     :compiler {:output-to "resources/public/js/main.js"
+                                :optimizations :whitespace
+                                :pretty-print true}}}})

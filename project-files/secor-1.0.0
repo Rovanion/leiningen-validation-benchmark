@@ -1,0 +1,4 @@
+(defproject helpshift/secor "0.1.0"
+  :description "Backup Kafka topic to S3"
+  :license {:name "Apache 2.0"}
+  :dependencies [])

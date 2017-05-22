@@ -1,0 +1,15 @@
+(defproject im.chit/hara.common.watch "2.1.9"
+  :description "General purpose utilities library"
+  :url "https://github.com/zcaudate/hara"
+  :license {:name "The MIT License"
+            :url "http://http://opensource.org/licenses/MIT"}
+  :dependencies [[org.clojure/clojure "1.6.0"] [im.chit/hara.protocol.watch "2.1.9"] [im.chit/hara.expression.shorthand "2.1.9"] [im.chit/hara.function.args "2.1.9"]]
+   
+  :documentation {:files {"docs/index"
+                        {:input "test/midje_doc/hara/outline.clj"
+                         :title "hara"
+                         :sub-title "General Purpose Utilities Library"
+                         :author "Chris Zheng"
+                         :email  "z@caudate.me"}}}
+  :global-vars {*warn-on-reflection* true}
+    :scm {:connection "scm:git:git://github.com/zcaudate/hara.git" :developerConnection "scm:git:ssh://git@github.com/zcaudate/hara.git" :tag "fa97c9e5ad405f8fbf9daf5e1d5c6f385b59ba4f\n" :url "https://github.com/zcaudate/hara"})

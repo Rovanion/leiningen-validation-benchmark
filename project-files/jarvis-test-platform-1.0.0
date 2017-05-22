@@ -1,0 +1,7 @@
+(defproject com.rallydev/jarvis-test-platform "1.0.0"
+  :description "Utility functions for testing jarvis plugins"
+  :url "http://github.com/RallySoftware/jarvis-test-platform"
+  :license {:name "The MIT License (MIT)"
+            :url "http://opensource.org/licenses/MIT"}
+  :dependencies [[org.clojure/clojure "1.5.0"]]
+  :plugins [[lein-clojars "0.9.1"]])

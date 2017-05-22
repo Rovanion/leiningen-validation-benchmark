@@ -1,0 +1,26 @@
+(defproject kixi/data.vendor.appnexus "0.6.5"
+  :description "kixi module to interface to appnexus"
+  :url "http://github.com/MastodonC/kixi.data.vendor.git"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :dependencies [[kixi/data.vendor.parent "0.6.5"]
+                 [clj-time            "0.11.0"]
+                 [clj-http            "2.0.1"]]
+
+  :scm {:name "git"
+        :url "git@github.com:MastodonC/kixi.data.vendor.git"
+        :dir "../.."}
+
+  :plugins [
+            [s3-wagon-private "1.1.2"]
+            ]
+  ;; You need to arrange for the environment variables:
+  ;;   CLOJARS_USERNAME to be your clojars username
+  ;;   CLOJARS_PASSWORD to be your clojars password.
+  ;; there is a sample.lein-credentials file which you can fill in and
+  ;; source from your shell
+
+  :repositories [["releases" {:url "https://clojars.org/repo" :username :env/clojars_username :password :env/clojars_password}]
+                 ["snapshots" {:url "s3p://mc-maven-repo/snapshots" :username :env/mc_aws_username :passphrase :env/mc_aws_passphrase}]]
+
+  :profiles {:dev {:dependencies [[org.clojure/test.check "0.9.0"]]}})

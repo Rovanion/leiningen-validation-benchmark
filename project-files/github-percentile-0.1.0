@@ -1,0 +1,12 @@
+(defproject github-percentile "0.1.0"
+  :description "If you were a Github employee, what percentile would your user ID be?"
+  :license "Eclipse Public License 1.0"
+  :url "http://github-percentile.herokuapp.com"
+  :dependencies [[org.clojure/clojure "1.3.0"]
+                 [hiccup "0.3.6"]
+                 [compojure "1.0.0-RC1"]
+                 [tentacles "0.1.3"]
+                 [ring "1.0.0"]
+                 [useful "0.7.5"]]
+  :main ^:skip-aot github-percentile.core
+  :ring {:handler github-percentile.core})

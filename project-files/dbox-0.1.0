@@ -1,0 +1,5 @@
+(defproject dbox "0.1.0"
+  :description "A toolbox which defclass maintenance"
+  :url "https://github.com/defclass/dbox"
+  :license {:name "Eclipse Public License"
+            :url  "http://www.eclipse.org/legal/epl-v10.html"})

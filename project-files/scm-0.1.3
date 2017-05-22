@@ -1,0 +1,38 @@
+(defproject org.ozias.cljlibs/scm "0.1.3"
+  :description "Clojure SCM Wrappers"
+  :url "https://github.com/CraZySacX/scm"
+  :license {:name "MIT"
+            :url "http://opensource.org/licenses/MIT"}
+  :dependencies [[environ "0.4.0"]
+                 [me.raynes/conch "0.6.0"]
+                 [org.clojure/clojure "1.6.0"]
+                 [org.ozias.cljlibs/utils "0.1.2"]]
+  :profiles {:dev {:source-paths ["dev"]
+                   :dependencies [[org.clojars.jozias/midje "1.6.3" :exclusions [org.clojure/clojure]]
+                                  [org.clojure/tools.namespace "0.2.4"]]
+                   :plugins [[codox "0.6.7"]
+                             [lein-midje "3.1.3"]
+                             [org.ozias.plugins/lein-git-version "1.1.2"]]
+                   :aliases {"package" ["do" "clean," "install"]
+                             "slamhound" ["run" "-m" "slam.hound"]
+                             "chk" ["do" "slamhound," "eastwood" "{:namespaces [:source-paths]}," "kibit,"
+                                    "bikeshed," "check," "archaic" "upgrade"]
+                             "most" ["do" "clean," "doc," "chk," "package"]
+                             "dep" ["do" "deploy," "deploy" "clojars"]
+                             "all" ["do" "most," "dep"]}}}
+  :jvm-opts ["-Xms1024m" "-Xmx1024m"]
+  :deploy-repositories [["snapshots" 
+                         {:url "http://www.ozias.net/artifactory/libs-snapshot-local"
+                          :creds :gpg}]
+                        ["releases"
+                         {:url "http://www.ozias.net/artifactory/libs-release-local"
+                          :creds :gpg}]]
+  :scm {:name "git"
+        :url "https://github.com/CraZySacX/scm"}
+  :codox {:output-dir "api"
+          :exclude [org.ozias.cljlibs.scm.version]
+          :sources ["src" "test"]
+          :src-dir-uri "http://github.com/CraZySacX/scm/blob/0.1.3/"
+          :src-linenum-anchor-prefix "L"}
+  :manifest {"Implementation-Version" "0.1.3"}
+  :git-version {:file {:assoc-in-keys [[:manifest "Implementation-Version"]]}})

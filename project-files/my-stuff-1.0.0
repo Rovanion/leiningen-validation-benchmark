@@ -1,0 +1,11 @@
+(defproject org.clojars.edutilos/my-stuff "1.0.0"
+  :description "i am going to learn leinigen"
+  :url "http://www.google.com"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :dependencies [[org.clojure/clojure "1.6.0"]
+  [clj-http "1.1.1"]
+  ]
+  :main ^:skip-aot my-stuff.core
+  :target-path "target/%s"
+  :profiles {:uberjar {:aot :all}})

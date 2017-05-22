@@ -1,0 +1,3 @@
+(defproject lein-repl13 "1.0.0"
+  :description "A plugin for a Clojure 1.3 repl in Leiningen 1.x."
+  :eval-in-leiningen true)

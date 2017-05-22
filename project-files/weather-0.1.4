@@ -1,0 +1,31 @@
+(defproject burningswell/weather "0.1.4"
+  :description "The Burning Swell weather service"
+  :url "https://github.com/burningswell/weather"
+  :license {:name "Creative Commons Attribution-NonCommercial 3.0"
+            :url "http://creativecommons.org/licenses/by-nc/3.0/"}
+  :min-lein-version "2.0.0"
+  :deploy-repositories [["releases" :clojars]]
+  :dependencies [[burningswell/config "0.1.38"]
+                 [burningswell/core "0.0.43"]
+                 [burningswell/db "0.0.87"]
+                 [ch.qos.logback/logback-classic "1.1.7"]
+                 [listora/again "0.1.0"]
+                 [medley "0.8.3"]
+                 [netcdf-clj "0.0.13" :exclusions [commandline-clj org.slf4j/slf4j-log4j12]]
+                 [org.clojure/clojure "1.9.0-alpha10"]]
+  :plugins [[lein-environ "1.1.0"]]
+  :aliases {"ci" ["do" ["difftest"] ["lint"]]
+            "lint" ["do" ["whitespace-linter"] ["eastwood"]]
+            "test-ancient" ["test"]}
+  :main ^{:skip-aot true} burningswell.weather.main
+  :profiles {:dev {:dependencies [[org.clojure/tools.namespace "0.2.10"]
+                                  [reloaded.repl "0.2.2"]]
+                   :plugins [[jonase/eastwood "0.2.3"]
+                             [lein-difftest "2.0.0"]
+                             [listora/whitespace-linter "0.1.0"]]
+                   :repl-options {:init-ns user}
+                   :source-paths ["dev" "src"]}
+             :test {:source-paths ^:replace ["src"]
+                    :resource-paths ["test-resources"]}
+             :uberjar {:aot :all :main burningswell.weather.main}}
+  :uberjar-name "burningswell-weather.jar")

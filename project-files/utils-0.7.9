@@ -1,0 +1,14 @@
+(defproject is.swim/utils "0.7.9"
+  :description "Shared Clojure and Clojurescript utils for Swim"
+  :url "http://github.com/swim-team/utils"
+  :license {:private true}
+  :min-lein-version "2.3.4"
+  :dependencies [[org.clojure/clojure "1.5.1"]]
+  :plugins [[com.keminglabs/cljx "0.3.2"]]
+  :cljx {:builds [{:rules :clj
+                   :source-paths ["src"]
+                   :output-path "target/classes"}
+                  {:rules :cljs
+                   :source-paths ["src"]
+                   :output-path "target/classes"}]}
+  :hooks [cljx.hooks])

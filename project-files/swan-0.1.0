@@ -1,0 +1,17 @@
+(defproject swan "0.1.0"
+  :description "Scaffolding Web Application for Noir"
+  :dependencies [[noir "1.3.0-beta6"]
+                 [lein-autodoc "0.9.0"]
+                 [ring-anti-forgery "0.1.2"]
+                 [congomongo "0.1.7"]
+                 [midje "1.3.1"]
+                 [clj-time "0.3.7"]
+                 [jayq "0.1.0-alpha4"]
+                 [crate "0.2.0-alpha2"]
+                 [noir-cljs "0.3.2"]
+                 [org.markdownj/markdownj "0.3.0-1.0.2b4"]]
+
+  :dev-dependencies [[lein-midje "1.0.10"]
+                     [lein-marginalia "0.7.0"]
+                     [lein-autodoc "0.9.0"]]
+  :plugins [[lein-cljsbuild "0.1.10"]])

@@ -1,0 +1,15 @@
+(defproject ring-vertx-adapter/ring-vertx-adapter "0.1.0"
+  :description "Ring adapter for use with Vert.x"
+  :url "http://github.com/redwoolf/ring-vertx-adapter"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :scm {:name "git"
+        :url "https://github.com/redwoolf/ring-vertx-adapter"}
+  :dependencies [[ring/ring-core "1.2.1"]
+                 [io.vertx/clojure-api "1.0.0.RC1"]]
+
+  :profiles
+  {:dev {:dependencies [[org.clojure/clojure "1.5.1"]
+                        [compojure "1.1.6"]
+                        [clj-http "0.6.4"]]}})
+

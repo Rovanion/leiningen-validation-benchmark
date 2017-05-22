@@ -1,0 +1,6 @@
+(defproject com.kurogitsune/wavy "0.1.0"
+  :description "Just a reader for 16bit mono wav file."
+  :url "http://www.kurogitsune.com/wavy"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :dependencies [[org.clojure/clojure "1.6.0"]])

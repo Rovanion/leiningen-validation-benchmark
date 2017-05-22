@@ -1,0 +1,14 @@
+(defproject org.projecthaystack/haystack-java "1.0.0-LF1"
+  :description "Project haystack lib - java version."
+  :url "https://bitbucket.org/brianfrank/haystack-java/"
+  :license {:name "Academic Free License 3.0"
+            :url "http://project-haystack.org/doc/License"
+            :distribution :repo
+            :comments "http://project-haystack.org/"}
+  :min-lein-version "2.0.0"
+  :repositories {"sona" "http://oss.sonatype.org/content/repositories/snapshots"}
+  ;:plugins [[s3-wagon-private "1.1.2"]]
+  :warn-on-reflection false
+  :java-source-paths ["src/"]
+  :javac-options ["-target" "1.6" "-source" "1.6"]
+  :dependencies [[javax.servlet/servlet-api "2.5"]])

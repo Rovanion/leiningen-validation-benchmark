@@ -1,0 +1,44 @@
+(defproject lonocloud.data/ordered "1.0.1"
+  :url "https://github.com/LonoCloud/ordered"
+  :license {:name "Eclipse Public License - v 1.0"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :description "ordered hash and set types for Clojure and ClojureScript - instead of sorting by key, these collections retain insertion order."
+  :source-paths ["src/clj" "src/cljx" "target/classes"]
+  :test-paths ["target/test-classes"]
+  :jar-exclusions [#"\.cljx"]
+  :hooks [cljx.hooks]
+  :global-vars {*warn-on-reflection* true}
+  :profiles {:dev {:dependencies [[org.clojure/clojure "1.6.0-alpha3"]
+                                  [org.clojure/clojurescript "0.0-2075"
+                                   :exclusions [org.clojure/tools.reader]]
+                                  [org.clojure/tools.reader "0.8.1"]
+                                  [collection-check "0.1.1"]]
+                   :plugins [[com.keminglabs/cljx "0.3.2-20131112.164608-1"
+                              :exclusions [org.clojure/clojure]]
+                             [lein-cljsbuild "1.0.0"]
+                             [com.cemerick/clojurescript.test "0.2.1"]
+                             [com.cemerick/austin "0.1.3"]]
+                   :cljx {:builds [{:source-paths ["src/cljx"]
+                                    :output-path "target/classes"
+                                    :rules :clj}
+
+                                   {:source-paths ["src/cljx"]
+                                    :output-path "target/classes"
+                                    :rules :cljs}
+
+                                   {:source-paths ["test/cljx"]
+                                    :output-path "target/test-classes"
+                                    :rules :clj}
+
+                                   {:source-paths ["test/cljx"]
+                                    :output-path "target/test-classes"
+                                    :rules :cljs}]}
+
+                   :aliases {"cleantest" ["do" "clean," "test," "cljsbuild" "test"]}
+
+                   :cljsbuild {:test-commands {"phantom" ["phantomjs" :runner "target/testable.js"]}
+                               :builds [{:source-paths ["target/classes" "target/test-classes"]
+                                         :compiler {:output-to "target/testable.js"
+                                                    :libs [""]
+                                                    :source-map "target/testable.js.map"
+                                                    :optimizations :whitespace}}]}}})

@@ -1,0 +1,6 @@
+(defproject kestrel-thrift-java-bindings "2.2.0"
+  :java-source-path "src/java"
+  :source-path "src/clj"
+  :javac-options {:debug "true" :fork "true"}
+  :aot :all
+  :dependencies [[backtype/thriftjava "1.0.0"]])

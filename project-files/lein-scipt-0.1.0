@@ -1,0 +1,9 @@
+(defproject lein-scipt "0.1.0"
+  :description "A simple leinigen plugin to create a command line script to execute the project."
+  :eval-in-leiningen true
+
+  ; some test options
+  :jvm-opts ["-Xmx400m" "-Xms200m"]
+  :scripts {"bin/script-test" [leiningen.run-script-executable run]}
+
+  )

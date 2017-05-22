@@ -1,0 +1,6 @@
+(defproject odinodin/git-info-edn "0.3.0"
+  :description "Lein plugin that generates a file with git info for your project"
+  :url "http://github.com/noisesmith/lein-git-info-edn"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :eval-in-leiningen true)

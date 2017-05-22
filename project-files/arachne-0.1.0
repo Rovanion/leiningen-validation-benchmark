@@ -1,0 +1,8 @@
+(defproject arachne "0.1.0"
+  :description "Library to assist in writing web scrapers"
+  :url "http://github.com/pmaes/arachne"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :dependencies [[org.clojure/clojure "1.4.0"]
+                 [clj-http "0.6.3"]
+                 [enlive "1.0.1"]])

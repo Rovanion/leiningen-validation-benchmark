@@ -1,0 +1,19 @@
+(defproject yle-clj-jwt-oauth "0.2.0"
+  :description "Clojure library for validating a JWT OAuth 2.0 access token"
+  :dependencies [[org.clojure/clojure "1.7.0"]
+                 [org.clojure/tools.trace "0.7.9"]
+                 [org.clojure/tools.logging "0.3.1"]
+                 [org.clojure/data.codec "0.1.0"]
+                 [cheshire "5.5.0"]
+                 [org.apache.oltu.oauth2/org.apache.oltu.oauth2.jwt "1.0.1"]
+                 [org.apache.oltu.jose/org.apache.oltu.jose.jws "1.0.0"]
+                 [yle-clj-common "1.0.7"]]
+  :plugins [[lein-cljfmt "0.3.0"]
+            [clj-stacktrace "0.2.8"]]
+  :repl-options {:caught clj-stacktrace.repl/pst+}
+  :profiles {:dev {:dependencies [[ring/ring-mock "0.3.0"]
+                        [clj-containment-matchers "1.0.1"]
+                        [clj-stacktrace "0.2.8"]]}
+             :test {:jvm-opts ^:replace ["-Dlog4j.configuration=log4j-off.properties"]}}
+  :aliases {"test-with-junit-xml" ["run" "-m" "yle-clj-common.test-runner/run-with-junit-report" "yle-clj-jwt-oauth.*-test"]}
+  :cljfmt {:file-pattern #".*\.clj"})

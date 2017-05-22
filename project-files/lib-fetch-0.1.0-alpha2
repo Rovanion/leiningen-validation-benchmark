@@ -1,0 +1,9 @@
+(defproject lib-fetch "0.1.0-alpha2"
+  :description "A ClojureScript and compojure library to make client-server interaction painless."
+  :dependencies [[org.clojure/clojure "1.4.0"]
+                   [compojure "1.1.3"]]
+  :license {:name "Eclipse Public License - v 1.0"
+             :url "http://www.eclipse.org/legal/epl-v10.html"
+             :distribution :repo
+             :comments "same as Clojure"}
+  :url "https://github.com/domsj/lib-fetch")

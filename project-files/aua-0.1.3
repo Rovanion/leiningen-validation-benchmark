@@ -1,0 +1,49 @@
+(defproject aua/aua "0.1.3"
+  :description "AUA - ASM Utils and Analysis. A library that provides extensions and analysis algorithms for and based on the ASM byte code library for the JVM."
+  :url "https://bitbucket.org/sertel/aua"
+  :license {:name "Eclipse Public License, version 1.0"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  
+  :deploy-repositories [["releases" {:url "https://clojars.org/repo" :creds :gpg}]]
+  
+  :plugins [[lein-pprint "1.1.1"]
+            ; plugin needed for META-INF handling
+            [lein-javac-resources "0.1.1"]
+            [lein2-eclipse "2.0.0" :exclusions [[org.codehaus.plexus/plexus-utils]]]]
+  
+  :dependencies [[org.clojure/clojure "1.6.0"]
+                 [org.ow2.asm/asm-all "5.0.3"]]
+  
+    :profiles {:provided {:dependencies [[org.clojure/clojure "1.6.0"]]}
+             :dev {:plugins [[lein-junit "1.1.8"]]
+                   :dependencies [                        
+                                  ; libs needed for testing
+                                  [junit/junit "4.12"]]
+
+                   ; paths for Clojure test cases
+                   :test-paths ["test" "test/clojure"]
+                   
+                   ; paths for Java/JUnit test cases
+                   :junit ["test/java"]
+                   :junit-test-file-pattern #".*\/test[0-1a-zA-Z]*\.java"
+                   :junit-formatter :brief
+                   :junit-results-dir "test-output-lein"
+                   
+                   ; Soot lib
+                   :resource-paths ["lib/soot-nightly-14012015/soot-trunk.jar"]
+                   
+                   :java-source-paths ["test/java"]
+                   :jvm-opts ["-ea"]}}
+  
+;  :source-paths ["aua/src/clojure"]
+  :java-source-paths ["src/java"]
+  
+  :jvm-opts ["-Xmx512m"] ; there is no need for more than that during development
+  
+  :javac-options ["-target" "1.8" "-source" "1.8" "-Xlint:-options" "-g"]
+
+  ; this is needed to handle META-INF directories properly (copy them to :compile-path) 
+  :hooks [leiningen.javac-resources]
+  ; with the extension above we must explicitly exclude java source files!
+  :jar-exclusions [#"\.java$"]
+)

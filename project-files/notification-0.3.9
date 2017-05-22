@@ -1,0 +1,12 @@
+(def ROOT-DIR (subs *file* 0 (- (count *file*) (count "project.clj"))))
+(def VERSION (-> ROOT-DIR (str "/../VERSION") slurp))
+
+(defproject hub.service/notification VERSION
+  :description "Notification service."
+  :plugins [[lein-modules "0.3.11"]]
+  :profiles {:dev {:injections
+                   [(require 'schema.core)
+                    (schema.core/set-fn-validation! true)]}}
+  :dependencies [[com.stuartsierra/component "_"]
+                 [com.taoensso/carmine "2.6.2"]
+                 [racehub/schema "_"]])

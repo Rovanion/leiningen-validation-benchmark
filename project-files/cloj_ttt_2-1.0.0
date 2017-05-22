@@ -1,0 +1,7 @@
+(defproject cloj_ttt_2 "1.0.0"
+  :description "Tic Tac Toe Game"
+  :dependencies [[org.clojure/clojure "1.2.1"]]
+  :dev-dependencies [[speclj "1.4.0"]]
+  :test-path "spec/"
+  :main cloj_ttt_2.terminal_game
+)

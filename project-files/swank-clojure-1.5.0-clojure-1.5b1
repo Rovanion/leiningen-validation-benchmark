@@ -1,0 +1,10 @@
+(defproject org.clojars.chouser/swank-clojure "1.5.0-clojure-1.5b1"
+  :description "Swank server connecting Clojure to Emacs SLIME"
+  :url "http://github.com/technomancy/swank-clojure"
+  :dependencies [[org.clojure/clojure "1.5.0-beta1"]
+                 [clj-stacktrace "0.2.4"]
+                 [org.clojure/tools.namespace "0.1.0"]
+                 [cdt "1.2.6.2"]]
+  :dev-dependencies [[lein-multi "1.0.0"]]
+  :warn-on-reflection true
+  :shell-wrapper {:main swank.swank})

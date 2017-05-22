@@ -1,0 +1,36 @@
+(defproject cljs-websocket "0.1.0"
+  :description "Thin wrapper over core.async + websockets"
+  :url "https://bitbucket.org/vancouver-trio/cljs-websockets"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :dependencies [[org.clojure/clojurescript "1.7.228"]
+                 [org.clojure/core.async "0.2.374"]]
+  :target-path "target/%s"
+  :min-lein-version "2.0.0"
+  :scm {:url "git@bitbucket.org:vancouver-trio/cljs-websockets.git"}
+  :pom-addition [:developers [:developer
+                              [:name "Fenton Travers"]
+                              [:url "https://bitbucket.org/vancouver-trio/cljs-websockets"]
+                              [:email "fenton.travers@gmail.com"]
+                              [:timezone "-8"]]]
+
+  ;; :deploy-repositories [["releases" {:url "https://oss.sonatype.org/service/local/staging/deploy/maven2/"
+  ;;                                    :creds :gpg
+  ;;                                    :signing {:gpg-key "0x3DB603C0"}}
+  ;;                        "snapshots" {:url "https://oss.sonatype.org/content/repositories/snapshots/"
+  ;;                                     :creds :gpg
+  ;;                                     :signing {:gpg-key "0x3DB603C0"}}]]
+
+  :deploy-repositories [["releases" {:url "https://clojars.org/repo"
+                                     :signing {:gpg-key "0x3DB603C0"}}]
+
+                        ;; D9F358F7
+                        ["snapshots" {:url "https://clojars.org/repo"
+                                      :signing {:gpg-key "0xD9F358F7"}}]
+                        ;; ["snapshots" {:url "https://clojars.org/repo"
+                        ;;               :signing {:gpg-key "0x3DB603C0"}}]
+                        
+                        ]
+  )
+
+

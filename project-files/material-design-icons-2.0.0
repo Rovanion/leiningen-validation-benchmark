@@ -1,0 +1,6 @@
+(defproject material-design-icons "2.0.0"
+  :description "Material Design icons by Google"
+  :url "https://github.com/google/material-design-icons"
+  :license {:name "CC-BY-4.0"
+            :url "https://raw.githubusercontent.com/google/material-design-icons/master/LICENSE"}
+  :dependencies [])

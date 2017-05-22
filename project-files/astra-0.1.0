@@ -1,0 +1,8 @@
+(defproject astra "0.1.0"
+            :description "The smart reformatter for Clojure"
+            :url "https://github.com/clojurecup2014/astra"
+            :license {:name "GNU Lesser General Public License version 3"
+                      :url  "http://www.gnu.org/licenses/lgpl-3.0-standalone.html"}
+            :dependencies [[org.clojure/clojure "1.6.0"]
+                           [org.clojure/core.logic "0.8.8"]
+                           [the/parsatron "0.0.7"]])

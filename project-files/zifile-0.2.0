@@ -1,0 +1,6 @@
+(defproject zifile "0.2.0"
+  :description "a lib of clojure about file operations.一个关于文件处理的clojure库"
+  :url "https://github.com/liuzifang/zifile"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :dependencies [[org.clojure/clojure "1.5.1"]])

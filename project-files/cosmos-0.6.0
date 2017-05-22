@@ -1,0 +1,13 @@
+(defproject org.clojars.htmfilho/cosmos "0.6.0"
+  :description "Cosmos is a Clojure astronomic library for applications that
+                need information about earth level astronomic phenomena such as
+                moon phases, sunset and sunrise time, eclipses, as well as
+                space level ones such as orbits, distances, our moon, comets,
+                stars and many other interesting matters."
+  :url "https://github.com/htmfilho/cosmos"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :dependencies [[org.clojure/clojure "1.8.0"]]
+  :deploy-repositories [["Releases" {:url "https://github.com/htmfilho/cosmos/releases"
+                                     :signing {:gpg-key "8ABE8582"}}]
+                        ["Snapshots" "https://github.com/htmfilho/cosmos/releases"]])

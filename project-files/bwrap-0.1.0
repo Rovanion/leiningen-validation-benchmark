@@ -1,0 +1,9 @@
+(defproject bwrap "0.1.0"
+  :description "Functional Processing"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :profiles {:dev {:source-paths ["src-dev"]
+                   :dependencies [[org.clojure/tools.namespace "0.2.4"]]}}
+  :lein-release {:scm :git
+                 :deploy-via :clojars}
+  :dependencies [[org.clojure/clojure "1.5.1"]])

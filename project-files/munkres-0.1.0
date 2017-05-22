@@ -1,0 +1,6 @@
+(defproject munkres "0.1.0"
+  :description "Munkres-Kuhn (Hungarian) algorithm wrapper"
+  :url "https://github.com/timothypratley/munkres"
+  :plugins [[codox "0.6.4"]]
+  :dependencies [[org.clojure/clojure "1.5.1"]]
+  :java-source-paths ["java"])

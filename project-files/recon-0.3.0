@@ -1,0 +1,4 @@
+(defproject recon "0.3.0"
+  :description "Clojure library for JVM instrumentation"
+  :dependencies [[org.clojure/clojure "1.2.1"]
+                 [org.clojure/clojure-contrib "1.2.0"]])

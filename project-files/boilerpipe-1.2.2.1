@@ -1,0 +1,17 @@
+(defproject w01fe/boilerpipe "1.2.2.1"
+  :description "A clone of Netbreeze-GmbH/boilerpipe"
+  :url ""
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+
+  :prep-tasks ["javac" "compile"]
+
+  :profiles {:dev {:dependencies [[junit/junit "4.4"]]}}
+
+  :dependencies [[net.sourceforge.nekohtml/nekohtml "1.9.12"]
+                 [net.htmlparser.jericho/jericho-html "3.3"]
+                 [xerces/xercesImpl "2.9.1"]]
+
+  :signing {:gpg-key "jason@w01fe.com"}
+  :omit-source true
+  :java-source-paths ["src/main/java"])

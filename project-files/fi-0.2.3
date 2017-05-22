@@ -1,0 +1,56 @@
+(defproject szew/fi "0.2.3"
+
+  :description "Index and compare file trees."
+  :url "https://bitbucket.org/spottr/szew-fi"
+
+  :license {:name "MIT Public License"
+            :distribution :repo
+            :comments "LICENSE file in project root directory."}
+
+  :dependencies [[org.clojure/clojure "1.8.0"]
+                 [szew/io "0.2.2" :exclusions [orc.clojure/clojure]]
+                 [szew/h2 "0.1.1" :exclusions [org.clojure/clojure]]
+                 ;; diff report writer
+                 [hiccup "1.0.5"]
+                 ;; diffing is a solved problem
+                 [com.googlecode.java-diff-utils/diffutils "1.3.0"]
+                 ;; Logging infrastructure!
+                 [ch.qos.logback/logback-classic "1.1.7"]
+                 [ch.qos.logback/logback-core "1.1.7"]
+                 [org.slf4j/slf4j-api "1.7.21"]
+                 [org.slf4j/log4j-over-slf4j "1.7.21"]
+                 [org.clojure/tools.logging "0.3.1"]
+                 ;; Environment variables in Clojure
+                 [environ "1.1.0"]
+                 ;; SQL stuffs
+                 [com.layerware/hugsql "0.4.7"]]
+
+  :profiles {:dev {:dependencies [[criterium "0.4.4"]]
+                   :plugins [[lein-codox "0.10.0"]]
+                   :source-paths ["dev"]}
+             :1.9 {:dependencies [[org.clojure/clojure "1.9.0-alpha13"]]}
+             :uberjar {:aot :all}}
+
+  :global-vars {*warn-on-reflection* false
+                *assert* true}
+
+  :aot [clojure.tools.logging.impl ;; aot sucks sometimes.
+        szew.fi]
+
+  :codox {;:metadata {:doc/format :markdown}
+          :project {:name "szew/fi"}
+          :namespaces [#"^szew\.fi.*$"]
+          ;; that was fun:
+          :source-uri ~(str "https://bitbucket.org/spottr/szew-fi/src/"
+                            ;"e4580db630266e792fb24769a08a1c0a752e4707" ;; initial
+                            ;"84a9313ab3c94108d712bcbbcd926374db35612b"  ;; 0.1.0
+                            ;"06dd5067594205f8fbc4e32e7e140a433cf370f8"  ;; 0.1.1
+                            ;"f2001c6dde6523acc227f86ff6608862f56c85bb"  ;; 0.2.0
+                            ;"31604ed00dbf2337c46441f5b291a2e20c0c73aa"  ;; 0.2.1
+                            "0062f71f88df3ea2e074abeb2dff8effb39a2e2b"   ;; 0.2.2
+                            "/{filepath}#{basename}-{line}")}
+
+  :jar-exclusions [#"logback-test\.xml"]
+
+  :jvm-opts ["-server"])
+

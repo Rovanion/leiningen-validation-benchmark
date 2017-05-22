@@ -1,0 +1,7 @@
+(defproject webapp "0.3.1"
+  :description "Clojure web application."
+  :dependencies [[org.clojure/clojure "1.2.1"]
+		 [compojure "0.6.4"]
+		 [clj-soy "0.1.0"]
+		 [ring "0.3.10"]]
+  :ring {:handler system.main/app})

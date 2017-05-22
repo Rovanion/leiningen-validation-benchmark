@@ -1,0 +1,7 @@
+(defproject occamin/strum "1.0.0"
+  :description "Strum is a drop-in replacement for clojure.string that aims to
+provide a richer set of String operations."
+  :url "https://github.com/occamin/strum"
+  :license {:name "MIT License"
+            :url "http://opensource.org/licenses/MIT"}
+  :dependencies [[org.clojure/clojure "1.5.0"]])

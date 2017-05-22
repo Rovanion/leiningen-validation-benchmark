@@ -1,0 +1,15 @@
+; cd ../support && lein clean && lein install && cd ../sidecar && lein clean && lein install && cd ../plugin && lein clean && lein install
+(defproject quantum/lein-figwheel "0.5.0-2.3"
+  :description "ClojureScript Autobuilder/Server which pushes changed files to the browser. This is the lein plugin."
+  :url "https://github.com/bhauman/lein-figwheel"
+  :license {:name "Eclipse Public License - v 1.0"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :dependencies [[quantum/ns       "1.0"      ]
+                 [quantum/figwheel-sidecar "0.5.0-2.3"]
+                 [quantum/figwheel         "0.5.0-2.1"]]
+
+  :scm { :name "git"
+         :url "https://github.com/bhauman/lein-figwheel"
+         :dir ".."}
+
+  :eval-in-leiningen true)

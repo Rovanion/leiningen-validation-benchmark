@@ -1,0 +1,48 @@
+(defproject net.ozias/swarm "0.1.0-SNAPSHOT"
+  :description "Distributed computing implemented in Clojure"
+  :url "https://github.com/CraZySacX/swarm"
+  :license {:name "MIT"
+            :url "http://opensource.org/licenses/MIT"}
+  :dependencies [[com.taoensso/timbre "3.0.0-RC4"]
+                 [environ "0.4.0"]
+                 [matchure "0.10.1"]
+                 [me.raynes/conch "0.6.0"]
+                 [net.ozias/swarmhandler "1.0.0"]
+                 [org.clojure/clojure "1.5.1"]
+                 [org.clojure/tools.cli "0.3.1"]
+                 [org.clojure/tools.nrepl "0.2.3"]
+                 [org.ozias.cljlibs/bootstrap "46c3caf"]
+                 [org.ozias.cljlibs/logging "3961cfb"]
+                 [org.ozias.cljlibs/shell "19020d7"]]
+  :profiles {:dev {:source-paths ["dev"]
+                   :dependencies [[org.clojure/tools.namespace "0.2.4"]]
+                   :plugins [[codox "0.6.6"]
+                             [lein-environ "0.4.0"]
+                             [lein-marginalia "0.7.1"]
+                             [lein-pprint "1.1.1"]
+                             [org.clojars.cvillecsteele/lein-git-version "1.0.0"]]}
+             :uberjar {:aot :all
+                       :main net.ozias.swarm.swarm}}
+  :middleware [lein-git-version.plugin/middleware]
+  :aliases {"package" ["do" "clean," "uberjar"]
+            "most" ["do" "clean," "doc," "package"]
+            "dep" ["do" "deploy," "deploy" "clojars"]
+            "all" ["do" "most," "dep"]}
+  :jvm-opts ["-Xms1024m" "-Xmx1024m"]
+  :deploy-repositories [["snapshots" 
+                         {:url "http://www.ozias.net/artifactory/libs-snapshot-local"
+                          :creds :gpg}]
+                        ["releases"
+                         {:url "http://www.ozias.net/artifactory/libs-release-local"
+                          :creds :gpg}]]
+  :scm {:name "git"
+         :url "https://github.com/CraZySacX/swarm"}
+  :codox {:output-dir "api"
+          :exclude [net.ozias.swarm.version]
+          :sources ["src" "test"]
+          :src-dir-uri "http://github.com/CraZySacX/swarm/blob/master/"
+          :src-linenum-anchor-prefix "L"}
+  :manifest {"Implementation-Version" "0.1.0-SNAPSHOT"}
+  :git-version {:version-command ["git" "rev-parse" "--short" "HEAD"]
+                :version-file-command ["git" "rev-parse" "HEAD"]
+                :assoc-keys [[:version] [:manifest "Implementation-Version"]]})

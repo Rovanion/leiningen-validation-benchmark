@@ -1,0 +1,14 @@
+(defproject bloguito "1.1.0"
+  :description "A small blog engine."
+  :url "https://github.com/luizsoarez/bloguito"
+  :license {:name "MIT"
+            :url "http://opensource.org/licenses/MIT"
+            :distribution :repo}
+  :main com.uncrafted.bloguito
+  :aot [com.uncrafted.bloguito]
+  :dependencies [ [me.shenfeng/mustache "1.1"]
+                  [markdown-clj "0.9.43"]
+                  [javax.servlet/servlet-api "2.5"]
+                  [compojure "1.1.6"]
+                  [http-kit "2.1.16"]
+                  [org.clojure/clojure "1.6.0"]])

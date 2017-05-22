@@ -1,0 +1,32 @@
+(defproject com.teachscape/etlio "1.0.0-beta3"
+  :description "Assorted ETL tools built on a common library"
+  :dependencies [[org.clojure/clojure     "1.5.1"]
+                 [com.novemberain/monger  "1.5.0"]
+                 [com.taoensso/timbre     "1.5.2"]
+                 [org.clojure/tools.cli   "0.2.2"]
+                 [clojurewerkz/quartzite  "1.1.0"]
+                 [info.hoetzel/clj-nio2   "0.1.0"]
+                 [me.raynes/fs            "1.4.0" :exclusions [org.apache.commons/commons-compress]]
+                 [compojure               "1.1.5"]
+                 [ring/ring-jetty-adapter "1.2.0-beta2"]
+                 [ring/ring-json          "0.2.0"]
+                 [cheshire                "5.0.2"]
+                 [metrics-clojure         "1.0.0"]
+                 [metrics-clojure-ring    "1.0.0"]
+                 [clojurewerkz/cyclist    "1.0.0-beta2"]]
+  :source-paths ["src/clojure"]
+  :profiles     {:dev     {:resource-paths ["test/resources"]
+                           :dependencies   [[clj-http "0.7.0"]]}
+                 :release {:resource-paths ["src/resources"]}}
+  :repositories {"sonatype" {:url "http://oss.sonatype.org/content/repositories/releases"
+                             :snapshots false :releases {:checksum :fail}}
+                 "sonatype-snapshots" {:url "http://oss.sonatype.org/content/repositories/snapshots"
+                                       :snapshots true}}
+  :aot                [teachscape.etlio.tools.task-runner
+                       teachscape.etlio.tools.server]
+  :main               teachscape.etlio.tools.server
+  ;; NIO2 WatchService requires JDK 7
+  :javac-options      ["-target" "1.7" "-source" "1.7"]
+  :warn-on-reflection true
+  :test-selectors {:focus :focus
+                   :all   (constantly true)})

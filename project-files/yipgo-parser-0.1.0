@@ -1,0 +1,5 @@
+(defproject philjackson/yipgo-parser "0.1.0"
+  :description "Simple parser for Yipgo pages."
+  :url "http://yipgo.com"
+  :dependencies [[org.clojure/clojure "1.8.0"]
+                 [com.lucasbradstreet/instaparse-cljs "1.4.1.0"]])

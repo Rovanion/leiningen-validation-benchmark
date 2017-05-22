@@ -1,0 +1,15 @@
+(defproject org.clojars.compuwizard123/storm-kafka "0.9.0-wip16a-scala292"
+  :java-source-paths ["src/jvm"]
+  :repositories {"sonatype"
+                 "http://oss.sonatype.org/content/groups/public/"}
+  :dependencies [[org.scala-lang/scala-library "2.9.2"]
+                  [com.twitter/kafka_2.9.2 "0.7.0"
+                  :exclusions [org.apache.zookeeper/zookeeper
+                               log4j/log4j]]]
+  :profiles
+  {:provided {:dependencies [[org.clojars.compuwizard123/storm "0.9.0-wip16"]
+                             [org.slf4j/log4j-over-slf4j "1.6.6"]
+                             ;;[ch.qos.logback/logback-classic "1.0.6"]
+                             [org.clojure/clojure "1.4.0"]]}}
+  :jvm-opts ["-Djava.library.path=/usr/local/lib:/opt/local/lib:/usr/lib"]
+  :min-lein-version "2.0")

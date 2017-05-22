@@ -1,0 +1,8 @@
+(defproject org.clojars.francescolocatello/bloom-filter "1.0.0"
+  :description "a presistent Bloom Filter. See the README for more details"
+  :url "https://bitbucket.org/francescolocatello/bloom-filter/"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :jvm-opts ["-Xmx2G" "-server"]
+  :dependencies [[org.clojure/clojure "1.5.1"]
+                 [com.google.guava/guava "17.0"]])

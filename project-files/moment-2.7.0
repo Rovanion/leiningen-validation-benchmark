@@ -1,0 +1,5 @@
+(defproject com.momentjs/moment "2.7.0"
+  :description "A lightweight javascript date library for parsing, validating, manipulating, and formatting dates."
+  :url "http://momentjs.com/"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"})

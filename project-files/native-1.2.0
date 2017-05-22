@@ -1,0 +1,4 @@
+(defproject jblas/native "1.2.0"
+  :description "JBlas native (static) dependencies."
+  :url "https://github.com/mikiobraun/jblas/downloads"
+  :dependencies [])

@@ -1,0 +1,13 @@
+(defproject tahto/lucid.aether "1.1.0"
+  :description "tools for clarity"
+  :url "https://www.github.com/tahto/lucid"
+  :license {:name "The MIT License"
+            :url "http://http://opensource.org/licenses/MIT"}
+  :aliases {"test" ["run" "-m" "hara.test"]}
+  :injections []
+  :dependencies [[org.clojure/clojure "1.8.0"] [org.eclipse.aether/aether-spi "1.1.0"] [org.eclipse.aether/aether-transport-http "1.1.0"] [org.eclipse.aether/aether-api "1.1.0"] [org.eclipse.aether/aether-transport-file "1.1.0"] [org.apache.maven/maven-aether-provider "3.1.0"] [org.eclipse.aether/aether-connector-basic "1.1.0"] [org.eclipse.aether/aether-util "1.1.0"]]
+  :java-source-paths ["example/java"]
+  :jar-exclusions [#"^test\..+\.class"]				 
+   
+
+    :scm {:connection "scm:git:git://github.com/tahto/lucid.git", :developerConnection "scm:git:ssh://git@github.com/tahto/lucid.git", :tag "c39f935a32271e021b2f1a7f7cf504ff29d0b111\n", :url "https://github.com/tahto/lucid"})

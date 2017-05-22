@@ -1,0 +1,10 @@
+(defproject woody "0.1.5"
+  :description "woody appenders for timbre"
+  :url "http://example.com/FIXME"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :dependencies [[org.clojure/clojure "1.7.0"]
+                 [cheshire  "5.5.0"]
+                 [environ  "1.0.1"]]
+  :plugins  [[lein-environ  "1.0.1"]]
+  :profiles {:dev {:env {:influx-url "192.168.99.101:4444"}}})

@@ -1,0 +1,6 @@
+(defproject lein-deploy-uberjar "2.0.0"
+  :description "Deploy an uberjar to a maven repository
+
+Note that this is moderately unholy, but it is moderately useful for
+deploying Hadoop jobs."
+  :dependencies [[org.clojure/clojure "1.3.0"]])

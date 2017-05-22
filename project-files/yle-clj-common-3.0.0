@@ -1,0 +1,16 @@
+(defproject yle-clj-common "3.0.0"
+  :description "Code to support the way that Yle (Clojure) APIs are implemented."
+  :dependencies [[org.clojure/clojure "1.7.0"]
+                 [environ "1.0.3"]
+                 [clj-time/clj-time "0.12.0"]
+                 [camel-snake-kebab "0.4.0"]
+                 [org.clojure/tools.logging "0.3.1"]
+                 [org.clojure/tools.namespace "0.2.10"]]
+  :profiles {:dev {:dependencies [[clj-stacktrace "0.2.8"]]}}
+  :repl-options {:caught clj-stacktrace.repl/pst+}
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :cljfmt {:file-pattern #".*\.clj$"}
+  :plugins [[lein-cljfmt "0.3.0"]
+            [lein-ancient "0.6.10"]
+            [lein-deps-tree "0.1.2"]])

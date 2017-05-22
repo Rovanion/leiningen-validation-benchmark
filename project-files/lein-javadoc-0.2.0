@@ -1,0 +1,6 @@
+(defproject org.clojars.brightcove/lein-javadoc "0.2.0"
+  :description "Run javadoc for the java source in your lein project."
+  :url "http://github.com/davidsantiago/lein-javadoc"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :eval-in-leiningen true)

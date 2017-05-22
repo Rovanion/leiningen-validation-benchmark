@@ -1,0 +1,34 @@
+(defproject om-kenburns "0.1.0"
+  :description "An implementation of the Ken Burns effect in Om."
+  :url "https://github.com/r0man/om-kenburns"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :min-lein-version "2.0.0"
+  :lein-release {:deploy-via :clojars}
+  :dependencies [[com.facebook/react "0.9.0.2-SNAPSHOT"]
+                 [om "0.6.2"]
+                 [org.clojure/clojure "1.5.1"]
+                 [org.clojure/clojurescript "0.0-2202"]
+                 [org.clojure/core.async "0.1.301.0-deb34a-alpha"]]
+  :profiles {:dev {:dependencies [[figwheel "0.1.2-SNAPSHOT"]]}}
+  :plugins [[lein-cljsbuild "1.0.3"]
+            [lein-figwheel "0.1.2-SNAPSHOT"]]
+  :clean-targets ["example/kenburns.min.js"
+                  "example/kenburns.min.js.map"
+                  "example/out"
+                  "resources/public/kenburns.js"
+                  "resources/public/out"]
+  :cljsbuild {:builds [{:id "development"
+                        :source-paths ["src" "example/src"]
+                        :compiler {:optimizations :none
+                                   :output-dir "resources/public/out"
+                                   :output-to "resources/public/kenburns.js"
+                                   :source-map true}}
+                       {:id "production"
+                        :source-paths ["src" "example/src"]
+                        :compiler {:externs ["react/externs/react.js"]
+                                   :optimizations :advanced
+                                   :output-dir "example/out"
+                                   :output-to "example/kenburns.min.js"
+                                   :preamble ["react/react.min.js"]
+                                   :source-map "example/kenburns.min.js.map"}}]})

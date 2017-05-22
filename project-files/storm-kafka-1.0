@@ -1,0 +1,19 @@
+(defproject org.clojars.ijammy/storm-kafka "1.0"
+  :description "A storm spout for integrating with Kafka 0.8.0"
+  :license {:name "The Apache Software License, Version 2.0" :url "http://www.apache.org/licenses/LICENSE-2.0.txt"}
+  :url "git@github.com:ijammy/storm-contrib.git"
+  :java-source-paths ["src/jvm"]
+  :repositories {"scala-tools" "http://scala-tools.org/repo-releases"
+                  "conjars" "http://conjars.org/repo/"}
+  :dependencies [[org.scala-lang/scala-library "2.10.3"]
+                  [org.apache.kafka/kafka_2.10 "0.8.0"
+                  :exclusions [org.apache.zookeeper/zookeeper
+                               log4j/log4j]]]
+  :profiles
+  {:provided {:dependencies [[storm "0.9.0.1"]
+                             [org.slf4j/log4j-over-slf4j "1.6.6"]
+                             [org.clojure/clojure "1.4.0"]]}}
+  :plugins [[lein2-eclipse "2.0.0"]]
+  :jvm-opts ["-Djava.library.path=/usr/local/lib:/opt/local/lib:/usr/lib"]
+  :min-lein-version "2.0"
+)

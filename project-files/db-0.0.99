@@ -1,0 +1,50 @@
+(defproject burningswell/db "0.0.99"
+  :description "The Burning Swell database library"
+  :url "https://bitbucket.org/burningswell/db"
+  :license {:name "Creative Commons Attribution-NonCommercial 3.0"
+            :url "http://creativecommons.org/licenses/by-nc/3.0/"}
+  :min-lein-version "2.0.0"
+  :deploy-repositories [["releases" :clojars]]
+  :dependencies [[burningswell/core "0.0.46"]
+                 [burningswell/config "0.1.38"]
+                 [clj-aws-s3 "0.3.10"
+                  :exclusions [clj-time
+                               joda-time
+                               org.apache.httpcomponents/httpclient
+                               org.apache.httpcomponents/httpcomponents-core
+                               org.apache.httpcomponents/httpcomponents-client
+                               org.apache.httpcomponents/httpcore
+                               org.apache.httpcomponents/httpmime]]
+                 [commons-daemon/commons-daemon "1.0.15"]
+                 [datumbazo "0.11.1"]
+                 [sqlingvo "0.8.17"]
+                 [funcool/clojure.jdbc "0.9.0"]
+                 [net.postgis/postgis-jdbc "2.2.1"
+                  :exclusions [postgresql org.postgresql/postgresql]]
+                 [org.clojure/clojure "1.9.0-alpha14"]
+                 [org.clojure/tools.logging "0.3.1"]
+                 [org.postgresql/postgresql "9.4.1212"]]
+  :plugins [[lein-environ "1.1.0"]]
+  :aliases {"ci" ["do" ["difftest"] ["lint"]]
+            "lint" ["do" ["whitespace-linter"] ["eastwood"]]
+            "test-ancient" ["test"]}
+  :eastwood {:exclude-linters [:constant-test :redefd-vars]}
+  :filespecs [{:type :path :path "sqitch.conf"}]
+  :main ^{:skip-aot true} burningswell.db.main
+  :profiles {:dev {:dependencies [[ch.qos.logback/logback-classic "1.1.7"]
+                                  [reloaded.repl "0.2.3"]]
+                   :plugins [[jonase/eastwood "0.2.3"]
+                             [lein-difftest "2.0.0"]
+                             [listora/whitespace-linter "0.1.0"]]
+                   :repl-options {:init-ns user}
+                   :source-paths ["dev" "src"]}
+             :test {:env {:bs-db-name "burningswell_test"
+                          :bs-db-password "scotch"
+                          :bs-db-scheme "postgresql"
+                          :bs-db-server-name "localhost"
+                          :bs-db-server-port "5432"
+                          :bs-db-user "tiger"}
+                    :resource-paths ["test-resources"]}
+             :uberjar {:aot :all
+                       :main burningswell.db.main}}
+  :uberjar-name "burningswell-db.jar")

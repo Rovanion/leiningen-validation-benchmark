@@ -1,0 +1,43 @@
+(defproject szew/io "0.2.2"
+  :description "File to data and back."
+  :url "https://bitbucket.org/spottr/szew-io"
+
+  :license {:name "MIT Public License"
+            :distribution :repo
+            :comments "LICENSE file in project root directory."}
+
+  :dependencies [[org.clojure/clojure "1.8.0"]
+                 ;; Proper CSV handling, combat proven:
+                 [clojure-csv/clojure-csv "2.0.2"]
+                 ;; There is no life without XML
+                 [org.clojure/data.xml "0.0.8"]
+                 ;; Zippers, mainly because XML
+                 [org.clojure/data.zip "0.1.2"]]
+
+  :profiles {:dev {:dependencies [[criterium "0.4.4"]]
+                   :plugins [[lein-codox "0.10.0"]]
+                   :source-paths ["dev"]}
+             :1.9 {:dependencies [[org.clojure/clojure "1.9.0-alpha13"]]}
+             :uberjar {:aot :all}}
+
+  :global-vars {*warn-on-reflection* true
+                *assert* true}
+
+  :aot [szew.io]
+
+  :jar-name "szew-io.jar"
+  :uberjar-name "szew-io-fat.jar"
+
+  :codox {;:metadata {:doc/format :markdown}
+          :project {:name "szew/io"}
+          :namespaces [#"^szew\.io.*$"]
+          ;; that was fun:
+          :source-uri ~(str "https://bitbucket.org/spottr/szew-io/src/"
+                            ;"12202edb265b456b8c20b596178c86ec3bc448d0" ;; 0.1.0
+                            ;"f11505239cb0c3ae2d6ef40b94402146791c1995" ;; 0.1.1
+                            ;"9ec02eabbe0910ad0ad0a7a13519b8cc3a4b0dac" ;; 0.1.2
+                            ;"73c3ada37095c3a04acea7e69f21275288055d3c" ;; 0.2.0
+                            "2e89f63d37ff08c17d89f3d4701e1f7f384dd10a"  ;; 0.2.1
+                            "/{filepath}#{basename}-{line}")}
+  )
+

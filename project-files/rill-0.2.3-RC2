@@ -1,0 +1,12 @@
+=(defproject rill-event-sourcing/rill "0.2.3-RC2"
+  :deploy-repositories [["releases" {:url "https://clojars.org"
+                                     :creds :gpg}]]
+  :description "An Event Sourcing Toolkit"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :url "https://github.com/rill-event-sourcing/rill"
+  :dependencies [[org.clojure/clojure "1.7.0"] [org.clojure/core.async "0.1.338.0-5c5012-alpha"] [org.clojure/tools.logging "0.2.6"] [prismatic/schema "0.2.2"] [slingshot/slingshot "0.10.3"] [environ/environ "0.5.0"] [identifiers/identifiers "1.1.0"] [org.clojure/java.jdbc "0.7.0-alpha1"] [postgresql/postgresql "9.1-901.jdbc4"] [com.taoensso/nippy "2.6.3"] [mysql/mysql-connector-java "5.1.6"] [clojure.jdbc/clojure.jdbc-c3p0 "0.3.2"] [rill-event-sourcing/rill.message "0.2.3-RC2"] [rill-event-sourcing/rill.handler "0.2.3-RC2"] [rill-event-sourcing/rill.web "0.2.3-RC2"] [rill-event-sourcing/rill.repository "0.2.3-RC2"] [rill-event-sourcing/rill.timestamp "0.2.3-RC2"] [rill-event-sourcing/rill.event_store.mysql "0.2.3-RC2"] [rill-event-sourcing/rill.uuid "0.2.3-RC2"] [rill-event-sourcing/rill.aggregate "0.2.3-RC2"] [rill-event-sourcing/rill.event_store.psql_serialized "0.2.3-RC2"] [rill-event-sourcing/rill.temp_store "0.2.3-RC2"] [rill-event-sourcing/rill.event_store.psql "0.2.3-RC2"] [rill-event-sourcing/rill.event_store "0.2.3-RC2"] [rill-event-sourcing/rill.event_stream "0.2.3-RC2"] [rill-event-sourcing/rill.event_channel "0.2.3-RC2"] [rill-event-sourcing/rill.event_store.memory "0.2.3-RC2"]]
+   
+  :set-version
+  {:updates [{:path "README.org" :no-snapshot true}]}
+    :scm {:connection "scm:git:git://github.com/rill-event-sourcing/rill.git", :developerConnection "scm:git:ssh://git@github.com/rill-event-sourcing/rill.git", :tag "711d08e52bd331cdc2255199069b2d0aca69e8b0\n", :url "https://github.com/rill-event-sourcing/rill"})

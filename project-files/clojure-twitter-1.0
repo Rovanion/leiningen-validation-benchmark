@@ -1,0 +1,4 @@
+(defproject org.clojars.rayne/clojure-twitter "1.0"
+  :description "Clojure Twitter API library."
+  :dependencies [[org.clojars.rayne/clj-apache-http "1.0"]
+		 [org.clojars.rayne/clj-oauth "1.0"]])

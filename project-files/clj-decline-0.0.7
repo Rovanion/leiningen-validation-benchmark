@@ -1,0 +1,22 @@
+(defproject com.banzai/clj-decline "0.0.7"
+  :description "Minimal, flexible validation library - test objects and collect reasons for rejection"
+  :dependencies [[org.clojure/clojure "1.5.1"]]
+  :url "https://github.com/banzai-inc/clj-decline"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :plugins [[com.keminglabs/cljx "0.3.2"]]
+  :hooks [cljx.hooks]
+  :source-paths ["target/generated/src/clj"
+                 "target/generated/src/cljs"]
+  :cljx {:builds [{:source-paths ["src"]
+                   :output-path "target/generated/src/clj"
+                   :rules :clj}
+                  {:source-paths ["src"]
+                   :output-path "target/generated/src/cljs"
+                   :rules :cljs}
+                  {:source-paths ["test"]
+                   :output-path "target/generated/test/clj"
+                   :rules :clj}
+                  {:source-paths ["test"]
+                   :output-path "target/generated/test/cljs"
+                   :rules :cljs}]})

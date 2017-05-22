@@ -1,0 +1,16 @@
+(defproject kinematic-middleware "0.1.0"
+  :description "FIXME: write description"
+  :url "http://example.com/FIXME"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :plugins [[lein-swank "1.4.5"]]
+  :local-repo "~/.m2/repository"
+  :lein-release {:deploy-via :clojars :scm :git}
+  :dependencies [[org.clojure/clojure   "1.6.0"]
+                 [org.clojure/clojurescript "0.0-2280"]
+                 [org.clojure/data.json "0.2.5"]
+                 [org.clojure/tools.namespace "0.2.5"]
+                 [org.clojure/java.classpath "0.2.2"]
+                 [org.clojure/core.async "0.1.303.0-886421-alpha"]
+                 [http-kit              "2.1.17"]
+                 [clout                 "1.2.0"]])

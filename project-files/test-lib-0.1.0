@@ -1,0 +1,6 @@
+(defproject ilevd/test-lib "0.1.0"
+  :description "Testing Clojars"
+  :url "https://github.com/ilevd/test-lib"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :dependencies [[org.clojure/clojure "1.8.0"]])

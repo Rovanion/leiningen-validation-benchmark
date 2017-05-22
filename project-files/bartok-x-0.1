@@ -1,0 +1,57 @@
+(defproject bartok-x "0.1"
+  :description "a set of primitives for musical programming"
+  :url "http://example.com/FIXME"
+
+  :dependencies [[org.clojure/clojure "1.6.0"]
+                 [org.clojure/clojurescript "0.0-2069"]
+                 [org.clojure/math.numeric-tower "0.0.4"]
+                 [org.clojars.gjahad/debug-repl "0.3.3"]]
+
+  :plugins [[lein-cljsbuild "1.0.0"]
+            [com.keminglabs/cljx "0.3.2"]
+            [com.cemerick/clojurescript.test "0.3.0"]]
+  
+  :test-paths ["target/generated/spec/clj" "test/clj"]
+  
+  ; :hooks [leiningen.cljsbuild]
+  
+  :source-paths ["target/generated/src/clj" "src"]
+  
+  :resource-paths ["target/generated/src/cljs"]
+  
+  :cljsbuild {:test-commands {"unit" ["phantomjs" :runner
+                                      "this.literal_js_was_evaluated=true"
+                                      "js-libs/ratio.js"
+                                      "target/unit-test.js"]}
+              :builds
+              {:dev {:source-paths ["src" "brepl" "target/generated/src/cljs"]
+                     :jar true
+                     :compiler {:output-to "target/main.js"
+                                :optimizations :whitespace
+                                :source-map "target/main.js.map"}}
+               :prod {:source-paths ["src" "target/generated/src/cljs"]
+                     :jar true
+                     :compiler {:output-to "target/main-prod.js"
+                                :optimizations :advanced
+                                :pretty-print false
+                                :externs ["externs/ratio_externs.js"]
+                                :source-map "target/main-prod.js.map"}}
+               :test {:source-paths ["src" "spec"
+                                     "target/generated/src/cljs"
+                                     "target/generated/spec/cljs"]
+                      :jar true
+                      :compiler {:output-to "target/unit-test.js"
+                                 :optimizations :whitespace}}}}
+    
+  :cljx {:builds [{:source-paths ["src"]
+                   :output-path "target/generated/src/clj"
+                   :rules :clj}
+                  {:source-paths ["src"]
+                   :output-path "target/generated/src/cljs"
+                   :rules :cljs}
+                  {:source-paths ["spec"]
+                   :output-path "target/generated/spec/clj"
+                   :rules :clj}
+                  {:source-paths ["spec"]
+                   :output-path "target/generated/spec/cljs"
+                   :rules :cljs}]})

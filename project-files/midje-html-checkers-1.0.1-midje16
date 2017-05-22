@@ -1,0 +1,5 @@
+(defproject org.clojars.normanrichards/midje-html-checkers "1.0.1-midje16"
+  :description "Midje checkers for stating facts about HTML pages"
+  :dependencies [[org.clojure/clojure "1.5.1"]
+                 [enlive "1.1.4"]
+                 [midje "1.6-beta1"]])

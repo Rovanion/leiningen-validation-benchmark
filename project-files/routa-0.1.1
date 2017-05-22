@@ -1,0 +1,9 @@
+(defproject routa "0.1.1"
+  :description "a routing library for Ring using Clojure maps"
+  :url "http://github.com/opensimple/routa"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :dependencies [[org.clojure/clojure "1.5.1"]
+                 [ring/ring-core "1.2.1"]]
+  :profiles {:dev {:dependencies [[ring-mock "0.1.5"]
+                                  [org.clojure/tools.namespace "0.2.4"]]}})

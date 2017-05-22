@@ -1,0 +1,14 @@
+(defproject clj-eden-lib/lein-template "0.2.7"
+  :description "A lein template for creating small, useful abstraction libraries"
+  :url "https://github.com/pauldeden/clj-eden-lib-template"
+  :license {:name "Apache License, version 2.0"
+            :url "http://www.apache.org/licenses/LICENSE-2.0.html"}
+  :release-tasks [["vcs" "assert-committed"]
+                  ["change" "version" "leiningen.release/bump-version" "release"]
+                  ["vcs" "commit"]
+                  ["vcs" "tag"]
+                  ["deploy" "clojars"] ; put here because specifying clojars otherwise is weird right now
+                  ["change" "version" "leiningen.release/bump-version"]
+                  ["vcs" "commit"]
+                  ["vcs" "push"]]
+  :eval-in-leiningen true)

@@ -1,0 +1,4 @@
+(defproject fontselector "1.0.0"
+  :description "Swing based font selector"
+  :dependencies [[org.clojure/clojure "1.3.0"]
+                 [seesaw "1.3.0"]])

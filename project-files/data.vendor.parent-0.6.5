@@ -1,0 +1,37 @@
+(defproject kixi/data.vendor.parent "0.6.5"
+  :description "kixi modules to interface to data vendors"
+  :url "http://github.com/MastodonC/kixi.data.vendor.git"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :dependencies [[org.clojure/clojure "1.7.0"]
+                 [kixi/schema_gen "0.1.6"]
+                 [prismatic/schema "1.0.4"]
+                 [schema-contrib "0.1.5"]
+                 [kixi/pipe "0.18.2"]]
+
+  :scm {:name "git"
+        :url "git@github.com:MastodonC/kixi.data.vendor.git"}
+
+  :sub ["vendors/appnexus" "vendors/grapeshot" "vendors/integral" "vendors/lotame" "vendors/google_dfp"]
+
+  :min-lein-version "2.4.2"
+
+  :plugins [
+            [lein-sub "0.3.0"]
+            [s3-wagon-private "1.1.2"]]
+  ;; You need to arrange for the environment variables:
+  ;;   CLOJARS_USERNAME to be your clojars username
+  ;;   CLOJARS_PASSWORD to be your clojars password.
+  ;; there is a sample.lein-credentials file which you can fill in and
+  ;; source from your shell
+
+  :repositories [["releases" {:url "https://clojars.org/repo" :username :env/clojars_username :password :env/clojars_password}]
+                 ["snapshots" {:url "s3p://mc-maven-repo/snapshots" :username :env/mc_aws_username :passphrase :env/mc_aws_passphrase}]]
+
+  :profiles {:dev {:dependencies [[org.clojure/test.check "0.9.0"]]}}
+
+  :aliases {"test-all" ["sub" "test"]
+            "clean-all" ["do" "clean," "sub" "clean"]
+            "install-all" ["do" "install," "sub" "install"]
+            ;; lein sub and lein release do NOT play well together. Do it manually.
+            "release" ["do-not-do-this"]})

@@ -1,0 +1,12 @@
+(defproject slmq "1.0.0"
+  :description "SoftLayer Message Queue Client Bindings"
+  :url "https://github.com/softlayer/softlayer-message-queue-clojure"
+  :license {:name "The MIT License (MIT)"
+            :url "https://github.com/softlayer/softlayer-message-queue-clojure/blob/master/COPYING"}
+  :main slmq.core
+  :dependencies [[org.clojure/clojure "1.3.0"]
+                 [clj-http "0.5.6"]
+                 [cheshire "4.0.3"]]
+  :dev-dependencies [[lein-autodoc "0.9.0"]]
+  :autodoc {:name "SLMQ"
+            :page-title "SoftLayer Message Queue Clojure Bindings"})

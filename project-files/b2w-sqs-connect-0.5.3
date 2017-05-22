@@ -1,0 +1,17 @@
+(defproject b2w-sqs-connect "0.5.3"
+  :description "A library to directly access Amazon SQS"
+  :url "http://example.com/FIXME"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :java-source-paths ["src/com/b2w/sqs/connect"]
+  :repositories [
+			["clojars" {
+				:url "https://clojars.org/b2w-sqs-connect"
+				:sign-releases false
+			}]
+		]
+  :deploy-repositories [["releases" :clojars]]
+  :dependencies [[org.clojure/clojure "1.6.0"]
+                 [com.amazonaws/aws-java-sdk-sqs "1.11.3"]]
+  :profiles {:uberjar {:aot :all }}
+  )

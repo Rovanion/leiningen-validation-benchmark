@@ -1,0 +1,40 @@
+(defproject evolution "0.1.0"
+            :description "Ostensibly a library to make concurrent systems really simple in Clojure."
+            :url "https://github.com/zh217/evolution"
+            :license {:name "GNU Lesser General Public License version 3"
+                      :url  "http://www.gnu.org/licenses/lgpl-3.0-standalone.html"}
+            :source-paths ["src/clj" "generated/clj" "src/cljs" "generated/cljs"]
+            :java-source-paths ["src/java"]
+            :test-paths ["test/clj"]
+            :plugins [[com.keminglabs/cljx "0.4.0"]]
+            :hooks [cljx.hooks]
+            :global-vars {*warn-on-reflection* true}
+            :cljx {:builds [{:source-paths ["src/cljx"]
+                             :output-path  "generated/clj"
+                             :rules        :clj}
+                            {:source-paths ["src/cljx"]
+                             :output-path  "generated/cljs"
+                             :rules        :cljs}]}
+            :dependencies [[org.clojure/clojure "1.6.0"]
+                           [org.clojure/core.async "0.1.303.0-886421-alpha"]
+                           [zh217/zmq-async "0.1.2"]
+                           [org.clojure/tools.cli "0.3.1"]
+                           [com.taoensso/timbre "3.3.1"]
+                           [http-kit "2.1.19"]
+                           [compojure "1.1.9"]
+                           [com.cognitect/transit-clj "0.8.255"]]
+            :profiles {:aot     {:aot :all}
+                       :uberjar {:main ^:skip-aot evolution.hubs.zeromq.TrackerMain}
+                       :dev     {:plugins      [[lein-cljsbuild "1.0.3"]
+                                                [com.cemerick/austin "0.1.5"]]
+                                 :dependencies [[org.clojure/clojurescript "0.0-2322"]
+                                                [org.zeromq/jeromq "0.3.4"]
+                                                [midje "1.6.3"]
+                                                [im.chit/purnam "0.4.3"]
+                                                [com.cognitect/transit-cljs "0.8.188"]]}}
+            :cljsbuild {:builds [{:id           "dev"
+                                  :source-paths ["src/cljs" "generated/cljs" "test/cljs"]
+                                  :compiler     {:output-to     "out/dev/main.js"
+                                                 :output-dir    "out/dev/"
+                                                 :optimizations :none
+                                                 :source-map    true}}]})

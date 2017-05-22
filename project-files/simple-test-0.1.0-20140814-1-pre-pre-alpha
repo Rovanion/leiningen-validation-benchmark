@@ -1,0 +1,10 @@
+(defproject simple-test "0.1.0-20140814-1-pre-pre-alpha"
+  :description "Super Simple Clojure Testing"
+  :url "http://bitbucket.org/cursork/simple-test"
+  :license {:name "MIT"
+            :url "http://opensource.org/licenses/MIT"}
+  :dependencies [[org.clojure/clojure         "1.6.0"]
+                 [org.clojure/tools.namespace "0.2.5"]
+                 [com.cemerick/pomegranate    "0.3.0"]]
+  :plugins [#_[lein-simple-test "0.1.0-SNAPSHOT"]])
+

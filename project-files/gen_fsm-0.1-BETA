@@ -1,0 +1,5 @@
+(defproject org.clojars.owl/gen_fsm "0.1-BETA"
+  :description "Like Erlang/OTP gen_fsm"
+  :dependencies [[org.clojure/clojure "1.2.0"]
+                 [org.clojure/clojure-contrib "1.2.0"]
+		 [pattern-match "1.0.0"]])

@@ -1,0 +1,47 @@
+(defproject antistock/api-client "0.3.4"
+  :description "The Antistock HTTP client"
+  :url "https://bitbucket.org/r0man/antistock"
+  :license {:name "Creative Commons Attribution-NonCommercial 3.0"
+            :url "http://creativecommons.org/licenses/by-nc/3.0/"}
+  :deploy-repositories [["releases" :clojars]]
+  :dependencies [[com.cognitect/transit-clj "0.8.285"
+                  :exclusions [com.fasterxml.jackson.core/jackson-core]]
+                 [com.cognitect/transit-cljs "0.8.237"]
+                 [geo-clj "0.5.1"]
+                 [org.clojure/clojure "1.8.0"]
+                 [org.clojure/clojurescript "1.8.51" :scope "provided"]
+                 [request-clj "0.2.20" :exclusions [clj-http]]
+                 [org.clojars.r0man/clj-http "2.1.1"]]
+  :aliases {"ci" ["do"
+                  ["test"]
+                  ["doo" "phantom" "none" "once"]
+                  ["doo" "phantom" "advanced" "once"]
+                  ["lint"]]
+            "lint" ["do"  ["eastwood"]]}
+  :cljsbuild {:builds [{:id "none"
+                        :compiler
+                        {:asset-path "target/none"
+                         :main antistock.api.test
+                         :output-to "target/none.js"
+                         :output-dir "target/none"
+                         :optimizations :none
+                         :pretty-print true
+                         :source-map true
+                         :verbose true}
+                        :source-paths ["src" "test"]}
+                       {:id "advanced"
+                        :compiler
+                        {:asset-path "target/advanced"
+                         :main antistock.api.test
+                         :output-to "target/advanced.js"
+                         :output-dir "target/advanced"
+                         :optimizations :advanced
+                         :pretty-print true
+                         :verbose true}
+                        :source-paths ["src" "test"]}]}
+  :profiles {:dev {:dependencies [[com.cemerick/piggieback "0.2.1"]
+                                  [doo "0.1.6"]]
+                   :plugins [[jonase/eastwood "0.2.3"]
+                             [lein-cljsbuild "1.1.0"]
+                             [lein-difftest "2.0.0"]
+                             [lein-doo "0.1.6" :exclusions [org.clojure/clojure]]]}})

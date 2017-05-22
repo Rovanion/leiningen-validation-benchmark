@@ -1,0 +1,14 @@
+(defproject com.rentpath/rp-metrics-clj "0.3.1"
+  :description "Abstractions for tracking metrics in apps"
+  :url "https://github.com/rentpath/rp-metrics-clj"
+  :license {:name "MIT"
+            :url "https://opensource.org/licenses/MIT"}
+  :scm {:url "git@github.com:rentpath/rp-metrics-clj.git"}
+  :deploy-repositories [["releases" {:url "https://clojars.org/repo/"
+                                     :username [:gpg :env/CLOJARS_USERNAME]
+                                     :password [:gpg :env/CLOJARS_PASSWORD]
+                                     :sign-releases false}]]
+  :global-vars {*warn-on-reflection* true}
+  :profiles {:dev {:dependencies [[org.clojure/clojure "1.8.0"]
+                                  ;; Optional StatsD functionality
+                                  [clj-statsd "0.4.0"]]}})

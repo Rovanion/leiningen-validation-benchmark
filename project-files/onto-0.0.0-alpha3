@@ -1,0 +1,27 @@
+(defproject dvlopt/onto "0.0.0-alpha3"
+  :description "<!> Developer is too lazy to write a description"
+  :url "https://github.com/dvlopt/onto"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :plugins [[lein-codox "0.9.5"]]
+  :codox {:language :clojure
+          :source-paths ["dev"
+                         "src"]
+          :output-path "doc/generated"
+          :namespaces [dev
+                       bob.prov]}
+  :dependencies [[org.clojure/clojure "1.9.0-alpha10"]  ;; alpha but needed for clojure.spec
+                 [org.clojure/test.check "0.9.0"]
+
+                 ; Error handling
+                 ; [slingshot "0.12.2"]
+
+                 ]
+  :main ^:skip-aot onto
+  :source-paths ["src"]
+  :target-path "target/%s"
+  :profiles {:dev {:main dev
+                   :source-paths ["dev"]
+                   :plugins [[venantius/ultra "0.4.1"]]
+                   :dependencies [[org.clojure/tools.namespace "0.2.11"]]}
+             :uberjar {:aot :all}})

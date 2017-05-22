@@ -1,0 +1,8 @@
+(defproject clojush "20110702-kephale.17"
+  :url "https://github.com/lspector/Clojush"
+  :description "Clojush - Clojure implementation of Push by Lee Spector"
+  :main runner
+  :dev-dependencies [[swank-clojure "1.4.0-SNAPSHOT"]]
+  :dependencies [[org.clojure/clojure "1.2.0"]
+                 [org.clojure/clojure-contrib "1.2.0"]])
+  

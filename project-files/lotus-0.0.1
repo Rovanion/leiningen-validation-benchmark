@@ -1,0 +1,15 @@
+(defproject wangxiaoyu/lotus "0.0.1"
+  :description "my little libarary for restapi"
+  :url "http://example.com/FIXME"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :signing {:gpg-key "wangxiaoyu.wangxiaoyu@gmail.com"}
+  :mirrors {#"clojars" {:name "Clojar Mirror"
+                        :url "https://clojars-mirror.tcrawley.org/repo/"
+                        :repo-manager true}}
+
+  :dependencies [[org.clojure/clojure "1.8.0"]
+                 [ring/ring-json "0.4.0"]
+                 [metrics-clojure "2.7.0"]
+                 [metrics-clojure-ring "2.7.0"]
+                 [clout "2.1.2"]])

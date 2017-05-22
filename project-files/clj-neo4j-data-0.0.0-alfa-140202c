@@ -1,0 +1,8 @@
+(defproject clj-neo4j-data "0.0.0-alfa-140202c"
+  :description "This is program which offers basic API for eDocu"
+  :url "https://github.com/selmeci/clj-neo4j-data"
+  :license "MIT"
+  :dependencies [[org.clojure/clojure "1.5.1"]
+                 [org.clojure/clojure-contrib "1.2.0"]
+                 [clojurewerkz/neocons "2.0.1"]
+                 [slingshot "0.10.3"]])

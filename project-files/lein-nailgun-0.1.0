@@ -1,0 +1,4 @@
+(defproject lein-nailgun "0.1.0"
+  :description "leiningen plugin to run nailgun server"
+  :dependencies [[leiningen "1.0.0-SNAPSHOT"]
+                 [org.clojars.gilbertl/vimclojure "2.1.2"]])

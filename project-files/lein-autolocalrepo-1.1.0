@@ -1,0 +1,6 @@
+(defproject lein-autolocalrepo "1.1.0"
+  :description "Creates a local Maven directory and imports any jar found in /lib"
+  :url "https://github.com/mlacorte/lein-autolocalrepo"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :eval-in-leiningen true)

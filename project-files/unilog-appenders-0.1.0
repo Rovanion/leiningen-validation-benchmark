@@ -1,0 +1,14 @@
+(defproject truckerpath/unilog-appenders "0.1.0"
+  :description "Additional appenders for spootnik/unilog"
+  :url "https://github.com/truckerpathteam/unilog-appenders"
+
+  :license {:name "MIT License"
+            :url "https://github.com/truckerpathteam/unilog-appenders/blob/master/LICENSE"}
+
+  :dependencies [[org.clojure/clojure "1.7.0"]
+                 [com.logentries/logentries-appender "1.1.32"]
+                 [spootnik/unilog "0.7.13"]]
+
+  :profiles {:dev {:dependencies [[org.clojure/tools.logging "0.3.1"]]}}
+
+  :deploy-repositories [["clojars" {:creds :gpg}]])

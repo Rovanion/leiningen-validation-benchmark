@@ -1,0 +1,6 @@
+(defproject machinery/metaheuristics "0.2.0"
+  :description "A collection of simple metaheuristic algorithms for solving optimization problems"
+  :url "https://github.com/blandflakes/metaheuristics"
+  :license {:name "Apache License"
+            :url "http://www.apache.org/licenses/LICENSE-2.0"}
+  :dependencies [[org.clojure/clojure "1.8.0"]])

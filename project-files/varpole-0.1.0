@@ -1,0 +1,6 @@
+(defproject rui/varpole "0.1.0"
+  :description "Clojure library for copy vars from one namespace to another one"
+  :url "https://github.com/zrcaifu/varpole"
+  :license {:name "The MIT License (MIT)"
+            :url "https://raw.githubusercontent.com/zrcaifu/varpole/master/LICENSE"}
+  :dependencies [[org.clojure/clojure "1.6.0"]])

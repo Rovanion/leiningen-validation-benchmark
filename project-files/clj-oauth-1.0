@@ -1,0 +1,3 @@
+(defproject org.clojars.rayne/clj-oauth "1.0"
+  :description "An OAuth library for Clojure."
+  :dependencies [[org.clojars.rayne/clj-apache-http "1.0"]])

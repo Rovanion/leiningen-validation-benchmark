@@ -1,0 +1,16 @@
+(defproject lein-report "0.1.2"
+  :description "Generate a report about a project based on other lein plugins"
+  :url "http://gitlab.com/telser/lein-report"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :eval-in-leiningen true
+  :dependencies [[org.clojure/clojure "1.6.0"]
+                 [org.clojure/core.typed "0.2.44"]
+                 [lein-sub "0.3.0"]
+                 [jonase/eastwood "0.1.2"]
+                 [lein-kibit "0.0.8"]
+                 [lein-ancient "0.5.5"]]
+  :profiles {:dev {:plugins [[lein-typed "0.3.4"]]
+                   :global-vars {*warn-on-reflection* true}}
+             :1.5 {:dependencies [[org.clojure/clojure "1.5.1"]]}
+             :1.7 {:dependencies [[org.clojure/clojure "1.7.0-master-SNAPSHOT"]]}})

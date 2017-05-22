@@ -1,0 +1,72 @@
+(defproject csaa-digital/connect-framework "1.9.9"
+  :description "Digital Connect: Framework"
+  :url "https://github.com/aaa-ncnu-ie/ds-connect-framework"
+  :dependencies [[org.clojure/clojure "1.8.0"]
+                 [org.clojure/data.json "0.2.6"]
+                 [org.clojure/tools.logging "0.3.1"]
+                 [compojure "1.5.1"]
+                 [ring/ring-core "1.5.0"]
+                 [ring/ring-codec "1.0.1"]
+                 [ring/ring-mock "0.3.0"]
+                 [ring-cors "0.1.8"]
+                 [buddy/buddy-sign "1.1.0"]
+                 [com.onelogin/java-saml "1.1.2-atlassian-hosted" :exclusions [com.fasterxml.jackson.core/jackson-core
+                                                                               org.slf4j/slf4j-log4j12
+                                                                               org.slf4j/slf4j-simple]]
+                 [ch.qos.logback/logback-classic "1.1.3"]
+                 [environ "1.1.0"]
+                 [clj-time "0.12.0"]
+                 [http-kit "2.1.18"]
+                 [http-kit.fake "0.2.2"]
+                 [cheshire "5.6.3"]
+                 [robert/hooke "1.3.0"]
+                 [com.github.kyleburton/clj-xpath "1.4.3"]
+                 [de.ubercode.clostache/clostache  "1.4.0"]
+                 [org.apache.santuario/xmlsec "2.0.4"]
+                 [org.clojure/java.jdbc "0.6.2-alpha3"]
+                 [sqljdbc4/sqljdbc4 "1.0"]
+                 [com.pingidentity/opentoken-agent "2.4"]
+                 ;; required for PF OpenToken
+                 [commons-collections/commons-collections "3.2.1"]
+                 [commons-beanutils/commons-beanutils "1.9.2"]
+                 [javax.servlet/servlet-api "2.5"]
+                 [com.taoensso/carmine "2.15.0"]
+                 ;; required for TAOEnsso Carmine
+                 [commons-codec/commons-codec "1.10"]]
+
+  :plugins [[lein-environ "1.1.0"]
+            [lein-codox "0.10.2"]]
+
+  :codox {:namespaces [billing-detail.core, billing-history.core, policies.core, claims.core, constants.core, coverages.core, customer.core, discounts.core, documents.core, framework.core, cacheing.core, http.core, identity-middleware.core, soa.core, test-utils.core, wms-customer-info.core]
+          :output-path "./auth-server/resources/public/codox"
+          :metadata    {:doc/format :markdown}
+          :source-uri "https://github.com/aaa-ncnu-ie/ds-connect-framework/blob/master/{filepath}#L{line}"
+          :html {:transforms [[:body :div#header] [:substitute ""]
+                              ;;
+                              [:body :div.sidebar.primary :h3.no-link] [:substitute ""]
+                              [:body :div.sidebar.primary] [:prepend [:h3 "Namespaces"]]
+                              [:body :div.sidebar.primary :ul.index-link] [:substitute ""]
+                              [:div#content :h1] [:substitute ""]
+                              [:div#content :h2] [:substitute ""]
+                              [:div#content :ul.topics] [:substitute ""]
+                              ;;
+                              ;[:div#content :p] [:substitute ""]
+                              ;[:div#content :pre.deps] [:substitute ""]
+                              ;[:div#content :div.doc] [:substitute ""]
+                              ;[:body :div.sidebar.primary :ul :li.depth-1 :a :div.inner :span] [:substitute ""]
+                              [:head] [:substitute ""]]}}
+
+  :profiles {:uberjar {:aot :all}
+
+             :dev {:plugins [[lein-cloverage "1.0.9"]]
+                   :env {}}
+
+             :test {:env {}
+                    :resource-paths ["test-resources"]}}
+
+
+  :repositories [["clojars" {:sign-releases false
+                             :username :env/clojars_username
+                             :password :env/clojars_password}]
+                 ["releases" "https://maven.atlassian.com/3rdparty/"]
+                 ["csaa" "https://devnexus.tent.trt.csaa.pri:8443/nexus/content/repositories/thirdparty/"]])

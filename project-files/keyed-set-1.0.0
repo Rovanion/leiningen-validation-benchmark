@@ -1,0 +1,8 @@
+(defproject eu.nathan7/keyed-set "1.0.0"
+  :description "keyed sets for Clojure"
+  :url "https://github.com/nathan7/keyed-set.clj"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :dependencies [[org.clojure/clojure "1.5.1"]]
+  :source-paths ["src/clojure"]
+  :java-source-paths ["src/java"])

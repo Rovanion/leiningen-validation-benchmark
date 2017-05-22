@@ -1,0 +1,38 @@
+(defproject fripon "0.0-3"
+  :description       "FRP and ECS engine for clojure and clojurescript"
+  :url               "https://github.com/leonoel/fripon"
+  :license           {:name "Eclipse Public License"
+                      :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :plugins           [[lein-cljsbuild "1.0.6"]]
+  :dependencies      [[org.clojure/clojure "1.7.0"]
+                      [org.clojure/clojurescript "1.7.28"]
+                      [org.clojure/core.async "0.1.346.0-17112a-alpha"]]
+
+  :source-paths      ["src"]
+  :test-paths        ["test"]
+  
+  :cljsbuild
+  {:builds           [{:source-paths ["src" "test"]
+                       :compiler     {:output-dir    "target/cljs/test_frp"
+                                      :output-to     "target/cljs/test_frp/main.js"
+                                      :main          "fripon.test.frp"
+                                      :target        :nodejs
+                                      :optimizations :none
+                                      :pretty-print  true}}
+                      {:source-paths ["src" "test"]
+                       :compiler     {:output-dir    "target/cljs/test_mutable"
+                                      :output-to     "target/cljs/test_mutable/main.js"
+                                      :main          "fripon.test.mutable"
+                                      :target        :nodejs
+                                      :optimizations :none
+                                      :pretty-print  true}}
+                      {:source-paths ["src" "test"]
+                       :compiler     {:output-dir    "target/cljs/perf_mutable"
+                                      :output-to     "target/cljs/perf_mutable/main.js"
+                                      :main          "fripon.perf.mutable"
+                                      :target        :nodejs
+                                      :optimizations :none
+                                      :pretty-print  true}}]
+   :test-commands    {"test-frp" ["node" "target/cljs/test_frp/main.js"]
+                      "test-mutable" ["node" "target/cljs/test_mutable/main.js"]
+                      "perf-mutable" ["node" "target/cljs/perf_mutable/main.js"]}})

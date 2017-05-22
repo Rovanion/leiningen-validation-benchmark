@@ -1,0 +1,17 @@
+(defproject pyutils "0.2.0"
+  :description "Gateway to several python services / Nameko / Celery"
+  :url "http://example.com/FIXME"
+  :license {:name "Eclipse Public License"
+            :url  "http://www.eclipse.org/legal/epl-v10.html"}
+  :dependencies [[org.clojure/clojure "1.8.0"]
+                 [com.novemberain/langohr "3.5.1"]
+                 [cheshire "5.5.0"]
+                 [mount "0.1.10"]
+
+                 [org.clojure/data.codec "0.1.0"]
+                 [buddy/buddy-hashers "0.11.0"]
+                 [buddy/buddy-core "0.9.0"]
+                 ]
+
+  :main pyutils.core
+  )

@@ -1,0 +1,5 @@
+(defproject  org.clojars.deas/gorilla-renderable "2.1.0"
+  :description "The protocol for custom rendering in gorilla REPL."
+  :url "https://github.com/deas/gorilla-renderable"
+  :license {:name "MIT"}
+  :dependencies [[org.clojure/clojure "1.5.1"]])

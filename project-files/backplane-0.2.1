@@ -1,0 +1,17 @@
+(defproject backplane "0.2.1"
+  :description "A simple clojure library for distributed message queues."
+  :url "https://github.com/elasticlearn/backplane"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :codox {:src-dir-uri "https://github.com/elasticlearn/backplane/tree/master/"
+          :src-linenum-anchor-prefix "L"}
+  :bin {:name "backplane"}
+  ;:main backplane.shell.core
+  ;:aot [backplane.shell.core]
+  :dependencies [[org.clojure/clojure "1.6.0"]
+                 [com.taoensso/timbre "3.3.0" :exclusions [org.clojure/clojure]]
+                 [mvxcvi/puget "0.6.3"]
+                 [reply "0.3.4"]
+                 [yesql "0.4.0"]
+                 [org.clojure/java.jdbc "0.3.5"]
+                 [com.h2database/h2 "1.4.180"]])

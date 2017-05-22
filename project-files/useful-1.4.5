@@ -1,0 +1,19 @@
+(defproject com.timezynk/useful "1.4.5"
+  :description "Useful functions"
+  :warn-on-reflection true
+  :dependencies [
+    [cheshire "5.6.3"]
+    [com.novemberain/validateur "1.2.0"]
+    [commons-codec "1.10"]
+    [congomongo "0.5.0"]
+    [jbcrypt "0.3"]
+    [joda-time "2.9.2"]
+    [org.clojure/clojure "1.8.0"]
+    [org.clojure/tools.logging "0.3.1"]
+    [potemkin "0.4.3"]
+    [slingshot "0.12.2"]
+  ]
+  :repositories [["timezynk" {:url "s3p://tzmaven/releases/" :creds :gpg}]]
+  :min-lein-version "2.0.0"
+  :plugins [[lein-difftest "2.0.0"]
+            [s3-wagon-private "1.1.2"]])

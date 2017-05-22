@@ -1,0 +1,6 @@
+(defproject factual/rocksdbjni-all "99-master-SNAPSHOT-uber"
+  :description "LevelDB JNI Bindings for OS X and 64-bit Linux"
+  :url "https://github.com/fusesource/leveldbjni"
+  :license {:name "CDDL"
+            :url "https://github.com/fusesource/leveldbjni/blob/master/license.txt"}
+  :dependencies [[org.fusesource.rocksdbjni/rocksdbjni-all "99-master-SNAPSHOT"]])

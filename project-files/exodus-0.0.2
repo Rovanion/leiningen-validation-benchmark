@@ -1,0 +1,9 @@
+(defproject exodus "0.0.2"
+  :description "Dirt-simple migrations for clojure.java.jdbc"
+  :url "https://github.com/zachpendleton/exodus"
+  :license {:name "GPLv3"
+            :url "http://www.gnu.org/licenses/gpl.html"}
+  :dependencies [[org.clojure/clojure "1.5.1"]
+                 [org.clojure/java.jdbc "0.3.2"]]
+  :profiles {:dev {:dependencies [[com.h2database/h2 "1.3.174"]]
+                   :source-paths ["dev"]}})

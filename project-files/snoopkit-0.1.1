@@ -1,0 +1,36 @@
+(defproject snoopkit "0.1.1"
+  :description "General puprose toolkit"
+  :url "https://github.com/amakurin/snoopkit"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :dependencies
+  [[org.clojure/clojure "1.6.0"]
+   [environ "0.5.0"]
+   [org.clojure/tools.reader "0.8.3"]]
+  :profiles
+  {:dev
+   {:plugins
+    [[com.keminglabs/cljx             "0.4.0"]
+     [lein-cljsbuild                  "1.0.3"]
+     ;;
+     [lein-pprint                     "1.1.1"]
+     [lein-ancient                    "0.5.5"]
+     [lein-expectations               "0.0.8"]
+     [lein-autoexpect                 "1.2.2"]]}}
+  :cljx
+  {:builds
+   [{:source-paths ["src" ] :rules :clj  :output-path "target/classes"}
+    {:source-paths ["src" ] :rules :cljs :output-path "target/classes"}]}
+
+  :cljsbuild
+  {:builds
+   [{:id :main
+     :source-paths ["src" "test" "target/classes"]
+     :compiler     {:output-to "target/main.js"
+                    :optimizations :advanced
+                    :pretty-print false}}]}
+
+  :prep-tasks   [["with-profile" "+dev" ; Workaround for :dev cljx
+                  "cljx" "once"] "javac" "compile"]
+  :aot :all
+  )

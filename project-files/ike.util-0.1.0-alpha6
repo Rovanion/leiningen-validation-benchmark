@@ -1,0 +1,15 @@
+(defproject ike/ike.util "0.1.0-alpha6"
+  :description "Common utilities for various Clojure libraries."
+  :url "https://github.com/ike-tools/ike.util"
+  :license {:name "Apache License, Version 2.0"
+            :url "http://www.apache.org/licenses/LICENSE-2.0"}
+  :dependencies [[org.clojure/clojure "1.7.0-alpha5"]]
+  :release-tasks [["vcs" "assert-committed"]
+                  ["change" "version" "leiningen.release/bump-version"]
+                  ["vcs" "commit"]
+                  ["vcs" "tag"]
+                  ["deploy" "clojars"]
+                  ["vcs" "push"]]
+  :profiles {:provided {:dependencies [[org.clojure/core.async "0.1.346.0-17112a-alpha"]
+                                       [com.stuartsierra/component "0.2.2"]
+                                       [aleph "0.4.0-beta3"]]}})

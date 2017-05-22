@@ -1,0 +1,20 @@
+(defproject yle-session-token-validation "2.0.2"
+  :description "Code to validate given Yle Tunnus token."
+  :url "http://github.com/Yleisradio/yle-session-token-validation"
+  :dependencies [[org.clojure/clojure "1.7.0"]
+                 [http-kit "2.1.18"]
+                 [org.clojure/core.cache "0.6.5"]
+                 [yle-clj-common "1.0.7"]
+                 [cheshire "5.5.0"]
+                 [org.clojure/tools.logging "0.3.1"]
+                 [log4j/log4j "1.2.17" :exclusions [javax.mail/mail
+                                                    javax.jms/jms
+                                                    com.sun.jdmk/jmxtools
+                                                    com.sun.jmx/jmxri]]]
+  :profiles {:dev {:dependencies [[http-kit.fake "0.2.1"]
+                                  [clj-stacktrace "0.2.8"]]}}
+  :repl-options {:caught clj-stacktrace.repl/pst+}
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :plugins [[lein-cljfmt "0.3.0"]]
+  :cljfmt {:file-pattern #".*\.clj$"})

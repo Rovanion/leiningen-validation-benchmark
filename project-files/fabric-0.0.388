@@ -1,0 +1,19 @@
+(defproject thi.ng/fabric "0.0.388"
+  :description  "Signal/Collect inspired compute graph infrastructure"
+  :url          "https://github.com/thi-ng/fabric"
+  :license      {:name "Apache Software License 2.0"
+                 :url "http://www.apache.org/licenses/LICENSE-2.0"
+                 :distribution :repo}
+  :scm          {:name "git"
+                 :url "https://github.com/thi-ng/fabric"}
+
+  :min-lein-vesion "2.4.0"
+
+  :dependencies [[thi.ng/fabric-core "0.0.388"]
+                 [thi.ng/fabric-facts "0.0.388"]
+                 [thi.ng/fabric-ld "0.0.388"]]
+
+  :pom-addition [:developers [:developer
+                              [:name "Karsten Schmidt"]
+                              [:url "http://thi.ng/fabric"]
+                              [:timezone "0"]]])

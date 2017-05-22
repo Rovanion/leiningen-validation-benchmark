@@ -1,0 +1,74 @@
+(defproject io.github.theasp/simple-encryption "0.1.0"
+  :description "Simple encryption library for ClojureScript"
+  :url "https://github.com/theasp/simple-encryption"
+  :license {:name "Eclipse Public License - v 1.0"
+            :url "http://www.eclipse.org/legal/epl-v10.html"
+            :distribution :repo}
+
+  :min-lein-version "2.3.4"
+
+  ;; We need to add src/cljs too, because cljsbuild does not add its
+  ;; source-paths to the project source-paths
+  :source-paths ["src/clj" "src/cljs"]
+
+  :dependencies [[org.clojure/clojure "1.8.0"]
+                 [org.clojure/clojurescript "1.7.228"]
+                 [cljsjs/forge "0.6.38-0"]
+                 [com.cognitect/transit-cljs "0.8.237"]
+                 [com.taoensso/timbre "4.2.1"]]
+
+  :plugins [[lein-pprint "1.1.1"]
+            [lein-npm "0.6.1"]
+            [lein-cljsbuild "1.1.2"]
+            [lein-doo "0.1.6"]]
+
+  :npm {:dependencies [[source-map-support "*"]]}
+
+  :doo {:build "simple-encryption-test-browser"}
+
+  :cljsbuild {:builds
+              [{:id "simple-encryption"
+                :source-paths ["src/cljs"]
+                :compiler
+                {:output-dir "target/js"
+                 :output-to "target/js/simple_encryption.js"
+                 :optimizations :whitespace
+                 :pretty-print false}}
+
+               {:id "simple-encryption-test-browser"
+                :source-paths ["src/cljs" "test/cljs"]
+                :compiler
+                {:output-dir "target/js-test/out"
+                 :output-to "target/js-test/simple_encryption.js"
+                 :main io.github.theasp.simple-encryption.runner
+                 :optimizations :none
+                 :pretty-print false
+                 :source-map true}}
+
+               {:id "simple-encryption-test-node"
+                :source-paths ["src/cljs" "test/cljs"]
+                :compiler
+                {:output-dir "target/js-test-node/out"
+                 :output-to "target/js-test-node/simple_encryption.js"
+                 :main io.github.theasp.simple-encryption.runner
+                 :target :nodejs
+                 :optimizations :none
+                 :pretty-print false
+                 :source-map true}}]}
+  ;;:source-map "target/js-test/simple_encryption.js.map"}}]}
+
+  :profiles
+  {:simple
+   {:shared
+    {:cljsbuild
+     {:builds
+      [{:id "simple-encryption"
+        :compiler {:optimizations :simple
+                   :pretty-print false}}]}}}
+   :advanced
+   {:shared
+    {:cljsbuild
+     {:builds
+      [{:id "simple-encryption"
+        :compiler {:optimizations :advanced
+                   :pretty-print false}}]}}}})

@@ -1,0 +1,7 @@
+(defproject bronsa/lein-swank "1.5.0"
+  :description "A Leiningen plugin for launching a Swank server for Slime."
+  :license {:name "Eclipse Public License - v 1.0"
+            :url "http://www.eclipse.org/legal/epl-v10.html"
+            :distribution :repo}
+  :dependencies [[org.clojure/clojure "1.5.0"]]
+  :eval-in-leiningen true)

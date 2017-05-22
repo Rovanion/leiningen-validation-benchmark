@@ -1,0 +1,21 @@
+(defproject clj-mojo "0.2.0"
+  :description "Clojure Wrapper for Instamojo API"
+  :url "https://github.com/decached/clj-mojo"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"
+            :distribution :repo
+            :comments "same as Clojure"}
+  :signing {:gpg-key "akash@decached.com"}
+  :min-lein-version "2.0.0"
+  :repositories {"sonatype-oss-public" "https://oss.sonatype.org/content/groups/public/"}
+  :dependencies [[org.clojure/clojure "1.5.1"]
+                 [clj-http "0.7.7"]]
+  :profiles {:1.4 {:dependencies [[org.clojure/clojure "1.4.0"]]}
+             :1.5 {:dependencies [[org.clojure/clojure "1.5.1"]]}
+             :1.6 {:dependencies [[org.clojure/clojure "1.6.0-master-SNAPSHOT"]]}
+             :master {:dependencies [[org.clojure/clojure "1.6.0-master-SNAPSHOT"]]}
+             :dev {:dependencies [[org.clojure/tools.cli "0.3.1" :exclusions [org.clojure/clojure]]
+                                  [environ "0.4.0"]]
+                   :plugins [[codox "0.6.6"]]}}
+  :deploy-branches ["master"]
+  :aliases        {"all" ["with-profile" "dev,1.4:dev,1.5:dev,1.6:dev,master"]})

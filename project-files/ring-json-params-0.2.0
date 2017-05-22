@@ -1,0 +1,5 @@
+(defproject fuziontech/ring-json-params "0.2.0"
+  :description "Ring middleware for JSON params parsing using cheshire."
+  :dependencies
+   [[org.clojure/clojure "1.3.0"]
+    [cheshire "4.0.0"]])

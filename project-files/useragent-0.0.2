@@ -1,0 +1,35 @@
+(defproject net.apribase/useragent "0.0.2"
+  :description "useragent parser"
+  :url "http://bitbucket.org/apribase/useragent"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"
+            :distribution :repo}
+  :scm {:name "hg"
+        :url "https://apribase@bitbucket.org/apribase/useragent"}
+  :source-paths ["src" "target/generated-src-by-cljx"]
+  :test-paths   ["test" "target/generated-test-by-cljx"]
+  :dependencies [[org.clojure/clojure "1.6.0"]
+                 [org.clojure/clojurescript "0.0-2371"]
+                 [midje "1.6.3"]]
+  :cljsbuild {:builds []}
+  :profiles {:dev {:plugins [[com.keminglabs/cljx "0.4.0"]
+                             [lein-cljsbuild "1.0.4"]]
+                   :hooks [cljx.hooks leiningen.cljsbuild]
+                   :cljx {:builds [{:source-paths ["src"]
+                                    :output-path "target/generated-src-by-cljx"
+                                    :rules :clj}
+                                   {:source-paths ["src"]
+                                    :output-path "target/generated-src-by-cljx"
+                                    :rules :cljs}
+                                   {:source-paths ["test"]
+                                    :output-path "target/generated-test-by-cljx"
+                                    :rules :cljs}
+                                   {:source-paths ["test"]
+                                    :output-path "target/generated-test-by-cljx"
+                                    :rules :cljs}]}
+                   :cljsbuild {:builds [{:source-paths ["target/generated-src-by-cljx"]
+                                         :compiler {:output-to "target/testable.js"
+                                                    :optimizations :advanced
+                                                    :pretty-print false}}]}
+  }}
+  :plugins [[lein-midje "3.1.3"]])

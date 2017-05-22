@@ -1,0 +1,3 @@
+(defproject org.clojars.pallix/clojure.prxml "1.3.0"
+  :description "1.3.0 compatible prxml"
+  :dependencies [[org.clojure/clojure "1.3.0"]])

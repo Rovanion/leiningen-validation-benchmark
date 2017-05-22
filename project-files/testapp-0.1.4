@@ -1,0 +1,18 @@
+(defproject testapp "0.1.4"
+  :description "FIXME: write description"
+  :url "http://example.com/FIXME"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :dependencies [[org.clojure/clojure "1.7.0"]]
+  ;;:deploy-repositories [["clojars-test" "http://localhost:8080/repo"]]
+  :release-tasks [;;["vcs" "assert-committed"]
+                  ["change" "version"
+                   "leiningen.release/bump-version" "release"]
+                  ;;["vcs" "commit"]
+                  ;;["vcs" "tag"]
+                  ["deploy" "clojars" #_"clojars-test"]
+                  ["change" "version" "leiningen.release/bump-version"]
+                  ;;["vcs" "commit"]
+                  ;;["vcs" "push"]
+                  ]
+)

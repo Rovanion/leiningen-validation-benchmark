@@ -1,0 +1,36 @@
+(defproject chantrix "0.1.7"
+  :description
+  "async extensions, composable middleware, and
+  feedback control for core.async"
+
+  :url
+  "http://github.com/chantrix/chantrix"
+
+  :license
+  {:name "Eclipse Public License"
+   :url  "http://www.eclipse.org/legal/epl-v10.html"}
+
+  :dependencies
+  [[org.clojure/clojure "1.8.0"]
+   [org.clojure/core.async "0.2.382"]
+   [org.clojure/tools.trace "0.7.9" :scope "provided"]
+   [cheshire "5.6.1" :scope "provided"]
+   [http-kit "2.1.19" :scope "provided"]
+   [potemkin "0.4.3"]]
+
+  :profiles
+  {:dev     {:source-paths ["dev"]}
+   :uberjar {:aot :all}}
+
+  :test-selectors
+  {:default     (constantly true)
+   :unit        :unit
+   :integration :integration
+   :performance :performance
+   :all         (constantly true)}
+
+  :eastwood
+  {:namespaces [:source-paths]}
+
+  :codox
+  {:source-uri "https://github.com/chantrix/chantrix/blob/{version}/{filepath}#L{line}"})

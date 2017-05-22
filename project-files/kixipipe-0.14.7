@@ -1,0 +1,48 @@
+(def slf4j-version "1.7.5")
+(defproject kixipipe "0.14.7"
+  :description "Provides the building blocks for Kixi's pipeline abstraction"
+  :url "https://github.com/MastodonC/kixipipe"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :dependencies [[org.clojure/clojure        "1.5.1"]
+                 [org.clojure/data.csv       "0.1.2"]
+                 [org.clojure/tools.macro    "0.1.5"]
+                 [clj-aws-s3                 "0.3.7"]
+                 [clj-ssh                    "0.5.6"]
+                 [clj-time                   "0.6.0"]
+                 [org.clojure/tools.cli      "0.2.4"]
+                 [clojurewerkz/quartzite     "1.1.0"]
+                 [pipejine                   "0.1.2" :exclusions [org.slf4j/slf4j-simple]]
+                 [cheshire                   "5.2.0"]
+                 [org.clojure/java.jdbc      "0.2.3"]
+                 [org.postgresql/postgresql  "8.4-703.jdbc4"]; required version for redshift
+                 [org.clojure/core.async     "0.1.222.0-83d0c2-alpha"]
+                 [prismatic/schema           "0.1.9"]
+                 [com.stuartsierra/component "0.2.0"]
+                 [potemkin                   "0.3.4"]
+                 ;; Logging
+                 [org.clojure/tools.logging  "0.2.6"]
+                 [org.slf4j/slf4j-api        "1.7.5"]
+
+                    ;; REPL
+                    [org.clojure/tools.nrepl    "0.2.3"]
+                    [clojure-complete           "0.2.3"]
+                    ]
+     :plugins [
+               [lein-release "1.0.4"]
+               [lein-tar "2.0.0"]
+               [s3-wagon-private "1.1.2"]
+               ]
+     :lein-release {:scm :git}
+     :repositories [["releases" {:url "s3p://mc-maven-repo/releases" :creds :gpg}]
+                    ["snapshots" {:url "s3p://mc-maven-repo/snapshots" :creds :gpg}]]
+     :profiles {:dev {:dependencies [[org.apache.sshd/sshd-core  "0.9.0"]
+                                     [org.apache.ftpserver/ftpserver-core "1.0.6"]
+                                     [org.clojure/tools.logging      "0.2.6"]
+                                     [ch.qos.logback/logback-classic "1.0.13"]
+                                     [org.slf4j/jul-to-slf4j         ~slf4j-version]
+                                     [org.slf4j/jcl-over-slf4j       ~slf4j-version]
+                                     [org.slf4j/log4j-over-slf4j     ~slf4j-version]
+                                     ]}}
+     )
+

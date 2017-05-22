@@ -1,0 +1,8 @@
+(defproject com.invisiblefriend.component/datomic "0.1.0"
+  :description "A component for a Datomic database."
+  :url "https://github.com/invisiblefriend/component-datomic"
+  :license {:name "The MIT License"
+            :url "http://if.mit-license.org"}
+  :dependencies [[org.clojure/clojure "1.6.0"]
+                 [com.datomic/datomic-pro "0.9.5130" :exclusions [joda-time]]
+                 [com.stuartsierra/component "0.2.3"]])

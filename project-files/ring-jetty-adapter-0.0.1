@@ -1,0 +1,27 @@
+(defproject com.climate/ring-jetty-adapter "0.0.1"
+  :description "TCC Ring Jetty adapter."
+  :url "https://github.com/TheClimateCorporation/tcc-ring-jetty-adapter"
+  :license {:name "The MIT License"
+            :url "http://opensource.org/licenses/MIT"}
+  :dependencies [[ring/ring-core "1.2.1"]
+                 [ring/ring-servlet "1.2.1"]]
+
+  ;The :default profile is defined to be a composite of
+  ;[:base :system :user :provided :dev]. Since we want the default
+  ;configuration to build for Jetty7x we include jetty7x dependencies
+  ;as part of dev and default source-paths to include jetty7x sources.
+
+  :source-paths ["src/common" "src/jetty7x-impl"]
+
+  :plugins [[lein-pprint "1.1.1"]]
+
+  :classifiers [["jetty9" :jetty9]]
+
+  :profiles
+  {:dev {:dependencies [[clj-http "0.6.4"]
+                        [org.eclipse.jetty/jetty-server "7.6.8.v20121106"]]}
+   :1.4 {:dependencies [[org.clojure/clojure "1.4.0"]]}
+   :1.5 {:dependencies [[org.clojure/clojure "1.5.1"]]}
+   :jetty9 {:source-paths ^:replace ["src/common" "src/jetty9x-impl"]
+            :dependencies [[clj-http "0.6.4"]
+                           [org.eclipse.jetty/jetty-server "9.1.0.M0"]]}})

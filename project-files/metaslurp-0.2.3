@@ -1,0 +1,14 @@
+(defproject metaslurp "0.2.3"
+  :description "Simple service for getting the metadata for a particular page."
+  :url "https://bitbucket.org/leanpixel/metaslurp"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :dependencies [[org.clojure/clojure "1.6.0"]
+                 [compojure "1.1.8"]
+                 [javax.servlet/servlet-api "2.5"]
+                 [org.clojure/data.json "0.2.4"]
+                 [enlive "1.1.5"]
+                 [http-kit "2.1.16"]
+                 [org.apache.pdfbox/pdfbox "1.8.2"]]
+  :main metaslurp.api
+  :profiles {:uberjar {:aot [metaslurp.api]}})

@@ -1,0 +1,31 @@
+(defproject rsslldnphy/component-cljs "0.0.1"
+  :description "Stuart Sierra's managed lifecycle of stateful objects, in Clojurescript"
+  :url "https://github.com/rsslldnphy/component-cljs"
+  :license {:name "The MIT License"
+            :url "http://opensource.org/licenses/MIT"}
+  :min-lein-version "2.1.3"  ; added :global-vars
+  ;; Temporarily don't sign releases until GPG works on Yosemite
+  :repositories  [["clojars" {:url "https://clojars.org/repo"
+                              :sign-releases false}]]
+  :signing {:gpg-key "DF49164D"}
+  :scm {:name "git"
+        :url "https://github.com/rsslldnphy/component-cljs"}
+  :dependencies [[org.clojure/clojurescript "0.0-2268"]
+                 [rsslldnphy/dependency-cljs "0.0.1"]
+                 [org.clojure/google-closure-library "0.0-20130212-95c19e7f0f5f"]]
+  :global-vars {*warn-on-reflection* true}
+  :plugins [[lein-cljsbuild "1.0.3"]
+            [com.cemerick/clojurescript.test "0.3.1"]]
+  :profiles {:dev {:dependencies [[org.clojure/clojure "1.6.0"]]}} 
+  :cljsbuild {:builds {:dev {:source-paths ["src"]
+                             :compiler {:output-dir "target/dev/"
+                                        :output-to "target/dev/component.js"
+                                        :source-map "target/dev/component.map"
+                                        :optimizations :whitespace
+                                        :pretty-print true}}
+                       :test {:source-paths ["src" "test"]
+                              :compiler {:output-to "target/test/unit-test.js"
+                                         :optimizations :advanced
+                                         :pretty-print true}}}
+              :test-commands {"unit-tests" ["phantomjs" :runner
+                                            "target/test/unit-test.js"]}})

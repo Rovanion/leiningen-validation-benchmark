@@ -1,0 +1,10 @@
+(defproject stray "1.03"
+  :description "Stray is an alternative routing library for Compojure"
+  :url "http://github.com/runexec/stray"
+  :dependencies [[org.clojure/clojure "1.6.0"]
+                 [javax.servlet/servlet-api "2.5"]
+                 [compojure "1.2.0"]]
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :signing {:gpg-key "E7E82934"}
+  :source-paths ["src"])

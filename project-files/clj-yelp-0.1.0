@@ -1,0 +1,19 @@
+(defproject clj-yelp "0.1.0"
+  :description "This is an small Clojure binding for the Yelp APIs."
+  :url "https://github.com/eduardoejp/clj-yelp"
+  :license {:name "Eclipse Public License - v 1.0"
+            :url "http://www.eclipse.org/legal/epl-v10.html"
+            :distribution :repo
+            :comments "same as Clojure"}
+  :dependencies [[org.clojure/clojure "1.2.0"]
+                 [org.clojure/clojure-contrib "1.2.0"]
+                 [clj-http "0.1.1"]
+                 [org.scribe/scribe "1.2.0"]]
+  :dev-dependencies [[org.clojars.rayne/autodoc "0.8.0-SNAPSHOT"]]
+  :autodoc {:name "clj-yelp"
+            :description "This is an small Clojure binding for the Yelp APIs."
+            :copyright "Copyright 2011 Eduardo Julian"
+            :web-src-dir "http://github.com/eduardoejp/clj-yelp/blob/"
+            :web-home "http://eduardoejp.github.com/clj-yelp/"
+            :output-path "autodoc"}
+  )

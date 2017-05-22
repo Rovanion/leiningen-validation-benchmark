@@ -1,0 +1,3 @@
+(defproject org.mistsys/kafka-websocket "1.0.0"
+  :description "kafka websocket"
+  :url "https://github.com/mistsys/kafka-websocket")

@@ -1,0 +1,5 @@
+(defproject labelled-tags "0.1.0"
+  :description "Labelled hiccup form inputs and tags."
+  :dependencies [[org.clojure/clojure "1.3.0"]
+                 [hiccup "1.0.0"]
+                 [str-helpers "0.1.0"]])

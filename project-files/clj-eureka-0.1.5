@@ -1,0 +1,17 @@
+(defproject clj-eureka "0.1.5"
+  :description "A client for Netflix Eureka service discovery servers"
+  :url "http://github.com/chao787/clj-eureka"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :dependencies [[org.clojure/clojure "1.8.0"]
+                 [org.clojure/core.incubator "0.1.4"
+                  :exclusions [org.clojure/clojure]]
+                 [org.clojure/core.async "0.2.385"]
+                 [org.clojure/core.cache "0.6.5"]
+                 [com.taoensso/timbre "4.7.4"]
+                 [cheshire "5.6.3"]
+                 [clj-http "3.2.0"]
+                 [potemkin "0.4.3"]
+                 [ring/ring-jetty-adapter "1.5.0"]
+                 [datascript "0.15.4"]]
+  :profile {:test {:dependencies [ring/ring-jetty-adapter "1.5.0"]}})

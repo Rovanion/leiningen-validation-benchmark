@@ -1,0 +1,11 @@
+(defproject matplotlib "0.1.0"
+  :description "Bindings to matplotlib, a graph plotting library."
+  :url "https://github.com/abarbu/matplotlib-clojure"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :dependencies [[org.clojure/clojure "1.5.1"]
+                 [com._0xab/sanity "1.5.0"]
+                 [com._0xab/common-clojure "0.6.0"]
+                 [com._0xab/common-clojure-platform "0.6.0"]]
+  :scm {:name "git"
+       :url "https://github.com/abarbu/matplotlib-clojure"})

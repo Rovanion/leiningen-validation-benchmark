@@ -1,0 +1,26 @@
+(defproject com.middlesphere/clj-audio "0.4.1"
+            :description "Library for a sound recording. Supported output formats: RAW PCM, WAV, SPEEX/OGG"
+            :url "https://bitbucket.org/mike1452/clj-audio"
+            :vendor "Middlesphere LLC, 2014"
+            :license {:name "Eclipse Public License"
+                      :url  "http://www.eclipse.org/legal/epl-v10.html"}
+            :dependencies [[org.clojure/clojure "1.6.0"]
+
+                           ;;sound spx/ogg encoder
+                           ;; Download jspeex from http://www.java2s.com/Code/JarDownload/jspeex/jspeex.jar.zip
+                           ;; extract jspeex.jar and then install it to local maven repo with
+                           ;; command: mvn install:install-file -Dfile=jspeex.jar -DgroupId=org.xiph  -DartifactId=jspeex -Dversion=0.9.7 -Dpackaging=jar
+                           [org.xiph/jspeex "0.9.7"]
+
+                           ;;logging functions
+                           [org.clojure/tools.logging "0.2.4"]]
+
+            :target-path "target/%s"
+            ;:omit-source true
+            :profiles {:uberjar {:aot :all}}
+
+            :scm {:name "hg"
+                  :url  "https://bitbucket.org/mike1452/clj-audio"})
+
+;to install it in local maven repo use:
+;mvn install:install-file -Dfile=clj-audio-0.3.jar -DgroupId=clj-audio -DartifactId=clj-audio -Dversion=0.3 -Dpackaging=jar

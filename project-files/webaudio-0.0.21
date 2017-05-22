@@ -1,0 +1,20 @@
+(defproject audyx-s3/webaudio "0.0.21"
+  :description "Web Audio API (and more) in cljs"
+  :url "https://github.com/viebel/webaudio"
+  :repositories [["audyx-s3" {:url "s3p://clojurescript/releases"
+                              :creds :gpg}]]
+  :dependencies [[org.clojure/clojure "1.7.0-alpha4"]
+                 [org.clojure/clojurescript "0.0-2655"]
+                 [audyx-s3/usermedia "0.0.1"]
+                 [im.chit/purnam "0.5.1"]
+                 [org.clojure/core.async "0.1.346.0-17112a-alpha"]]
+  :plugins [[lein-cljsbuild "1.0.3"]
+            [s3-wagon-private "1.1.2"]]
+  :source-paths ["src/cljs"]
+  :cljsbuild {
+              :builds
+              {:dev {:source-paths ["src/cljs"]
+                     :compiler
+                     {:output-to "resources/public/js/main.js"
+                      :optimizations :simple
+                      :pretty-print true}}}})

@@ -1,0 +1,9 @@
+(defproject clj-edocu-zeromq-communication "0.0.5"
+  :description "Library with client for communication with ZeroMQ"
+  :license "MIT"
+  :url "https://github.com/infones/clj-edocu-zeromq-communication"
+  :dependencies [[org.clojure/clojure "1.6.0"]
+                 [selmeci/core.async "0.1.1"]
+                 [com.keminglabs/zmq-async "0.1.0" :exclusions [[org.clojure/core.async]]]
+                 [cheshire "5.5.0"]
+                 [com.taoensso/timbre "4.2.0"]])

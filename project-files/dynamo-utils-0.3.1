@@ -1,0 +1,12 @@
+(defproject dynamo-utils "0.3.1"
+  :description "Utility functions for working with DynamoDB"
+  :url "https://github.com/Mayvenn/dynamo-utils"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :plugins [[s3-wagon-private "1.1.2"]]
+  :repositories [["releases" {:url "s3p://mayvenn-dependencies/releases/"
+                              :username :env
+                              :passphrase :env
+                              :sign-releases false}]]
+  :dependencies [[org.clojure/clojure "1.8.0"]
+                 [com.taoensso/faraday "1.6.0"]])

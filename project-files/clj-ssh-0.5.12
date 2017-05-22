@@ -1,0 +1,19 @@
+;(def agentproxy-version "0.0.7")
+
+(defproject com.raspasov/clj-ssh "0.5.12"
+  :description "Library for using SSH from clojure."
+  :url "https://github.com/raspasov/clj-ssh"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :repositories [["releases" "https://clojars.org/com.raspasov/clj-ssh"]]
+  :dependencies [[org.clojure/clojure "1.4.0"]
+                 [org.clojure/tools.logging "0.2.6"
+                  :exclusions [org.clojure/clojure]]
+                 [com.jcraft/jsch.agentproxy.usocket-jna "0.0.7"]
+                 [com.jcraft/jsch.agentproxy.usocket-nc "0.0.7"]
+                 [com.jcraft/jsch.agentproxy.sshagent "0.0.7"]
+                 [com.jcraft/jsch.agentproxy.pageant "0.0.7"]
+                 [com.jcraft/jsch.agentproxy.core "0.0.7"]
+                 [com.jcraft/jsch.agentproxy.jsch "0.0.7"]
+                 [com.jcraft/jsch "0.1.51"]]
+  :jvm-opts ["-Djava.awt.headless=true"])

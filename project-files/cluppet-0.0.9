@@ -1,0 +1,39 @@
+(defproject cluppet "0.0.9"
+  :description "Cluppet keeps AWS config consistent"
+  :url "https://github.com/mixradio/cluppet"
+  :license {:name "3-clause license (New BSD License or Modified BSD License)"
+            :url "https://raw.github.com/mixradio/cluppet/master/resources/LICENSE.txt"}
+  :dependencies [[bouncer "0.3.0-alpha1"]
+                 [org.clojure/clojure "1.5.1"]
+                 [org.clojure/data.json "0.2.3"]
+                 [org.clojure/data.xml "0.0.7"]
+                 [org.clojure/data.zip "0.1.1"]
+                 [org.clojure/tools.logging "0.2.6"]
+                 [clj-http "0.7.7"]
+                 [cheshire "5.2.0"]
+                 [clj-time "0.6.0"]
+                 [environ "0.4.0"]
+                 [commons-collections "3.2.1"]
+                 [clojail "1.0.6"]
+                 [saranyu "0.0.2"]]
+
+  :profiles {:dev {:dependencies [[org.slf4j/slf4j-api "1.7.5"]
+                                  [ch.qos.logback/logback-classic "1.0.13"]
+                                  [junit "4.11"]
+                                  [midje "1.5.1"]]
+                   :plugins [[lein-midje "3.1.0"]
+                             [lein-kibit "0.0.8"]]}}
+
+  :jvm-opts ["-Djava.security.policy=./.java.policy"]
+
+  :main cluppet.local
+
+  :release-tasks [["vcs" "assert-committed"]
+                  ["change" "version"
+                   "leiningen.release/bump-version" "release"]
+                  ["vcs" "commit"]
+                  ["vcs" "tag"]
+                  ["deploy" "clojars"]
+                  ["change" "version" "leiningen.release/bump-version"]
+                  ["vcs" "commit"]]
+  )

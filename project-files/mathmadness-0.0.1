@@ -1,0 +1,8 @@
+(defproject mathmadness "0.0.1"
+  :description "A library for math expressions parsing"
+  :url "https://bitbucket.org/cuccu/mathmadness"
+  :license {:name "Public Domain" :url "http://unlicense.org/UNLICENSE"}
+  :dependencies [[org.clojure/clojure "1.6.0"]]
+  :javac-options ["-target" "1.6" "-source" "1.6" "-Xlint:-options"]
+  :aot [mathmadness.core]
+  :main mathmadness.core)

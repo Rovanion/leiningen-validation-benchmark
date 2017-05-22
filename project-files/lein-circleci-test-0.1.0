@@ -1,0 +1,9 @@
+(defproject circleci/lein-circleci-test "0.1.0"
+  :description "Plugin to run tests using circleci.test"
+  :url "https://github.com/circleci/lein-circleci-test"
+  :version-spec "0.1.0-SNAPSHOT"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :eval-in-leiningen true
+
+  :plugins [[circleci/lein-version-spec "0.0.5" :exclusions [org.clojure/clojure]]])

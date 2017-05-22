@@ -1,0 +1,13 @@
+(defproject com.madeye.auth.client/auth "0.1.1"
+  :dependencies [
+  	[org.clojure/clojure "1.6.0"]
+    [http-kit "2.1.16"]
+    [com.madeye.clojure.common/common "0.2.2"] 
+    [com.taoensso/timbre "3.3.1"]
+    [org.clojure/data.json "0.2.5"]
+  ]
+  :main com.madeye.auth.client.auth
+  :jvm-opts ["-Dauthclient.conf=conf/authclient.properties"]
+  :repositiories [["releases" "http://artifactory.madeye.com/artifactory/libs-release"]
+	          ["snapshots" "http://artifactory.madeye.com/artifactory/libs-snapshot"]]
+ )

@@ -1,0 +1,27 @@
+(defproject treecompare "0.1.0"
+  :description "Experimenting with comparing trees"
+  :url "https://github.com/kasterma/treecompare"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :dependencies [[org.clojure/clojure "1.5.1"]
+                 [org.clojure/data.json "0.2.3"]
+                 [org.clojure/math.combinatorics "0.0.4"]
+                 [org.clojure/tools.cli "0.2.4"]
+                 [midje "1.5.1"]
+                 [com.taoensso/timbre "2.6.3"]
+                 [incanter "1.5.4"]
+                 [org.clojure/core.logic "0.8.4"]
+                 [org.clojure/algo.monads "0.1.4"]
+                 [instaparse "1.2.4"]
+                 [valip "0.2.0"]
+                 [prismatic/schema "0.1.6"]
+                 [prismatic/plumbing "0.1.1"]]
+  :jvm-opts ["-XX:MaxPermSize=128M"
+             "-XX:+UseConcMarkSweepGC"
+             "-Xms2g" "-Xmx2g" "-server"]
+  ;; needed to use midje on travis
+  :plugins [[lein-midje "3.0.0"]
+            ;; for documentation
+            [codox "0.6.6"]]
+
+  :codox {:output-dir "doc/codox"})

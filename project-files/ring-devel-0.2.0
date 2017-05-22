@@ -1,0 +1,7 @@
+(defproject org.clojars.paraseba/ring-devel "0.2.0"
+  :description "Ring development and debugging libraries."
+  :url "http://github.com/mmcgrana/ring"
+  :dependencies [[org.clojars.paraseba/ring-core "0.2.0"]
+                 [org.clojars.paraseba/clj-html "0.1.0"]
+                 [org.clojars.paraseba/clj-stacktrace "0.1.2"]]
+  :dev-dependencies [[lein-clojars "0.5.0"]])

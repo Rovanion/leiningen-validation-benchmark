@@ -1,0 +1,18 @@
+(defproject outpace/lein-assemble "0.2.2"
+  :description "Orlando Bloom builds a ClojureScript project."
+  :url "http://github.com/outpace/lein-assemble"
+  :eval-in-leiningen true
+
+  :dependencies
+  [[org.clojure/core.async "0.1.267.0-0d7780-alpha"]
+   [clj-aws-s3 "0.3.8" :exclusions [org.clojure/clojure commons-codec]]
+   [clj-time "0.6.0" :exclusions [org.clojure/clojure]]
+   [io.aviso/pretty "0.1.10" :exclusions [org.clojure/clojure]]
+   [me.raynes/conch "0.7.0" :exclusions [org.clojure/clojure]]
+   [me.raynes/fs "1.4.4" :exclusions [org.clojure/clojure]]
+   [com.novemberain/pantomime "2.1.0" :exclusions [org.clojure/clojure]]
+   [enlive "1.1.5" :exclusions [org.clojure/clojure]]
+   [pandect "0.3.4" :exclusions [org.clojure/clojure]]]
+
+  :profiles
+  {:test {:resource-paths ["test/resources"]}})

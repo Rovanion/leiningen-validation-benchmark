@@ -1,0 +1,9 @@
+(defproject helpshift/spongeblob "0.9.6"
+  :description "Abstraction layer over AWS & Azure Blob storage."
+  :url "https://github.com/helpshift/spongeblob"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :global-vars {*warn-on-reflection* true}
+  :dependencies [[org.clojure/clojure "1.5.1"]
+                 [com.amazonaws/aws-java-sdk-s3 "1.10.26"]
+                 [com.microsoft.azure/azure-storage "4.0.0"]])

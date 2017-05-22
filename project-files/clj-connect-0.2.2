@@ -1,0 +1,34 @@
+(defproject clj-connect "0.2.2"
+  :description "Clojure support for Atlassian Connect, most notably the JWT extensions."
+  :url "https://bitbucket.org/ssmith/clj-connect"
+  :license {:name "Apache License 2.0"
+            :url "http://www.apache.org/licenses/LICENSE-2.0."}
+
+  :dependencies [[org.clojure/clojure "1.7.0"]
+                 [clj-time "0.11.0"]
+                 [clj-jwt "0.1.0"]
+                 [digest "1.4.4"]
+                 [ring/ring-codec "1.0.0"]]
+
+  :plugins [[lein-test-out "0.3.1"]]
+
+  :repositories [["Atlassian" "https://maven.atlassian.com/content/groups/public/"]]
+  :deploy-repositories [["releases" :clojars]
+                        ["clojars" "https://clojars.org/repo/"
+                         :signing {:gpg-key "ssmith@atlassian.com"}
+                         :username :env/clojars_username
+                         :passphrase :env/clojars_passphrase]]
+
+  :profiles {:test-common
+             {:dependencies [[commons-lang/commons-lang "2.6"]
+                             [com.atlassian.jwt/jwt-api "1.2.4"]
+                             [com.atlassian.jwt/jwt-core "1.2.4"]]}
+             :dev [:test-common]
+
+             :test [:test-common]
+
+             :devrepl [:repl :test-common]}
+
+  :aliases {"devrepl" ["with-profile" "+devrepl" "repl"]}
+
+  :repl-options {:init-ns clj-connect.jwt})

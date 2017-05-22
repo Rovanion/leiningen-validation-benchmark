@@ -1,0 +1,11 @@
+(defproject clj-safejdbc "0.2.8"
+  :description "A fast library for accessing JDBC in Clojure"
+  :url "http://example.com/FIXME"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :dependencies [[org.clojure/clojure "1.6.0"]]
+  :profiles 
+    {:dev   
+;; Die JAR-Files `phoenix-common.jar` und `sqljdbc4.jar` werden beim Bauen des
+;; Java-Projekts schon eingebunden.
+      {:dependencies [[com.h2database/h2 "1.4.191"]]}})

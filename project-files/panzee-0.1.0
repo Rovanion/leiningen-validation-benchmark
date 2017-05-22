@@ -1,0 +1,11 @@
+(defproject panzee "0.1.0"
+  :description "Clojure wrapper for the MailChimp v2.0 API"
+  :url "http://github.com/bluemont/panzee"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :dependencies [[org.clojure/clojure "1.6.0-RC1"]
+                 [clj-http "0.9.1"]
+                 [cheshire "5.3.1"]]
+  :profiles {:dev
+             {:source-paths ["dev"]
+              :dependencies [[org.clojure/tools.namespace "0.2.4"]]}})

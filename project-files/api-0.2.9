@@ -1,0 +1,47 @@
+(defproject burningswell/api "0.2.9"
+  :description "The Burning Swell API"
+  :url "https://bitbucket.org/burningswell/api"
+  :license {:name "Creative Commons Attribution-NonCommercial 3.0"
+            :url "http://creativecommons.org/licenses/by-nc/3.0/"}
+  :min-lein-version "2.0.0"
+  :deploy-repositories [["releases" :clojars]]
+  :dependencies [[buddy/buddy-auth "1.1.0"]
+                 [burningswell/api-client "0.0.49"]
+                 [burningswell/config "0.1.34"]
+                 [burningswell/core "0.0.43"]
+                 [burningswell/db "0.0.81"]
+                 [burningswell/geoip "0.1.0"]
+                 [burningswell/http-server "0.1.10"]
+                 [burningswell/pedestal "0.1.2"]
+                 [burningswell/rabbitmq "0.3.0"]
+                 [burningswell/transit "0.1.1"]
+                 [ch.qos.logback/logback-classic "1.1.7"]
+                 [clj-http-fake "1.0.2"]
+                 [funcool/clojure.jdbc "0.9.0"]
+                 [geo-clj "0.6.2"]
+                 [hal-clj "0.1.12"]
+                 [hiccup "1.0.5"]
+                 [org.clojure/clojure "1.8.0"]
+                 [org.clojure/core.cache "0.6.5"]
+                 [org.omcljs/om "1.0.0-alpha36"]
+                 [prismatic/schema "1.1.3"]
+                 [rm-hull/inkspot "0.2.1"]
+                 [routes-clj "0.1.10"]]
+  :plugins [[lein-environ "1.1.0"]]
+  :aliases {"ci" ["do" ["difftest"] ["lint"]]
+            "lint" ["do" ["whitespace-linter"] ["eastwood"]]}
+  :eastwood {:config-files ["test-resources/eastwood.clj"]
+             :exclude-linters [:deprecations :local-shadows-var]}
+  :main ^{:skip-aot true} burningswell.api.main
+  :profiles {:dev {:dependencies [[reloaded.repl "0.2.2"]]
+                   :plugins [[jonase/eastwood "0.2.3"]
+                             [lein-cloverage "1.0.6"]
+                             [lein-difftest "2.0.0"]
+                             [listora/whitespace-linter "0.1.0"]]}
+             :repl {:repl-options {:init-ns user}
+                    :source-paths ["dev"]}
+             :test {:resource-paths ["test-resources"]}
+             :uberjar {:aot :all
+                       :main burningswell.api.main
+                       :resource-paths ["uberjar-resources"]}}
+  :uberjar-name "burningswell-api.jar")

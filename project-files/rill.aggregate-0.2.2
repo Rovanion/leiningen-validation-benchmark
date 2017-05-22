@@ -1,0 +1,12 @@
+(defproject rill-event-sourcing/rill.aggregate "0.2.2"
+  :deploy-repositories [["releases" {:url "https://clojars.org"
+                                     :creds :gpg}]]
+  :description "An Event Sourcing Toolkit"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :url "https://github.com/rill-event-sourcing/rill"
+  :dependencies [[org.clojure/clojure "1.7.0"] [rill-event-sourcing/rill.message "0.2.2"]]
+   
+  :set-version
+  {:updates [{:path "README.org" :no-snapshot true}]}
+    :scm {:connection "scm:git:git://github.com/rill-event-sourcing/rill.git", :developerConnection "scm:git:ssh://git@github.com/rill-event-sourcing/rill.git", :tag "84ad61d478d1e980da7168ec905825bb22b016be\n", :url "https://github.com/rill-event-sourcing/rill"})

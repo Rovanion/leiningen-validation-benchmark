@@ -1,0 +1,7 @@
+(defproject piranha "0.3.0"
+  :description "AWS Clojure Interface"
+  :dependencies [[com.amazonaws/aws-java-sdk "1.0.000"]
+                 [org.clojure/clojure "1.1.0"]
+                 [org.clojure/clojure-contrib "1.1.0"]]
+  :dev-dependencies [[lein-clojars "0.5.0"]
+                     [swank-clojure "1.1.0"]])

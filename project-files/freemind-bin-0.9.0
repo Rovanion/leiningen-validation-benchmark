@@ -1,0 +1,7 @@
+(defproject org.clojars.onagano/freemind-bin "0.9.0"
+  :description "Free mind mapping software, any OS and lesser plugins."
+  :url "http://freemind.sourceforge.net/wiki/index.php/Main_Page"
+  :license {:name "GNU GPL V2+"
+            :url "http://freemind.sourceforge.net/wiki/index.php/Licensing"}
+  :dependencies [[org.clojure/clojure "1.3.0"]]
+  :main freemind.main.FreeMindStarter)

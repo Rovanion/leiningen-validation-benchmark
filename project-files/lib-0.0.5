@@ -1,0 +1,24 @@
+(defproject symmetry-group/lib "0.0.5"
+  :description "Fairly general utilities"
+  :url "https://github.com/symmetry-group/lib"
+  :license {:name "Eclipse Public License - v 1.0"
+            :url "http://www.eclipse.org/legal/epl-v10.html"
+            :distribution :repo}
+  :dependencies [[cider/cider-nrepl "0.9.1"]
+                 [clj-logging-config/clj-logging-config "1.9.12"]
+                 [commons-io/commons-io "2.4"]
+                 [fipp "0.6.2"]
+                 [hiccup "1.0.5"]
+                 [http-kit "2.1.19"]
+                 [http-kit "2.1.19"]
+                 [ns-tracker "0.3.0"]
+                 [org.apache.commons/commons-lang3 "3.4"]
+                 [org.clojure/clojure "1.7.0"]
+                 [org.clojure/tools.logging "0.3.1"]
+                 [org.clojure/tools.nrepl "0.2.10"]
+                 [ring "1.4.0"]]
+  :source-paths ["src"]
+  :aot :all
+  :profiles {:dev {:source-paths ["src" "src-test"]
+                   :dependencies []}}
+  :target-path "target/%s/")

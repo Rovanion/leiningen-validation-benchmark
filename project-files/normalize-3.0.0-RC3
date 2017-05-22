@@ -1,0 +1,8 @@
+(defproject normalize "3.0.0-RC3"
+  :description "A simple clojure interface to normalize.css"
+  :url "http://github.com/juruland/normalize"
+  :license {:name "FreeBSD License"
+            :url "http://opensource.org/licenses/BSD-2-Clause"}
+
+  :dependencies [[garden "1.1.5"]
+                 [org.clojure/clojure "1.6.0"]])

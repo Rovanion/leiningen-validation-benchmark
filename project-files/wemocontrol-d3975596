@@ -1,0 +1,12 @@
+(defproject wemocontrol "d3975596"
+  :description "WeMo API written in Groovy for controlling switches."
+  :url "https://github.com/brendonanderson/wemocontrol"
+  :deploy-repositories [["clojars" {:sign-releases false}]]
+  :scm {:name "git"
+        :url "https://github.com/brendonanderson/wemocontrol"}
+  :license {:name "Apache License Version 2.0, January 2004"
+            :url "http://www.apache.org/licenses/"})
+
+;  If you don't expect people to need to verify the authorship of your jar, you
+;  can add `:sign-releases false` to the relevant `:deploy-repositories` entry.
+

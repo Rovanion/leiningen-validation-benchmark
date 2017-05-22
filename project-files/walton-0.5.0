@@ -1,0 +1,12 @@
+(defproject walton "0.5.0"
+  :description "Walton will traverse caves filled with snakes to find you example clojure code containing the function you desire."
+  :url "http://getclojure.org:8080/examples/concat"
+  :repositories [["clojars" "http://clojars.org/repo"]]
+  :dependencies [[org.clojure/clojure "1.2.0-master-SNAPSHOT"]
+                 [org.clojure/clojure-contrib "1.2.0-SNAPSHOT"]
+                 [org.clojars.rayne/clj-sandbox "0.3.0-1.2-SNAPSHOT"]]
+  :dev-dependencies [[lein-clojars "0.5.0-SNAPSHOT"]
+                     [swank-clojure "1.2.0-SNAPSHOT"]
+                     [leiningen/lein-swank "1.2.0-SNAPSHOT"]
+                     [autodoc "0.7.0"]]
+  :namespaces [walton.core])

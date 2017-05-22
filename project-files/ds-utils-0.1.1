@@ -1,0 +1,14 @@
+
+(defproject ds-utils "0.1.1"
+  :description "Data Science Utilities"
+  :url "https://github.com/erp12/ds-utils"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :dependencies [[org.clojure/clojure "1.8.0"]
+                 [org.clojure/math.numeric-tower "0.0.4"]
+                 [com.hypirion/primes "0.2.2"]]
+  :plugins [[org.clojars.benfb/lein-gorilla "0.4.0"]]
+  :main ^:skip-aot ds-utils.core
+  :target-path "target/%s"
+  :profiles {:uberjar {:aot :all}})
+

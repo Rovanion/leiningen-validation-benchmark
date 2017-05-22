@@ -1,0 +1,7 @@
+(defproject clojure-sql "0.1.0"
+  :description "Relational algebra compiling down to SQL queries."
+  :url "https://bitbucket.org/czan/clojure-sql/"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :dependencies [[org.clojure/clojure "1.5.1"]]
+  :profiles {:dev {:dependencies [[midje "1.5.1"]]}})

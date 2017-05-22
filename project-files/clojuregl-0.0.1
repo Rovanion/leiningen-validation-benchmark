@@ -1,0 +1,19 @@
+(defproject clojuregl "0.0.1"
+  :description "A simple wrapper to lwjgl"
+  :url "http://github.com/reutermj/"
+  :license {:name "Apache License Version 2.0"
+            :url "http://www.apache.org/licenses/LICENSE-2.0"
+            :distribution :repo}
+  :repositories [["sonatype-snapshots" {:url "https://oss.sonatype.org/content/repositories/snapshots"
+                                        :snapshots true
+                                        :sign-releases false
+                                        :checksum :fail
+                                        :update :daily}]]
+  :dependencies [[org.clojure/clojure "1.7.0"]
+                 [superstring "2.1.0"]
+                 [org.lwjgl/lwjgl "3.0.0b-SNAPSHOT"]
+                 [org.lwjgl/lwjgl-platform "3.0.0b-SNAPSHOT" :classifier "natives-linux"]]
+  :source-paths ["src/clojure"]
+  :java-source-paths ["src/java"]
+  :global-vars {*warn-on-reflection* true
+                *unchecked-math* true})

@@ -1,0 +1,29 @@
+(defproject io.cronic/atombind "0.1.8"
+
+  :description "Enables dom data binding to clojure data structures."
+
+  :url "http://cronic.io/atombind"
+
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+
+  :repositories [["snapshots" "file:///home/srazzaque/.m2/repository"]]
+
+  :deploy-repositories [["releases" :clojars]]
+
+  :dependencies [[org.clojure/clojure "1.6.0" :scope "provided"]
+                 [org.clojure/clojurescript "0.0-2322" :scope "provided"]]
+
+  :plugins [[lein-cljsbuild "1.0.3"]
+            [lein-release "1.0.5"]]
+  
+  :lein-release {:deploy-via :lein-deploy}
+
+  :source-paths ["src" "src-cljs"]
+
+  :cljsbuild {:builds [{:id "test"
+                        :source-paths ["src-cljs" "test-cljs"]
+                        :compiler {:output-to "resources/private/js/test.js"
+                                   :output-dir "resources/private/js/out"
+                                   :source-map "resources/private/js/test.js.map"
+                                   :optimizations :advanced}}]})

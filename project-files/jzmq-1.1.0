@@ -1,0 +1,7 @@
+(defproject org.clojars.vaughan/jzmq "1.1.0"
+  :description "jzmq"
+  :url "http://example.com/FIXME"
+  :license {:name "GNU General Public Licence"
+            :url "http://www.gnu.org/licences/"}
+  :dependencies [[org.clojure/clojure "1.4.0"]]
+  :java-source-paths ["src-java"])

@@ -1,0 +1,15 @@
+(def ROOT-DIR (subs *file* 0 (- (count *file*) (count "project.clj"))))
+(def VERSION (-> ROOT-DIR (str "/../VERSION") slurp))
+
+(defproject hub.service/mailer VERSION
+  :description "Mailer service"
+  :plugins [[lein-modules "0.3.11"]]
+  :profiles {:dev {:injections
+                   [(require 'schema.core)
+                    (schema.core/set-fn-validation! true)]}}
+  :dependencies [[com.stuartsierra/component "_"]
+                 [enlive "1.1.5"]
+                 [environ "1.0.0"]
+                 [hub.service/queue :version]
+                 [racehub/schema "_"]
+                 [racehub/mandrill-clj "0.1.1"]])

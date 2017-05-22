@@ -1,0 +1,3 @@
+(defproject clj-uuid "1.0.0"
+  :description "Very thin wrapper for UUID"
+  :dependencies [[org.clojure/clojure "1.2.0"]])

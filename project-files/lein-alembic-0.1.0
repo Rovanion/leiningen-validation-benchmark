@@ -1,0 +1,6 @@
+(defproject lein-alembic "0.1.0"
+  :description "Lein plugin to make alembic available in your projects."
+  :url "https://github.com/pallet/lein-alembic"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :eval-in-leiningen true)

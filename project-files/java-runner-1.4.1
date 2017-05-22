@@ -1,0 +1,31 @@
+(defproject java-runner "1.4.1"
+  :aot :all
+  :omit-source true
+
+  :description "Generate a POSIX shell wrapper to run java applications"
+  :url "https://bitbucket.org/jochenhinrichsen/java-runner"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :dependencies [[org.clojure/clojure "1.5.1"]]
+  :main java-runner.core
+
+  ; Deploy standalone jar
+  :plugins [[lein-package "2.1.1"]]
+  :package {:skipjar false
+            :autobuild true
+            ;; Collection of artifacts to build/package/install/deploy
+            :artifacts [
+              ;; Lein command used to build the artifact. e.g ring war,
+              ;; ring uberwar, war, assemble
+              {:build "uberjar"
+               :classifier "standalone"
+               :extension "jar"
+				}]}
+  :hooks [
+          ;; Will deploy configured packages to remote repos when lein deploy is issued
+          leiningen.package.hooks.deploy
+          ;; Will install configured packages to local repo when lein install is issued.]
+          leiningen.package.hooks.install
+          ]
+
+)

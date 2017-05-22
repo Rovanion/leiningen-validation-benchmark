@@ -1,0 +1,8 @@
+(defproject schemonger "0.2.0"
+  :description "Schema-vased validations for mongodb"
+  :url "https://bitbucket.org/davidlloyd/schemonger"
+  :license {:name "The MIT License"
+            :url "http://opensource.org/licenses/MIT" }
+  :dependencies [ ;[org.clojure/clojure "1.3.0"]  ;; monger defines dependency on 1.7 as of v3
+                 [com.novemberain/monger "3.0.2"]
+                ])

@@ -1,0 +1,4 @@
+(defproject ring-bounce-favicon "0.1.0"
+  :description "Ring middleware to bounce favicon requests."
+  :dependencies
+    [[org.clojure/clojure "1.2.0"]])

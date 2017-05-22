@@ -1,0 +1,21 @@
+(defproject clj-confluence "0.1.6"
+  :description "A clojure library for working with Atlassians Confluence REST API"
+  :url "https://github.com/wbd/clj-confluence"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :dependencies [[org.clojure/clojure "1.8.0"]
+                 [clj-http "3.1.0"]
+                 [org.clojure/data.json "0.2.6"]
+                 [org.clojure/data.xml "0.0.8"]
+                 [ring-json-response "0.2.0"]
+                 [hiccup "1.0.5"]
+                 [hickory "0.6.0"]
+                 [selmer "1.10.0"]
+                 [org.clojure/tools.logging "0.3.1"]]
+  :target-path "target/%s"
+  :plugins [[lein-codox "0.10.1"]]
+  :codox {:metadata {:doc/format :markdown}}
+  :profiles {:uberjar {:aot :all}}
+  :deploy-repositories
+   [["releases" {:signing {:gpg-key "56DC1666"}}
+     "clojars"  {:signing {:gpg-key "56DC1666"}}]])

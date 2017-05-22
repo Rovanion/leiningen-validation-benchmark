@@ -1,0 +1,14 @@
+(defproject macchiato/session "0.0.2"
+  :description "Macchiato session support"
+  :url "https://github.com/macchiato-framework/macchiato-session"
+  :scm {:name "git"
+         :url "https://github.com/macchiato-framework/macchiato-session.git"}
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :clojurescript? true
+  :dependencies [[macchiato/http "0.0.5"]]
+  :npm {:dependencies [[simple-encryptor "1.1.0"]]}
+  :plugins [[codox "0.6.4"]]
+  :profiles {:dev
+             {:dependencies [[org.clojure/clojurescript "1.9.293"]]
+              :plugins [[lein-cljsbuild "1.1.4"]]}})

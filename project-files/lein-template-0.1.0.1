@@ -1,0 +1,18 @@
+(defproject hitokotonushi-template/lein-template "0.1.0.1"
+  :description       "A hitokotonushi project template."
+  :url               "https://github.com/tail-island/hitokotonushi-template"
+  :license           {:name "Eclipse Public License"
+                      :url  "http://www.eclipse.org/legal/epl-v10.html"}
+  :plugins           [[lein-resource "14.10.1"]]
+  :resource          {:resource-paths ["hitokotonushi"]
+                      :excludes       [#"hitokotonushi/.git"
+                                       #"hitokotonushi/project.clj"
+                                       #"hitokotonushi/README.md"
+                                       #"hitokotonushi/doc/.*"
+                                       #"hitokotonushi/test/.*"
+                                       #"hitokotonushi/src/hitokotonushi_example/.*"]
+                      :target-path    "resources/hitokotonushi"
+                      :skip-stencil   [#".*"]
+                      :silent         true}
+  :hooks             [leiningen.resource]
+  :eval-in-leiningen true)

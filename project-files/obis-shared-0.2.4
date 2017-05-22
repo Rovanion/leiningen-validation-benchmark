@@ -1,0 +1,25 @@
+(defproject obis/obis-shared "0.2.4"
+  :description "Data access code and related logic for OBIS applications."
+  :dependencies [[org.clojure/clojure "1.3.0"]
+                 [org.clojure/data.json "0.1.1"]
+                 [com.draines/postal "1.7.0"]
+                 [clj-http "0.2.2"]
+                 [lib-2367 "0.1.0"]
+                 [org.activiti/activiti-engine "5.8"]
+                 [mysql/mysql-connector-java "5.1.18"]]
+  :dev-dependencies [[org.jruby/jruby "1.6.5"]]
+  :repositories {"activiti"  "http://maven.alfresco.com/nexus/content/repositories/activiti/",
+                 "snapshots" "http://obis.musc.edu/repo/libs-snapshot-local",
+                 "releases"  "http://obis.musc.edu/repo/libs-release-local"},
+  :jar-exclusions [#"obis-shared.properties"],
+  :aot [obis-shared.shibboleth
+        obis-shared.entity
+        obis-shared.entity.identity
+        obis-shared.entity.organizations
+        obis-shared.entity.service-requests
+        obis-shared.entity.core
+        obis-shared.entity.api
+        obis-shared.entity.services
+        obis-shared.activiti.rest-client
+        obis-shared.config])
+

@@ -1,0 +1,38 @@
+(defproject org.ozias.plugins/lein-archaic "0.3.0"
+  :description "Check for archaic dependencies"
+  :url "https://github.com/CraZySacX/lein-archaic"
+  :license {:name "MIT"
+            :url "http://opensource.org/licenses/MIT"}
+  :dependencies [[org.clojure/tools.reader "0.8.3"]
+                 [org.flatland/ordered "1.5.2"]
+                 [org.ozias.cljlibs/logging "0.1.1" :exclusions [org.clojure/clojure]]
+                 [org.ozias.cljlibs/mvnmeta "0.1.4" :exclusions [org.clojure/clojure]]
+                 [org.ozias.cljlibs/semver "0.1.1" :exclusions [org.clojure/clojure]]
+                 [com.taoensso/timbre "3.1.6" :exclusions [org.clojure/clojure]]
+                 [rewrite-clj "0.3.8" :exclusions [org.clojure/clojure]]]
+  :profiles {:dev {:source-paths ["dev"]
+                   :dependencies [[org.clojure/tools.namespace "0.2.4"]]
+                   :plugins [[codox "0.6.7"]
+                             [org.ozias.plugins/lein-git-version "1.1.0"]]}}
+  :aliases {"package" ["do" "clean," "install"]
+            "most" ["do" "clean," "doc," "package"]
+            "dep" ["do" "deploy," "deploy" "clojars"]
+            "all" ["do" "most," "dep"]}
+  :jvm-opts ["-Xms1024m" "-Xmx1024m"]
+  :deploy-repositories [["snapshots" 
+                         {:url "http://www.ozias.net/artifactory/libs-snapshot-local"
+                          :creds :gpg}]
+                        ["releases"
+                         {:url "http://www.ozias.net/artifactory/libs-release-local"
+                          :creds :gpg}]]
+  :scm {:name "git"
+         :url "https://github.com/CraZySacX/lein-archaic"}
+  :codox {:output-dir "api"
+          :exclude [leiningen.version]
+          :sources ["src" "test"]
+          :src-dir-uri "http://github.com/CraZySacX/lein-archaic/blob/0.3.0/"
+          :src-linenum-anchor-prefix "L"}
+  :manifest {"Implementation-Version" "0.3.0"}
+  :git-version {:file {:filepath "leiningen/archaic"
+                       :assoc-in-keys [[:manifest "Implementation-Version"]]}}
+  :eval-in-leiningen true)

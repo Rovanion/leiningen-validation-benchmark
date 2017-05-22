@@ -1,0 +1,19 @@
+(defproject bikeshed "0.0.5"
+  :description "A place to put your tools"
+  :url "http://github.com/bhickey/bikeshed"
+  :licenses
+    {{:name "Eclipse Public License - v 1.0"
+      :url  "www.eclipse.org/legal/epl-v10.html"
+      :distribution :repo}
+     {:name "GNU Lesser General Public License - v 3.0"
+      :url  "http://www.gnu.org/licenses/lgpl-3.0.txt"
+      :distribution :repo}}
+  ;; :warn-on-reflection true
+  :source-path "src/clj"
+  :java-source-path "src/java"
+  :dependencies [[org.clojure/clojure "1.2.0"]
+                 [org.clojure/clojure-contrib "1.2.0"]]
+  :dev-dependencies [[autodoc "0.7.1"]
+                     [clojurecheck "2.0.2"]
+                     [lein-javac "1.2.1-SNAPSHOT"]
+                     [lein-clojars "0.6.0"]])

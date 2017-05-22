@@ -1,0 +1,14 @@
+(defproject lib-blanc "0.1.0"
+  :description  "Lightweight and no-nonsense utilities for Clojure web app development."
+  :url          "https://github.com/gered/lib-blanc"
+  :license      {:name "Eclipse Public License"
+                 :url  "http://www.eclipse.org/legal/epl-v10.html"}
+
+  :dependencies [[org.clojure/clojure "1.6.0"]
+                 [ring/ring-core "1.3.1"]
+                 [cheshire "5.3.1"]]
+
+  :profiles     {:dev
+                 {:dependencies [[pjstadig/humane-test-output "0.6.0"]]
+                  :injections   [(require 'pjstadig.humane-test-output)
+                                 (pjstadig.humane-test-output/activate!)]}})

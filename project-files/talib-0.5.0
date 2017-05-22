@@ -1,0 +1,6 @@
+(defproject org.clojars.edbond/talib "0.5.0"
+  :description "Technical Analysis Library"
+  :url "http://ta-lib.org"
+  :license {:name "BSD"}
+  :dependencies [[junit/junit "4.11"]]
+  :java-source-paths ["src/java"])

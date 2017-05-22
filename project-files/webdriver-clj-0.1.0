@@ -1,0 +1,10 @@
+; Changed by springify for pushing to clojars
+
+(defproject org.clojars.springify/webdriver-clj "0.1.0"
+  :repositories [["selenium" "http://selenium.googlecode.com/svn/repository"]]
+  :description "This is a clojure wrapper for webdriver (http://code.google.com/p/selenium)"
+  :dependencies [[org.clojure/clojure "1.1.0"]
+                 [org.clojure/clojure-contrib "1.1.0"]
+                 [org.seleniumhq.selenium/selenium "2.0a4"]]
+  :dev-dependencies [[swank-clojure "1.2.1"]
+                     [lein-clojars "0.5.0"]])

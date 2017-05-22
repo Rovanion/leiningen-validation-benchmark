@@ -1,0 +1,19 @@
+(defproject unbot-core "0.1.1"
+  :description "Core package for unbot chatbot"
+  :url "http://example.com/FIXME"
+  :main unbot.core
+  :profiles {:uberjar {:aot [unbot.core]}}
+  :license {:nae "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :dependencies [[org.clojure/clojure "1.7.0"]
+                 [org.clojure/tools.logging "0.3.1"]
+                 [org.clojure/tools.cli "0.3.3"]
+                 [org.clojure/math.combinatorics "0.1.1"]
+                 [com.stuartsierra/component "0.3.0"]
+                 [org.van-clj/disposables "0.2.0"]
+                 [org.van-clj/zetta-parser "0.1.0"]
+                 [bwo/monads "0.2.2"]
+                 [io.reactivex/rxclojure "1.0.0"]
+                 [log4j "1.2.16"]
+                 [korma "0.4.2"]
+                 [clj-liquibase "0.5.2"]])

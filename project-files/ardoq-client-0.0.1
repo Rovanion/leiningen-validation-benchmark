@@ -1,0 +1,11 @@
+(defproject com.ardoq/ardoq-client "0.0.1"
+  :min-lein-version "2.0.0"
+  :description "Clojure API for the Ardoq REST-api"
+  :url "http://ardoq.com"
+  :profiles {:dev {:dependencies [[org.clojure/tools.namespace "0.2.8"]]
+                   :source-paths ["dev"]}}
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :dependencies [[org.clojure/clojure "1.6.0"]
+                 [http-kit "2.1.19"]
+                 [org.clojure/data.json "0.2.5"]])

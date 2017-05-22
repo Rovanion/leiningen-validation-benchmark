@@ -1,0 +1,42 @@
+(defproject vee "0.2.4"
+  :description "Native Mobile Tooling for Clojure"
+  :url "http://github.com/zk/vee"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :source-paths ["src/clj" "src/cljs" "src/cljc"]
+  :resource-paths ["resources"]
+  :dependencies [[org.clojure/clojure "1.7.0"]
+                 [nsfw "0.9.0"]
+                 [org.clojure/clojurescript "0.0-3308"]
+                 [clojurescript-build "0.1.7"]
+                 [cheshire "5.2.0"]
+                 [net.java.dev.jna/jna "3.2.2"]
+                 [io.restx/restx-barbarywatch "0.33.1"]
+                 [deraen/less4clj "0.2.1"]
+                 [alandipert/storage-atom "1.2.4"]
+                 [reagent "0.5.0"]
+                 [garden "1.2.5"]]
+  :profiles {:dev {:dependencies [[figwheel "0.3.5"]]}}
+  :plugins [[lein-cljsbuild "1.0.4"]
+            [lein-figwheel "0.3.5"]
+            [codox "0.8.11"]]
+  :repl-options {:init (load-file "reup.clj")}
+  :cljsbuild {:builds
+              {:web-dev {:source-paths ["src/cljs-web" "src/cljc"]
+                         :figwheel {:on-jsload "vee.debug/dev-reload"}
+                         :compiler {:main "vee.debug"
+                                    :asset-path "/cljs"
+                                    :output-to "resources/vee-public/cljs/app.js"
+                                    :output-dir "resources/vee-public/cljs"
+                                    :optimizations :none
+                                    :source-map true}}}}
+  :figwheel {:css-dirs ["resources/vee-public/css"]
+             :repl false}
+  :codox {:language :clojurescript
+          :src-dir-uri "http://github.com/zk/vee/blob/master/"
+          :src-linenum-anchor-prefix "L"
+          :sources ["src/cljs"]
+          :exclude [cljs.source-map
+                    cljs.source-map.base64
+                    cljs.source-map.base64-vlq
+                    vee.debug]})

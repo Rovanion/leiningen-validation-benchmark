@@ -1,0 +1,6 @@
+(defproject gofigure-utils "1.0.0"
+  :description "Libraries to enhance day to day clojure usage"
+  :url "http://gofigure.thoughtworks.net/"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :dependencies [[org.clojure/clojure "1.8.0"]])

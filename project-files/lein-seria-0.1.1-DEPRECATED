@@ -1,0 +1,6 @@
+(defproject moxaj/lein-seria "0.1.1-DEPRECATED"
+  :description "DEPRECATED: A leiningen plugin for preparing your seria configs."
+  :url "https://github.com/moxaj/lein-seria"
+  :license {:name "Eclipse Public License"
+            :url  "http://www.eclipse.org/legal/epl-v10.html"}
+  :eval-in-leiningen true)

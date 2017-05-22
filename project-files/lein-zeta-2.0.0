@@ -1,0 +1,5 @@
+(defproject lein-zeta "2.0.0"
+  :description "Leiningen Zeta plugin"
+  :url "http://zzp.me/projects/lein-zeta"
+  :dependencies [[leinjacker "0.4.2"]]
+  :eval-in-leiningen true)

@@ -1,0 +1,14 @@
+(defproject crudmucker "0.1.0-vvwd"
+  :description "Generate admin-style CRUD interfaces for Clojure Ring apps"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :deploy-repositories {"clojars" {:sign-releases false :url "https://clojars.org/repo/"}}
+  :dependencies [[org.clojure/clojure "1.4.0"]
+                 [compojure "1.1.0"]
+                 [formative "0.1.0-vvwd"]
+                 [hiccup "1.0.0"]
+                 [inflections "0.6.5"]
+                 [sundry "0.3.0"]
+                 [modelo "0.1.0-vvwd"]
+                 [cheshire "4.0.2"]
+                 [org.clojure/data.csv "0.1.2"]])

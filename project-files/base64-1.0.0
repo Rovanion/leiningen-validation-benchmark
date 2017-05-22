@@ -1,0 +1,15 @@
+(defproject lightninggrader/base64 "1.0.0"
+  :description "Lightning Grader Base64 Library"
+  :url "https://bitbucket.org/learningegg/lightninggrader.base64"
+  :license {:name "The BSD 3-Clause License"
+            :url "http://opensource.org/licenses/BSD-3-Clause"}
+  :dependencies [[org.clojure/clojure "1.6.0"]
+                 [commons-codec/commons-codec "1.10"]]
+  :deploy-repositories [["clojars" {:creds :gpg
+                                    :signing {:gpg-key "support@learningegg.com"}}]]
+  :profiles {:dev {:source-paths ["dev"]
+                   :repl-options {:init-ns user}
+                   :dependencies [[org.clojure/tools.namespace "0.2.11"]
+                                  [org.clojure/java.classpath "0.2.2"]]}
+             :uberjar {:aot :all}})
+

@@ -1,0 +1,10 @@
+(defproject clj-mcp3008 "1.0.0"
+  :description "Analog input from MCP3008"
+  :url "https://github.com/elahti/clj-mcp3008"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :dependencies [[clj-gpio "0.2.0"]
+                 [org.clojure/clojure "1.8.0"]]
+  :profiles {:dev {:dependencies [[midje "1.8.3"]]
+                   :plugins [[lein-midje "3.2"]]}}
+  :aliases {"ci-tests" ["midje" ":config" "midje-ci.clj"]})

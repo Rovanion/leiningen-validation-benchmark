@@ -1,0 +1,13 @@
+(defproject antistock/config "0.1.31"
+  :description "Antistock configuration"
+  :url "https://bitbucket.org/antistock/config"
+  :license {:name "Creative Commons Attribution-NonCommercial 3.0"
+            :url "http://creativecommons.org/licenses/by-nc/3.0/"}
+  :deploy-repositories [["releases" :clojars]]
+  :dependencies [[org.clojure/clojure "1.8.0"]
+                 [prismatic/schema "1.1.1"]]
+  :aliases {"ci" ["do" ["difftest"] ["lint"]]
+            "lint" ["do" ["whitespace-linter"] ["eastwood"]]}
+  :profiles {:dev {:plugins [[jonase/eastwood "0.2.3"]
+                             [lein-difftest "2.0.0"]
+                             [listora/whitespace-linter "0.1.0"]]}})

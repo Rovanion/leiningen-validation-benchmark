@@ -1,0 +1,6 @@
+(defproject live-static-app/lein-template "0.1.7-RELEASE"
+  :description "live-static project template for Leiningen"
+  :url "https://github.com/Sativaware/live-static-app"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :eval-in-leiningen true)

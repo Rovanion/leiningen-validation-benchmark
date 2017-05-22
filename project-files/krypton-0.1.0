@@ -1,0 +1,19 @@
+(defproject ec.datil/krypton "0.1.0"
+  :description "Cryptography toolset"
+  :url "https://github.com/datilmedia/krypton"
+  :scm {:name "git"
+        :url "https://github.com/datilmedia/krypton"}
+  :signing {:gpg-key "0CD857A5"}
+  :deploy-repositories [["clojars" {:creds :gpg}]]
+  :pom-addition [:developers [:developer
+                              [:name "Eduardo Raad"]
+                              [:url "http://www.datilmedia.com"]
+                              [:email "eduardo.raad@datilmedia.com"]
+                              [:timezone "-5"]]]
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :plugins [[codox "0.8.10"]]
+  :dependencies [[org.clojure/clojure "1.5.1"]
+                 [pandect "0.3.2"]
+                 [ec.rubrica/rubrica "0.1.1"]
+                 [org.clojure/data.codec "0.1.0"]])

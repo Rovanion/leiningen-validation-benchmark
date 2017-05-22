@@ -1,0 +1,34 @@
+(defproject whodidthis/om-justified "0.2.1"
+  :description "That justified image grid thingie"
+  :url "http://github.com/whodidthis/om-justified"
+  :license {:name "Eclipse Public License - v 1.0"
+            :url "http://www.eclipse.org/legal/epl-v10.html"
+            :distribution :repo
+            :comments "same as Clojure"}
+
+  :source-paths  ["src"]
+
+  :dependencies [[org.clojure/clojure "1.5.1"]
+                 [org.clojure/clojurescript "0.0-2173"]
+                 [om "0.6.2"]]
+
+  :plugins [[lein-cljsbuild "1.0.2"]]
+
+  :cljsbuild {
+    :builds [;; example
+             {:id "hello"
+              :source-paths ["src" "examples/hello/src"]
+              :compiler {
+                :output-to "examples/hello/main.js"
+                :output-dir "examples/hello/out"
+                :source-map true
+                :optimizations :none}}
+             ;; gh-pages
+             {:id "pages"
+              :source-paths ["src" "examples/hello/src"]
+              :compiler {
+                :optimizations :advanced
+                :output-to "pages.js"
+                :pretty-print false
+                :preamble ["react/react.min.js"]
+                :externs ["react/externs/react.js"]}}]})

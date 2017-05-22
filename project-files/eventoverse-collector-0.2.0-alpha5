@@ -1,0 +1,51 @@
+(defproject clojurewerkz/eventoverse-collector "0.2.0-alpha5"
+  :description "A yet another events/logs-as-data collector."
+  :url "http://github.com/clojurewerkz/eventoverse"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :min-lein-version "2.0.0"
+  :dependencies [[org.clojure/clojure        "1.4.0"]
+                 [org.clojure/tools.logging  "0.2.3" :exclude [org.clojure/clojure]]
+                 [org.clojure/tools.cli      "0.2.1" :exclude [org.clojure/clojure]]
+                 [org.clojure/data.json      "0.1.2" :exclude [org.clojure/clojure]]
+                 [org.slf4j/slf4j-log4j12    "1.6.4"]
+
+                 [noir       "1.3.0-beta10"]
+                 [noir-async/noir-async  "1.1.0-beta10"]
+                 [stencil    "0.3.1"]
+                 [clj-time   "0.4.3"]
+
+                 [clojurewerkz/support       "0.5.0"]
+                 [com.novemberain/langohr    "1.0.0-beta2"]
+                 [com.novemberain/monger     "1.2.0"]]
+  :profiles {:dev {:dependencies [[clojurewerkz/eventoverse-client "0.3.0-SNAPSHOT"]]}
+             :1.3 {:dependencies [[org.clojure/clojure "1.3.0"]]}
+             :collector {:main clojurewerkz.eventoverse.collector.server
+                         :aot  [clojurewerkz.eventoverse.collector.server]}}
+  :aliases  {"all" ["with-profile" "dev:dev,1.3"]
+             "collector" ["with-profile" "dev,collector"]}
+  :warn-on-reflection false
+  :aot                [clojurewerkz.eventoverse.collector.server]
+  :main               clojurewerkz.eventoverse.collector.server
+  :javac-options      ["-target" "1.6" "-source" "1.6"]
+  :jvm-opts           ["-Dfile.encoding=utf-8"]
+  :source-paths       ["src/clojure"]
+  :java-source-paths  ["src/java"]
+  :resource-paths     ["src/resources"]
+  :test-selectors   {:default        (complement :time-consuming)
+                     :focus          :focus
+                     :unit           :unit
+                     :integration    :integration
+                     :time-consuming :time-consuming
+                     :all            (constantly true)}
+  :repositories {"sonatype" {:url "http://oss.sonatype.org/content/repositories/releases"
+                             :snapshots false
+                             :releases {:checksum :fail :update :always}}
+                 "sonatype-snapshots" {:url "http://oss.sonatype.org/content/repositories/snapshots"
+                                       :snapshots true
+                                       :releases {:checksum :fail :update :always}}}
+
+  ;; it's likely to still be a Leiningen bug, please refer to an ongoing discussion here: https://github.com/technomancy/leiningen/issues/31#issuecomment-5675428
+  ;; Until it's fixed there, following line should be a part of project.clj for successfull uberjar and
+  ;; deployment.
+  :uberjar-exclusions [#"(?i)^META-INF/[^/]*\.SF$"])

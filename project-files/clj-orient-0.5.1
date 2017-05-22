@@ -1,0 +1,19 @@
+(defproject synergyxm/clj-orient "0.5.1"
+  :description "Wrapper for the OrientDB Native APIs. Supporting OrientDB 2.0.4"
+  :url "https://github.com/smsharman/clj-orient"
+  :license {:name "Eclipse Public License - v 1.0"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+            :scm {:name "git"
+                  :url "https://github.com/smsharman/clj-orient"}
+  :plugins [[lein-autodoc "0.9.0"]
+            [lein-swank "1.4.4"]
+            [codox "0.6.1"]]
+  :dependencies [[org.clojure/clojure "1.6.0"]
+                 [com.orientechnologies/orientdb-graphdb "2.0.4"]]
+  :repositories {"sonatype" "https://oss.sonatype.org/content/groups/public/"}
+  :autodoc {:name "clj-orient"
+            :description "Wrapper for the OrientDB Native APIs"
+            :copyright "Copyright 2011~2012 Eduardo Julian"
+            :output-path "autodoc"}
+  :codox {:exclude clj-orient.kv}
+  )

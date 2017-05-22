@@ -1,0 +1,8 @@
+(defproject pasha "2.0"
+  :description "S3-ish authentication implementation for web apps."
+  :dev-dependencies [[lein-clojars "0.6.0"]]
+  :dependencies [[org.clojure/clojure "1.4.0"]
+		 [org.clojure/data.json "0.2.0"]
+		 [org.mindrot/jbcrypt "0.3m"]
+		 [commons-codec/commons-codec "1.4"]]
+  :main pasha.authenticate)

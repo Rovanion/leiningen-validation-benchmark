@@ -1,0 +1,103 @@
+;;;
+;;; Copyright (c) Sebastian Ertel 2015. All Rights Reserved.
+;;;
+;;;This source code is licensed under the terms described in the associated LICENSE.TXT file.
+;;;
+(defproject ohua "0.7.1"
+  :description "Ohua - An EDSL for implicit parallel programming of stateful computations that execute on a dataflow runtime system."
+  :url "https://bitbucket.org/sertel/ohua"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+
+  :deploy-repositories [["releases" {:url "https://clojars.org/repo" :creds :gpg}]]
+
+  :plugins [[lein-pprint "1.1.1"]
+            ; plugin needed for META-INF handling
+            [lein-javac-resources "0.1.1"]]
+
+  :dependencies [[org.clojure/clojure "1.8.0"]           
+                 ; Compiler libraries
+                 [org.ow2.asm/asm-all "5.0.3"]
+                 [org.codehaus.janino/janino "2.7.6"]
+                 [aua "0.1.3"]
+                 [transactified "0.1"]
+                 [org.clojure/algo.monads "0.1.6"]
+                 [bwo/monads "0.2.2"]
+
+                 ; Runtime/engine libraries
+                 [org.codehaus.woodstox/woodstox-core-asl "4.4.1"]
+                 [org.codehaus.castor/castor-xml "1.3.3"]
+                 [org.zeromq/jzmq "3.1.0"]
+
+                 ; code generation
+                 [org.codehaus.janino/janino "3.0.6"]]
+
+  :profiles {:provided {:dependencies [[org.clojure/clojure "1.8.0"]]}
+             :dev      {:plugins                 [[lein-junit "1.1.8"]
+                                                  ;[lein-scalac "0.1.0"] Doesn't work, I'm using manually compiled scala code right now
+                                                  ]
+                        :dependencies            [
+                                                  ; libs needed for testing
+                                                  [junit/junit "4.12"]
+                                                  [org.apache.derby/derby "10.11.1.1"]
+                                                  [org.apache.derby/derbynet "10.11.1.1"]
+                                                  [org.apache.derby/derbyclient "10.11.1.1"]
+                                                  [commons-io/commons-io "2.4"]
+                                                  [rhizome "0.2.5"]
+                                                  
+                                                  [org.scala-lang/scala-library "2.11.8"] ; Necessary to use scala stdlib
+                                                  [org.scala-lang/scala-compiler "2.10.1"] ; I'm not actually sure its necessary, I think I'm just using my
+                                                                                           ; systems scala compiler right now but I left it in here as a reminder
+                                                  ]
+
+                        ; paths for Clojure test cases
+                        :test-paths              ["com.ohua.lang/test/clojure"]
+
+                        ; paths for Java/JUnit test cases
+                        :junit                   ["com.ohua.tests/src/java"]
+                        ;:junit-test-file-pattern #".*multithreading\/test[0-1a-zA-Z]*\.java"
+                        :junit-test-file-pattern #".*\/test[0-1a-zA-Z]*\.java"
+                        :junit-formatter         :brief
+                        ; we skip the below option to print the output to the command line
+                        ;:junit-results-dir       "test-output-lein"
+
+                        :java-source-paths       ["com.ohua.operators/src/java"
+                                                  "com.ohua.tests/src/java"
+                                                  "com.ohua.benchmarks/src/java"
+
+                                                  "com.ohua.lang/test/java"]
+                        ;:scala-source-path       "com.ohua.lang/test/scala" Source path definition for the leinigen plugin, which is broken
+                        ; dangling compiler lib that will go away soon
+                        :resource-paths          ["lib/objectweb/asm/asm-dependency-analysis-5.0.2.jar"]
+                        :jvm-opts                ["-ea"
+                                                  "-Djava.util.logging.config.file=./com.ohua.engine/config/consoleLogging-off.properties"
+                                                  "-Djava.library.path=/usr/local/lib:${env_var:PATH}"]
+                        ;:prep-tasks ["scalac"] Doesn't work -.-
+                        }}
+
+
+  :source-paths ["com.ohua.lang/src/clojure"]
+  :java-source-paths ["com.ohua.engine/src/java"
+                      "com.ohua.data.model/src/java"
+                      "com.ohua.system/src/java"
+                      "com.ohua.lang/src/java"
+                      "com.ohua.distributed/src/java"]
+
+  :jvm-opts ["-Xmx2g"] ; there is no need for more than that during development (some tests run on quite a lot of data)
+
+  ; this apparently does not work and hence those testUpdates runs out of memory
+  ; I'm not sure anymore whether it is a good idea to rely on lein-junit further as it depends on lancet which is dead.
+  :junit-options {:fork "on"
+                  ;:forkMode "perTest"
+                  }
+
+  :javac-options ["-target" "1.8" "-source" "1.8" "-Xlint:-options" "-g"]
+
+  ; this is needed to handle META-INF directories properly (copy them to :compile-path)
+  :hooks [leiningen.javac-resources]
+  ;:omit-source true  ; avoids .java files ending up in the generated JAR file
+  ; with the extension above we must explicitly exclude java source files!
+  ; we can't use the :omit-source option because it also looses the Clojure sources.
+  ; I filed a bug on this: https://github.com/kumarshantanu/lein-javac-resources/issues/1
+  :jar-exclusions [#"\.java$"]
+  )

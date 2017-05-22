@@ -1,0 +1,40 @@
+(defproject burningswell/cli "0.1.7"
+  :description "The Burning Swell command line tools"
+  :url "https://bitbucket.org/burningswell/cli"
+  :license {:name "Creative Commons Attribution-NonCommercial 3.0"
+            :url "http://creativecommons.org/licenses/by-nc/3.0/"}
+  :min-lein-version "2.0.0"
+  :deploy-repositories [["releases" :clojars]]
+  :dependencies [[burningswell/api-client "0.0.57"]
+                 [burningswell/config "0.1.42"]
+                 [burningswell/core "0.0.50"]
+                 [burningswell/db "0.0.119"]
+                 [burningswell/rabbitmq "0.3.2"]
+                 [clj-aws-s3 "0.3.10"
+                  :exclusions [clj-time
+                               joda-time
+                               org.apache.httpcomponents/httpclient
+                               org.apache.httpcomponents/httpcomponents-core
+                               org.apache.httpcomponents/httpcomponents-client
+                               org.apache.httpcomponents/httpcore
+                               org.apache.httpcomponents/httpmime]]
+                 [ch.qos.logback/logback-classic "1.2.1"]
+                 [ch.qos.logback/logback-core "1.2.1"]
+                 [geocoder-clj "0.2.5"]
+                 [netcdf-clj "0.0.14"
+                  :exclusions [org.slf4j/slf4j-log4j12 log4j]]
+                 [org.clojure/clojure "1.9.0-alpha14"]
+                 [clojure-humanize "0.2.2"]]
+  :plugins [[lein-environ "1.1.0"]]
+  :aliases {"ci" ["do" ["difftest"] ["lint"]]
+            "lint" ["do" ["eastwood"]]}
+  :main ^{:skip-aot true} burningswell.cli.main
+  :profiles {:dev {:dependencies [[reloaded.repl "0.2.3"]]
+                   :plugins [[jonase/eastwood "0.2.3"]
+                             [lein-difftest "2.0.0"]]
+                   :repl-options {:init-ns user}
+                   :source-paths ["dev" "src"]}
+             :test {:source-paths ^:replace ["src"]
+                    :resource-paths ["test-resources"]}
+             :uberjar {:aot :all :main burningswell.cli.main}}
+  :uberjar-name "burningswell-cli.jar")

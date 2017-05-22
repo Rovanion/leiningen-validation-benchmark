@@ -1,0 +1,14 @@
+(defproject drtoms-config-loader "0.1.1"
+  :description "Loads application configuration from an external file and 
+                merges them into a map inside an atom."
+  :license {:name "WTFPL"
+            :url "http://www.wtfpl.net/about/"}
+  :dependencies [
+                 [clj-yaml "0.3.1"]
+                 [org.clojure/clojure "1.5.1"]
+                 [org.clojure/tools.logging "0.2.6"]
+                 ]
+
+  :plugins [[lein-midje "3.0.0"]]
+  :profiles {:dev {:dependencies [[midje "1.5.1"]]}}
+  )

@@ -1,0 +1,7 @@
+(defproject citizen/os "0.1.0-SNAPSHOT"
+  :description "Operating System utilities"
+  :url "https://github.com/citizen-ci/clojure-os"
+  :license {:name "Mozilla Public License 2.0"
+            :url "https://www.mozilla.org/MPL/2.0"}
+  :global-vars {*warn-on-reflection* true}
+  :dependencies [[org.clojure/clojure "1.6.0"]])

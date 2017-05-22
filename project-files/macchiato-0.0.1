@@ -1,0 +1,11 @@
+(defproject macchiato "0.0.1"
+  :description "Node.js ClojureScript wrapper"
+  :url "https://github.com/yogthos/macchiato"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :clojurescript? true
+  :dependencies []
+  :plugins [[codox "0.6.4"]]
+  :profiles {:dev
+             {:dependencies [[org.clojure/clojurescript "1.9.293"]]
+              :plugins [[lein-cljsbuild "1.1.4"]]}})

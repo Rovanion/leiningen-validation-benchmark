@@ -1,0 +1,7 @@
+(defproject zeus "0.1.0"
+  :description "Simple zip-based compression library"
+  :url "https://github.com/chmllr/zeus"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :dependencies [[commons-io "2.4"]
+                 [org.clojure/clojure "1.5.1"]])

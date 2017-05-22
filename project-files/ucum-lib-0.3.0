@@ -1,0 +1,21 @@
+(defproject ucum-lib "0.3.0"
+  :description "Implementation of the UCUM units of measure standard."
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :aot [ucum-lib.protocols ucum-lib.spec]
+  :source-paths ["src/clj"]
+  :java-source-paths ["src/java"]
+  :test-paths ["test/clj" "test/java"]
+  :javac-options ["-target" "1.7" "-source" "1.7" "-Xlint:-options"] 
+  :dependencies [[org.clojure/clojure "1.5.1"]
+                 [org.clojure/data.xml "0.0.8"]
+                 [org.clojure/data.zip "0.1.1"]
+                 [instaparse "1.3.5"]]
+  :profiles {:dev 
+             {:resource-paths ["test-resources"]
+              :dependencies [[org.testng/testng "6.8.17"]
+                             [midje "1.6.3"]]
+              :plugins [[lein-midje "3.1.3"]]}
+             
+             :precomp { :source-paths ["src/clj"]
+                         :aot [ucum-lib.units ucum-lib.protocols] }})

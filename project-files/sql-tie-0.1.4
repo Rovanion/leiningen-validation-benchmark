@@ -1,0 +1,20 @@
+(defproject sql-tie "0.1.4"
+  :description "Sql query utility"
+  :url "https://github.com/Mamun/sql-tie"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :source-paths ["src/clj"]
+  :test-paths ["test/clj"]
+  :dependencies [[org.clojure/clojure "1.5.1"]
+                 [org.clojure/core.async "0.1.267.0-0d7780-alpha"]
+                 [org.clojure/tools.logging "0.2.6"]
+                 [org.clojure/java.jdbc "0.3.0-beta1"]
+                 [c3p0/c3p0 "0.9.1.2"]] ;;db pool
+
+  :profiles {:dev {:dependencies [[lein-light-nrepl "0.0.15"]]
+                   :plugins [[lein-midje "3.0.0"]
+                             [codox "0.6.4"]]
+                   :repl-options {:port 4555
+                                  :nrepl-middleware [lighttable.nrepl.handler/lighttable-ops]}
+                   :codox {:sources ["src"]
+                           :output-dir "doc/api"}}})

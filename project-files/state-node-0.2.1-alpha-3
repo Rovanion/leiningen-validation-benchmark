@@ -1,0 +1,15 @@
+(defproject state-node "0.2.1-alpha-3"
+  :description "Use core.async to keep mutable values behind channels."
+  :url "https://github.com/lgrapenthin/state-node"
+  :source-paths ["src/clj"]
+  :license {:name "state-node license"
+            :url "./license.txt"}
+  :dependencies [[org.clojure/clojure "1.5.1"]
+                 [org.clojure/core.async "0.1.256.0-1bf8cf-alpha"]
+                 [org.clojure/clojurescript "0.0-1978"]]
+
+  :plugins [[lein-cljsbuild "0.3.4"]]
+  :cljsbuild {:builds [{:source-paths ["src/cljs"]
+                        :compiler {:output-to "resources/public/js/main.js"
+                                   :optimizations :whitespace
+                                   :pretty-print true}}]})

@@ -1,0 +1,13 @@
+(defproject bunny "0.1"
+  :description "rabbitmq client in clojure"
+  :dependencies [[org.clojure/clojure "1.2.0-master-SNAPSHOT"]
+                 [org.clojure/clojure-contrib "1.2.0-SNAPSHOT"]
+                 [commons-io "1.2"]
+                 [commons-cli "1.1"]
+                 [org.clojars.icylisper/rabbitmq-client "1.7.0"]
+                 [rabbitadmin-clj "0.1.0-SNAPSHOT"]]
+
+  :dev-dependencies [[leiningen/lein-swank "1.2.0-SNAPSHOT"]
+                     [swank-clojure "1.2.1"]
+                     [autodoc "0.7.0"]]
+  :autodoc { :name "bunny", :page-title "clojure-rabbitmq API Documentation"})

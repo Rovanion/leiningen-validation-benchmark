@@ -1,0 +1,12 @@
+(defproject t6/graph-transform "0.1.0"
+  :description "A simple graph transformation library"
+  :url "https://github.com/t6/graph-transform"
+  :license {:name "MIT License"
+            :url "http://www.opensource.org/licenses/mit-license.php"}
+  :dependencies []
+  :profiles {:schema {:dependencies [[prismatic/schema "0.2.6"]]}
+             :dev {:plugins [[lein-marginalia "0.7.1"]]
+                   :dependencies [[org.clojure/clojure "1.6.0"]
+                                  [org.clojure/core.logic "0.8.8"]
+                                  [rhizome "0.2.1"]]}}
+  :aliases {"test-all" ["do" "test," "with-profile" "+schema" "test"]})

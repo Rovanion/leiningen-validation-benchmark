@@ -1,0 +1,16 @@
+(defproject com.invisiblefriend.component/redis "0.2.0"
+  :description "A component for a Redis client."
+  :url "https://github.com/invisiblefriend/component-redis"
+  :license {:name "The MIT License"
+            :url "http://if.mit-license.org"}
+
+  :dependencies [[org.clojure/clojure "1.7.0-RC2"]
+                 [com.stuartsierra/component "0.2.3"]
+                 [com.taoensso/carmine "2.11.1"]]
+
+  :plugins [[codox "0.8.12"]]
+
+  :codox {
+    :defaults {:doc/format :markdown}
+    :src-dir-uri "https://github.com/invisiblefriend/component-redis/master/"
+    :src-linenum-anchor-prefix "L"})

@@ -1,0 +1,9 @@
+(defproject com.spright/chard "0.1.1"
+  :description "SNS and SQS provisioning"
+  :url "https://github.com/sprightco/chard"
+  :license {:name "MIT" :url "http://opensource.org/licenses/MIT"}
+  :deploy-repositories [["clojars" {:creds :gpg}]]
+  :signing {:gpg-key "keith@nearlyfree.org"}
+  :dependencies [[org.clojure/clojure     "1.7.0"]
+                 [io.nervous/fink-nottle "0.4.3"]
+                 [org.clojure/core.async  "0.1.346.0-17112a-alpha"]])

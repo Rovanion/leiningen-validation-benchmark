@@ -1,0 +1,14 @@
+(defproject edocu/clj-edocu-configuration "0.1.4"
+  :description "Small lib for configuration management for clojure services"
+  :url "https://bitbucket.org/edocu/clj-edocu-configuration"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :aot :all
+  :dependencies [[org.clojure/clojure "1.9.0-alpha14"]
+                 [environ "1.1.0"]
+                 [edocu/etcd-clojure "0.2.4.1"]
+                 [clojurewerkz/urly "1.0.0" :exclusions [com.google.guava/guava]]
+                 [cheshire "5.6.3"]
+                 [com.novemberain/monger "3.1.0"]
+                 [org.clojure/core.async "0.2.395"]
+                 [org.clojure/tools.logging "0.3.1"]])

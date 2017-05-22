@@ -1,0 +1,14 @@
+(defproject yle-clj-sql "2.0.0"
+  :description "Clojure library for accessing SQL databases"
+  :dependencies [[org.clojure/clojure "1.8.0"]
+                 [clj-time/clj-time "0.13.0"]
+                 [org.clojure/java.jdbc "0.6.1"]
+                 [postgresql/postgresql "9.3-1102.jdbc41"]
+                 [com.zaxxer/HikariCP "2.6.1"]
+                 [camel-snake-kebab "0.4.0"]
+                 [org.clojure/tools.logging "0.3.1"]]
+  :plugins [[lein-cljfmt "0.3.0"]
+            [lein-ancient "0.6.8"]
+            [clj-stacktrace "0.2.8"]]
+  :repl-options {:caught clj-stacktrace.repl/pst+}
+  :cljfmt {:file-pattern #".*\.clj"})

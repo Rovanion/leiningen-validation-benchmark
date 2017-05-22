@@ -1,0 +1,17 @@
+(defproject org.clojars.cjoakim/dbmd "0.4.0"
+  :description "dbmd - relational database metadata extraction, and schema translation library."
+  :url "https://github.com/cjoakim/dbmd"
+  :dependencies [
+    [org.clojure/clojure "1.4.0"]
+    [org.clojure/java.jdbc "0.2.3"]
+    [cheshire "4.0.3"]]
+  :dev-dependencies [
+    [radagast "1.1.1"]
+    [org.xerial/sqlite-jdbc "3.7.2"]
+    [mysql/mysql-connector-java "5.1.22"]
+    [org.clojars.narma/postgresql "9.1-902.jdbc4"]
+    ; These next two are downloadable from Oracle and Microsoft.
+    ; [com.oracle/ojdbc14 "10.2.0.5"]
+    ; [com.microsoft.sqlserver/sqljdbc4 "3.0"]
+    ]
+  :main dbmd.main)

@@ -1,0 +1,20 @@
+(defproject im.chit/purnam.test "0.5.1"
+  :description "Language extensions for clojurescript"  
+  :url "http://www.github.com/purnam/purnam"
+  :license {:name "The MIT License"
+            :url "http://opensource.org/licencses/MIT"}
+  :dependencies [[org.clojure/clojure "1.6.0"] [im.chit/purnam.common "0.5.1"]]
+  :test-paths ["test/clj"]
+   
+  :documentation {:files {"doc/index"
+                        {:input "test/clj/midje_doc/purnam_guide.clj"
+                         :title "purnam"
+                         :sub-title "Language extensions for clojurescript"
+                         :author "Chris Zheng"
+                         :email  "z@caudate.me"
+                         :tracking "UA-31320512-2"}}}
+  :cljsbuild {:builds [{:source-paths ["src" "test/cljs"]
+                        :compiler {:output-to "target/purnam-test.js"
+                                   :optimizations :whitespace
+                                   :pretty-print true}}]}
+   )

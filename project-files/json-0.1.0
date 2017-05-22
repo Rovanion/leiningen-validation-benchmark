@@ -1,0 +1,8 @@
+(defproject dmclj/json "0.1.0"
+  :description "Server-side clojure implementation of JSON"
+  :url "https://github.com/dedeme/json-server"
+  :license {:name "GPL3"
+            :url "http://www.gnu.org/licenses/gpl-3.0.txt"}
+  :dependencies [[org.clojure/clojure "1.5.1"]]
+  :repositories {"releases" {:url "https://clojars.org/repo"
+                             :creds :gpg}})

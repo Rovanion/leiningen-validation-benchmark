@@ -1,0 +1,5 @@
+(defproject org.clojars.quoll/datomic-data-readers "0.8.3488"
+  :description "Isolation of data readers in Datomic to avoid the Conflicting data-reader mapping problem."
+  :dependencies [[org.clojure/clojure "1.4.0"]]
+
+  :target-dir "target")

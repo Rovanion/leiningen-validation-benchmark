@@ -1,0 +1,22 @@
+(defproject live-static "0.0.24"
+  :description "live-static provides a toolkit for buidling modern web & mobile applications using plain ClojureScript functions and data."
+
+  :url "https://github.com/Sativaware/live-static"
+
+  :dependencies [[org.clojure/clojure "1.6.0"]
+                 [org.clojure/clojurescript "0.0-2261"]
+                 [reagent "0.4.2"]
+                 [domina "1.0.2"]
+                 [cljs-ajax "0.3.3"]]
+
+  :source-paths ["src/cljs"]
+
+  :plugins [[lein-cljsbuild "1.0.3"]
+            [lein-clojars "0.9.1"]]
+
+  :hooks [leiningen.cljsbuild]
+
+  :cljsbuild {:builds [{:jar true
+                        :compiler {:pretty-print true
+                                   :output-dir ".cljsbuild/live_static"
+                                   :output-to "public/live_static.js"}}]})

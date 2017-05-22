@@ -1,0 +1,7 @@
+(defproject eresources "0.1.0"
+  :description "Unpack resources from JAR fil"
+  :url "https://github.com/dowakin/eresources"
+  :license {:name "The MIT License (MIT)"
+            :url "http://opensource.org/licenses/mit-license.php"}
+  :dependencies [[org.clojure/clojure "1.5.1"]
+                 [me.raynes/fs "1.4.4"]])

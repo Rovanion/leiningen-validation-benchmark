@@ -1,0 +1,29 @@
+(defproject antistock/core "0.3.0"
+  :description "Antistock Core Library"
+  :url "https://bitbucket.org/antistock/core"
+  :license {:name "Creative Commons Attribution-NonCommercial 3.0"
+            :url "http://creativecommons.org/licenses/by-nc/3.0/"}
+  :deploy-repositories [["releases" :clojars]]
+  :dependencies [[clj-time "0.11.0"]
+                 [com.cognitect/transit-clj "0.8.285"
+                  :exclusions [com.fasterxml.jackson.core/jackson-core]]
+                 [com.novemberain/langohr "3.5.1" :exclusions [cheshire]]
+                 [com.stuartsierra/component "0.3.1"]
+                 [commandline-clj "0.2.1"]
+                 [environ "1.0.3"]
+                 [geo-clj "0.5.1"]
+                 [inflections "0.12.2"]
+                 [org.clojure/clojure "1.8.0"]
+                 [org.clojure/data.csv "0.1.3"]
+                 [org.clojure/data.json "0.2.6"]
+                 [org.clojure/tools.logging "0.3.1"]]
+  :plugins [[lein-environ "1.0.0"]]
+  :aliases {"ci" ["do" ["difftest"] ["lint"]]
+            "lint" ["do" ["whitespace-linter"] ["eastwood"]]}
+  :profiles {:dev {:dependencies [[antistock/config "0.1.24"]
+                                  [ch.qos.logback/logback-classic "1.1.7"]]
+                   :plugins [[jonase/eastwood "0.2.3"]
+                             [lein-difftest "2.0.0"]
+                             [listora/whitespace-linter "0.1.0"]]}
+             :test {:resource-paths ["test-resources"]}}
+  :pedantic? :abort)

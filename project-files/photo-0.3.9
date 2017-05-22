@@ -1,0 +1,18 @@
+(def ROOT-DIR (subs *file* 0 (- (count *file*) (count "project.clj"))))
+(def VERSION (-> ROOT-DIR (str "/../VERSION") slurp))
+
+(defproject hub.service/photo VERSION
+  :description "Photo service."
+  :plugins [[lein-modules "0.3.11"]]
+  :profiles {:dev {:injections
+                   [(require 'schema.core)
+                    (schema.core/set-fn-validation! true)]}}
+  :dependencies [[cheshire "_"]
+                 [com.stuartsierra/component "_"]
+                 [environ "_"]
+                 [hub.service/queue :version]
+                 [hub.util/api :version]
+                 [hub.util/facebook :version]
+                 [hub.util/rethink :version]
+                 [racehub/schema "_"]
+                 [rethinkdb "_"]])

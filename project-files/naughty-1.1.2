@@ -1,0 +1,9 @@
+(defproject naughty "1.1.2"
+  :description "make Netty pleasant to use from Clojureland"
+  :url "https://github.com/nathan7/naughty"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :dependencies [[org.clojure/clojure "1.6.0"]
+                 [io.netty/netty-all "5.0.0.Alpha1"]
+                 [potemkin "0.3.4"]]
+  :aot [naughty.ChannelInitializer])

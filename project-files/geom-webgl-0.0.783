@@ -1,0 +1,41 @@
+(defproject thi.ng/geom-webgl "0.0.783"
+  :description  "thi.ng geometry kit - WebGL module"
+  :url          "https://github.com/thi-ng/geom"
+  :license      {:name "Apache Software License"
+                 :url "http://www.apache.org/licenses/LICENSE-2.0"
+                 :distribution :repo}
+  :scm          {:name "git"
+                 :url  "https://github.com/thi-ng/geom"}
+
+  :min-lein-version "2.4.0"
+
+  :dependencies [[org.clojure/clojure "1.7.0-beta1"]
+                 [thi.ng/geom-core "0.0.783"]
+                 [thi.ng/geom-types "0.0.783"]
+                 [thi.ng/geom-meshops "0.0.783"]
+                 [thi.ng/color "0.1.3"]
+                 [thi.ng/shadergraph "0.1.1"]
+                 [cljs-log "0.2.1"]]
+
+  :profiles {:dev {:dependencies [[org.clojure/clojurescript "0.0-3211"]
+                                  [criterium "0.4.3"]]
+                   :plugins      [[lein-cljsbuild "1.0.5"]
+                                  [com.cemerick/clojurescript.test "0.3.3"]]
+                   :aliases {"cleantest" ["do" "clean," "cljsbuild" "test"]}}}
+
+  :cljsbuild {:builds [{:source-paths ["src" "test"]
+                        :id "simple"
+                        :compiler {:output-to "target/geom-webgl-0.0.783.js"
+                                   :optimizations :whitespace
+                                   :pretty-print true}}
+                       {:source-paths ["src" "test"]
+                        :id "prod"
+                        :compiler {:output-to "target/geom-webgl-0.0.783.js"
+                                   :optimizations :advanced
+                                   :pretty-print false}}]
+              :test-commands {"unit-tests" ["phantomjs" :runner "target/geom-webgl-0.0.783.js"]}}
+
+  :pom-addition [:developers [:developer
+                              [:name "Karsten Schmidt"]
+                              [:url "http://postspectacular.com"]
+                              [:timezone "0"]]])

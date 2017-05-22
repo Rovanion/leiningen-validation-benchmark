@@ -1,0 +1,12 @@
+(defproject com.poseur/clj-redis "0.0.15"
+  :description "Clojure Redis client library. DSci fork with vararg LPUSH/RPUSH"
+  :url "https://github.com/digital-science/clj-redis"
+  :dependencies [[org.clojure/clojure "[1.2.0,1.4.0]"]
+                 [redis.clients/jedis "2.1.0"]]
+  :multi-deps {"1.4" [[org.clojure/clojure "1.4.0"]
+                      [redis.clients/jedis "2.1.0"]]
+               "1.3" [[org.clojure/clojure "1.3.0"]
+                      [redis.clients/jedis "2.1.0"]]
+               "1.2" [[org.clojure/clojure "1.2.1"]
+                      [redis.clients/jedis "2.1.0"]]}
+  :dev-deps [[lein-multi "1.0.0"]])

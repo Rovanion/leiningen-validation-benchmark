@@ -1,0 +1,34 @@
+(defproject mani "0.1.0"
+  :url "http://github.com/jeluard/mani"
+  :license  {:name "Eclipse Public License"
+             :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :dependencies [[org.clojure/clojure "1.6.0"]]
+  :profiles {:dev
+             {:dependencies [[org.clojure/clojurescript "0.0-2913"]]
+              :plugins [[lein-cljsbuild "1.0.5"]
+                        [com.keminglabs/cljx "0.6.0"]
+                        [com.cemerick/clojurescript.test "0.3.3"]]}}
+  :source-paths ["src" "target/generated-src"]
+  :test-paths ["test" "target/generated-test"]
+  :cljx {:builds [{:source-paths ["src"]
+                   :output-path "target/generated-src"
+                   :rules :clj}
+                  {:source-paths ["src"]
+                   :output-path "target/generated-src"
+                   :rules :cljs}
+                  {:source-paths ["test"]
+                   :output-path "target/generated-test"
+                   :rules :clj}
+                  {:source-paths  ["test"]
+                   :output-path "target/generated-test"
+                   :rules :cljs}]}
+  :cljsbuild {:builds {:dev {:source-paths ["src" "test" "target/generated-src" "target/generated-test"]
+                             :compiler {:output-to "target/js/mani.js"
+                                        :optimizations :whitespace
+                                        :pretty-print true}}}
+              :test-commands {"phantomjs" ["phantomjs" :runner "target/js/mani.js"]
+                              "slimerjs" ["slimerjs" :runner "target/js/mani.js"]}}
+  :prep-tasks [["cljx" "once"]]
+  :aliases {"clean-install" ["do" "clean," ["cljx" "once"] "check," "install"]
+            "clean-test" ["do" "clean," ["cljx" "once"] "test," ["cljsbuild" "test"]]}
+  :min-lein-version "2.5.0")

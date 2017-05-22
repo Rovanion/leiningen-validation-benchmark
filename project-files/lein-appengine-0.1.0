@@ -1,0 +1,11 @@
+(defproject lein-appengine "0.1.0"
+  :description "The App Engine Leiningen plugin which can be used to interact with
+  both the development server and the remote runtime."
+  :url "https://github.com/ywkim/lein-appengine"
+  :license {:name "Apache License 2.0"
+            :url "http://www.apache.org/licenses/LICENSE-2.0.html"}
+  :dependencies [[com.google.appengine/appengine-tools-sdk "1.9.27"]
+                 [com.google.appengine/appengine-java-sdk "1.9.27" :extension "zip"]
+                 [com.google.guava/guava "18.0"]
+                 [com.cemerick/pomegranate "0.3.0"]]
+  :eval-in-leiningen true)

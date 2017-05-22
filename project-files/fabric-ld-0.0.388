@@ -1,0 +1,38 @@
+(defproject thi.ng/fabric-ld "0.0.388"
+  :description  "Signal/Collect inspired compute graph infrastructure - fact graph module"
+  :url          "https://github.com/thi-ng/fabric"
+  :license      {:name "Apache Software License 2.0"
+                 :url "http://www.apache.org/licenses/LICENSE-2.0"
+                 :distribution :repo}
+  :scm          {:name "git"
+                 :url "https://github.com/thi-ng/fabric"}
+
+  :min-lein-vesion "2.4.0"
+
+  :dependencies [[org.clojure/clojure "1.7.0"]
+                 [thi.ng/fabric-core "0.0.388"]
+                 [thi.ng/fabric-facts "0.0.388"]
+                 [thi.ng/strf "0.2.1"]
+                 [thi.ng/validate "0.1.3"]
+                 [org.clojure/data.json "0.2.6"]
+                 [org.clojure/data.csv "0.1.3"]
+                 [com.stuartsierra/component "0.2.3"]
+                 [org.clojure/tools.namespace "0.2.10"]
+                 [com.stuartsierra/dependency "0.1.1"]
+                 [ring/ring-defaults "0.1.5"]
+                 [ring/ring-devel "1.4.0"]
+                 [compojure "1.4.0"]
+                 [aleph "0.4.0"]
+                 [manifold "0.1.0"]]
+
+  :profiles     {:dev {:dependencies [[criterium "0.4.3"]
+                                      [javax.servlet/servlet-api "2.5"]
+                                      [ring/ring-mock "0.2.0"]]
+                       :global-vars  {*warn-on-reflection* true}
+                       :jvm-opts ^:replace []
+                       :aliases {"cleantest" ["do" "clean," "test"]}}}
+
+  :pom-addition [:developers [:developer
+                              [:name "Karsten Schmidt"]
+                              [:url "http://postspectacular.com"]
+                              [:timezone "0"]]])

@@ -1,0 +1,19 @@
+(defproject org.clojars.osbert/clj-facebook-graph "0.4.3"
+  :description "A Clojure client for the Facebook Graph API."
+  :dependencies [[org.clojure/clojure "1.5.1"]
+                 [org.clojure/data.json "0.1.2"  :exclude [org.clojure/clojure]]
+                 [ring/ring-core "1.1.8"  :exclusions [org.clojure/clojure commons-io]]
+
+                 [clj-http "0.6.5"]
+                 [clj-oauth2 "0.2.0" :exclusions [slingshot]]]
+
+  :dev-dependencies [[ring/ring-devel "1.0.1"  :exclude [org.clojure/clojure]]
+                     [ring/ring-jetty-adapter "1.0.1"  :exclude [org.clojure/clojure]]
+                     [compojure "1.1.5"  :exclude [org.clojure/clojure]]]
+
+  :repositories {"jboss" "http://repository.jboss.org/nexus/content/groups/public/"}
+
+  :aot [clj-facebook-graph.FacebookGraphException]
+  :license {:name "Eclipse Public Licence"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :url "https://github.com/osbert/clj-facebook-graph")

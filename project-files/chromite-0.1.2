@@ -1,0 +1,11 @@
+(defproject chromite "0.1.2"
+  :description "A clojurescript library that binds the chrome api."
+  :url "http://github.com/ljos/chromite"
+  :license {:name "MIT License"
+            :url "http://opensource.org/licenses/MIT"}
+  :plugins [[lein-cljsbuild "0.3.2"]]
+  :cljsbuild {:builds
+              [{:source-paths ["src/chromite"]
+                :compiler {:output-to "target/chromite.js"
+                           :optimizations :whitespace
+                           :pretty-print true}}]})

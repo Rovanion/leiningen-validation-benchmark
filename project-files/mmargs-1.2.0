@@ -1,0 +1,5 @@
+(defproject mmargs "1.2.0"
+  :description "Command Line Argument parser"
+  :dependencies [[org.clojure/clojure "1.2.1"]]
+  :dev-dependencies [[lein-clojars "0.6.0"]]
+  )

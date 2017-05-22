@@ -1,0 +1,6 @@
+(defproject com.lousycoder/clj-euler "2.1.0"
+  :description "Functions for Project Euler, take two!"
+  :min-lein-version "1.7.0"
+  :warn-on-reflection true
+  :dependencies
+    [[org.clojure/clojure "1.4.0"]])

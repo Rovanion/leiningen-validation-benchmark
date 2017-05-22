@@ -1,0 +1,3 @@
+(defproject org.lpetit/net.cgrand.regex "0.0.4.STABLE001"
+  :dependencies [[org.clojure/clojure "1.3.0"]])
+

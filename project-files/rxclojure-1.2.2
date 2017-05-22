@@ -1,0 +1,26 @@
+(defproject org.clojars.jconti/rxclojure "1.2.2"
+  :description "RxClojure fork to update io.reactivex/rxclojure dependencies."
+  :url "https://github.com/jconti/rxclojure"
+  :license {:name "Apache 2.0"}
+  ; Fix for https://github.com/technomancy/leiningen/issues/1890
+  :deploy-repositories [["releases" :clojars] ["snapshots" :clojars]]
+
+  :min-lein-version "2.0.0"
+  :exclusions [org.clojure/clojure]
+  :dependencies [[org.clojure/clojure "1.8.0"]
+                 [io.reactivex/rxjava "1.2.2"]]
+
+  :javac-options ["-target" "1.6" "-source" "1.6" "-Xlint:-options"]
+  :global-vars {*warn-on-reflection* true}
+
+  :source-paths ["src/main/clojure"]
+  :java-source-paths ["src/main/java"]
+  :test-paths ["src/test/clojure"]
+  :target-path "target/%s/"
+
+  :aot :all
+
+  ; :profiles
+  ;   {:dev {:dependencies [[]]}}
+
+  :aliases {"all" ["with-profile" "dev"]})

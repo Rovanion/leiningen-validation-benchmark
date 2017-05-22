@@ -1,0 +1,20 @@
+(defproject audiogum/rest-cljer "0.1.31"
+  :description "A Clojure wrapper for the rest driver library"
+  :url "https://github.com/whostolebenfrog/rest-cljer"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+
+  :dependencies [[cheshire "5.6.3"]
+                 [clj-http "3.1.0"]
+                 [com.github.rest-driver/rest-client-driver "1.1.42" :exclusions [org.slf4j/slf4j-nop]]
+                 [environ "1.0.3"]
+                 [junit "4.12"]
+                 [org.clojure/clojure "1.8.0"]
+                 [org.clojure/tools.logging "0.3.1"]
+                 [speclj "3.3.2"]]
+
+  :deploy-repositories [["releases" :clojars]]
+
+  :profiles {:dev {:plugins [[lein-midje "3.1.0"]]
+                   :dependencies [[midje "1.8.3"]
+                                  [org.slf4j/slf4j-nop "1.7.5"]]}})

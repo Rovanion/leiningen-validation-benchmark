@@ -1,0 +1,29 @@
+(defproject antistock/worker "0.1.1"
+  :description "Antistock Worker"
+  :url "https://bitbucket.org/antistock/worker"
+  :license {:name "Creative Commons Attribution-NonCommercial 3.0"
+            :url "http://creativecommons.org/licenses/by-nc/3.0/"}
+  :deploy-repositories [["releases" :clojars]]
+  :dependencies [[antistock/config "0.1.14"]
+                 [antistock/core "0.2.18"]
+                 [antistock/db "0.2.24"]
+                 [ch.qos.logback/logback-classic "1.1.6"]
+                 [edu.stanford.nlp/stanford-corenlp "3.6.0"]
+                 [org.clojure/clojure "1.8.0"]]
+  :plugins [[lein-environ "1.0.2"]]
+  :aliases {"ci" ["do" ["difftest"] ["lint"]]
+            "lint" ["do" ["whitespace-linter"] ["eastwood"]]}
+  :eastwood {:exclude-linters [:constant-test]}
+  :main ^{:skip-aot true} antistock.worker.main
+  :min-lein-version "2.5.0"
+  :profiles {:dev {:dependencies [[criterium "0.4.4"]
+                                  [reloaded.repl "0.2.1"]]
+                   :plugins [[jonase/eastwood "0.2.3"]
+                             [lein-difftest "2.0.0"]
+                             [listora/whitespace-linter "0.1.0"]]
+                   :repl-options {:init-ns user}
+                   :source-paths ["dev" "src"]}
+             :test {:source-paths ^:replace ["src"]
+                    :resource-paths ["test-resources"]}
+             :uberjar {:aot :all :main antistock.worker.main}}
+  :uberjar-name "antistock-worker.jar")

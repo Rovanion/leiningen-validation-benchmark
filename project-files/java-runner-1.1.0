@@ -1,0 +1,8 @@
+(defproject org.clojars.jhinrichsen/java-runner "1.1.0"
+  :aot :all
+  :description "Generate a POSIX shell wrapper to run java applications"
+  :url "https://bitbucket.org/jochenhinrichsen/java-runner"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :dependencies [[org.clojure/clojure "1.5.1"]]
+  :main java-runner.core)

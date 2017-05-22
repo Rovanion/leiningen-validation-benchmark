@@ -1,0 +1,12 @@
+(defproject elahti/clj-arnoldc "0.3.1"
+  :description "ArnoldC-oriented Clojure programming"
+  :url "https://github.com/elahti/clj-arnoldc"
+  :license {:name "Apache Licence, Version 2.0"
+            :url "http://www.apache.org/licenses/LICENSE-2.0.html"
+            :distribution :repo}
+  :dependencies [[org.clojure/clojure "1.6.0"]
+                 [potemkin "0.3.11"]]
+  :profiles {:dev {:dependencies [[midje "1.6.3" :exclusions [org.clojure/clojure]]]
+                   :plugins [[lein-midje "3.1.3"]]}}
+  :min-lein-version "2.0.0"
+  :target-path "target/%s")

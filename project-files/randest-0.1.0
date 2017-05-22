@@ -1,0 +1,8 @@
+(defproject randest "0.1.0"
+  :description "A library for running tests based on randomly chosen events."
+  :url "https://github.com/sneerteam/randest"
+  :license {:name "BSD"
+            :url "http://opensource.org/licenses/BSD-3-Clause"}
+  :dependencies [[org.clojure/clojure "1.6.0"]]
+  :repositories [["clojars" { :sign-releases false}]])
+

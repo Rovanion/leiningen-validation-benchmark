@@ -1,0 +1,8 @@
+(defproject com.relaynetwork/rn-hdfs "0.0.5"
+  :description          "relay hdfs helper library"
+  :plugins              [[lein-swank "1.4.5"]]
+  :local-repo-classpath true
+  :lein-release         {:deploy-via :clojars}
+  :dependencies         [[org.clojure/clojure           "1.2.1"]
+                         [swank-clojure/swank-clojure   "1.4.2"]
+                         [org.apache.hadoop/hadoop-core "1.1.1"]])

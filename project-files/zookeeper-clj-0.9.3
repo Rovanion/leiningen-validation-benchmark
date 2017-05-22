@@ -1,0 +1,6 @@
+(defproject marcoy/zookeeper-clj "0.9.3"
+  :description "A Clojure DSL for Apache ZooKeeper"
+  :dependencies [[commons-codec "1.9"]
+                 [org.apache.zookeeper/zookeeper "3.4.6" :exclusions [[org.slf4j/slf4j-log4j12]
+                                                                      [log4j]]]
+                 [org.clojure/clojure "1.6.0"]])

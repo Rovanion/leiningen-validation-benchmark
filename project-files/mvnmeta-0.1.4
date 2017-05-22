@@ -1,0 +1,34 @@
+(defproject org.ozias.cljlibs/mvnmeta "0.1.4"
+  :description "Fetch maven artifact metadata into a Clojure map"
+  :url "https://github.com/CraZySacX/mvnmeta"
+  :license {:name "MIT"
+            :url "http://opensource.org/licenses/MIT"}
+  :dependencies [[clj-http "0.7.9"]
+                 [org.clojure/clojure "1.5.1"]
+                 [org.clojure/data.xml "0.0.7"]]
+  :profiles {:dev {:source-paths ["dev"]
+                   :dependencies [[midje "1.6.0" :exclusions [org.clojure/clojure]]
+                                  [org.clojure/tools.namespace "0.2.4"]]
+                   :plugins [[codox "0.6.6"]
+                             [lein-midje "3.1.3"]
+                             [org.ozias.plugins/lein-git-version "1.1.0-alpha.2"]]}}
+  :aliases {"package" ["do" "clean," "install"]
+            "most" ["do" "clean," "doc," "package"]
+            "dep" ["do" "deploy," "deploy" "clojars"]
+            "all" ["do" "most," "dep"]}
+  :jvm-opts ["-Xms1024m" "-Xmx1024m"]
+  :deploy-repositories [["snapshots" 
+                         {:url "http://24.209.233.157/artifactory/libs-snapshot-local"
+                          :creds :gpg}]
+                        ["releases"
+                         {:url "http://24.209.233.157/artifactory/libs-release-local"
+                          :creds :gpg}]]
+  :scm {:name "git"
+        :url "https://github.com/CraZySacX/mvnmeta"}
+  :codox {:output-dir "api"
+          :exclude [org.ozias.cljlibs.mvnmeta.version]
+          :sources ["src" "test"]
+          :src-dir-uri "http://github.com/CraZySacX/mvnmeta/blob/0.1.4/"
+          :src-linenum-anchor-prefix "L"}
+  :manifest {"Implementation-Version" "0.1.4"}
+  :git-version {:file {:assoc-in-keys [[:manifest "Implementation-Version"]]}})

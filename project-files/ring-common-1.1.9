@@ -1,0 +1,17 @@
+(defproject ring-common "1.1.9"
+  :description "Common wrappers for ring"
+  :dependencies [[org.clojure/clojure "1.2.0"]
+                 [org.clojure/tools.logging "0.2.3"]
+                 [clj-json "0.4.3"]]
+  :dev-dependencies
+   [[lein-lazytest "1.0.1"]
+    [yij/lein-plugins "1.0.2"]
+    [com.stuartsierra/lazytest "1.1.2"]
+    [ring/ring-core "0.3.3" :exclusions [javax.servlet/servlet-api]]
+    [log4j "1.2.15" :exclusions [javax.mail/mail
+                                                  javax.jms/jms
+                                                  com.sun.jdmk/jmxtools
+                                                  com.sun.jmx/jmxri]]]
+  :lazytest-path ["src" "test"]            
+  :repositories {"stuartsierra-releases" "http://stuartsierra.com/maven2"})
+

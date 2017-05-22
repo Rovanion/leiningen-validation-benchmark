@@ -1,0 +1,6 @@
+(defproject com.kurogitsune/unbrace "0.2.0"
+  :description "Simple library to unbrace and replace text."
+  :url "http://www.com.kurogitsune/unbrace"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :dependencies [[org.clojure/clojure "1.6.0"]])

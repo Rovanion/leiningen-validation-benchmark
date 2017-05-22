@@ -1,0 +1,7 @@
+(defproject computational-explosion/detonator-core "SNAPSHOT"
+  :description "Shared code and configuration used for the detonator framework"
+  :url "https://github.com/computational-explosion/detonator-core"
+  :license {:name "MIT License"
+            :url "http://opensource.org/licenses/MIT"}
+  :dependencies [[org.clojure/clojure "1.7.0-alpha5"]
+                 [com.stuartsierra/component "0.2.3"]])

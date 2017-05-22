@@ -1,0 +1,11 @@
+(defproject tandem "0.0.5"
+  :description "Utilities to work with web applications"
+  :dependencies [[org.clojure/clojure "1.3.0"]
+                 [org.clojure/tools.logging "0.2.3"]
+                 [org.clojure/data.json "0.1.2"]
+                 [ring/ring-core "1.0.2"]
+                 [enlive "1.0.0"]
+                 [org.mindrot/jbcrypt "0.3m"]
+                 [com.eaio.uuid/uuid "3.2"]]
+  :dev-dependencies [[lein-clojars "0.7.0"]]
+  :aot [tandem.exception])

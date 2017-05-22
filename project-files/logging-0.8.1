@@ -1,0 +1,14 @@
+(defproject io.clj/logging "0.8.1"
+  :description "Logging facilities with MDC support for SLF4J"
+  :url "https://github.com/clj-io/logging"
+  :license {:name "Eclipse Public License - v 1.0"
+            :url "http://www.eclipse.org/legal/epl-v10.html"
+            :distribution :repo
+            :comments "same as Clojure"}
+  :dependencies [[org.clojure/clojure "1.6.0"]
+                 [org.slf4j/slf4j-api "1.7.7"]
+                 [org.clojure/tools.logging "0.3.0"]]
+  :profiles {:dev {:dependencies [[midje "1.6.3"]
+                                  [bultitude "0.2.6"]
+                                  [ch.qos.logback/logback-classic "1.1.2"]]
+                   :plugins [[lein-midje "2.0.4"]]}})

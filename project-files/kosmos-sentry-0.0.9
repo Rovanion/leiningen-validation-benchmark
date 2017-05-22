@@ -1,0 +1,34 @@
+(defproject kosmos/kosmos-sentry "0.0.9"
+
+  :description "clojure sentry client library with kosmos integration"
+
+  :url "https://bitbucket.org/pupcus/kosmos-sentry"
+
+  :scm {:url "git@bitbucket.org:pupcus/kosmos-sentry"}
+
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+
+  :dependencies [
+                 [cheshire "5.7.0"]
+                 [clj-http "2.3.0"]
+                 [clj-time "0.12.2"]
+                 [digest "1.4.5"]
+                 [kosmos "0.0.6"]
+                 [org.clojure/java.classpath "0.2.3"]
+                 ]
+
+
+  :profiles {:dev  {:resource-paths ["dev-resources"]
+                    :dependencies [[org.clojure/clojure "1.8.0"]
+                                   [org.slf4j/slf4j-log4j12 "1.7.5"]]}}
+
+  :deploy-repositories [["snapshots"
+                         {:url "https://clojars.org/repo"
+                          :creds :gpg}]
+                        ["releases"
+                         {:url "https://clojars.org/repo"
+                          :creds :gpg}]]
+
+  :global-vars {*warn-on-reflection* true
+                *assert* false})

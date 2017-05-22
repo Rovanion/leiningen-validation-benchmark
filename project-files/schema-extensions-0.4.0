@@ -1,0 +1,42 @@
+(defproject org.clojars.rafflecopter/schema-extensions "0.4.0"
+  :description "Schema Extensions for Prismatic's schema"
+  :url "http://github.com/Rafflecopter/clj-schema-extensions"
+  :license {:name "MIT"
+            :url "http://github.com/Rafflecopter/clj-schema-extensions/blob/master/LICENSE"}
+
+  :jar-exclusions [#"\.swp|\.swo|\.DS_Store"]
+  :auto-clean false
+
+  :dependencies [[org.clojure/clojure "1.7.0"]
+
+                 ;; cljx
+                 [prismatic/schema "0.4.3"]
+
+                 ;; clj
+                 [clj-time "0.9.0"]
+
+                 ;; cljs
+                 [com.andrewmcveigh/cljs-time "0.3.10"]
+                 ]
+
+  :aliases {"ctest" ["do" "clean," "test," "cljsbuild" "test"]
+            "deploy" ["do" "clean," "deploy" "clojars"]}
+
+  :profiles
+    {:dev  {:dependencies [[org.clojure/clojurescript "1.7.48"]]
+            :plugins [[lein-cljsbuild "1.0.6"]]}
+     :repl {:source-paths ["dev/clj"]
+            :dependencies [[org.clojure/tools.namespace "0.2.10"]]}}
+
+   :cljsbuild {:test-commands {"unit" ["phantomjs"
+                                       "resources/test/test-runner.js"
+                                       "resources/test/test-runner.html"]}
+               :builds
+               {:test {:compiler {:output-to "target/js/unit-test.js"
+                                  :optimizations :whitespace
+                                  :pretty-print true}
+                       :source-paths ["src" "test"]}}}
+
+  :repl-options {:welcome (user/welcome)
+                 :init-ns user}
+  :min-lein-version "2.5.2")

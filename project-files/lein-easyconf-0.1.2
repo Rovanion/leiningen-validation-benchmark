@@ -1,0 +1,8 @@
+(defproject zhuangxm/lein-easyconf "0.1.2"
+  :description "auto gen config namespace for easyconf"
+  :dependencies [[org.clojure/clojure "1.4.0"]
+                 [easyconf "0.1.1"]
+                 [org.clojure/tools.namespace "0.1.0"]
+                 [leiningen-core "2.1.0"]]
+  :profiles {:dev {:dev-dependencies [[midje "1.5.1"]]
+                   :plugins [[lein-midje "3.0.0"]]}})

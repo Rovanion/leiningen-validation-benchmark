@@ -1,0 +1,39 @@
+(defproject reify/tokamak "0.14.0"
+  :description "Single-ratom state management for Reagent front-end applications."
+  :url "https://github.com/reifyhealth/tokamak"
+  :license "All Rights Reserved"
+  :dependencies [[org.clojure/clojure "1.7.0"]
+                 [org.clojure/clojurescript "1.7.122"]
+
+                 [prismatic/schema "0.4.4"]
+                 [com.taoensso/timbre "4.1.0"]
+
+                 [reagent "0.5.1-rc2"]
+
+                 [org.clojure/core.async "0.1.346.0-17112a-alpha"]]
+  :plugins [[codox "0.8.13"]
+            [lein-cljsbuild "1.1.0"]
+            [s3-wagon-private "1.1.2"]]
+
+  :cljsbuild
+  {:builds [{:id "test"
+             :source-paths ["src" "test"]
+             :compiler {:optimizations :simple
+                        :output-to "target/test-cljs/test.js"
+                        :output-dir "target/test-cljs/"
+                        :source-map "target/test-cljs/test.js.map"
+                        :target :nodejs
+                        :pretty-print true}}]}
+
+  :repositories
+  [["private" {:url "s3p://reifyhealth.artifacts/releases/"
+               :username [:gpg :env/aws_access_key_id]
+               :passphrase [:gpg :env/aws_secret_access_key]}]]
+
+  :deploy-repositories
+  [["private" {:url "s3p://reifyhealth.artifacts/releases/"
+               :username [:gpg :env/aws_access_key_id]
+               :passphrase [:gpg :env/aws_secret_access_key]
+               :sign-releases false}]
+   ["snapshots" :private]
+   ["releases" :private]])

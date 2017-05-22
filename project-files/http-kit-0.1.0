@@ -1,0 +1,8 @@
+(defproject com.invisiblefriend.component/http-kit "0.1.0"
+  :description "A component for an HTTP Kit Ring adapter."
+  :url "https://github.com/invisiblefriend/component-http-kit"
+  :license {:name "The MIT License"
+            :url "http://if.mit-license.org"}
+  :dependencies [[org.clojure/clojure "1.6.0"]
+                 [com.stuartsierra/component "0.2.2"]
+                 [http-kit "2.1.19"]])

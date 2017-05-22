@@ -1,0 +1,7 @@
+(defproject loggly-access "1.0.1"
+            :description "Access logging for loggly"
+            :dependencies [[clj-json "0.3.1"]
+                           [log4j "1.2.15" :exclusions [javax.mail/mail
+                                                        javax.jms/jms
+                                                        com.sun.jdmk/jmxtools
+                                                        com.sun.jmx/jmxri]]])

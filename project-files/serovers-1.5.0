@@ -1,0 +1,8 @@
+(defproject serovers "1.5.0"
+  :description "The last version comparison library you'll ever need"
+  :url "http://gitlab.com/djhaskin987/serovers"
+  :plugins [[lein-codox "0.10.3"]]
+  :codox {:metadata {:doc/format :markdown}}
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :dependencies [[org.clojure/clojure "1.9.0-alpha14"]])

@@ -1,0 +1,9 @@
+(defproject com.clojars.jfeng/random-aws-stuff "0.1.0"
+  :description "FIXME: write description"
+  :url "http://example.com/FIXME"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :dependencies [[org.clojure/clojure "1.3.0"]
+                 [com.amazonaws/aws-java-sdk "1.3.9"]]
+  :jar-name "random-aws-stuff-0.1.0.jar"
+  :aot [cljaws.core] :main cljaws.core)

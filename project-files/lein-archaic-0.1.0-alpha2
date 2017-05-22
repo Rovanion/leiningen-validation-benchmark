@@ -1,0 +1,41 @@
+(defproject lein-archaic "0.1.0"
+  :description "Check for archaic dependencies"
+  :url "https://github.com/CraZySacX/lein-archaic"
+  :license {:name "MIT"
+            :url "http://opensource.org/licenses/MIT"}
+  :dependencies [[org.clojure/tools.reader "0.8.3"]
+                 [org.ozias.cljlibs/logging "0.1.0-alpha.0"]
+                 [org.ozias.cljlibs/mvnmeta "0.1.2-alpha.0"]
+                 [org.ozias.cljlibs/semver "0.1.0-alpha.0"]
+                 [com.taoensso/timbre "3.0.0-RC4"]]
+  :profiles {:dev {:source-paths ["dev"]
+                   :dependencies [[org.clojure/tools.namespace "0.2.4"]]
+                   :plugins [[codox "0.6.6"]
+                             [org.ozias.plugins/lein-git-version "1.1.0-alpha.2"]]}}
+  :aliases {"package" ["do" "clean," "install"]
+            "most" ["do" "clean," "doc," "package"]
+            "dep" ["do" "deploy," "deploy" "clojars"]
+            "all" ["do" "most," "dep"]}
+  :jvm-opts ["-Xms1024m" "-Xmx1024m"]
+  :deploy-repositories [["snapshots" 
+                         {:url "http://www.ozias.net/artifactory/libs-snapshot-local"
+                          :creds :gpg}]
+                        ["releases"
+                         {:url "http://www.ozias.net/artifactory/libs-release-local"
+                          :creds :gpg}]]
+  :scm {:name "git"
+         :url "https://github.com/CraZySacX/lein-archaic"}
+  :codox {:output-dir "api"
+          :exclude [leiningen.version]
+          :sources ["src" "test"]
+          :src-dir-uri "http://github.com/CraZySacX/lein-archaic/blob/master/"
+          :src-linenum-anchor-prefix "L"}
+  :manifest {"Implementation-Version" "0.1.0"}
+  :git-version {:project {:cmd []
+                          :fmt ["%s-%s" :basever "alpha2"]
+                          :assoc-in-keys [[:version]]} 
+                :file {:filepath "leiningen/archaic"}
+                :manifest {:cmd ["git" "rev-parse" "HEAD"]
+                           :fmt ["%s+%s.%s" :basever :cmdver :date]
+                           :assoc-in-keys [[:manifest "Implementation-Version"]]}}
+  :eval-in-leiningen true)

@@ -1,0 +1,7 @@
+(defproject org.clojars.jbswetnam/invoke "0.1.0"
+  :description "A basic wrapper for clojure.lang.Reflector to make dynamic Java interops easier"
+  :url "https://github.com/jbswetnam/invoke"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :dependencies [[org.clojure/clojure "1.7.0"]]
+  :signing {:gpg-key "68BDEC39"})

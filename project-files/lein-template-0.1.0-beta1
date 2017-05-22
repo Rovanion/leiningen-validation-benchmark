@@ -1,0 +1,6 @@
+(defproject thruster/lein-template "0.1.0-beta1"
+  :description "A Pedestal/Om Dev-Setup"
+  :url "https://github.com/drakezhard/thruster"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :eval-in-leiningen true)

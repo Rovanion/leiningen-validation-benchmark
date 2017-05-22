@@ -1,0 +1,20 @@
+(defproject kafkaesque "0.1.1"
+  :description "FIXME: write description"
+  :url "http://example.com/FIXME"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+
+  :repositories [["myMavenRepo.read" "https://mymavenrepo.com/repo/HaEY4usKuLXXnqmXBr0z"
+                  "clojars" {:sign-releases false}]]
+
+  :dependencies [[org.clojure/clojure "1.9.0-alpha14"]
+                 [org.apache.kafka/kafka_2.11 "0.10.1.0"]
+                 [org.apache.kafka/kafka-clients "0.10.1.0"]
+                 [org.apache.kafka/kafka-streams "0.10.1.0"]
+                 [org.apache.kafka/kafka_2.11 "0.10.1.0" :classifier "test"]
+                 [org.apache.kafka/kafka-clients "0.10.1.0" :classifier "test"]
+                 [com.taoensso/nippy "2.12.2"]]
+
+  :profiles {:dev {:source-paths ["src", "dev"]
+                   :dependencies [[org.clojure/test.check "0.9.0"]
+                                  [org.apache.kafka/kafka_2.11 "0.10.1.0" :classifier "test"]]}})

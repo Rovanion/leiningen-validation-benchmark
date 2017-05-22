@@ -1,0 +1,14 @@
+(def ROOT-DIR (subs *file* 0 (- (count *file*) (count "project.clj"))))
+(def VERSION (-> ROOT-DIR (str "/../VERSION") slurp))
+
+(defproject hub.util/facebook VERSION
+  :description "RethinkDB utilities."
+  :plugins [[lein-modules "0.3.11"]]
+  :profiles {:dev {:injections
+                   [(require 'schema.core)
+                    (schema.core/set-fn-validation! true)]}}
+  :dependencies [[cheshire "_"]
+                 [environ "_"]
+                 [http-kit "_"]
+                 [racehub/schema "_"]
+                 [ring/ring-codec "1.0.0"]])

@@ -1,0 +1,3 @@
+(defproject polymer.elements/iron "1.2.3.impl"
+  :description "DELETE ME - use polymer/elements.iron")
+

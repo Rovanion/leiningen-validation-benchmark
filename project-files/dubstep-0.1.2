@@ -1,0 +1,51 @@
+(defproject com.keminglabs/dubstep "0.1.2"
+  :description "Serializable state machines for Clojure(Script)"
+  :license {:name "BSD" :url "http://www.opensource.org/licenses/BSD-3-Clause"}
+
+  :dependencies [[org.clojure/clojure "1.4.0"]
+                 [org.clojure/core.match "0.2.0-alpha11"
+                  :exclusions [org.clojure/core.logic]]]
+
+  :profiles {:dev {:dependencies [[midje "1.3.1"]
+                                  [com.stuartsierra/lazytest "1.2.3"]]
+                   ;;Required for lazytest.
+                   :repositories {"stuartsierra-releases" "http://stuartsierra.com/maven2"
+                                  "stuartsierra-snapshots" "http://stuartsierra.com/m2snapshots"}}}
+
+  :plugins [[com.keminglabs/cljx "0.2.1"]
+            [lein-midje "2.0.0-SNAPSHOT"]
+            [lein-cljsbuild "0.1.8"]]
+
+  :source-paths ["src/clj" "src/cljs"
+                 ".generated/clj" ".generated/cljs"]
+  
+  :cljx {:builds [{:source-paths ["src/cljx"]
+                   :output-path ".generated/clj"
+                   :rules cljx.rules/clj-rules}
+
+                  {:source-paths ["src/cljx"]
+                   :output-path ".generated/cljs"
+                   :extension "cljs"
+                   :rules cljx.rules/cljs-rules}]}
+
+
+  :cljsbuild {:builds {:sample {:source-path "samples/cljs"
+                                :compiler {:output-to "samples/cljs/sample.js"
+                                           :optimizations :whitespace
+                                           :pretty-print true}}
+                       ;; :test {:source-path "test/integration/cljs"
+                       ;;        :compiler {:output-to "out/test/integration.js"
+                       ;;                   :optimizations :whitespace
+                       ;;                   :pretty-print true}}
+                       }
+              
+              ;; :test-commands {"integration" ["phantomjs"
+              ;;                                "test/integration/runner.coffee"]}
+
+              }
+
+  
+
+
+  ;;generate cljx before JAR
+  :hooks [cljx.hooks])

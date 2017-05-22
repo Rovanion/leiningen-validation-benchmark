@@ -1,0 +1,13 @@
+(def ROOT-DIR (subs *file* 0 (- (count *file*) (count "project.clj"))))
+(def VERSION (-> ROOT-DIR (str "/../VERSION") slurp))
+
+(defproject hub.util/aws VERSION
+  :description "AWS utilities."
+  :plugins [[lein-modules "0.3.11"]]
+  :profiles {:dev {:injections
+                   [(require 'schema.core)
+                    (schema.core/set-fn-validation! true)]}}
+  :dependencies  [[amazonica "0.1.30"]
+                  [environ "_"]
+                  [org.clojure/core.async "_"]
+                  [racehub/schema "_"]])

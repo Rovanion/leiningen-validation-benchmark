@@ -1,0 +1,8 @@
+(defproject clj-file-finder "1.0.0"
+            :description "DSL for finding files or directories in the file system."
+            :repositories {"stuart" "http://stuartsierra.com/maven2"}
+            :dependencies [[org.clojure/clojure "1.3.0"]]
+            :dev-dependencies [[midje "1.3.1"]
+                               [lein-midje "1.0.9"]
+                               [com.stuartsierra/lazytest "1.2.3"]
+                               [lein-clojars "0.8.0"]])

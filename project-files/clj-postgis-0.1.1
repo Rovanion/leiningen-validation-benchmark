@@ -1,0 +1,9 @@
+(defproject e85th/clj-postgis "0.1.1"
+  :description "PostGIS related functionality for interacting with the Postgres"
+  :url "http://github.com/e85th/clj-postgis"
+  :license {:name "Apache License 2.0"
+            :url "http://www.apache.org/licenses/LICENSE-2.0"}
+  :dependencies [[org.clojure/clojure "1.8.0"]
+                 [e85th/commons "0.1.0"]
+                 [org.postgresql/postgresql "9.4.1208"]
+                 [net.postgis/postgis-jdbc "2.2.0" :exclusions [postgresql]]])

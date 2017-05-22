@@ -1,0 +1,71 @@
+(defproject farbetter/freedomdb "0.2.9"
+  :description "Freedom of choice for data storage"
+  :url "https://github.com/farbetter/freedomdb"
+  :license {:name "The Apache Software License, Version 2.0"
+            :url "http://www.apache.org/licenses/LICENSE-2.0.txt"}
+
+  :pedantic? :abort
+
+  :lein-release {:scm :git
+                 :deploy-via :clojars}
+
+  :profiles
+  {:dev
+   {:plugins
+    [[lein-ancient "0.6.10"]
+     ;; Because of confusion with a defunct project also called
+     ;; lein-release, we exclude lein-release from lein-ancient.
+     [lein-release "1.0.9" :upgrade false :exclusions [org.clojure/clojure]]
+     [lein-cljsbuild "1.1.6-SNAPSHOT"]]}}
+
+  :dependencies
+  [[com.taoensso/timbre "4.8.0"]
+   [farbetter/utils "0.1.62"]
+   [org.clojure/clojure "1.8.0"]
+   ;; Don't upgrade cljs until adv mode core.async bug is fixed
+   [org.clojure/clojurescript "1.9.473" :upgrade false]
+   [org.clojure/data.avl "0.0.17"]
+   [prismatic/schema "1.1.3"]]
+
+  :jvm-opts ^:replace ["-server" "-XX:+AggressiveOpts"]
+
+  ;; Enable this to check for reflection problems
+  ;; :global-vars {*warn-on-reflection* true}
+
+  :test-selectors {:default (complement :perf)
+                   :perf :perf
+                   :the-one :the-one
+                   :all (constantly true)}
+
+  :cljsbuild
+  {:builds
+   [{:id "node-dev"
+     :source-paths ["src" "test"]
+     :notify-command ["node" "target/test/node_dev/test_main.js"]
+     :compiler
+     {:optimizations :none
+      :main "freedomdb.test-runner"
+      :target :nodejs
+      :output-to "target/test/node_dev/test_main.js"
+      :output-dir "target/test/node_dev"
+      :source-map true}}
+    {:id "node-perf"
+     :source-paths ["src" "test"]
+     :notify-command ["node" "target/test/node_perf/test_main.js" "perf"]
+     :compiler
+     {:optimizations :advanced
+      :externs ["externs/node.js"]
+      :target :nodejs
+      :static-fns true
+      :pretty-print false
+      :output-to "target/test/node_perf/test_main.js"
+      :output-dir "target/test/node_perf"
+      :source-map "target/test/node_perf/map.js.map"}}]}
+
+  :aliases
+  {"auto-test-cljs" ["do"
+                     "clean,"
+                     "cljsbuild" "auto" "node-dev"]
+   "auto-perf-cljs" ["do"
+                     "clean,"
+                     "cljsbuild" "auto" "node-perf"]})

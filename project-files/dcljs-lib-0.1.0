@@ -1,0 +1,38 @@
+(defproject cotarmanach/dcljs-lib "0.1.0"
+  :description "A set of macros to help building dc.js projects with clojurescript"
+  :url "http://boc.al/dcljs-lib/example.html"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :dependencies [[org.clojure/clojure "1.5.1"]
+                 [org.clojure/clojurescript "0.0-2173"]
+                 [com.cemerick/piggieback "0.1.3"]
+                 ]
+  :deploy-repositories [["snapshots" "file:///Library/WebServer/Documents/lein/snapshots"]
+                 ["releases" 
+                  {:url "file:///Library/WebServer/Documents/lein/releases"
+                   :sign-releases false
+                   }] 
+                 ]
+  :repl-options {:nrepl-middleware [cemerick.piggieback/wrap-cljs-repl]}
+  ;; CLJ AND CLJS source code path
+  ;;:source-paths ["src"]
+
+  ;; lein-cljsbuild plugin to build a CLJS project
+  :plugins [[lein-cljsbuild "1.0.3"]]
+
+  ;; cljsbuild options configuration
+  :cljsbuild {:builds
+              [{;; CLJS source code path
+                :source-paths ["src/cljs"]
+
+                ;; Google Closure (CLS) options configuration
+                :compiler {;; CLS generated JS script filename
+                           :output-to "resources/public/js/dcljs.js"
+                           ;; minimal JS optimization directive
+                           ;;:optimizations :whitespace
+                           :optimizations :whitespace
+                           ;; generated JS code prettyfication
+                           ;;:pretty-print true
+                           :pretty-print true
+                           }}]}
+  )

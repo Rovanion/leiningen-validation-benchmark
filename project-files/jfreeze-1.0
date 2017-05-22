@@ -1,0 +1,6 @@
+(defproject jfreeze "1.0"
+  :description "Extend Clojure multimethods for easily (de)serializing Java objects"
+  :url "https://bitbucket.org/morgon/jfreeze"
+  :license {:name "ISC"
+            :url "http://www.opensource.org/licenses/ISC"}
+  :dependencies [[org.clojure/clojure "1.6.0"]])

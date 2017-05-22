@@ -1,0 +1,19 @@
+(defproject emezeske/clojurescript "0.0.3-f2d58284a8"
+  :description "ClojureScript compiler"
+  :url "http://github.com/emezeske/clojurescript"
+  :license {:name "Eclipse Public License - v 1.0"
+            :url "http://www.eclipse.org/legal/epl-v10.html"
+            :distribution :repo}
+  :dependencies [[org.clojure/clojure "1.3.0"]
+                 [com.google.javascript/closure-compiler "r1592"]
+                 [emezeske/closure-library "r1376"]]
+  :dev-dependencies [[fs "0.11.1"]]
+  :jar-exclusions [#"clojurescript_build"])
+
+(use '[leiningen.core :only [prepend-tasks]]
+     '[leiningen.pom :only [pom]]
+     '[leiningen.jar :only [jar]]
+     '[clojurescript-build.core :only [copy-sources]])
+
+(prepend-tasks #'pom copy-sources)
+(prepend-tasks #'jar copy-sources)

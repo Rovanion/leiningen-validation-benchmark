@@ -1,0 +1,22 @@
+(defproject lein-jcasgen "0.1.0"
+  :description "Leiningen plugin that wraps UIMA JCasGen"
+
+  :url "http://github.com/usf-mshi/lein-jcasgen"
+
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+
+  :eval-in-leiningen true
+
+  :dependencies [[leiningen-core "2.5.0"]
+
+                 ; some general utilities to ease working with directories/files/build
+                 [org.sonatype.plexus/plexus-build-api "0.0.7"]
+                 [org.codehaus.plexus/plexus-utils "3.0.22"]
+
+                 [org.apache.uima/uimaj-core "2.4.0"]
+                 [org.apache.uima/uimaj-tools "2.4.1"]]
+
+  :profiles {:dev {:dependencies [[org.clojure/clojure "1.7.0"]]}}
+  
+  :signing {:gpg-key "2D21E940"})

@@ -1,0 +1,43 @@
+(def slf4j-version "1.7.7")
+(defproject kixi/data.vendor.google-dfp "0.6.5"
+  :description "kixi module to interface to google-dfp"
+  :url "http://github.com/MastodonC/kixi.data.vendor.git"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :dependencies [[kixi/data.vendor.parent "0.6.5"]
+                 [clj-time            "0.11.0"]
+                 [clj-http            "2.0.1"]
+                 [com.google.api-client/google-api-client-gson "1.21.0"]
+                 [com.google.apis/google-api-services-storage "v1-rev61-1.21.0"]
+                 [com.google.http-client/google-http-client-jackson2 "1.21.0"]
+
+                 [com.google.api-ads/ads-lib "2.9.0"]
+                 [com.google.api-ads/dfp-axis "2.9.0"]
+
+                 [org.clojure/tools.logging      "0.3.1"]
+                 [org.slf4j/jul-to-slf4j         ~slf4j-version]
+                 [org.slf4j/jcl-over-slf4j       ~slf4j-version]
+                 [org.slf4j/log4j-over-slf4j     ~slf4j-version]
+
+
+                 [camel-snake-kebab "0.3.2"]
+                 [org.clojure/data.csv "0.1.3"]]
+
+  :scm {:name "git"
+        :url "git@github.com:MastodonC/kixi.data.vendor.git"
+        :dir "../.."}
+
+  :plugins [
+            [s3-wagon-private "1.1.2"]
+            ]
+  ;; You need to arrange for the environment variables:
+  ;;   CLOJARS_USERNAME to be your clojars username
+  ;;   CLOJARS_PASSWORD to be your clojars password.
+  ;; there is a sample.lein-credentials file which you can fill in and
+  ;; source from your shell
+
+  :repositories [["releases" {:url "https://clojars.org/repo" :username :env/clojars_username :password :env/clojars_password}]
+                 ["snapshots" {:url "s3p://mc-maven-repo/snapshots" :username :env/mc_aws_username :passphrase :env/mc_aws_passphrase}]]
+
+  :profiles {:dev {:dependencies [[org.clojure/test.check "0.9.0"]
+                                  [ch.qos.logback/logback-classic "1.1.3"]]}})

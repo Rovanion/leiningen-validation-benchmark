@@ -1,0 +1,8 @@
+(defproject org.dsteurer/load-system "0.3.0"
+  :description "load declared system"
+  :url "http://dsteurer.org"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :dependencies [[org.clojure/clojure "1.9.0-alpha13"]
+                 [duct "0.8.0"]
+                 [meta-merge "1.0.0"]])

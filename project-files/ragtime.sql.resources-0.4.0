@@ -1,0 +1,15 @@
+(defproject ursacorp/ragtime.sql.resources "0.4.0"
+  :description "Ragtime adapter that reads migrations from SQL resources."
+  :url "https://github.com/ursacorp/ragtime"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :scm {:name "git"
+        :url "https://github.com/ursacorp/ragtime.git"}
+  :dependencies [[org.clojure/clojure "1.3.0"]
+                 [org.clojure/java.jdbc "0.2.3"]
+                 [ursacorp/ragtime.sql.files "0.4.0"]]
+  :profiles
+  {:dev {:dependencies [[com.h2database/h2 "1.3.160"]
+                        [ursacorp/ragtime.sql "0.4.0"]]}
+   :test {:resource-paths ["test/resources"]}
+   :java-jdbc-0.3.x [:dev {:dependencies [[org.clojure/java.jdbc "0.3.2"]]}]})

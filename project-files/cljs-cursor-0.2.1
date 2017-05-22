@@ -1,0 +1,26 @@
+(defproject org.dgetz/cljs-cursor "0.2.1"
+  :description "Simple cursor backed by atom"
+  :url "https://github.com/dustingetz/cljs-cursor"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :scm {:url "git@github.com:dustingetz/cljs-cursor.git"}
+  :signing {:gpg-key "dustin.getz@gmail.com"}
+  :deploy-repositories [["clojars" {:creds :gpg}]]
+
+  :dependencies [[org.clojure/clojure "1.6.0"]
+                 [org.clojure/clojurescript "0.0-2234"]]
+
+  :plugins [[lein-cljsbuild "1.0.3"]]
+
+  :source-paths ["src"]
+
+  :cljsbuild {:builds [{:id "dev"
+                        :source-paths ["src"]
+                        :compiler {:output-to "out/main.js"
+                                   :output-dir "out"
+                                   :optimizations :none
+                                   :source-map true}}]}
+  :pom-addition [:developers [:developer
+                              [:name "Dustin Getz"]
+                              [:email "dustin.getz@gmail.com"]
+                              [:timezone "-5"]]])

@@ -1,0 +1,23 @@
+(defproject ike/ike.ramp "0.1.0-alpha2"
+  :description "FIXME: write description"
+  :url "https://github.com/ike-tools/ike.ramp"
+  :license {:name "Apache License, Version 2.0"
+            :url "http://www.apache.org/licenses/LICENSE-2.0"}
+  :min-lein-version "2.5.0"
+  :dependencies [[org.clojure/clojure "1.7.0-alpha5"]
+
+                 ;; internals
+                 [ike/ike.util "0.1.0-alpha5"]
+                 [org.clojure/core.async "0.1.346.0-17112a-alpha"]
+                 [com.stuartsierra/component "0.2.2"]
+                 [aleph "0.4.0-beta3"]
+
+                 ;; file i/o
+                 [juxt/dirwatch "0.2.2"]
+                 [org.clojure/data.xml "0.0.8"]]
+  :release-tasks [["vcs" "assert-committed"]
+                  ["change" "version" "leiningen.release/bump-version"]
+                  ["vcs" "commit"]
+                  ["vcs" "tag"]
+                  ["deploy" "clojars"]
+                  ["vcs" "push"]])

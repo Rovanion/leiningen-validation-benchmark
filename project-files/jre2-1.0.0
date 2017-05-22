@@ -1,0 +1,7 @@
+(defproject org.clojars.factual/jre2 "1.0.0"
+  :description "Java and Clojure wrapper for Google's RE2 regex engine"
+  :source-path "src/clj"
+  :java-source-path "src/java"
+  :library-path "lib"
+  :dependencies [[org.clojure/clojure "1.3.0"]]
+  :url "https://github.com/Factual/jre2")

@@ -1,0 +1,11 @@
+(defproject dmarced.dns "0.2.0"
+  :description "nicer clojure interface to DNSJava"
+  :url "https://source.waltonhoops.com/dmarced/dmarced.dns"
+  :license {:name "GNU Affero General Public License"
+            :url "https://www.gnu.org/licenses/agpl.html"}
+  :dependencies [[dnsjava/dnsjava "2.1.7"]
+                 [org.apache.commons/commons-lang3 "3.4"]
+                 [org.clojure/clojure "1.8.0"]]
+  :plugins [[lein-kibit "0.1.2"]]
+  :scm {:name "hg"
+        :url "https://source.waltonhoops.com/dmarced/dmarced.dns"})

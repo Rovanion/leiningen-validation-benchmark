@@ -1,0 +1,4 @@
+(defproject cs-rabbit-to-mysql/lein-template "1.1.0-RELEASE"
+  :description "Template for a project that listens to a rabbit queue and writes to mysql"
+  :eval-in-leiningen true
+  :deploy-repositories [["releases" {:url "https://clojars.org/repo" :sign-releases false}]])

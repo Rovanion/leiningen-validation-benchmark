@@ -1,0 +1,27 @@
+(defproject rsslldnphy/dependency-cljs "0.0.1"
+  :description "Stuart Sierra's data structure for representing dependency graphs, in Clojurescript"
+  :url "https://github.com/rsslldnphy/dependency-cljs"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :dependencies [[org.clojure/clojurescript "0.0-2268"]]
+  :signing {:gpg-key "DF49164D"}
+  :scm {:name "git"
+        :url "https://github.com/rsslldnphy/dependency-cljs"}
+  ;; Temporarily don't sign releases until GPG works on Yosemite
+  :repositories  [["clojars" {:url "https://clojars.org/repo"
+                              :sign-releases false}]]
+  :plugins [[lein-cljsbuild "1.0.3"]
+            [com.cemerick/clojurescript.test "0.3.1"]]
+  :profiles {:dev {:dependencies [[org.clojure/clojure "1.6.0"]]}}
+  :cljsbuild {:builds {:dev {:source-paths ["src"]
+                             :compiler {:output-dir "target/dev/"
+                                        :output-to "target/dev/dependency.js"
+                                        :source-map "target/dev/dependency.map"
+                                        :optimizations :whitespace
+                                        :pretty-print true}}
+                       :test {:source-paths ["src" "test"]
+                              :compiler {:output-to "target/test/unit-test.js"
+                                         :optimizations :advanced
+                                         :pretty-print true}}}
+              :test-commands {"unit-tests" ["phantomjs" :runner
+                                            "target/test/unit-test.js"]}})

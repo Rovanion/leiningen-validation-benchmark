@@ -1,0 +1,12 @@
+(defproject org.clojars.oakes/autocomplete "2.5.2"
+  :description "A code completion library for Swing text components, with special support for RSyntaxTextArea"
+  :url "https://github.com/oakes/AutoComplete"
+  :license {:name "Modified BSD License"
+            :url "http://fifesoft.com/rsyntaxtextarea/RSyntaxTextArea.License.txt"}
+  :resource-paths ["src"]
+  :java-source-paths ["src"]
+  :javac-options ["-target" "1.6" "-source" "1.6" "-Xlint:-options"]
+  :aot :all
+  :omit-source true
+  :jar-exclusions [#"^.*\.(java|flex)$"]
+  :dependencies [[org.clojars.oakes/rsyntaxtextarea "2.5.2"]])

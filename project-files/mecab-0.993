@@ -1,0 +1,7 @@
+(defproject mecab "0.993"
+  :description "MeCab-Clojure binding"
+  :dependencies [[org.clojure/clojure "1.4.0"]
+                 ]
+;  :exclusions      [org.chasen/mecab "0.9.9.3"]
+
+  )

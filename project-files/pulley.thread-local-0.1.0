@@ -1,0 +1,10 @@
+
+(defproject com.positronic-solutions/pulley.thread-local "0.1.0"
+  :description "Truly thread-local bindings for Clojure"
+  :url "https://github.com/positronic-solutions/pulley.thread-local"
+  :license {:name "GNU Lesser General Public License, v. 3 or later"
+            :url "http://www.gnu.org/licenses/lgpl.html"
+            :distribution :repo}
+  :dependencies [[org.clojure/clojure "1.8.0"]]
+  :source-paths ["src/clj"]
+  :java-source-paths ["src/java"])

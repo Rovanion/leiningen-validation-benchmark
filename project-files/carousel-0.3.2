@@ -1,0 +1,49 @@
+(defproject zval/carousel "0.3.2"
+  :dependencies
+    [[org.clojure/clojure "1.9.0-alpha13"]
+     [org.clojure/clojurescript "1.9.229"]
+
+     [reagent "0.6.0" :exclusions [cljsjs/react]]
+     [cljsjs/react-with-addons "15.2.1-0"]
+
+     ;; demo
+     [environ "1.1.0"]
+     [cljs-ajax "0.5.8"]
+     [com.andrewmcveigh/cljs-time "0.4.0"]]
+
+  :source-paths ["src/cljs"]
+
+  :plugins
+    [[lein-cljsbuild "1.1.4"]
+     [lein-figwheel "0.5.7"]
+     [lein-haml-sass "0.2.7-SNAPSHOT"]
+     [lein-environ "1.1.0"]]
+
+  :figwheel {:css-dirs ["resources/public/css"]}
+
+  :scss
+    {:src "resources/scss"
+     :output-directory "resources/public/css"
+     :output-extension "css"}
+
+  :cljsbuild
+    {:builds
+      [{:id "dev"
+        :source-paths ["src/cljs" "src/clj"]
+        :figwheel {:on-jsload "carousel-demo.index/on-js-reload" }
+        :compiler
+          {:main carousel-demo.index
+           :recompile-dependents true
+           :output-to  "resources/public/js/demo.js"
+           :output-dir "resources/public/out"
+           :asset-path "out"
+           :optimizations :none
+           :cache-analysis true
+           :source-map true}}
+       {:id "min"
+        :source-paths ["src/cljs" "src/clj"]
+        :compiler
+          {:output-to "resources/public/js/demo.js"
+           :main carousel-demo.index
+           :optimizations :advanced
+           :pretty-print false}}]})

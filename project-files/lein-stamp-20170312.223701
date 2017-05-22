@@ -1,0 +1,1 @@
+(defproject lein-stamp "20170312.223701" :eval-in-leiningen true)

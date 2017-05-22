@@ -1,0 +1,9 @@
+(defproject org.dsteurer/component.layout "0.3.0"
+  :description "bootstrap layout"
+  :url "http://dsteurer.org/"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :dependencies [[org.clojure/clojure "1.9.0-alpha13"]
+                 [com.stuartsierra/component "0.3.1"]
+                 [hiccup "1.0.5"]
+                 [meta-merge "1.0.0"]])

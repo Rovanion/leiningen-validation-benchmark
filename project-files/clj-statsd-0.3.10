@@ -1,0 +1,4 @@
+(defproject liftoff/clj-statsd "0.3.10"
+  :description "statsd protocol client"
+  :url         "https://github.com/liftoffio/clj-statsd"
+  :dependencies [[org.clojure/clojure "1.4.0"]])

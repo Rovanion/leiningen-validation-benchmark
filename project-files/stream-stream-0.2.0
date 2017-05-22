@@ -1,0 +1,6 @@
+(defproject com.nocandysw/stream-stream "0.2.0"
+  :description "delineating nonfunctional stream code"
+  :dependencies [[org.clojure/clojure "1.4.0"]]
+  :profiles {:dev {:dependencies [[midje "1.4.0"]]
+                   :plugins [[lein-midje "2.0.1"]]}}
+  :local-repo-classpath true)

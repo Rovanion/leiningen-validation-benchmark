@@ -1,0 +1,5 @@
+(defproject ord.clojars.echo/data.json "0.2.5-indent"
+  :source-paths ["src/main/clojure/"]
+  :test-paths   ["src/test/clojure/"]
+  :main clojure.data.json
+  :dependencies [[org.clojure/clojure "1.5.1"]])

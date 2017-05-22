@@ -1,0 +1,16 @@
+(defproject circleci/statsd "0.1.1"
+  :description "Wrapper around clj-statsd"
+  :url "github.com/circleci/statsd"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :pedantic? :abort
+  :dependencies [[org.clojure/clojure "1.8.0"]
+                 [org.clojure/tools.logging "0.3.1"]
+                 [clj-statsd "0.4.0"]]
+
+  :profiles {:uberjar {:aot :all}}
+
+  :repositories [["releases" {:url "https://clojars.org/repo"
+                              :username [:gpg :env/clojars_username]
+                              :password [:gpg :env/clojars_password]
+                              :sign-releases false}]])

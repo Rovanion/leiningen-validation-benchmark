@@ -1,0 +1,18 @@
+(defproject theladders/ephphp "0.1.2"
+  :description "Unserialize PHP in Clojure."
+  :license {:name "MIT"
+            :url "http://www.opensource.org/licenses/mit-license.php"}
+  :dependencies [[org.clojure/clojure "1.5.1"]]
+  
+  :plugins
+  [
+   [theladders/lein-uberjar-deploy "0.1.2"]
+   ]
+
+  :repositories
+  [
+   ["snapshots" {:id "nexus" :url "http://host:8081/nexus/content/repositories/snapshots"}]
+   ["releases"  {:id "nexus" :url "http://host:8081/nexus/content/repositories/releases"}]
+  ]
+
+)

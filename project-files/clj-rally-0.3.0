@@ -1,0 +1,10 @@
+(defproject com.rallydev/clj-rally "0.3.0"
+  :description "A clojure library for interacting with Rally"
+  :url "http://github.com/RallySoftware/clj-rally"
+  :license {:name "The MIT License (MIT)"
+            :url "http://opensource.org/licenses/MIT"}
+  :dependencies [[org.clojure/clojure "1.5.0"]
+                 [org.clojure/core.cache "0.6.3"]
+                 [clj-http "0.7.2"]
+                 [cheshire "5.2.0"]]
+  :plugins [[lein-clojars "0.9.1"]])

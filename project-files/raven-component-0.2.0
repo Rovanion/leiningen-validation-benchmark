@@ -1,0 +1,8 @@
+(defproject raven-component "0.2.0"
+  :description "Component for the raven-clj library supporting Sentry exceptions"
+  :url "https://github.com/banzai-inc/raven-clj"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :dependencies [[org.clojure/clojure "1.7.0"]
+                 [com.stuartsierra/component "0.3.0"]
+                 [raven-clj "1.3.1"]])

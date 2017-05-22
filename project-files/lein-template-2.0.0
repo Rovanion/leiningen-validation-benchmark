@@ -1,0 +1,3 @@
+(defproject zeta/lein-template "2.0.0"
+  :description "Leiningen Zeta Template"
+  :eval-in-leiningen true)

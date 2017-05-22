@@ -1,0 +1,22 @@
+(defproject ciderale/quick-reset "0.2.0"
+  :description "Quick Application Reset after Namespace Refresh
+               for Rapid Clojure Development Cycles"
+  :url "http://github.com/ciderale/quick-reset"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :dependencies [[org.clojure/clojure "1.6.0"]
+                 [org.clojure/tools.namespace "0.2.8"]]
+  :repositories  {"clojars"  {"clojars"  "http://clojars.org/repo"
+                              :sign-releases false}}
+
+  ;the following profile is only used to demonstrate the "example"
+  :profiles {:dev {:source-paths ["example"]
+                   :injections [
+     (use '[quick-reset.core :only  [reset set-constructor]])
+     (set-constructor 'your.namespace/your-constructor)
+                                (println "done")
+     ;(set-constructor 'your.component/new-component
+                      ;'your.component/start
+                      ;'your.component/stop)
+                                ]
+                   }})

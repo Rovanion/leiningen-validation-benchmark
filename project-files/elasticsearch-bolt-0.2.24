@@ -1,0 +1,14 @@
+(defproject com.shareablee/elasticsearch-bolt "0.2.24"
+  :description "Reusable Storm bolt for writing and reading from Elasticsearch"
+  :url "https://github.com/shareablee/elasticsearch-bolt"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :dependencies [[org.clojure/clojure "1.5.1"]
+                 [org.apache.storm/storm-core "0.9.3"]
+
+                 ; this is our custom branch of elastisch
+                 [com.shareablee/elastisch "1.4.0-native-bulk"]
+
+                 ; dependency for either storm or elastisch
+                 [org.apache.httpcomponents/httpclient "4.2.5"]]
+  :profiles {:dev {:dependencies [[org.apache.storm/storm-core "0.9.3"]]}})

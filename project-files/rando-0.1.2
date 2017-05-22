@@ -1,0 +1,17 @@
+(defproject rando "0.1.2"
+  :clojurescript? true
+  :description "A set of ClojureScript functions for requesting random integers and strings from the random.org true random number generator."
+  :url "https://github.com/ctdavies/rando"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :scm {:url "git@github.com:ctdavies/rando.git"}
+  :plugins [[lein-cljsbuild "1.0.3"]]
+  :min-lein-version "2.0.0"
+  :lein-release {:deploy-via :clojars}
+  :cljsbuild {:builds [{:source-paths ["src"]
+                        :compiler {:output-to "target/rando.js"
+                                   :optimizations :none
+                                   :pretty-print true}}]}
+  :dependencies [[org.clojure/clojure "1.6.0"]
+                 [org.clojure/clojurescript "0.0-2202"]                 
+                 [cljs-http "0.1.8"]])

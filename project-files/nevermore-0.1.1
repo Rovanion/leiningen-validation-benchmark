@@ -1,0 +1,12 @@
+(defproject nevermore "0.1.1"
+  :description "sanity testing for Clojure code"
+  :url "https://github.com/sdegutis/nevermore"
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :dependencies [[org.clojure/clojure "1.5.1"]
+                 [bultitude "0.2.2"]
+                 [ns-tracker "0.2.1"]]
+  :codox {:src-dir-uri "https://github.com/sdegutis/nevermore/blob/master"
+          :src-linenum-anchor-prefix "L"}
+  :aliases {"test" ["run" "-m" "nevermore.run"]
+            "autotest" ["run" "-m" "nevermore.run" ":runner" "nevermore.runners/auto-runner"]})

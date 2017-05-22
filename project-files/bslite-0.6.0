@@ -1,0 +1,18 @@
+(defproject reify/bslite "0.6.0"
+  :description "Lightweight Reagent components for Twitter Bootstrap"
+  :url "https://github.com/reifyhealth/bslite"
+  :license "All Rights Reserved"
+  :dependencies [[org.clojure/clojure "1.7.0"]
+                 [org.clojure/core.match "0.3.0-alpha4"]
+                 [reagent "0.5.0"]
+                 [prismatic/schema "0.4.4"]]
+
+  :plugins [[s3-wagon-private "1.1.2"]
+            [lein-auto "0.1.2"]]
+  :auto {:default {:file-pattern #"\.(clj|cljs|cljc)$"}}
+  :deploy-repositories [["private" {:url "s3p://reifyhealth.artifacts/releases/"
+                                    :username [:gpg :env/aws_access_key_id]
+                                    :passphrase [:gpg :env/aws_secret_access_key]
+                                    :sign-releases false}]
+                        ["snapshots" :private]
+                        ["releases" :private]])

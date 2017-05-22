@@ -1,0 +1,6 @@
+(defproject lein-dependencies "0.1.0"
+  :description "Manage all jar dependencies to the LIB directory."
+  :url "https://github.com/proofit404/lein-dependencies"
+  :license {:name "BSD 3-Clause License"
+            :url "http://opensource.org/licenses/BSD-3-Clause"}
+  :eval-in-leiningen true)

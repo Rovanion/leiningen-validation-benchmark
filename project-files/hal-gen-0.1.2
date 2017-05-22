@@ -1,0 +1,10 @@
+(defproject hal-gen "0.1.2"
+            :description "Generate HAL maps"
+            :url "https://github.com/awohletz/hal-gen"
+            :scm {:name "git"
+                  :url  "https://github.com/awohletz/hal-gen"}
+            :license {:name "Eclipse Public License"
+                      :url  "http://www.eclipse.org/legal/epl-v10.html"}
+            :dependencies [[org.clojure/clojure "1.6.0" :scope "provided"]]
+            :target-path "target/%s"
+            :profiles {:uberjar {:aot :all}})

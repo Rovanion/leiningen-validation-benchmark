@@ -1,0 +1,6 @@
+(defproject wiggle "1.0.0"
+	:description "Micro parser for writing html in a Clojurian way."
+	:url "https://github.com/msull92/wiggle"
+	:license {:name "MIT"}
+	:dependencies [[org.clojure/clojure "1.4.0"]]
+	:plugins [[lein-clojars "0.9.1"]])

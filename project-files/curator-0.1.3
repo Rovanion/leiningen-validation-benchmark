@@ -1,0 +1,27 @@
+(defproject antistock/curator "0.1.3"
+  :description "Antistock Curator"
+  :url "https://bitbucket.org/r0man/antistock/curator"
+  :license {:name "Creative Commons Attribution-NonCommercial 3.0"
+            :url "http://creativecommons.org/licenses/by-nc/3.0/"}
+  :dependencies [[antistock/zookeeper "0.1.6"]
+                 [com.stuartsierra/component "0.3.1"]
+                 [org.apache.curator/curator-framework "2.10.0"]
+                 [org.apache.curator/curator-recipes "2.10.0"]
+                 [org.apache.curator/curator-x-discovery "2.10.0"]
+                 [org.clojure/clojure "1.8.0"]
+                 [org.clojure/tools.logging "0.3.1"]
+                 [prismatic/schema "1.1.1"]
+                 [noencore "0.3.2"]]
+  :deploy-repositories [["releases" :clojars]]
+  :aliases {"ci" ["do" ["difftest"] ["lint"]]
+            "lint" ["do" ["whitespace-linter"] ["eastwood"]]}
+  ;; :global-vars {*warn-on-reflection* true}
+  :min-lein-version "2.4.2"
+  :profiles {:dev {:dependencies [[ch.qos.logback/logback-core "1.1.7"]
+                                  [ch.qos.logback/logback-classic "1.1.7"]
+                                  [org.slf4j/log4j-over-slf4j "1.7.21"]
+                                  [reloaded.repl "0.2.1"]]
+                   :plugins [[jonase/eastwood "0.2.3"]
+                             [lein-difftest "2.0.0"]
+                             [listora/whitespace-linter "0.1.0"]]}
+             :test {:resource-paths ["test-resources"]}})

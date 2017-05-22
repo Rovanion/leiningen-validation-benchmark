@@ -1,0 +1,18 @@
+(defproject yle-clj-common "1.0.7"
+  :description "Code to support the way that Yle (Clojure) APIs are implemented."
+  :dependencies [[org.clojure/clojure "1.7.0"]
+                 [environ "1.0.0"]
+                 [clj-time/clj-time "0.11.0"]
+                 [org.clojure/tools.logging "0.3.1"]
+                 [org.slf4j/slf4j-log4j12 "1.7.12"]
+                 [log4j/log4j "1.2.17" :exclusions [javax.mail/mail
+                                                    javax.jms/jms
+                                                    com.sun.jdmk/jmxtools
+                                                    com.sun.jmx/jmxri]]
+                 [org.clojure/tools.namespace "0.2.10"]]
+  :profiles {:dev {:dependencies [[clj-stacktrace "0.2.8"]]}}
+  :repl-options {:caught clj-stacktrace.repl/pst+}
+  :license {:name "Eclipse Public License"
+            :url "http://www.eclipse.org/legal/epl-v10.html"}
+  :plugins [[lein-ancient "0.5.5"]
+            [lein-deps-tree "0.1.2"]])

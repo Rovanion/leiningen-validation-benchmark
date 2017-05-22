@@ -1,0 +1,20 @@
+(defproject invaliduser/shafty "0.0.2-experimental"
+  :description "ClojureScript functional reactive programming library."
+  :url "https://github.com/invaliduser/shafty"
+  :license {:name "Eclipse Public License - v 1.0"
+            :url "http://www.eclipse.org/legal/epl-v10.html"
+            :distribution :repo
+            :comments "same as Clojure"}
+  :dependencies [[org.clojure/clojure "1.5.0"]]
+  :plugins [[lein-cljsbuild "0.3.0"]]
+  :source-paths ["src/clj" "src/cljs"]
+  :hooks [leiningen.cljsbuild]
+  :cljsbuild
+    {:builds
+     [{:source-paths ["src/cljs"],
+       :id "core",
+       :compiler
+       {:pretty-print true,
+        :output-to "resources/private/core.js",
+        :optimizations :whitespace}}
+      ]})
