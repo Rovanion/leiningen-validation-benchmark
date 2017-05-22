@@ -16,4 +16,4 @@
     (bench/fn-with-files #(spec/valid? ::project/project-map %) files 2)))
 
 
-(spec/valid? ::project/project-map (reader/read-raw (.getAbsolutePath (first files))))
+(reader/read-raw "/home/rovanion/source/clojure/lein-validation-benchmark/project-files/map-sql-0.5.1")
