@@ -1,6 +1,6 @@
-(def ROOT-DIR (subs *file* 0 (- (count *file*) (count "project.clj"))))
-(def HADOOP-VERSION (-> ROOT-DIR (str "/../HADOOP-VERSION") slurp))
-(def VERSION (-> ROOT-DIR (str "/../VERSION") slurp))
+
+
+
 
 (defproject cascalog/cascalog-more-taps VERSION
   :description "More taps for Cascalog"

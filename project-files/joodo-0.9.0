@@ -1,4 +1,4 @@
-(def config (load-file "../config.clj"))
+
 
 (defproject joodo (:version config)
   :description "Joodo, a Clojure framework for web apps."

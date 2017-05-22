@@ -1,4 +1,4 @@
-(def agentproxy-version "0.0.7")
+
 
 (defproject clj-ssh "0.5.10"
   :description "Library for using SSH from clojure."

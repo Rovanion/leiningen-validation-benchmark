@@ -1,4 +1,4 @@
-(def ring-version "1.4.0")
+
 
 (defproject com.unbounce/encors "2.3.0"
   :description "encors is a CORS library for ring"

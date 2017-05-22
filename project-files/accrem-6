@@ -1,4 +1,4 @@
-(def build-number (or (System/getenv "ACCREM_BUILD_NUMBER") "DEV-SNAPSHOT"))
+
 (defproject accrem build-number
   :description "Simple accounting practice client management website written in Clojure"
   :url "https://github.com/albertlatacz/accrem"

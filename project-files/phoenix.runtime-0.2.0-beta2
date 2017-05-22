@@ -1,4 +1,4 @@
-(def version (slurp "../common/phoenix-version"))
+
 
 (defproject jarohen/phoenix.runtime version
   :description "The runtime for the Phoenix plugin"

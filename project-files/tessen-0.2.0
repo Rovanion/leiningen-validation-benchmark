@@ -1,4 +1,4 @@
-(def VERSION (.trim (slurp "VERSION")))
+
 
 (defproject tessen VERSION
   :main tessen.core

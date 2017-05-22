@@ -1,4 +1,4 @@
-(def config (load-file "../config.clj"))
+
 
 (defproject hyperion/hyperion-core (:version config)
   :description "A generic persistence API for Clojure"

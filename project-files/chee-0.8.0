@@ -1,4 +1,4 @@
-(def config (load-file "../config.clj"))
+
 
 (defproject chee (:version config)
   :description "Support utilities"

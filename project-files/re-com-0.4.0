@@ -1,11 +1,11 @@
 (require 'leiningen.core.eval)
 
-(def fig-port   3449)
-(def os         (leiningen.core.eval/get-os))
-(def server-url (str "http://localhost:" fig-port "/index_dev.html"))
-(def file-url   "run/resources/public/index_dev.html")
-(def prod-url   "run/resources/public/index_prod.html")
-(def test-url   "run/test/test.html")
+
+
+
+
+
+
 
 (def command-lookups
   "Per os native commands"

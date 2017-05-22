@@ -1,5 +1,5 @@
-(def ks-version "1.0.0")
-(def tk-version "1.0.1")
+
+
 
 (defproject puppetlabs/trapperkeeper-rpc "1.0.0"
   :description "RPC server/client library for Trapperkeeper services"

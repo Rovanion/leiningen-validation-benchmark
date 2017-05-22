@@ -1,4 +1,4 @@
-(def use-advanced-optimizations? true)
+
 
 (def compiler-option-common
   {:output-to "resources/public/cljs/cl.js"
@@ -31,9 +31,9 @@
           :pretty-print true
           }))
 
-(def figwheel-version "0.5.8")
 
-(def plugins-cljs-prod '[[lein-cljsbuild "1.1.5"]])
+
+
 
 (def plugins-cljs-dev (vec (concat plugins-cljs-prod
                                    [['lein-figwheel figwheel-version]])))

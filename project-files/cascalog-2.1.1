@@ -1,6 +1,6 @@
-(def VERSION (slurp "VERSION"))
-(def MODULES (-> "MODULES" slurp (.split "\n")))
-(def DEPENDENCIES (for [m MODULES] [(symbol (str "cascalog/" m)) VERSION]))
+
+
+
 
 (eval `(defproject cascalog/cascalog ~VERSION
          :description "Hadoop without the Hassle."

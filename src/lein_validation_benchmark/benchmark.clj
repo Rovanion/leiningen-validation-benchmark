@@ -52,5 +52,5 @@
                          sum (apply min times) (apply max times) (mean times) (median times) (std-dev times)) (.getName file)))
       (catch clojure.lang.ExceptionInfo e
         (println "Validation failed for" (.getName file)))
-      (catch java.io.FileNotFoundException e
-        (println "File not found:" (.getName file))))))
+      (catch java.io.IOException e
+        (println "File not found:" (.getName file) )))))

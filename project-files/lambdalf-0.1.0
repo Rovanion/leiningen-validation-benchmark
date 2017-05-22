@@ -18,9 +18,9 @@
 ;    Peter Monks   - contributor
 
 ; Make sure these line up to those provided in the specified Alfresco version or weird things can happen...
-(def alfresco-version    "5.0.a")
-(def spring-version      "3.0.5.RELEASE")
-(def spring-surf-version "1.2.0")
+
+
+
 
 (defproject org.clojars.lambdalf/lambdalf "0.1.0"
   :title            "lambdalf"

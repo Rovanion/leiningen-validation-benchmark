@@ -1,4 +1,4 @@
-(def common-deps '[])
+
 
 (defproject org.clojars.runa/conjure "2.2.0"
   :description "Conjure mocking and stubbing"
@@ -17,5 +17,5 @@
                :all ~common-deps})
 
 
-(def common-deps '[[org.clojure/tools.logging "0.2.3"]])
+
 

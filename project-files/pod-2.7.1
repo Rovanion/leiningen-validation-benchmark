@@ -1,7 +1,7 @@
 (import [java.util Properties])
 (require '[clojure.java.io :as io])
-(def propsfile "../../version.properties")
-(def version (-> (doto (Properties.) (.load (io/input-stream propsfile)))
+
+
                (.getProperty "version")))
 
 (defproject boot/pod version

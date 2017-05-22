@@ -1,7 +1,7 @@
-(def major "1")
-(def minor "0")
-(def patch "0")
-(def label "")
+
+
+
+
 
 (def project-version
   (apply str

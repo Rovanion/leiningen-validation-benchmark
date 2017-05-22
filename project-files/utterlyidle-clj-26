@@ -1,4 +1,4 @@
-(def build-number (or (System/getenv "UTTERLYIDLE_CLJ_BUILD_NUMBER") "DEV-SNAPSHOT"))
+
 
 (defproject utterlyidle-clj build-number
   :description "Clojure bindings for UtterlyIdle"

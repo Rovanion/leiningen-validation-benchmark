@@ -14,7 +14,7 @@
          '(clojure.java [shell :refer (sh)]
                         [io :as io]))
 
-(def default-version "0.0.1-SNAPSHOT")
+
 
 (defn head-ok []
   (-> (sh "git" "rev-parse" "--verify" "HEAD")

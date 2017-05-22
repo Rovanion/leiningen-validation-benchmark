@@ -1,9 +1,9 @@
 (def description (str "Converts the character encoding of files into UTF8"
                       " and every end of line into '\\n'."))
-(def license-name "MPL-2.0")
-(def license-url "https://www.mozilla.org/en-US/MPL/2.0/")
-(def url "http://github.com/crocket/to-utf8-unix")
-(def repo-url (str url ".git"))
+
+
+
+
 
 (defproject cljs-npm/to-utf8-unix "0.1.18"
   :description ~description
