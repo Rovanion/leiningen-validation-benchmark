@@ -46,12 +46,11 @@
   (for [file files]
     (try
       (let [times (for [i (range samples)]
-                    (time' (validator-func (reader/read-raw (.getAbsolutePath file)))))
+                    (time' (println (validator-func (reader/read-raw (.getAbsolutePath file))))))
             sum   (apply + times)]
         (println (format "%10.5f %10.5f %10.5f %10.5f %10.5f %10.5f"
                          sum (apply min times) (apply max times) (mean times) (median times) (std-dev times)) (.getName file)))
       (catch clojure.lang.ExceptionInfo e
         (println "Validation failed for" (.getName file)))
       (catch java.lang.Exception e
-        (println "Exception thrown:" (.getMessage e)))))
-  )
+        (println "Exception thrown:" (.getMessage e))))))
