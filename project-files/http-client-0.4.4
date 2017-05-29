@@ -35,8 +35,8 @@
   :profiles {:dev {:dependencies [[puppetlabs/kitchensink "1.0" :classifier "test"]
                                   [puppetlabs/trapperkeeper "1.0"]
                                   [puppetlabs/trapperkeeper "1.0" :classifier "test"]
-                                  [puppetlabs/trapperkeeper-webserver-jetty9 ~tk-jetty-version]
-                                  [puppetlabs/trapperkeeper-webserver-jetty9 ~tk-jetty-version :classifier "test"]
+                                  [puppetlabs/trapperkeeper-webserver-jetty9 "1.0"]
+                                  [puppetlabs/trapperkeeper-webserver-jetty9 "1.0" :classifier "test"]
                                   [spyscope "0.1.4" :exclusions [clj-time]]]
                    :injections [(require 'spyscope.core)]
                    ;; TK-143, enable SSLv3 for unit tests that exercise SSLv3
