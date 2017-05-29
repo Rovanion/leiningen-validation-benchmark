@@ -59,7 +59,7 @@
                                   ;; - it actually brings in netty 3.9.2.Final, but we
                                   ;; want some fixes to websocket handling that are in later .x releases
                                   [io.netty/netty "3.9.9.Final"]
-                                  [http.async.client ~http-async-client-version]
+                                  [http.async.client "1.0"]
                                   [puppetlabs/trapperkeeper :classifier "test" :scope "test"]
                                   [puppetlabs/kitchensink :classifier "test" :scope "test"]
                                   [puppetlabs/ssl-utils]
@@ -70,7 +70,7 @@
                                                     (require 'schema.core)
                                                     (schema.core/set-fn-validation! true))]}]
              :test-base {:source-paths ["test/utils" "test-resources"]
-                         :dependencies [[http.async.client ~http-async-client-version]
+                         :dependencies [[http.async.client "1.0"]
                                        [puppetlabs/trapperkeeper :classifier "test" :scope "test"]
                                        [puppetlabs/kitchensink :classifier "test" :scope "test"]]
                          :test-paths ^:replace ["test/unit" "test/integration"]}

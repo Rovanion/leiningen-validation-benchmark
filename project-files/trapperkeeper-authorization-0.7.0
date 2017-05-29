@@ -47,7 +47,7 @@
                               "-b" "./examples/ring_app/bootstrap.cfg"
                               "-c" "./examples/ring_app/ring-example.conf"]}
                    :source-paths ["examples/ring_app/src"]
-                   :dependencies [[puppetlabs/trapperkeeper-webserver-jetty9 ~tk-jetty-version]
+                   :dependencies [[puppetlabs/trapperkeeper-webserver-jetty9 "1.0"]
                                   [puppetlabs/trapperkeeper "1.0" :classifier "test" :scope "test"]
                                   [puppetlabs/kitchensink "1.0" :classifier "test"]
                                   [org.clojure/tools.namespace "0.2.10"]]}

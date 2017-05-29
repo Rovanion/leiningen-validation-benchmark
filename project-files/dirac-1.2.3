@@ -38,8 +38,8 @@
                  [org.clojure/tools.namespace "0.3.0-alpha3" :scope "test"]
                  [org.clojure/tools.reader "1.0.0-beta1" :scope "test"]
 
-                 [clj-logging-config ~clj-logging-config-version :scope "test"]
-                 [org.slf4j/slf4j-log4j12 ~slf4j-log4j12-version :scope "test"]
+                 [clj-logging-config "1.0" :scope "test"]
+                 [org.slf4j/slf4j-log4j12 "1.0" :scope "test"]
 
                  [http.async.client "1.2.0" :scope "test"]
 
@@ -130,8 +130,8 @@
 
              :logging-support
              ^{:pom-scope :provided}                                                                                          ; ! to overcome default jar/pom behaviour, our :dependencies replacement would be ignored for some reason
-             {:dependencies [[clj-logging-config ~clj-logging-config-version :scope nil]
-                             [org.slf4j/slf4j-log4j12 ~slf4j-log4j12-version :scope nil]]
+             {:dependencies [[clj-logging-config "1.0" :scope nil]
+                             [org.slf4j/slf4j-log4j12 "1.0" :scope nil]]
               :source-paths ["src/logging"]}
 
              :lib-with-logging

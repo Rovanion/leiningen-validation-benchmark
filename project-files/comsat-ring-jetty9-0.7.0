@@ -21,11 +21,11 @@
 
      [org.slf4j/slf4j-simple "1.7.21"]
 
-     [co.paralleluniverse/pulsar ~quasar-pulsar-version]]
+     [co.paralleluniverse/pulsar "1.0"]]
 
   :repositories [["snapshots" "http://oss.sonatype.org/content/repositories/snapshots"]]
 
-  :java-agents [[co.paralleluniverse/quasar-core ~quasar-pulsar-version]]
+  :java-agents [[co.paralleluniverse/quasar-core "1.0"]]
 
   :profiles
     {:dev {:dependencies [[clj-http "2.1.0"]]}})

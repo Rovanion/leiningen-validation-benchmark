@@ -52,7 +52,7 @@
                                          [org.alfresco/alfresco-repository                      "1.0"]
                                          [org.springframework/spring-context                    "1.0"]
                                          [org.springframework/spring-beans                      "1.0"]
-                                         [org.springframework.extensions.surf/spring-webscripts ~spring-surf-version]
+                                         [org.springframework.extensions.surf/spring-webscripts "1.0"]
                                        ] }
             }
   :aot               [alfresco]
