@@ -1,6 +1,6 @@
 (ns lein-validation-benchmark.core
   (:require [clojure.spec.alpha                  :as spec]
-            [clojure.pprint                      :refer pprint]
+            [clojure.pprint                      :refer [pprint]]
             [schema.core                         :as schema]
             [leiningen.core.project              :as project]
             [leiningen.core.spec.project         :as spec-p]
@@ -54,4 +54,4 @@
       (catch java.lang.Exception e
         (println "Exception while loading file:" (.getMessage e))))))
 
-(three-way-validation-check files)
+; (three-way-validation-check (sort (rest (file-seq (clojure.java.io/file "project-files/")))))
