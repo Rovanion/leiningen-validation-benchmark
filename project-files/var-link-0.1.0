@@ -1,4 +1,4 @@
-(defproject org.clojure-grimoire/var-link (slurp "VERSION")
+(defproject org.clojure-grimoire/var-link (slurp ""1.0"")
   :description "A Clojure utility lib for working with var links"
   :url "http://github.com/clojure-grimoire/var-link.clj"
   :license {:name "Eclipse Public License"

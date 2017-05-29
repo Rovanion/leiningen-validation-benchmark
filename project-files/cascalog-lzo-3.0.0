@@ -2,7 +2,7 @@
 
 
 
-(defproject cascalog/cascalog-lzo VERSION
+(defproject cascalog/cascalog-lzo "1.0"
   :description "Lzo compression taps for Cascalog."
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
@@ -14,9 +14,9 @@
              :1.4 {:dependencies [[org.clojure/clojure "1.4.0"]]}
              :1.5 {:dependencies [[org.clojure/clojure "1.5.0"]]}
              :1.6 {:dependencies [[org.clojure/clojure "1.6.0"]]}
-             :provided {:dependencies [[cascalog/cascalog-core ~VERSION]
+             :provided {:dependencies [[cascalog/cascalog-core "1.0"]
                                        [org.apache.hadoop/hadoop-common "2.4.0"]
                                        [org.apache.hadoop/hadoop-mapreduce-client-jobclient "2.4.0"]
                                        [org.apache.httpcomponents/httpclient "4.2.3"]]}
-             :dev {:dependencies [[cascalog/midje-cascalog ~VERSION]]
+             :dev {:dependencies [[cascalog/midje-cascalog "1.0"]]
                    :plugins [[lein-midje "3.1.3"]]}})

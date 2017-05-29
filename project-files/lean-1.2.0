@@ -2,11 +2,11 @@
 
 
 
-(defproject yada/lean VERSION
+(defproject yada/lean "1.0"
   :pedantic? :abort
-  :dependencies [[yada/aleph ~VERSION]
-                 [yada/bidi ~VERSION]
-                 [yada/core ~VERSION]]
+  :dependencies [[yada/aleph "1.0"]
+                 [yada/bidi "1.0"]
+                 [yada/core "1.0"]]
 
   :profiles
   {:dev

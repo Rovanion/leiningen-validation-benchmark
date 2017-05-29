@@ -25,7 +25,7 @@ Remove the files created by the plugin.
 Print the value of a stencil specified as an argument, useful for build scripts
 
      lein resource print  \"{{version}}\"
-     export MY_PROJECT_VERSION=$(lein resource print \"{{name}}:{{version}}\")
+     export MY_PROJECT_"1.0"=$(lein resource print \"{{name}}:{{version}}\")
 
 ### Pretty Print
 Dump the map of values sent to stencil.

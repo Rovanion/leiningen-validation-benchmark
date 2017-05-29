@@ -1,4 +1,4 @@
-(defproject dynamodb-expressions (or (System/getenv "PROJECT_VERSION") "0.0.0-SNAPSHOT")
+(defproject dynamodb-expressions (or (System/getenv "PROJECT_"1.0"") "0.0.0-SNAPSHOT")
   :description "Better DynamoDB expressions with Clojure"
   :url "http://github.com/brabster/dynamodb-expressions"
   :license {:name "Eclipse Public License"

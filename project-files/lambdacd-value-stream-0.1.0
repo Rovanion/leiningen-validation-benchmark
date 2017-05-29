@@ -1,5 +1,5 @@
 (def lambdacd-version (or
-                        (System/getenv "LAMBDACD_VERSION")
+                        (System/getenv "LAMBDACD_"1.0"")
                         "0.9.0"))
 
 (defproject lambdacd-value-stream "0.1.0"

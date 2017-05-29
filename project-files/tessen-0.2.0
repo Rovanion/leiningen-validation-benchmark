@@ -1,6 +1,6 @@
 
 
-(defproject tessen VERSION
+(defproject tessen "1.0"
   :main tessen.core
   :description "Sensu API client in Clojure."
   :url "http://github.com/jakedavis/tessen"

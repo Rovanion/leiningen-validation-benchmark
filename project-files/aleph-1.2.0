@@ -2,7 +2,7 @@
 
 
 
-(defproject yada/aleph VERSION
+(defproject yada/aleph "1.0"
   :pedantic? :abort
   :dependencies [[aleph "0.4.1" :exclusions [io.aleph/dirigiste]]
-                 [yada/core ~VERSION]])
+                 [yada/core "1.0"]])

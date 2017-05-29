@@ -1,6 +1,6 @@
 
 
-(defproject foxglove VERSION
+(defproject foxglove "1.0"
   :main         foxglove.core
   :description  "Clojure client for Walker."
   :url          "https://github.com/simplefinance/foxglove"

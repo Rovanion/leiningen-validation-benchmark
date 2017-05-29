@@ -2,12 +2,12 @@
 
 
 
-(defproject yada/swagger VERSION
+(defproject yada/swagger "1.0"
   :pedantic? :abort
-  :dependencies [[yada/core ~VERSION :exclusions [commons-codec]]
-                 [yada/jwt ~VERSION]
-                 [yada/bidi ~VERSION]
-                 [yada/webjars ~VERSION]
+  :dependencies [[yada/core "1.0" :exclusions [commons-codec]]
+                 [yada/jwt "1.0"]
+                 [yada/bidi "1.0"]
+                 [yada/webjars "1.0"]
                  [metosin/ring-swagger "0.22.12" :exclusions [org.clojure/clojure]]
                  [org.webjars/swagger-ui "2.2.6"]]
   )

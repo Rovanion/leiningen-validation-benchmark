@@ -1,6 +1,6 @@
 
 
-(defproject com.rpl/specter VERSION
+(defproject com.rpl/specter "1.0"
   :jvm-opts ["-XX:-OmitStackTraceInFastThrow"] ; this prevents JVM from doing optimizations which can remove stack traces from NPE and other exceptions
   :source-paths ["src/clj"]
   :java-source-paths ["src/java"]

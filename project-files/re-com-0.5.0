@@ -47,7 +47,7 @@
   ;
   ;:unpack-resources {:resource     [re-com "0.1.6"]
   ;                   :extract-path "run/resources2"}
-  ; FUTURE VERSION SHOULD SUPPORT THE FOLLOWING SYNTAX
+  ; FUTURE "1.0" SHOULD SUPPORT THE FOLLOWING SYNTAX
   ;:unpack-resources [{:resource     [re-com "0.1.6"]
   ;                    :extract-from "resources"
   ;                    :extract-path "run/resources-com"
