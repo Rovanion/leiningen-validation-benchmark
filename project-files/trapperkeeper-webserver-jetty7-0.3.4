@@ -9,8 +9,8 @@
   :pedantic? :abort
   :dependencies [[org.clojure/clojure "1.5.1"]
                  [org.clojure/tools.logging "0.2.6"]
-                 [puppetlabs/kitchensink ~ks-version]
-                 [puppetlabs/trapperkeeper ~tk-version]
+                 [puppetlabs/kitchensink "1.0"]
+                 [puppetlabs/trapperkeeper "1.0"]
 
                  ;; Jetty Webserver
                  [org.eclipse.jetty/jetty-servlet "7.6.1.v20120215"]
@@ -42,8 +42,8 @@
                    :java-source-paths ["examples/servlet_app/src/java"
                                        "test/java"]
                    :dependencies [[clj-http "0.5.3"]
-                                   [puppetlabs/kitchensink ~ks-version :classifier "test"]
-                                   [puppetlabs/trapperkeeper ~tk-version :classifier "test"]
+                                   [puppetlabs/kitchensink "1.0" :classifier "test"]
+                                   [puppetlabs/trapperkeeper "1.0" :classifier "test"]
                                    [spyscope "0.1.4"]]
                    :injections [(require 'spyscope.core)]}
 

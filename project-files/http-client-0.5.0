@@ -30,9 +30,9 @@
   ;; depend on this source jar using a :classifier in their :dependencies.
   :classifiers [["sources" :sources-jar]]
 
-  :profiles {:dev {:dependencies [[puppetlabs/kitchensink ~ks-version :classifier "test"]
-                                  [puppetlabs/trapperkeeper ~tk-version]
-                                  [puppetlabs/trapperkeeper ~tk-version :classifier "test"]
+  :profiles {:dev {:dependencies [[puppetlabs/kitchensink "1.0" :classifier "test"]
+                                  [puppetlabs/trapperkeeper "1.0"]
+                                  [puppetlabs/trapperkeeper "1.0" :classifier "test"]
                                   [puppetlabs/trapperkeeper-webserver-jetty9 ~tk-jetty-version]
                                   [puppetlabs/trapperkeeper-webserver-jetty9 ~tk-jetty-version :classifier "test"]]
                    ;; TK-143, enable SSLv3 for unit tests that exercise SSLv3

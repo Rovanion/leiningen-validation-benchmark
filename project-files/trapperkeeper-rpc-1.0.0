@@ -6,7 +6,7 @@
   :url "https://github.com/puppetlabs/trapperkeeper-rpc"
   :pedantic? :abort
   :dependencies [[org.clojure/clojure "1.6.0"]
-                 [puppetlabs/trapperkeeper ~tk-version]
+                 [puppetlabs/trapperkeeper "1.0"]
                  [puppetlabs/trapperkeeper-webserver-jetty9 "0.9.0"]
                  [puppetlabs/certificate-authority "0.6.0" :exclusions [clj-time]]
                  [com.cognitect/transit-clj "0.8.259" :exclusions [com.fasterxml.jackson.core/jackson-core]]
@@ -23,8 +23,8 @@
   :source-paths ["src/clj"]
   :java-source-paths ["src/java"]
 
-  :profiles {:dev {:dependencies [[puppetlabs/kitchensink ~ks-version :classifier "test" :exclusions [clj-time]]
-                                  [puppetlabs/trapperkeeper ~tk-version :classifier "test"]]}
+  :profiles {:dev {:dependencies [[puppetlabs/kitchensink "1.0" :classifier "test" :exclusions [clj-time]]
+                                  [puppetlabs/trapperkeeper "1.0" :classifier "test"]]}
              :testutils {:source-paths ^:replace ["test"]}}
 
   :deploy-repositories [["releases" {:url "https://clojars.org/repo"

@@ -12,7 +12,7 @@
                   :exclusions [org.clojure/tools.reader]]
                  [cheshire "5.6.3"]
 
-                 [prismatic/schema ~schema-version]
+                 [prismatic/schema "1.0"]
                  [metosin/ring-swagger "0.22.11"]
                  [metosin/schema-tools ~schema-tools-version]]
   :profiles {:dev

@@ -16,8 +16,8 @@
                  "releases" "https://oss.sonatype.org/content/repositories/releases"}
   :test-selectors {:selected :selected}
   :dependencies [[org.clojure/clojure "1.7.0"]
-                 [co.paralleluniverse/quasar-core   ~quasar-version] ; :classifier "jdk8"
-                 [co.paralleluniverse/quasar-actors ~quasar-version]
+                 [co.paralleluniverse/quasar-core   "1.0"] ; :classifier "jdk8"
+                 [co.paralleluniverse/quasar-actors "1.0"]
                  [org.ow2.asm/asm "5.0.4"]
                  [org.clojure/core.match "0.2.2" :exclusions [org.ow2.asm/*]]
                  [org.flatland/useful "0.11.3"]
@@ -31,7 +31,7 @@
              "-XX:-UseBiasedLocking"
              "-XX:+UseCondCardMark"]
   ;:injections [(alter-var-root #'*compiler-options* (constantly {:disable-locals-clearing true}))]
-  :java-agents [[co.paralleluniverse/quasar-core ~quasar-version :options "m"]] ; :classifier "jdk8" :options "vd"
+  :java-agents [[co.paralleluniverse/quasar-core "1.0" :options "m"]] ; :classifier "jdk8" :options "vd"
   :pedantic :warn
   :profiles {;; ----------- dev --------------------------------------
              :dev
@@ -58,7 +58,7 @@
              ;; ----------- cluster --------------------------------------
              :cluster
              {:repositories {"oracle" "http://download.oracle.com/maven/"}
-              :dependencies [[co.paralleluniverse/quasar-galaxy ~quasar-version]]
+              :dependencies [[co.paralleluniverse/quasar-galaxy "1.0"]]
               :java-source-paths ["src/cluster/java"]
               :jvm-opts [;; Debugging
                          "-ea"

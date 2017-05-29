@@ -10,8 +10,8 @@
   :dependencies [[org.clojure/clojure "1.5.1"]
                  [org.clojure/tools.logging "0.2.6"]
                  [prismatic/schema "0.2.2"]
-                 [puppetlabs/kitchensink ~ks-version]
-                 [puppetlabs/trapperkeeper ~tk-version]
+                 [puppetlabs/kitchensink "1.0"]
+                 [puppetlabs/trapperkeeper "1.0"]
                  [puppetlabs/certificate-authority "0.5.0"]
 
                  [ch.qos.logback/logback-access "1.1.1"]
@@ -55,8 +55,8 @@
                    :java-source-paths ["examples/servlet_app/src/java"
                                        "test/java"]
                    :dependencies [[puppetlabs/http-client "0.2.8"]
-                                  [puppetlabs/kitchensink ~ks-version :classifier "test"]
-                                  [puppetlabs/trapperkeeper ~tk-version :classifier "test"]
+                                  [puppetlabs/kitchensink "1.0" :classifier "test"]
+                                  [puppetlabs/trapperkeeper "1.0" :classifier "test"]
                                   [org.clojure/tools.namespace "0.2.4"]
                                   [org.clojure/java.jmx "0.2.0"]
                                   [spyscope "0.1.4"]

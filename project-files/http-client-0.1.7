@@ -27,9 +27,9 @@
   ;; depend on this source jar using a :classifier in their :dependencies.
   :classifiers [["sources" :sources-jar]]
 
-  :profiles {:dev {:dependencies [[puppetlabs/kitchensink ~ks-version :classifier "test"]
-                                  [puppetlabs/trapperkeeper ~tk-version]
-                                  [puppetlabs/trapperkeeper ~tk-version :classifier "test"]
+  :profiles {:dev {:dependencies [[puppetlabs/kitchensink "1.0" :classifier "test"]
+                                  [puppetlabs/trapperkeeper "1.0"]
+                                  [puppetlabs/trapperkeeper "1.0" :classifier "test"]
                                   [puppetlabs/trapperkeeper-webserver-jetty9 "0.5.0"]]}
              :sources-jar {:java-source-paths ^:replace []
                            :jar-exclusions ^:replace []

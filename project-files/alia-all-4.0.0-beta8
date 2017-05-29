@@ -5,14 +5,14 @@
   :url "https://github.com/mpenet/alia"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
-  :dependencies [[org.clojure/clojure ~clj-version]
-                 [cc.qbits/alia ~alia-version]
-                 [cc.qbits/alia-manifold ~alia-version]
-                 [cc.qbits/alia-async ~alia-version]
-                 [cc.qbits/alia-joda-time ~alia-version]
-                 [cc.qbits/alia-nippy ~alia-version]
-                 [cc.qbits/alia-eaio-uuid ~alia-version]
-                 [cc.qbits/alia-spec ~alia-version]]
+  :dependencies [[org.clojure/clojure "1.0"]
+                 [cc.qbits/alia "1.0"]
+                 [cc.qbits/alia-manifold "1.0"]
+                 [cc.qbits/alia-async "1.0"]
+                 [cc.qbits/alia-joda-time "1.0"]
+                 [cc.qbits/alia-nippy "1.0"]
+                 [cc.qbits/alia-eaio-uuid "1.0"]
+                 [cc.qbits/alia-spec "1.0"]]
   :profiles {:dev
              {:plugins [[codox "0.10.2"]
                         [lein-modules "0.3.11"]]

@@ -10,18 +10,18 @@
   :dependencies [[org.clojure/clojure "1.6.0"]
                  [org.clojure/tools.logging "0.2.6"]
                  [clj-time "0.5.1"]
-                 [puppetlabs/kitchensink ~ks-version]
+                 [puppetlabs/kitchensink "1.0"]
                  [prismatic/plumbing "0.4.2"]
                  [prismatic/schema "1.0.4"]
                  [org.clojure/tools.nrepl "0.2.3"]
                  [org.clojure/tools.macro "0.1.2"]
-                 [ch.qos.logback/logback-classic ~logback-version]
+                 [ch.qos.logback/logback-classic "1.0"]
                  ;; even though we don't strictly have a dependency on the following two
                  ;; logback artifacts, specifying the dependency version here ensures
                  ;; that downstream projects don't pick up different versions that would
                  ;; conflict with our version of logback-classic
-                 [ch.qos.logback/logback-core ~logback-version]
-                 [ch.qos.logback/logback-access ~logback-version]
+                 [ch.qos.logback/logback-core "1.0"]
+                 [ch.qos.logback/logback-access "1.0"]
                  [org.slf4j/log4j-over-slf4j "1.7.6"]
                  [org.codehaus.janino/janino "2.7.8"]
                  [puppetlabs/typesafe-config "0.1.5"]
@@ -56,7 +56,7 @@
                                   "examples/java_service/src/clj"]
                    :java-source-paths ["examples/java_service/src/java"]
                    :dependencies [[spyscope "0.1.4"]
-                                  [puppetlabs/kitchensink ~ks-version :classifier "test"]]
+                                  [puppetlabs/kitchensink "1.0" :classifier "test"]]
                    :injections [(require 'spyscope.core)]}
 
              :testutils {:source-paths ^:replace ["test"]}

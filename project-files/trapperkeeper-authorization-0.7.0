@@ -30,8 +30,8 @@
                  [org.clojure/tools.reader "1.0.0-alpha1"]
                  ;; end version conflict resolution dependencies
 
-                 [puppetlabs/kitchensink ~ks-version]
-                 [puppetlabs/trapperkeeper ~tk-version]
+                 [puppetlabs/kitchensink "1.0"]
+                 [puppetlabs/trapperkeeper "1.0"]
                  [puppetlabs/ring-middleware "1.0.0"]
                  [puppetlabs/typesafe-config "0.1.5"]
                  [puppetlabs/ssl-utils "0.8.1"]]
@@ -48,8 +48,8 @@
                               "-c" "./examples/ring_app/ring-example.conf"]}
                    :source-paths ["examples/ring_app/src"]
                    :dependencies [[puppetlabs/trapperkeeper-webserver-jetty9 ~tk-jetty-version]
-                                  [puppetlabs/trapperkeeper ~tk-version :classifier "test" :scope "test"]
-                                  [puppetlabs/kitchensink ~ks-version :classifier "test"]
+                                  [puppetlabs/trapperkeeper "1.0" :classifier "test" :scope "test"]
+                                  [puppetlabs/kitchensink "1.0" :classifier "test"]
                                   [org.clojure/tools.namespace "0.2.10"]]}
              :testutils {:source-paths ^:replace ["test"]}}
 

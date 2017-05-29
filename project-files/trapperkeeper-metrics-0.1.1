@@ -12,7 +12,7 @@
                  [commons-io "2.4"]
 
                  [puppetlabs/kitchensink "1.1.0"]
-                 [puppetlabs/trapperkeeper ~tk-version]
+                 [puppetlabs/trapperkeeper "1.0"]
 
                  [org.clojure/tools.logging "0.2.6"]
                  [org.slf4j/slf4j-api "1.7.7"]
@@ -24,5 +24,5 @@
                                      :sign-releases false}]]
 
 
-  :profiles {:dev {:dependencies [[puppetlabs/trapperkeeper ~tk-version :classifier "test" :exclusions [org.clojure/tools.macro]]
-                                  [puppetlabs/kitchensink ~ks-version :classifier "test" :exclusions [slingshot]]]}})
+  :profiles {:dev {:dependencies [[puppetlabs/trapperkeeper "1.0" :classifier "test" :exclusions [org.clojure/tools.macro]]
+                                  [puppetlabs/kitchensink "1.0" :classifier "test" :exclusions [slingshot]]]}})

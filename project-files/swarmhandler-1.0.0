@@ -20,7 +20,7 @@
                    :dependencies [[org.clojure/tools.namespace "0.2.4"]]}
              :uberjar {:aot :all}}
   :aliases {"build" ["install"]
-            "docs" ["do" "doc," "marg" "--multi" "src/" "test/" "-n" "Swarm Handler" "-v" ~project-version]
+            "docs" ["do" "doc," "marg" "--multi" "src/" "test/" "-n" "Swarm Handler" "-v" "1.0"]
             "da" ["do" "clean," "deploy," "deploy" "clojars"]}
   :jvm-opts ["-Xms1024m" "-Xmx1024m"]
   :plugins [[codox "0.6.6"]
@@ -38,4 +38,4 @@
           :sources ["src" "test"]
           :src-dir-uri "http://github.com/CraZySacX/swarmhandler/blob/1.0/"
           :src-linenum-anchor-prefix "L"}
-  :manifest {"Implementation-Version" ~project-version})
+  :manifest {"Implementation-Version" "1.0"})

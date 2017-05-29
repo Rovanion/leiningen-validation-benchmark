@@ -6,12 +6,12 @@
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :dependencies [[ring/ring-servlet "1.4.0"
                   :exclusions [javax.servlet/servlet-api]]
-                 [org.eclipse.jetty/jetty-server ~jetty-version]
-                 [org.eclipse.jetty.websocket/websocket-server ~jetty-version]
-                 [org.eclipse.jetty.websocket/websocket-servlet ~jetty-version]
-                 [org.eclipse.jetty.http2/http2-server ~jetty-version]
+                 [org.eclipse.jetty/jetty-server "1.0"]
+                 [org.eclipse.jetty.websocket/websocket-server "1.0"]
+                 [org.eclipse.jetty.websocket/websocket-servlet "1.0"]
+                 [org.eclipse.jetty.http2/http2-server "1.0"]
                  [org.eclipse.jetty.alpn/alpn-api "1.1.2.v20150522"]
-                 [org.eclipse.jetty/jetty-alpn-server ~jetty-version]]
+                 [org.eclipse.jetty/jetty-alpn-server "1.0"]]
   :deploy-repositories {"releases" :clojars}
   :global-vars {*warn-on-reflection* true}
   :profiles {:example-http2 {:source-paths ["examples/"]

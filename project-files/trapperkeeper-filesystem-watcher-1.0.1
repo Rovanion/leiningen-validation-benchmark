@@ -15,8 +15,8 @@
                  [org.clojure/tools.logging "0.3.1"]
                  [prismatic/schema "1.1.1"]
                  [me.raynes/fs "1.4.6"]
-                 [puppetlabs/trapperkeeper ~tk-version]
-                 [puppetlabs/kitchensink ~ks-version]
+                 [puppetlabs/trapperkeeper "1.0"]
+                 [puppetlabs/kitchensink "1.0"]
                  [puppetlabs/trapperkeeper-scheduler "0.0.1"]
                  [puppetlabs/i18n "0.4.1"]]
 
@@ -28,10 +28,10 @@
   :source-paths ["src/clj"]
   :java-source-paths ["src/java"]
 
-  :profiles {:dev {:dependencies [[puppetlabs/trapperkeeper ~tk-version
+  :profiles {:dev {:dependencies [[puppetlabs/trapperkeeper "1.0"
                                    :classifier "test"
                                    :scope "test"]
-                                  [puppetlabs/kitchensink ~ks-version
+                                  [puppetlabs/kitchensink "1.0"
                                    :classifier "test"
                                    :scope "test"]]}}
 

@@ -7,10 +7,10 @@
   :dependencies [[org.clojure/clojure "1.8.0-RC4"]
                  [cc.qbits/commons "0.4.2"]
                  [cc.qbits/hayt "3.0.0-rc2"]
-                 [com.datastax.cassandra/cassandra-driver-core ~driver-version
+                 [com.datastax.cassandra/cassandra-driver-core "1.0"
                   :classifier "shaded"
                   :exclusions [io.netty/*]]
-                 [com.datastax.cassandra/cassandra-driver-dse ~driver-version
+                 [com.datastax.cassandra/cassandra-driver-dse "1.0"
                   :exclusions [com.datastax.cassandra/cassandra-driver-core]]
                  [org.clojure/core.async "0.2.374"]]
   :profiles {:1.8  {:dependencies [[org.clojure/clojure "1.8.0-SNAPSHOT"]]}

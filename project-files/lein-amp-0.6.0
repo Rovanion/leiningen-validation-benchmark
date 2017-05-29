@@ -23,7 +23,7 @@
                      ]
   :dependencies      [
                        [me.raynes/fs                   "1.4.6"]
-                       [org.alfresco/alfresco-mmt      ~alfresco-version]
+                       [org.alfresco/alfresco-mmt      "1.0"]
                        [tk.skuro.alfresco/h2-support   "1.6"]
                        [com.h2database/h2              "1.4.181"]
                        [org.eclipse.jetty/jetty-runner "9.2.3.v20140905" :exclusions [org.eclipse.jetty/jetty-jsp]]

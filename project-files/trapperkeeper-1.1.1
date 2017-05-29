@@ -9,7 +9,7 @@
   :dependencies [[org.clojure/clojure "1.6.0"]
                  [org.clojure/tools.logging "0.2.6"]
                  [clj-time "0.5.1"]
-                 [puppetlabs/kitchensink ~ks-version]
+                 [puppetlabs/kitchensink "1.0"]
                  [prismatic/plumbing "0.4.2"]
                  [prismatic/schema "0.4.0"]
                  [org.clojure/tools.nrepl "0.2.3"]
@@ -41,7 +41,7 @@
                                   "examples/java_service/src/clj"]
                    :java-source-paths ["examples/java_service/src/java"]
                    :dependencies [[spyscope "0.1.4"]
-                                  [puppetlabs/kitchensink ~ks-version :classifier "test"]]
+                                  [puppetlabs/kitchensink "1.0" :classifier "test"]]
                    :injections [(require 'spyscope.core)]}
 
              :testutils {:source-paths ^:replace ["test"]}

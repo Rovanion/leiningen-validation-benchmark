@@ -10,7 +10,7 @@
   :url "http://leiningen.org"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
-  :dependencies [[~(symbol "org.clojure" "clojure") ~clj-version]
+  :dependencies [[~(symbol "org.clojure" "clojure") "1.0"]
                  [rome ~(str "0." "9")]
                  [ring "1.0.0"]]
   :plugins [[codox "0.6.4"]]

@@ -9,7 +9,7 @@
             :url  "http://www.apache.org/licenses/LICENSE-2.0.html"}
   :test-paths ["test" "example"]
   :dependencies [[org.clojure/clojure "1.7.0"]
-                 [lambdacd ~lambdacd-version]]
+                 [lambdacd "1.0"]]
   :deploy-repositories [["clojars" {:creds :gpg}]
                         ["releases" :clojars]]
   :profiles {:dev {:dependencies [[compojure "1.1.8"]

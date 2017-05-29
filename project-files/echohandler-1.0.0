@@ -40,5 +40,5 @@
           :sources ["src" "test"]
           :src-dir-uri "http://github.com/CraZySacX/swarm/echohandler/1.0/"
           :src-linenum-anchor-prefix "L"}
-  :manifest {"Implementation-Version" ~project-version}
-  :env {:version ~project-version})
+  :manifest {"Implementation-Version" "1.0"}
+  :env {:version "1.0"})

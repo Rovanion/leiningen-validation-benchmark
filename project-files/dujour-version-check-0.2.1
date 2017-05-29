@@ -19,8 +19,8 @@
                                      :password :env/clojars_jenkins_password
                                      :sign-releases false}]]
 
-  :profiles {:dev {:dependencies [[puppetlabs/trapperkeeper ~tk-version :classifier "test" :scope "test"]
-                                  [puppetlabs/kitchensink ~ks-version :classifier "test" :scope "test"]
+  :profiles {:dev {:dependencies [[puppetlabs/trapperkeeper "1.0" :classifier "test" :scope "test"]
+                                  [puppetlabs/kitchensink "1.0" :classifier "test" :scope "test"]
                                   [puppetlabs/trapperkeeper-webserver-jetty9 ~tk-jetty-version]
                                   [puppetlabs/trapperkeeper-webserver-jetty9 ~tk-jetty-version :classifier "test"]
                                   [ring-mock "0.1.5"]]}}

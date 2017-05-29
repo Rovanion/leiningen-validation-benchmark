@@ -14,7 +14,7 @@
             [lein-project-version "0.1.0"]]
   :main howl.cli
   :aot [howl.cli]
-  :manifest {"Implementation-Version" ~project-version}
+  :manifest {"Implementation-Version" "1.0"}
   :cljsbuild
   {:builds
    [{:source-paths ["src"]

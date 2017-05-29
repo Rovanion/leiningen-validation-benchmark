@@ -6,8 +6,8 @@
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :dependencies [[org.clojure/clojure "1.8.0"]
                  [cheshire "5.7.0"]
-                 [metrics-clojure ~metrics-version]
-                 [metrics-clojure-jvm ~metrics-version]]
+                 [metrics-clojure "1.0"]
+                 [metrics-clojure-jvm "1.0"]]
   :repositories [["releases" {:url "https://clojars.org/repo"
                               :creds :gpg}]
                  ["snapshots" {:url "https://clojars.org/repo"
