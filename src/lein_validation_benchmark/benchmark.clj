@@ -32,25 +32,56 @@
 
 (defn std-dev
   [a]
-  (let [mn (mean a)]
-    (Math/sqrt
-     (/ (reduce #(+ %1 (square (- %2 mn))) 0 a)
-        (dec (count a))))))
+  (if (= (count a) 1)
+    0.0
+    (let [mn (mean a)]
+      (Math/sqrt
+       (/ (reduce #(+ %1 (square (- %2 mn))) 0 a)
+          (dec (count a)))))))
 
 
-(defn fn-with-files
-  "Benchmark generation from the given keys over the given number of samples."
-  [validator-func files samples]
+(defn fn-over-maps
+  "Benchmark fn over the given maps for the given number of samples."
+  [validator-func project-maps samples]
   (println (format "%10s %10s %10s %10s %10s %10s"
                    "total" "min" "max" "mean" "median" "std-dev"))
-  (for [file files]
-    (try
-      (let [times (for [i (range samples)]
-                    (time' (println (validator-func (reader/read-raw (.getAbsolutePath file))))))
+  (for [m project-maps]
+    (let [times (for [i (range samples)]
+                  (time' (validator-func m)))
+          sum   (apply + times)]
+      (println (format "%10.5f %10.5f %10.5f %10.5f %10.5f %10.5f"
+                         sum (apply min times) (apply max times) (mean times) (median times) (std-dev times))))))
+
+(defn fn-over-maps-summary
+  "Benchmark fn over the given files."
+  [validator-func project-maps]
+  (let [runs (for [m project-maps]
+                  (time' (validator-func m)))
+        times (filter number? runs)
+        sum   (apply + times)]
+    (println (format "%10s %10s %10s %10s %10s %10s"
+                     "total" "min" "max" "mean" "median" "std-dev"))
+    (println (format "%10.5f %10.5f %10.5f %10.5f %10.5f %10.5f"
+                     sum (apply min times) (apply max times) (mean times) (median times) (std-dev times)))))
+
+(defn value-sets [maps]
+  (apply merge-with into (for [m maps, [k v] m] {k #{v}})))
+
+(defn value-lists [maps]
+  (apply merge-with into (for [m maps, [k v] m] {k (list v)})))
+
+(defn per-keyword
+  "Takes a timer-fn which should return a number representing the time
+  it took to execute something given a key and a value. This function
+  will them sumrize the results produced."
+  [timer-fn project-maps project-keys]
+  (println (format "%10s %10s %10s %10s %10s %10s"
+                   "total" "min" "max" "mean" "median" "std-dev"))
+  (let [merged-projects (value-lists project-maps)]
+    (for [k project-keys]
+      (let [runs  (for [v (get merged-projects k)]
+                    (timer-fn k v))
+            times (filter number? runs)
             sum   (apply + times)]
-        (println (format "%10.5f %10.5f %10.5f %10.5f %10.5f %10.5f"
-                         sum (apply min times) (apply max times) (mean times) (median times) (std-dev times)) (.getName file)))
-      (catch clojure.lang.ExceptionInfo e
-        (println "Validation failed for" (.getName file)))
-      (catch java.lang.Exception e
-        (println "Exception thrown:" (.getMessage e))))))
+        (println (format "%10.5f %10.5f %10.5f %10.5f %10.5f %10.5f %s"
+                         sum (apply min times) (apply max times) (mean times) (median times) (std-dev times) k))))))

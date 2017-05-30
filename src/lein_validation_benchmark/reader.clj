@@ -56,3 +56,15 @@
       ;; return it to original state
       (ns-unmap 'lein-validation-benchmark.reader 'project)
       @project)))
+
+
+(defn load-project-maps
+  []
+  (doall
+   (for [file (sort (rest (file-seq (clojure.java.io/file "project-files/"))))]
+     (try
+       (read-raw (.getAbsolutePath file))
+       (catch clojure.lang.ExceptionInfo e
+         (println "Validation failed for" (.getName file)))
+       (catch java.lang.Exception e
+         (println "Exception thrown:" (.getMessage e)))))))
