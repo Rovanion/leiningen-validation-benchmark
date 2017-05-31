@@ -1,5 +1,6 @@
 (ns lein-validation-benchmark.benchmark
-  (:require [lein-validation-benchmark.reader :as reader]))
+  (:require [clojure.string                   :as string]
+            [lein-validation-benchmark.reader :as reader]))
 
 (defmacro time'
   "Evaluates expr and prints the time it took.  Returns the value of
@@ -27,8 +28,26 @@
             top-val    (nth sorted halfway)]
         (mean [bottom-val top-val])))))
 
+(defn median-partition [coll]
+  (let [n      (count coll)
+        sorted (sort coll)
+        i      (bit-shift-right n 1)]
+    (if (even? n)
+      [(/ (+ (nth sorted (dec i)) (nth sorted i)) 2)
+       (take i sorted)
+       (drop i sorted)]
+      [(nth sorted (bit-shift-right n 1))
+       (take i sorted)
+       (drop (inc i) sorted)])))
 
-(def square #(* % %))
+(defn quartiles [coll]
+  (when (>= (count coll) 2)
+    (let [[m lower upper] (median-partition coll)]
+      [(first (median-partition lower)) m (first (median-partition upper))])))
+
+(defn square [n] (* n n))
+
+(defn third  [s] (nth s 2))
 
 (defn std-dev
   [a]
@@ -46,11 +65,13 @@
   (println (format "%10s %10s %10s %10s %10s %10s"
                    "total" "min" "max" "mean" "median" "std-dev"))
   (for [m project-maps]
-    (let [times (for [i (range samples)]
+    (let [runs  (for [i (range samples)]
                   (time' (validator-func m)))
+          times (filter number? runs)
           sum   (apply + times)]
       (println (format "%10.5f %10.5f %10.5f %10.5f %10.5f %10.5f"
-                         sum (apply min times) (apply max times) (mean times) (median times) (std-dev times))))))
+                       sum (apply min times) (apply max times) (mean times) (median times) (std-dev times)))
+      times)))
 
 (defn fn-over-maps-summary
   "Benchmark fn over the given files."
@@ -62,7 +83,8 @@
     (println (format "%10s %10s %10s %10s %10s %10s"
                      "total" "min" "max" "mean" "median" "std-dev"))
     (println (format "%10.5f %10.5f %10.5f %10.5f %10.5f %10.5f"
-                     sum (apply min times) (apply max times) (mean times) (median times) (std-dev times)))))
+                     sum (apply min times) (apply max times) (mean times) (median times) (std-dev times)))
+    times))
 
 (defn value-sets [maps]
   (apply merge-with into (for [m maps, [k v] m] {k #{v}})))
@@ -74,14 +96,27 @@
   "Takes a timer-fn which should return a number representing the time
   it took to execute something given a key and a value. This function
   will them sumrize the results produced."
-  [timer-fn project-maps project-keys]
-  (println (format "%10s %10s %10s %10s %10s %10s"
-                   "total" "min" "max" "mean" "median" "std-dev"))
+  [timer-fn project-maps project-keys file-name]
+  (spit (str "plot/data/" file-name)
+        (format "# %s %9s %10s %10s %10s %10s %12s %10s %s%n"
+                "id" "min""1st quart" "median" "3rd quart" "max" "sum" "std-dev" "name"))
   (let [merged-projects (value-lists project-maps)]
-    (for [k project-keys]
-      (let [runs  (for [v (get merged-projects k)]
-                    (timer-fn k v))
-            times (filter number? runs)
-            sum   (apply + times)]
-        (println (format "%10.5f %10.5f %10.5f %10.5f %10.5f %10.5f %s"
-                         sum (apply min times) (apply max times) (mean times) (median times) (std-dev times) k))))))
+    (zipmap
+     project-keys
+     (map-indexed
+      (fn [i k]
+        (let [runs   (for [v (get merged-projects k)]
+                       (timer-fn k v))
+              times  (filter number? runs)
+              minima (apply min times)
+              maxima (apply max times)
+              quart  (quartiles times)
+              sum    (apply + times)]
+          (spit (str "plot/data/" file-name)
+                (string/replace
+                 (format "%3d %10.5f %10.5f %10.5f %10.5f %10.5f %12.5f %10.5f %s %n"
+                         (inc i) minima (first quart) (second quart) (third quart) maxima sum (std-dev times) k)
+                 #"," ".")
+                :append true)
+          times))
+      project-keys))))

@@ -1,6 +1,7 @@
 (ns lein-validation-benchmark.core
   (:require [clojure.spec.alpha                  :as spec]
             [clojure.pprint                      :refer [pprint]]
+            [clojure.java.shell                  :refer [sh]]
             [schema.core                         :as schema]
             [leiningen.core.project              :as project]
             [leiningen.core.spec.project         :as spec-p]
@@ -11,30 +12,30 @@
 
 (def project-maps (reader/load-project-maps))
 
-(def project-keys '(:description :url :mailing-list :mailing-lists :license :licenses :min-lein-version :dependencies :managed-dependencies :pedantic? :exclusions :plugins :repositories :mirrors :local-repo :update :checksum :deploy-repositories :signing :certificates :profiles :hooks :middleware :main :aliases :release-tasks :prep-tasks :aot :injections :java-agents :javac-options :warn-on-reflection :global-vars :java-cmd :jvm-opts :eval-in :bootclasspath :source-paths :java-source-paths :test-paths :resource-paths :target-path :compile-path :native-path :clean-targets :clean-non-project-classes :checkout-deps-shares :test-selectors :monkeypatch-clojure-test :repl-options :jar-name :uberjar-name :omit-source :jar-exclusions  :uberjar-exclusions :auto-clean :uberjar-merge-with :filespecs :manifest :pom-location :parent :pom-plugins :pom-addition :scm :deploy-branches :classifiers))
+(def project-keys '(:description :url :mailing-list :mailing-lists :license :licenses :min-lein-version :dependencies :managed-dependencies :pedantic? :exclusions :plugins :repositories :mirrors :local-repo :update :checksum :deploy-repositories :signing :profiles :hooks :middleware :main :aliases :release-tasks :prep-tasks :aot :injections :java-agents :javac-options :warn-on-reflection :global-vars :java-cmd :jvm-opts :eval-in :bootclasspath :source-paths :java-source-paths :test-paths :resource-paths :target-path :compile-path :native-path :clean-targets :clean-non-project-classes :test-selectors :monkeypatch-clojure-test :repl-options :jar-name :uberjar-name :omit-source :jar-exclusions  :uberjar-exclusions :auto-clean :uberjar-merge-with :filespecs :manifest :pom-location :parent :pom-plugins :pom-addition :scm :deploy-branches :classifiers))
+
+(defn spec-timer [k v]
+  (let [spec-key (keyword "leiningen.core.project" (name k))]
+    (bench/time' (spec/valid? spec-key v))))
+
+(defn schema-timer [k v]
+  (let [k-schema (deref (resolve (symbol "leiningen.core.schema.project" (name k))))]
+    (bench/time' (schema/check k-schema v))))
+
+(defn truss-timer [k v]
+  (let [checker (deref (resolve (symbol "leiningen.core.truss.project" (name k))))]
+    (bench/time' (try (checker v)
+                      (catch clojure.lang.ExceptionInfo e)))))
+
 
 (defn -main [& args]
-  (println "Spec per key:")
-  (bench/per-keyword
-   (fn [k v]
-     (let [spec-key (keyword "leiningen.core.project" (name k))]
-       (bench/time' (spec/valid? spec-key v))))
-   project-maps project-keys)
-
-  (println "Schema per key:")
-  (bench/per-keyword
-   (fn [k v]
-     (let [k-schema (deref (resolve (symbol "leiningen.core.schema.project" (name k))))]
-       (bench/time' (schema/check k-schema v))))
-   project-maps project-keys)
-
-  (println "Truss per key:")
-  (bench/per-keyword
-   (fn [k v]
-     (let [checker (deref (resolve (symbol "leiningen.core.truss.project" (name k))))]
-       (bench/time' (try (checker v)
-                         (catch clojure.lang.ExceptionInfo e)))))
-   project-maps project-keys))
+  (let [spec   (bench/per-keyword spec-timer   project-maps
+                                  project-keys "per-keyword-spec")
+        schema (bench/per-keyword schema-timer project-maps
+                                  project-keys "per-keyword-schema")
+        truss  (bench/per-keyword truss-timer  project-maps
+                                  project-keys "per-keyword-truss")])
+  (sh "make" :dir "plot"))
 
 
 (defn three-way-validation-check
