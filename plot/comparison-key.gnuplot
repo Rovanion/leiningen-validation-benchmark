@@ -1,10 +1,10 @@
-set terminal pdf enhanced size 8cm,8cm font "Verdana 10"
+set terminal pdf enhanced size 10cm,10cm font "Verdana 10"
 set output "charts/comparison-keyword-".ARG1.".pdf"
 set boxwidth 0.2 absolute
 set title "Validation comparison for key :".ARG1
 set ylabel "milliseconds"
 set xrange[0:4]
-set yrange[0.00005:50]
+set yrange[0.00005:300]
 set logscale y
 set grid y
 
