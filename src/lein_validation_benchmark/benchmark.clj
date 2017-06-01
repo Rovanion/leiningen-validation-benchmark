@@ -58,6 +58,9 @@
        (/ (reduce #(+ %1 (square (- %2 mn))) 0 a)
           (dec (count a)))))))
 
+(defn anglify [s]
+  (string/replace s #"," "."))
+
 
 (defn fn-over-maps
   "Benchmark fn over the given maps for the given number of samples."
@@ -73,18 +76,34 @@
                        sum (apply min times) (apply max times) (mean times) (median times) (std-dev times)))
       times)))
 
-(defn fn-over-maps-summary
-  "Benchmark fn over the given files."
-  [validator-func project-maps]
-  (let [runs (for [m project-maps]
-                  (time' (validator-func m)))
-        times (filter number? runs)
-        sum   (apply + times)]
-    (println (format "%10s %10s %10s %10s %10s %10s"
-                     "total" "min" "max" "mean" "median" "std-dev"))
-    (println (format "%10.5f %10.5f %10.5f %10.5f %10.5f %10.5f"
-                     sum (apply min times) (apply max times) (mean times) (median times) (std-dev times)))
-    times))
+(defn fns-over-maps-summary
+  "Pass the given project-maps to the fn's in fn-name-pars and time
+  the fn's performance. Write the results to a file (str \"summary\"
+  name) as specified by the string given as the second member of a
+  fn-name-pair.
+
+  Example invocation:
+  (fn-over-maps-summary [{:a 1} {:a 2}] #(println %) \"println\")"
+  [project-maps & fn-name-pairs]
+  (spit (str "plot/data/summary")
+        (format "# %s %9s %10s %10s %10s %10s %12s %10s %s%n"
+                    "id" "min""1st quart" "median" "3rd quart" "max" "sum" "std-dev" "name"))
+  (map-indexed
+   (fn [i [validator-func name]]
+     (let [runs   (for [m project-maps]
+                    (time' (validator-func m)))
+           times  (filter number? runs)
+           minima (apply min times)
+           maxima (apply max times)
+           quart  (quartiles times)
+           sum    (apply + times)]
+       (spit (str "plot/data/summary")
+             (anglify
+              (format "%3d %10.5f %10.5f %10.5f %10.5f %10.5f %12.5f %10.5f %s %n"
+                      (inc i) minima (first quart) (second quart) (third quart) maxima sum (std-dev times) name))
+             :append true)
+       times))
+   (partition 2 fn-name-pairs)))
 
 (defn value-sets [maps]
   (apply merge-with into (for [m maps, [k v] m] {k #{v}})))
@@ -113,10 +132,12 @@
               quart  (quartiles times)
               sum    (apply + times)]
           (spit (str "plot/data/" file-name)
-                (string/replace
+                (anglify
                  (format "%3d %10.5f %10.5f %10.5f %10.5f %10.5f %12.5f %10.5f %s %n"
                          (inc i) minima (first quart) (second quart) (third quart) maxima sum (std-dev times) k)
-                 #"," ".")
+                 )
                 :append true)
           times))
       project-keys))))
+
+(map-indexed (fn [i e] (conj e i)) ['(:a :b) '(:c :d)])

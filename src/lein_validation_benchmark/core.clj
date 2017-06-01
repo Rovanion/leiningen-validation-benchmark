@@ -29,13 +29,19 @@
 
 
 (defn -main [& args]
-  (let [spec   (bench/per-keyword spec-timer   project-maps
-                                  project-keys "per-keyword-spec")
-        schema (bench/per-keyword schema-timer project-maps
-                                  project-keys "per-keyword-schema")
-        truss  (bench/per-keyword truss-timer  project-maps
-                                  project-keys "per-keyword-truss")])
-  (sh "make" :dir "plot"))
+  (let [spec-per-key   (bench/per-keyword spec-timer   project-maps
+                                          project-keys "per-keyword-spec")
+        schema-per-key (bench/per-keyword schema-timer project-maps
+                                          project-keys "per-keyword-schema")
+        truss-per-key  (bench/per-keyword truss-timer  project-maps
+                                          project-keys "per-keyword-truss")
+        spec-summary   (bench/fns-over-maps-summary
+                        project-maps
+                        #(spec/valid? ::project/project-map %) "spec"
+                        #(schema/check schema-p/project-map %) "schema"
+                        #(truss-p/validate-map-noexcept %)     "truss")])
+
+    (sh "make" :dir "plot"))
 
 
 (defn three-way-validation-check
