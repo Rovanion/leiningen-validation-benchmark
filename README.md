@@ -5,6 +5,11 @@ validate a leiningen project file.
 
 ## Usage
 
+This package depends on you having gnuplot installed on your machine
+as well as GNU Make and a POSIX compliant OS, i.e. not Windows.
+
+In order to run the benchmark, enter `lein run` into your terminal and
+at the end you'll find a bunch of fresh charts in `plot/charts`.
 
 ## Documentation
 
