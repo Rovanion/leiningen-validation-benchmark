@@ -119,12 +119,12 @@
   will them sumrize the results produced."
   [timer-fn project-maps project-keys lib-name run-nr]
   ;; Empty files
-  (spit (str data-folder "per-keyword-" lib-name)
+  (spit (str data-folder "all-keywords-" lib-name)
         (format "#%s %5s %10s %10s %10s %10s %10s %12s %10s %s%n"
                 "id" "count" "min""1st quart" "median" "3rd quart" "max" "sum" "std-dev" "name"))
   (when (= run-nr 1)
     (doseq [k project-keys]
-      (spit (str data-folder "comparison-keyword-" (name k))
+      (spit (str data-folder "one-keyword-" (name k))
         (format "#%s %5s %10s %10s %10s %10s %10s %12s %10s %s%n"
                 "id" "count" "min""1st quart" "median" "3rd quart" "max" "sum" "std-dev" "name"))))
 
@@ -146,9 +146,9 @@
               result (anglify
                       (format "%5d %10.5f %10.5f %10.5f %10.5f %10.5f %12.5f %10.5f"
                               (count times) minima (first quart) (second quart) (third quart) maxima sum (std-dev times)))]
-          (spit (str data-folder "per-keyword-" lib-name)
+          (spit (str data-folder "all-keywords-" lib-name)
                 (str (format "%3d " (inc i)) result " " k \newline)        :append true)
-          (spit (str data-folder "comparison-keyword-" (name k))
+          (spit (str data-folder "one-keyword-" (name k))
                 (str (format "%3d " run-nr)  result " " lib-name \newline) :append true)
           times))
       project-keys))))

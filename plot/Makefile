@@ -1,15 +1,15 @@
-all: per-key summary comparison-key
+all: all-keywords summary one-keyword
 
 
-per-key:
-	gnuplot -c per-key.gnuplot spec
-	gnuplot -c per-key.gnuplot schema
-	gnuplot -c per-key.gnuplot truss
+all-keywords:
+	gnuplot -c all-keywords.gnuplot spec
+	gnuplot -c all-keywords.gnuplot schema
+	gnuplot -c all-keywords.gnuplot truss
 
 summary:
 	gnuplot -c summary.gnuplot
 
-comparison-key:
-	for key in $(subst data/comparison-keyword-,,$(wildcard data/comparison-keyword-*)); do \
-		gnuplot -c comparison-key.gnuplot $$key; \
+one-keyword:
+	for key in $(subst data/one-keyword-,,$(wildcard data/one-keyword-*)); do \
+		gnuplot -c one-keyword.gnuplot $$key; \
 	done
