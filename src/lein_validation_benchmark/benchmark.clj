@@ -2,6 +2,8 @@
   (:require [clojure.string                   :as string]
             [lein-validation-benchmark.reader :as reader]))
 
+(def data-folder "plot/data/")
+
 (defmacro time'
   "Evaluates expr and prints the time it took.  Returns the value of
  expr."
@@ -85,7 +87,7 @@
   Example invocation:
   (fn-over-maps-summary [{:a 1} {:a 2}] #(println %) \"println\")"
   [project-maps & fn-name-pairs]
-  (spit (str "plot/data/summary")
+  (spit (str data-folder "summary")
         (format "# %s %9s %10s %10s %10s %10s %12s %10s %s%n"
                     "id" "min""1st quart" "median" "3rd quart" "max" "sum" "std-dev" "name"))
   (map-indexed
@@ -97,7 +99,7 @@
            maxima (apply max times)
            quart  (quartiles times)
            sum    (apply + times)]
-       (spit (str "plot/data/summary")
+       (spit (str data-folder "summary")
              (anglify
               (format "%3d %10.5f %10.5f %10.5f %10.5f %10.5f %12.5f %10.5f %s %n"
                       (inc i) minima (first quart) (second quart) (third quart) maxima sum (std-dev times) name))
@@ -115,29 +117,44 @@
   "Takes a timer-fn which should return a number representing the time
   it took to execute something given a key and a value. This function
   will them sumrize the results produced."
-  [timer-fn project-maps project-keys file-name]
-  (spit (str "plot/data/" file-name)
-        (format "# %s %9s %10s %10s %10s %10s %12s %10s %s%n"
-                "id" "min""1st quart" "median" "3rd quart" "max" "sum" "std-dev" "name"))
+  [timer-fn project-maps project-keys lib-name run-nr]
+  ;; Empty files
+  (spit (str data-folder "per-keyword-" lib-name)
+        (format "#%s %5s %10s %10s %10s %10s %10s %12s %10s %s%n"
+                "id" "count" "min""1st quart" "median" "3rd quart" "max" "sum" "std-dev" "name"))
+  (when (= run-nr 1)
+    (doseq [k project-keys]
+      (spit (str data-folder "comparison-keyword-" (name k))
+        (format "#%s %5s %10s %10s %10s %10s %10s %12s %10s %s%n"
+                "id" "count" "min""1st quart" "median" "3rd quart" "max" "sum" "std-dev" "name"))))
+
   (let [merged-projects (value-lists project-maps)]
     (zipmap
      project-keys
      (map-indexed
       (fn [i k]
-        (let [runs   (for [v (get merged-projects k)]
-                       (timer-fn k v))
+        (let [runs   (let [data-list (if (> (count (get merged-projects k)) 10)
+                                       (get merged-projects k)
+                                       (flatten (repeat 10 (get merged-projects k))))]
+                       (for [v data-list]
+                         (timer-fn k v)))
               times  (filter number? runs)
               minima (apply min times)
               maxima (apply max times)
               quart  (quartiles times)
-              sum    (apply + times)]
-          (spit (str "plot/data/" file-name)
-                (anglify
-                 (format "%3d %10.5f %10.5f %10.5f %10.5f %10.5f %12.5f %10.5f %s %n"
-                         (inc i) minima (first quart) (second quart) (third quart) maxima sum (std-dev times) k)
-                 )
-                :append true)
+              sum    (apply + times)
+              result (anglify
+                      (format "%5d %10.5f %10.5f %10.5f %10.5f %10.5f %12.5f %10.5f"
+                              (count times) minima (first quart) (second quart) (third quart) maxima sum (std-dev times)))]
+          (spit (str data-folder "per-keyword-" lib-name)
+                (str (format "%3d " (inc i)) result " " k \newline)        :append true)
+          (spit (str data-folder "comparison-keyword-" (name k))
+                (str (format "%3d " run-nr)  result " " lib-name \newline) :append true)
           times))
       project-keys))))
 
-(map-indexed (fn [i e] (conj e i)) ['(:a :b) '(:c :d)])
+
+
+(defn tprintln
+  "Transparent print. Do a println and return the value being printed."
+  [retval] (doto retval println))

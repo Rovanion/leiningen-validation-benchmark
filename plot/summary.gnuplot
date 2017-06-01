@@ -9,7 +9,6 @@ set logscale y
 set grid y
 
 set tics scale 0
-set xtics rotate by -45
 set xtics nomirror
 set ytics nomirror
 set border 2
@@ -17,6 +16,6 @@ set border 2
 set style fill solid 0.25 border -1
 set style data boxplot
 
-
+# id 1st min max 3rd
 plot "data/summary" using 1:3:2:6:5:(0.6):xticlabels(9) with candlesticks title 'Quartiles' linecolor rgb "orange" whiskerbars, \
 		 ''         using 1:4:4:4:4:(0.6) with candlesticks lt -1 notitle

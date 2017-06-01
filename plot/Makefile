@@ -1,4 +1,4 @@
-all: per-key summary
+all: per-key summary comparison-key
 
 
 per-key:
@@ -8,3 +8,8 @@ per-key:
 
 summary:
 	gnuplot -c summary.gnuplot
+
+comparison-key:
+	for key in $(subst data/comparison-keyword-,,$(wildcard data/comparison-keyword-*)); do \
+		gnuplot -c comparison-key.gnuplot $$key; \
+	done
