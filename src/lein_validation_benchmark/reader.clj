@@ -60,11 +60,14 @@
 
 (defn load-project-maps
   []
-  (doall
-   (for [file (sort (rest (file-seq (clojure.java.io/file "project-files/"))))]
-     (try
-       (read-raw (.getAbsolutePath file))
-       (catch clojure.lang.ExceptionInfo e
-         (println "Validation failed for" (.getName file)))
-       (catch java.lang.Exception e
-         (println "Exception thrown:" (.getMessage e)))))))
+  (let [files (sort (rest (file-seq (clojure.java.io/file "project-files/"))))]
+    (zipmap
+     (map #(.getName %) files)
+     (for [file files]
+       (try
+         (read-raw (.getAbsolutePath file))
+         (catch clojure.lang.ExceptionInfo e
+           (println "Validation failed for" (.getName file)))
+         (catch java.lang.Exception e
+           (println "Exception thrown:" (.getMessage e))))))))
+(load-project-maps)

@@ -5,8 +5,8 @@
 (def data-folder "plot/data/")
 
 (defmacro time'
-  "Evaluates expr and prints the time it took.  Returns the value of
- expr."
+  "Evaluates expr and prints the time it took in milliseconds .
+  Returns the value of expr."
   [expr]
   `(let [start# (. System (nanoTime))
          ret# ~expr]
@@ -90,7 +90,7 @@
   (spit (str data-folder "summary")
         (format "# %s %9s %10s %10s %10s %10s %12s %10s %s%n"
                     "id" "min""1st quart" "median" "3rd quart" "max" "sum" "std-dev" "name"))
-  (map-indexed
+  (doall (map-indexed
    (fn [i [validator-func name]]
      (let [runs   (for [m project-maps]
                     (time' (validator-func m)))
@@ -105,7 +105,7 @@
                       (inc i) minima (first quart) (second quart) (third quart) maxima sum (std-dev times) name))
              :append true)
        times))
-   (partition 2 fn-name-pairs)))
+   (partition 2 fn-name-pairs))))
 
 (defn value-sets [maps]
   (apply merge-with into (for [m maps, [k v] m] {k #{v}})))
@@ -152,8 +152,6 @@
                 (str (format "%3d " run-nr)  result " " lib-name \newline) :append true)
           times))
       project-keys))))
-
-
 
 (defn tprintln
   "Transparent print. Do a println and return the value being printed."
