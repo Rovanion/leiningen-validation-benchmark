@@ -4,7 +4,7 @@ set boxwidth 0.2 absolute
 set title "Validation time per keyword for ".ARG1
 set ylabel "milliseconds"
 set xrange[0:67]
-set yrange[0.00005:300]
+set yrange[0.00003:50]
 set logscale y
 set grid y
 
