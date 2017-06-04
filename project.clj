@@ -7,6 +7,7 @@
                  [leiningen-core-spec         "2.7.2-SNAPSHOT"]
                  [leiningen-core-schema       "2.7.2-SNAPSHOT"]
                  [leiningen-core-truss        "2.7.2-SNAPSHOT"]
+                 [leiningen-core-predicate    "2.7.2-SNAPSHOT"]
                  [prismatic/schema            "1.1.6"]
                  [com.taoensso/truss          "1.5.0"]
                  ;; For spec and schema testing
