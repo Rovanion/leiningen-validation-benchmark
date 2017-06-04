@@ -8,11 +8,11 @@
   :mailing-list {:name "Cascalog user mailing list"
                  :archive "https://groups.google.com/d/forum/cascalog-user"
                  :post "cascalog-user@googlegroups.com"}
-  :dependencies [[cascalog/cascalog-core ~version]
-                 [cascalog/cascalog-checkpoint ~version]
-                 [cascalog/cascalog-more-taps ~version]
-                 [cascalog/cascalog-math ~version]
-                 [cascalog/midje-cascalog ~version]]
+  :dependencies [[cascalog/cascalog-core "1.0"]
+                 [cascalog/cascalog-checkpoint "1.0"]
+                 [cascalog/cascalog-more-taps "1.0"]
+                 [cascalog/cascalog-math "1.0"]
+                 [cascalog/midje-cascalog "1.0"]]
   :plugins [[lein-sub "0.2.4"]
             [codox "0.6.4"]]
   :sub ["cascalog-core"

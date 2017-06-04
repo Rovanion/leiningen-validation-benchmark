@@ -1,7 +1,7 @@
 
 
-(defproject chee (:version config)
+(defproject chee "1.0"
   :description "Support utilities"
-  :dependencies [[org.clojure/clojure ~(:clojure-version config)]]
-  :dev-dependencies [[speclj ~(:speclj-version config)]]
+  :dependencies [[org.clojure/clojure "1.0"]]
+  :dev-dependencies [[speclj "1.0"]]
   :test-path "spec/")
