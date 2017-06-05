@@ -5,12 +5,20 @@
 (def data-folder "plot/data/")
 
 (defmacro time'
-  "Evaluates expr and prints the time it took in milliseconds .
-  Returns the value of expr."
+  "Evaluates expr and returns the time it took in milliseconds."
   [expr]
   `(let [start# (. System (nanoTime))
-         ret# ~expr]
+         ret#   ~expr]
      (/ (double (- (. System (nanoTime)) start#)) 1000000.0)))
+
+(defmacro time''
+  "Evaluates expr and returns a pair of the time it took and the
+  return value of the expr."
+  [expr]
+  `(let [start# (. System (nanoTime))
+         ret#   ~expr
+         delta# (/ (double (- (. System (nanoTime)) start#)) 1000000.0)]
+     (list delta# ret#)))
 
 (defn mean [coll]
   (let [sum (apply + coll)
@@ -66,7 +74,7 @@
 
 (defn fn-over-maps
   "Benchmark fn over the given maps for the given number of samples."
-  [validator-func project-maps samples]
+  [validator-func project-maps samples color-map]
   (println (format "%10s %10s %10s %10s %10s %10s"
                    "total" "min" "max" "mean" "median" "std-dev"))
   (for [m project-maps]
@@ -78,6 +86,19 @@
                        sum (apply min times) (apply max times) (mean times) (median times) (std-dev times)))
       times)))
 
+(defn spit-data
+  [times file-name lib-name i color-map]
+  (let [minima (apply min times)
+        maxima (apply max times)
+        quart  (quartiles times)
+        sum    (apply + times)]
+    (spit (str data-folder file-name)
+          (anglify
+           (format "%3d %10.5f %10.5f %10.5f %10.5f %10.5f %12.5f %10.5f %-10s %s %n"
+                   (inc i) minima (first quart) (second quart) (third quart)
+                   maxima sum (std-dev times) (color-map lib-name) lib-name))
+          :append true)))
+
 (defn fns-over-maps-summary
   "Pass the given project-maps to the fn's in fn-name-pars and time
   the fn's performance. Write the results to a file (str \"summary\"
@@ -85,26 +106,22 @@
   fn-name-pair.
 
   Example invocation:
-  (fn-over-maps-summary [{:a 1} {:a 2}] #(println %) \"println\")"
-  [project-maps & fn-name-pairs]
-  (spit (str data-folder "summary")
-        (format "# %s %9s %10s %10s %10s %10s %12s %10s %s%n"
-                    "id" "min""1st quart" "median" "3rd quart" "max" "sum" "std-dev" "name"))
+  (fn-over-maps-summary [{:a 1} {:a 2}] {\"println\" \"pink\"} #(println %) \"println\")"
+  [project-maps color-map & fn-name-pairs]
+  (doseq [ending '("all" "failing" "passing")]
+    (spit (str data-folder "summary-" ending)
+          (format "# %s %9s %10s %10s %10s %10s %12s %10s %-10s %s%n"
+                  "id" "min""1st quart" "median" "3rd quart" "max" "sum" "std-dev" "color" "name")))
   (doall (map-indexed
-   (fn [i [validator-func name]]
+   (fn [i [validator-func lib-name]]
      (let [runs   (for [m project-maps]
-                    (time' (validator-func m)))
-           times  (filter number? runs)
-           minima (apply min times)
-           maxima (apply max times)
-           quart  (quartiles times)
-           sum    (apply + times)]
-       (spit (str data-folder "summary")
-             (anglify
-              (format "%3d %10.5f %10.5f %10.5f %10.5f %10.5f %12.5f %10.5f %s %n"
-                      (inc i) minima (first quart) (second quart) (third quart) maxima sum (std-dev times) name))
-             :append true)
-       times))
+                    (time'' (validator-func m)))
+           all    (filter (complement nil?) runs)
+           fails  (filter #((some-fn false? nil?) (second %)) all)
+           passes (filter #(true? (second %))  all)]
+       (spit-data (map first all)    "summary-all"    lib-name i color-map)
+       (spit-data (map first fails)  "summary-failing"  lib-name i color-map)
+       (spit-data (map first passes) "summary-passing" lib-name i color-map)))
    (partition 2 fn-name-pairs))))
 
 (defn value-sets [maps]
@@ -117,17 +134,16 @@
   "Takes a timer-fn which should return a number representing the time
   it took to execute something given a key and a value. This function
   will them sumrize the results produced."
-  [timer-fn project-maps project-keys lib-name run-nr]
+  [timer-fn project-maps project-keys lib-name run-nr color-map]
   ;; Empty files
   (spit (str data-folder "all-keywords-" lib-name)
-        (format "#%s %5s %10s %10s %10s %10s %10s %12s %10s %s%n"
-                "id" "count" "min""1st quart" "median" "3rd quart" "max" "sum" "std-dev" "name"))
+        (format "#%s %5s %10s %10s %10s %10s %10s %12s %10s %-10s %s%n"
+                "id" "count" "min""1st quart" "median" "3rd quart" "max" "sum" "std-dev" "color" "name"))
   (when (= run-nr 1)
     (doseq [k project-keys]
       (spit (str data-folder "one-keyword-" (name k))
-        (format "#%s %5s %10s %10s %10s %10s %10s %12s %10s %s%n"
-                "id" "count" "min""1st quart" "median" "3rd quart" "max" "sum" "std-dev" "name"))))
-
+        (format "#%s %5s %10s %10s %10s %10s %10s %12s %10s %-10s %s%n"
+                "id" "count" "min""1st quart" "median" "3rd quart" "max" "sum" "std-dev" "color" "name"))))
   (let [merged-projects (value-lists project-maps)]
     (zipmap
      project-keys
@@ -144,8 +160,9 @@
               quart  (quartiles times)
               sum    (apply + times)
               result (anglify
-                      (format "%5d %10.5f %10.5f %10.5f %10.5f %10.5f %12.5f %10.5f"
-                              (count times) minima (first quart) (second quart) (third quart) maxima sum (std-dev times)))]
+                      (format "%5d %10.5f %10.5f %10.5f %10.5f %10.5f %12.5f %10.5f %-10s"
+                              (count times) minima (first quart) (second quart) (third quart)
+                              maxima sum (std-dev times) (color-map lib-name)))]
           (spit (str data-folder "all-keywords-" lib-name)
                 (str (format "%3d " (inc i)) result " " k \newline)        :append true)
           (spit (str data-folder "one-keyword-" (name k))
