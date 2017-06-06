@@ -18,5 +18,5 @@ set style data boxplot
 
 # Data columns: id count min 1st-quart median 3rd-quart max sum std-dev name
 # id 1st min max 3rd
-plot "data/one-keyword-".ARG1 using 1:4:3:7:6:(0.6):xticlabels(11) with candlesticks linecolor rgb 'orange' title 'Quartiles' whiskerbars, \
+plot "data/one-keyword-".ARG1 using 1:4:3:7:6:(0.6):(real('0x'.strcol(10))):xticlabels(11) with candlesticks linecolor rgb variable notitle whiskerbars, \
 		 ''         using 1:5:5:5:5:(0.6) with candlesticks lt -1 notitle
