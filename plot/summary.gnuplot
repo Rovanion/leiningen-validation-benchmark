@@ -1,7 +1,7 @@
 set terminal pdf enhanced size 7cm,7cm font "Verdana,9"
 set output "charts/summary-".ARG1.".pdf"
 set boxwidth 0.2 absolute
-set title "Validating time for ".ARG1." data"
+set title "Validation time for ".ARG1." data"
 set ylabel "milliseconds"
 set xrange[0:5]
 set yrange[0.00003:300]
