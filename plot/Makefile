@@ -1,4 +1,4 @@
-all: all-keywords summary one-keyword
+all: all-keywords summary one-keyword all-keywords-and-systems
 
 
 all-keywords:
@@ -6,6 +6,9 @@ all-keywords:
 	gnuplot -c all-keywords.gnuplot Schema
 	gnuplot -c all-keywords.gnuplot Truss
 	gnuplot -c all-keywords.gnuplot Plain
+
+all-keywords-and-systems:
+	gnuplot -c all-keywords-and-systems.gnuplot
 
 summary:
 	gnuplot -c summary.gnuplot all
