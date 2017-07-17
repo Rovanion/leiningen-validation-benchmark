@@ -70,4 +70,3 @@
            (println "Validation failed for" (.getName file)))
          (catch java.lang.Exception e
            (println "Exception thrown:" (.getMessage e))))))))
-(load-project-maps)
