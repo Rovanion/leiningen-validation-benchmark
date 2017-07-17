@@ -4,7 +4,7 @@ set boxwidth 0.2 absolute
 set title "Validation time for ".ARG1." data"
 set ylabel "milliseconds"
 set xrange[0:5]
-set yrange[0.00003:300]
+set yrange[0.00003:30]
 set logscale y
 set grid y
 set tics scale 0

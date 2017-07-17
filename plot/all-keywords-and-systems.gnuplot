@@ -4,7 +4,7 @@ set boxwidth 0.2 absolute
 set title "Validation time per keyword of all systems side by side."
 set ylabel "milliseconds"
 set xrange[0:18]
-set yrange[0.00003:300]
+set yrange[0.00003:30]
 set logscale y
 set grid y
 
